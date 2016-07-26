@@ -8,22 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4579DCF1D07118300E52D4D /* AppDelegate.swift */; };
-		E4579DD21D07118300E52D4D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4579DD11D07118300E52D4D /* FirstViewController.swift */; };
-		E4579DD41D07118300E52D4D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4579DD31D07118300E52D4D /* SecondViewController.swift */; };
 		E4579DD71D07118300E52D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4579DD51D07118300E52D4D /* Main.storyboard */; };
 		E4579DD91D07118300E52D4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4579DD81D07118300E52D4D /* Assets.xcassets */; };
 		E4579DDC1D07118300E52D4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4579DDA1D07118300E52D4D /* LaunchScreen.storyboard */; };
+		E4A4776C1D46394C00AC6872 /* Launch screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A4776B1D46394C00AC6872 /* Launch screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4579DCC1D07118300E52D4D /* petoyeapp_iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petoyeapp_iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4579DCF1D07118300E52D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E4579DD11D07118300E52D4D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E4579DD31D07118300E52D4D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E4579DD61D07118300E52D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4579DD81D07118300E52D4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4579DDB1D07118300E52D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4579DDD1D07118300E52D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4A4776B1D46394C00AC6872 /* Launch screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch screen.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				E4579DCF1D07118300E52D4D /* AppDelegate.swift */,
-				E4579DD11D07118300E52D4D /* FirstViewController.swift */,
-				E4579DD31D07118300E52D4D /* SecondViewController.swift */,
 				E4579DD51D07118300E52D4D /* Main.storyboard */,
 				E4579DD81D07118300E52D4D /* Assets.xcassets */,
 				E4579DDA1D07118300E52D4D /* LaunchScreen.storyboard */,
 				E4579DDD1D07118300E52D4D /* Info.plist */,
+				E4A4776B1D46394C00AC6872 /* Launch screen.png */,
 			);
 			path = petoyeapp_iphone;
 			sourceTree = "<group>";
@@ -129,6 +126,7 @@
 				E4579DDC1D07118300E52D4D /* LaunchScreen.storyboard in Resources */,
 				E4579DD91D07118300E52D4D /* Assets.xcassets in Resources */,
 				E4579DD71D07118300E52D4D /* Main.storyboard in Resources */,
+				E4A4776C1D46394C00AC6872 /* Launch screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,9 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4579DD41D07118300E52D4D /* SecondViewController.swift in Sources */,
 				E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */,
-				E4579DD21D07118300E52D4D /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +287,7 @@
 				E4579DE21D07118300E52D4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
