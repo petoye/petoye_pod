@@ -243,11 +243,17 @@
                                                 <rect key="frame" x="49" y="127" width="316" height="64"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="5F1AF213-1BE5-45F2-8129-26EBB71B1D3E-asset"/>
                                                 <state key="normal" image="login_fb"/>
+                                                <connections>
+                                                    <segue destination="1bO-GY-hkZ" kind="show" id="Fts-7l-bnT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-GD-5nF" userLabel="email_login">
                                                 <rect key="frame" x="49" y="392" width="316" height="64"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="C3BAF13E-8A3A-40BC-A9B0-5B35B78C8D6C-asset"/>
                                                 <state key="normal" image="login_with_email"/>
+                                                <connections>
+                                                    <segue destination="1bO-GY-hkZ" kind="show" id="94p-kD-QeK"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPv-Pn-fMj" userLabel="forgot">
                                                 <rect key="frame" x="147" y="478" width="118" height="24"/>
@@ -334,6 +340,216 @@
             </objects>
             <point key="canvasLocation" x="281" y="1376"/>
         </scene>
+        <!--Basic info-->
+        <scene sceneID="YcX-7H-EpZ">
+            <objects>
+                <viewController title="Basic info" id="hck-lK-mFU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hDl-QU-LJ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ml4-BM-V7y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SvH-Jr-fgD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glg-pa-LDx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.2784313725" green="0.79607843140000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="28"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Basic Info" prompt=" " id="NV7-Qp-unO"/>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="kf7-5z-M0q">
+                                <rect key="frame" x="0.0" y="74" width="414" height="662"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXK-1y-Kv9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="556"/>
+                                        <subviews>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="Hi, Ameya" lineBreakMode="characterWrap" numberOfLines="0" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhr-Io-oXM">
+                                                <rect key="frame" x="34" y="53" width="261" height="63"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="26C9D0C2-8A12-4351-AE5E-5D3849329D46"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="41"/>
+                                                <color key="textColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="You are a" lineBreakMode="characterWrap" numberOfLines="0" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="diG-zs-jmr">
+                                                <rect key="frame" x="25" y="199" width="163" height="46"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="9FADA87D-BB12-4E3E-BE7E-D2BE037158BC"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="27"/>
+                                                <color key="textColor" red="0.023529411760000001" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="What kind of pet" lineBreakMode="characterWrap" numberOfLines="0" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="udw-Hu-IRc">
+                                                <rect key="frame" x="25" y="267" width="215" height="46"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="F8DD028C-98B0-49FB-8471-D5AEB69C2269"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="27"/>
+                                                <color key="textColor" red="0.023529411760000001" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="Breed" lineBreakMode="characterWrap" numberOfLines="0" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAL-Ay-Ny3">
+                                                <rect key="frame" x="25" y="335" width="163" height="46"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="09700832-210E-4597-A049-E81AB7965F32"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="27"/>
+                                                <color key="textColor" red="0.023529411760000001" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCX-Bi-yr4">
+                                                <rect key="frame" x="34" y="186" width="348" height="1"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="B1ED7990-49EE-4CE8-8000-3451B3C10D4D"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.88627450980392153" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vlh-tL-1Ef">
+                                                <rect key="frame" x="34" y="254" width="348" height="1"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="8177F236-7BF1-40B8-8F5A-91E043A60333"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.88627450980392153" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DA5-Gx-Vq1">
+                                                <rect key="frame" x="34" y="322" width="348" height="1"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="F427D925-AB1F-4331-B7C4-B299F2C6917D"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.88627450980392153" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMs-m8-Izf">
+                                                <rect key="frame" x="34" y="386" width="348" height="1"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="CAE85743-869E-4265-8D47-9FBC88E70D9B"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.88627450980392153" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rm6-sT-yb3">
+                                                <rect key="frame" x="242" y="140" width="140" height="30"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pet owner, lover" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XNs-Mu-Bvd">
+                                                <rect key="frame" x="242" y="207" width="140" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dog, Cat, etc" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qno-al-Q3y">
+                                                <rect key="frame" x="242" y="275" width="140" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lab, Pug, etc" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUH-Oy-JOt">
+                                                <rect key="frame" x="242" y="343" width="140" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textField>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="Username" lineBreakMode="characterWrap" numberOfLines="0" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hl9-Ph-Z8X">
+                                                <rect key="frame" x="25" y="132" width="163" height="46"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="A54A73F9-9876-4713-9053-D375A5D8332F"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="27"/>
+                                                <color key="textColor" red="0.023529411760000001" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwA-iu-hKu">
+                                                <rect key="frame" x="125" y="440" width="164" height="63"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="B6687690-2E30-4769-995E-E6784D7EFB9F-asset"/>
+                                                <state key="normal" image="done_button"/>
+                                                <connections>
+                                                    <segue destination="1bO-GY-hkZ" kind="show" id="T63-9K-Kwm"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="EUH-Oy-JOt" firstAttribute="centerY" secondItem="EAL-Ay-Ny3" secondAttribute="centerY" id="1nd-hf-MlQ"/>
+                                            <constraint firstItem="EUH-Oy-JOt" firstAttribute="leading" secondItem="EAL-Ay-Ny3" secondAttribute="trailing" constant="54" id="5QP-jf-WVO"/>
+                                            <constraint firstItem="Hl9-Ph-Z8X" firstAttribute="leading" secondItem="XXK-1y-Kv9" secondAttribute="leading" constant="25" id="8JS-gi-QHd"/>
+                                            <constraint firstItem="qno-al-Q3y" firstAttribute="leading" secondItem="udw-Hu-IRc" secondAttribute="trailing" constant="2" id="AI4-Gu-j9M"/>
+                                            <constraint firstItem="rm6-sT-yb3" firstAttribute="centerY" secondItem="Hl9-Ph-Z8X" secondAttribute="centerY" id="Iff-GC-PIZ"/>
+                                            <constraint firstItem="EUH-Oy-JOt" firstAttribute="leading" secondItem="qno-al-Q3y" secondAttribute="leading" id="PM0-pN-5e5"/>
+                                            <constraint firstItem="diG-zs-jmr" firstAttribute="top" secondItem="wCX-Bi-yr4" secondAttribute="bottom" constant="12" id="QN4-z7-OGh"/>
+                                            <constraint firstItem="udw-Hu-IRc" firstAttribute="leading" secondItem="XXK-1y-Kv9" secondAttribute="leading" constant="25" id="SnP-D2-1bR"/>
+                                            <constraint firstItem="qno-al-Q3y" firstAttribute="centerY" secondItem="udw-Hu-IRc" secondAttribute="centerY" id="XfL-nd-j1D"/>
+                                            <constraint firstItem="rm6-sT-yb3" firstAttribute="leading" secondItem="Hl9-Ph-Z8X" secondAttribute="trailing" constant="54" id="bUI-0l-2JF"/>
+                                            <constraint firstItem="XNs-Mu-Bvd" firstAttribute="centerY" secondItem="diG-zs-jmr" secondAttribute="centerY" id="hUS-g4-OOR"/>
+                                            <constraint firstItem="udw-Hu-IRc" firstAttribute="top" secondItem="vlh-tL-1Ef" secondAttribute="bottom" constant="12" id="hu4-d9-EEn"/>
+                                            <constraint firstItem="RwA-iu-hKu" firstAttribute="top" secondItem="nMs-m8-Izf" secondAttribute="bottom" constant="53" id="hwj-bA-kVj"/>
+                                            <constraint firstItem="bhr-Io-oXM" firstAttribute="leading" secondItem="XXK-1y-Kv9" secondAttribute="leading" constant="31" id="jBV-3v-yjf"/>
+                                            <constraint firstItem="diG-zs-jmr" firstAttribute="leading" secondItem="XXK-1y-Kv9" secondAttribute="leading" constant="25" id="q4q-SM-s5H"/>
+                                            <constraint firstItem="XNs-Mu-Bvd" firstAttribute="leading" secondItem="diG-zs-jmr" secondAttribute="trailing" constant="54" id="uOO-H8-kgT"/>
+                                            <constraint firstItem="bhr-Io-oXM" firstAttribute="top" secondItem="XXK-1y-Kv9" secondAttribute="top" constant="53" id="vkX-Fc-0hl"/>
+                                            <constraint firstItem="qno-al-Q3y" firstAttribute="leading" secondItem="XNs-Mu-Bvd" secondAttribute="leading" id="wnB-A8-5je"/>
+                                            <constraint firstItem="EAL-Ay-Ny3" firstAttribute="leading" secondItem="XXK-1y-Kv9" secondAttribute="leading" constant="25" id="xbh-3y-lQR"/>
+                                            <constraint firstItem="XNs-Mu-Bvd" firstAttribute="leading" secondItem="rm6-sT-yb3" secondAttribute="leading" id="zbN-Wf-OiW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XXK-1y-Kv9" secondAttribute="bottom" constant="106" id="HIi-CA-s2y"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rm6-sT-yb3" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.3389" id="2iY-7k-b6N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="glg-pa-LDx" secondAttribute="trailing" constant="-20" id="AS3-ON-0Ok"/>
+                            <constraint firstItem="EAL-Ay-Ny3" firstAttribute="height" secondItem="SvH-Jr-fgD" secondAttribute="height" multiplier="0.0625" id="BIA-hd-awF"/>
+                            <constraint firstItem="glg-pa-LDx" firstAttribute="leading" secondItem="SvH-Jr-fgD" secondAttribute="leadingMargin" constant="-20" id="CKb-o8-gq8"/>
+                            <constraint firstItem="diG-zs-jmr" firstAttribute="height" secondItem="SvH-Jr-fgD" secondAttribute="height" multiplier="0.0625" id="Dhb-Lu-Tjz"/>
+                            <constraint firstItem="udw-Hu-IRc" firstAttribute="height" secondItem="SvH-Jr-fgD" secondAttribute="height" multiplier="0.0625" id="FUy-nt-SCC"/>
+                            <constraint firstItem="bhr-Io-oXM" firstAttribute="height" secondItem="SvH-Jr-fgD" secondAttribute="height" multiplier="0.085" id="IY6-MK-T4o"/>
+                            <constraint firstItem="EAL-Ay-Ny3" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.3938" id="Mqz-Su-UYc"/>
+                            <constraint firstItem="qno-al-Q3y" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.3389" id="Olf-lI-LIg"/>
+                            <constraint firstItem="kf7-5z-M0q" firstAttribute="top" secondItem="glg-pa-LDx" secondAttribute="bottom" id="PyW-bu-8S4"/>
+                            <constraint firstItem="XNs-Mu-Bvd" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.3389" id="QLI-Ye-tkE"/>
+                            <constraint firstItem="bhr-Io-oXM" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.6305" id="RuE-wh-NMK"/>
+                            <constraint firstItem="Hl9-Ph-Z8X" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.3938" id="ZS6-tZ-etg"/>
+                            <constraint firstItem="RwA-iu-hKu" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.396" id="cSb-NV-RfB"/>
+                            <constraint firstItem="RwA-iu-hKu" firstAttribute="centerX" secondItem="SvH-Jr-fgD" secondAttribute="centerX" id="co9-Wz-Ny9"/>
+                            <constraint firstItem="Hl9-Ph-Z8X" firstAttribute="height" secondItem="SvH-Jr-fgD" secondAttribute="height" multiplier="0.0625" id="jMJ-Iv-AgK"/>
+                            <constraint firstItem="udw-Hu-IRc" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.52" id="jgF-gu-fKO"/>
+                            <constraint firstItem="diG-zs-jmr" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.3938" id="me4-Qi-yfS"/>
+                            <constraint firstItem="Ml4-BM-V7y" firstAttribute="top" secondItem="kf7-5z-M0q" secondAttribute="bottom" id="pOd-EE-rAc"/>
+                            <constraint firstItem="EUH-Oy-JOt" firstAttribute="width" secondItem="SvH-Jr-fgD" secondAttribute="width" multiplier="0.3389" id="sBs-6V-x6r"/>
+                            <constraint firstItem="kf7-5z-M0q" firstAttribute="leading" secondItem="SvH-Jr-fgD" secondAttribute="leadingMargin" constant="-20" id="sLe-fp-jim"/>
+                            <constraint firstItem="RwA-iu-hKu" firstAttribute="height" secondItem="SvH-Jr-fgD" secondAttribute="height" multiplier="0.086" id="t7M-X7-yOq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kf7-5z-M0q" secondAttribute="trailing" constant="-20" id="yvo-q7-CyJ"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsG-NO-JgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281" y="2197"/>
+        </scene>
         <!--Create an account-->
         <scene sceneID="xeo-1B-iOj">
             <objects>
@@ -356,14 +572,52 @@
                                                 <rect key="frame" x="49" y="129" width="316" height="64"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="E5458C8C-A6AF-4BD3-BF64-B92A691B293C-asset"/>
                                                 <state key="normal" image="signup_fb"/>
+                                                <connections>
+                                                    <segue destination="hck-lK-mFU" kind="show" id="YQK-57-XXo"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7H2-wR-Iod" userLabel="email_signup">
-                                                <rect key="frame" x="49" y="444" width="316" height="64"/>
+                                                <rect key="frame" x="49" y="460" width="316" height="64"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="96808BDA-F6FE-4DD0-832E-F92BB492A122-asset"/>
                                                 <state key="normal" image="signup_email"/>
+                                                <connections>
+                                                    <segue destination="hck-lK-mFU" kind="show" id="uAd-3V-Aec"/>
+                                                </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-Xn-ZI8" userLabel="already">
+                                                <rect key="frame" x="131" y="539" width="151" height="25"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="1D928DA4-BC95-4B69-B3A1-07496B187B7F-asset"/>
+                                                <state key="normal" image="already_have_account"/>
+                                                <connections>
+                                                    <segue destination="neq-vT-faM" kind="show" id="sdT-Ly-hNR"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" text="Create an account below" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhB-SO-jua">
+                                                <rect key="frame" x="91" y="86" width="230" height="21"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="1E9747A5-8D6C-4090-BA01-8789E1C0F5E2"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                <color key="textColor" red="0.027450980390000001" green="0.031372549020000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" text="Welcome  " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtI-b3-8Xh">
+                                                <rect key="frame" x="136" y="46" width="141" height="34"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="C0318120-A460-4EDE-8939-345CD817A3D3"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="29"/>
+                                                <color key="textColor" red="0.086274509799999996" green="0.27058823529999998" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" text="or" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2G-HJ-Aw0">
+                                                <rect key="frame" x="195" y="218" width="22" height="28"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="F351A4F6-DEF2-46C1-9981-B59AD0BE924B"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="23"/>
+                                                <color key="textColor" red="0.086274509799999996" green="0.27058823529999998" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
                                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZDc-kd-BaP">
-                                                <rect key="frame" x="27" y="254" width="359" height="164"/>
+                                                <rect key="frame" x="27" y="270" width="359" height="164"/>
                                                 <subviews>
                                                     <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="Email" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6V-1n-rpb">
                                                         <rect key="frame" x="22" y="16" width="51" height="23"/>
@@ -381,7 +635,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                                     </label>
-                                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="Type Again" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mN6-9l-MaK">
+                                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" text="Confirm" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mN6-9l-MaK">
                                                         <rect key="frame" x="22" y="121" width="166" height="23"/>
                                                         <accessibility key="accessibilityConfiguration" identifier="C9743A4C-9B85-4BD4-8940-3E8DDAACC1C4"/>
                                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
@@ -422,49 +676,17 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" text="Create an account below" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhB-SO-jua">
-                                                <rect key="frame" x="91" y="86" width="230" height="21"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="1E9747A5-8D6C-4090-BA01-8789E1C0F5E2"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                <color key="textColor" red="0.027450980390000001" green="0.031372549020000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                            </label>
-                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" text="Welcome  " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtI-b3-8Xh">
-                                                <rect key="frame" x="136" y="46" width="141" height="34"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="C0318120-A460-4EDE-8939-345CD817A3D3"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="29"/>
-                                                <color key="textColor" red="0.086274509799999996" green="0.27058823529999998" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                            </label>
-                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" text="or" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2G-HJ-Aw0">
-                                                <rect key="frame" x="195" y="218" width="22" height="28"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="F351A4F6-DEF2-46C1-9981-B59AD0BE924B"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="23"/>
-                                                <color key="textColor" red="0.086274509799999996" green="0.27058823529999998" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-Xn-ZI8" userLabel="already">
-                                                <rect key="frame" x="131" y="526" width="151" height="25"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="1D928DA4-BC95-4B69-B3A1-07496B187B7F-asset"/>
-                                                <state key="normal" image="already_have_account"/>
-                                                <connections>
-                                                    <segue destination="neq-vT-faM" kind="show" id="sdT-Ly-hNR"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="ZDc-kd-BaP" firstAttribute="top" secondItem="x2G-HJ-Aw0" secondAttribute="bottom" constant="8" id="1Fc-YH-0uO"/>
                                             <constraint firstItem="HhB-SO-jua" firstAttribute="top" secondItem="jtI-b3-8Xh" secondAttribute="bottom" constant="6" id="5cQ-cV-mgW"/>
                                             <constraint firstItem="WFf-At-MOV" firstAttribute="trailing" secondItem="pdw-4i-FW6" secondAttribute="trailing" id="JBh-1Z-NAl"/>
-                                            <constraint firstItem="WFf-At-MOV" firstAttribute="leading" secondItem="x2G-HJ-Aw0" secondAttribute="leading" id="Tcd-1i-eZ7"/>
+                                            <constraint firstItem="7H2-wR-Iod" firstAttribute="top" secondItem="ZDc-kd-BaP" secondAttribute="bottom" constant="26" id="Lm2-fN-jjd"/>
+                                            <constraint firstItem="WFf-At-MOV" firstAttribute="leading" secondItem="x2G-HJ-Aw0" secondAttribute="leading" id="T7C-cN-IIB"/>
                                             <constraint firstItem="pdw-4i-FW6" firstAttribute="top" secondItem="HhB-SO-jua" secondAttribute="bottom" constant="22" id="UAh-Rs-vt3"/>
-                                            <constraint firstItem="7H2-wR-Iod" firstAttribute="top" secondItem="ZDc-kd-BaP" secondAttribute="bottom" constant="26" id="a0P-T8-7A6"/>
-                                            <constraint firstItem="jeN-Xn-ZI8" firstAttribute="top" secondItem="7H2-wR-Iod" secondAttribute="bottom" constant="18" id="bKB-wH-WnX"/>
+                                            <constraint firstItem="ZDc-kd-BaP" firstAttribute="top" secondItem="x2G-HJ-Aw0" secondAttribute="bottom" constant="24" id="ZFT-0X-kCd"/>
                                             <constraint firstItem="x2G-HJ-Aw0" firstAttribute="top" secondItem="pdw-4i-FW6" secondAttribute="bottom" constant="25" id="fv6-PK-DZE"/>
+                                            <constraint firstItem="jeN-Xn-ZI8" firstAttribute="top" secondItem="7H2-wR-Iod" secondAttribute="bottom" constant="15" id="ozg-Ur-vGK"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -529,7 +751,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUg-ct-Fka">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUg-ct-Fka">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <color key="barTintColor" red="0.32549019607843138" green="0.82745098039215681" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
@@ -538,15 +760,7 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem prompt=" " id="Ivz-HR-Jhm">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="eHn-uz-RYi">
-                                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ftm-Ze-0NG">
-                                                <rect key="frame" x="20" y="41" width="24" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="ham_button"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem prompt=" " id="Ivz-HR-Jhm"/>
                                 </items>
                             </navigationBar>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RBr-PE-gQS">
@@ -568,8 +782,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="PetOye" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L12-79-V3w">
-                                <rect key="frame" x="155" y="8" width="104" height="57"/>
+                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" text="PetOye" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L12-79-V3w">
+                                <rect key="frame" x="155" y="17" width="104" height="57"/>
                                 <accessibility key="accessibilityConfiguration" identifier="1237C311-88ED-4C09-AE3B-A3D6FA731AE9"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="34"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -578,6 +792,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="uUg-ct-Fka" secondAttribute="trailing" constant="-20" id="FGl-PX-43s"/>
+                            <constraint firstItem="uUg-ct-Fka" firstAttribute="leading" secondItem="LP8-1h-wDY" secondAttribute="leadingMargin" constant="-20" id="S4l-e5-LRp"/>
+                            <constraint firstItem="L12-79-V3w" firstAttribute="top" secondItem="f7l-W8-OT6" secondAttribute="bottom" constant="17" id="eG6-D4-1Hd"/>
+                            <constraint firstItem="L12-79-V3w" firstAttribute="centerX" secondItem="LP8-1h-wDY" secondAttribute="centerX" id="fTo-4W-iI6"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -591,9 +811,9 @@
     </scenes>
     <resources>
         <image name="already_have_account" width="151" height="25"/>
+        <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
         <image name="forgot_pass" width="118" height="24"/>
-        <image name="ham_button" width="24" height="15"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
         <image name="petoye_logo" width="155" height="156"/>
@@ -602,8 +822,10 @@
         <image name="signup_fb" width="316" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sdT-Ly-hNR"/>
-        <segue reference="fbK-Hd-8MT"/>
+        <segue reference="gbH-JH-B03"/>
+        <segue reference="hrC-N6-Ojl"/>
+        <segue reference="uAd-3V-Aec"/>
+        <segue reference="T63-9K-Kwm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

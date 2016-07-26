@@ -10,8 +10,26 @@
 		E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4579DCF1D07118300E52D4D /* AppDelegate.swift */; };
 		E4579DD71D07118300E52D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4579DD51D07118300E52D4D /* Main.storyboard */; };
 		E4579DD91D07118300E52D4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4579DD81D07118300E52D4D /* Assets.xcassets */; };
-		E4579DDC1D07118300E52D4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4579DDA1D07118300E52D4D /* LaunchScreen.storyboard */; };
-		E4A4776C1D46394C00AC6872 /* Launch screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A4776B1D46394C00AC6872 /* Launch screen.png */; };
+		E4DE191B1D47F1E400AA4836 /* PetOye logo29pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE190F1D47F1E400AA4836 /* PetOye logo29pt@2x.png */; };
+		E4DE191C1D47F1E400AA4836 /* PetOye logo29pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19101D47F1E400AA4836 /* PetOye logo29pt@3x.png */; };
+		E4DE191D1D47F1E400AA4836 /* PetOyeGreen29pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19111D47F1E400AA4836 /* PetOyeGreen29pt@2x.png */; };
+		E4DE191E1D47F1E400AA4836 /* PetOyeGreen29pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19121D47F1E400AA4836 /* PetOyeGreen29pt@3x.png */; };
+		E4DE191F1D47F1E400AA4836 /* PetOye logo40pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19131D47F1E400AA4836 /* PetOye logo40pt@2x.png */; };
+		E4DE19201D47F1E400AA4836 /* PetOye logo40pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19141D47F1E400AA4836 /* PetOye logo40pt@3x.png */; };
+		E4DE19211D47F1E400AA4836 /* PetOyeGreen40pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19151D47F1E400AA4836 /* PetOyeGreen40pt@3x.png */; };
+		E4DE19221D47F1E400AA4836 /* PetOyeGreen40pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19161D47F1E400AA4836 /* PetOyeGreen40pt@2x.png */; };
+		E4DE19231D47F1E400AA4836 /* PetOye logo60pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19171D47F1E400AA4836 /* PetOye logo60pt@2x.png */; };
+		E4DE19241D47F1E400AA4836 /* PetOye logo60pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19181D47F1E400AA4836 /* PetOye logo60pt@3x.png */; };
+		E4DE19251D47F1E400AA4836 /* PetOyeGreen60pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19191D47F1E400AA4836 /* PetOyeGreen60pt@3x.png */; };
+		E4DE19261D47F1E400AA4836 /* PetOyeGreen60pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE191A1D47F1E400AA4836 /* PetOyeGreen60pt@2x.png */; };
+		E4DE192F1D47FB4300AA4836 /* RetinaHD-4.7.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19291D47FB4300AA4836 /* RetinaHD-4.7.png */; };
+		E4DE19301D47FB4300AA4836 /* iPhonePotrait-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE192A1D47FB4300AA4836 /* iPhonePotrait-2x.png */; };
+		E4DE19311D47FB4300AA4836 /* Retina-4.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE192B1D47FB4300AA4836 /* Retina-4.png */; };
+		E4DE19321D47FB4300AA4836 /* iPhonePotrait1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE192C1D47FB4300AA4836 /* iPhonePotrait1x.png */; };
+		E4DE19331D47FB4300AA4836 /* RetinaHD-5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE192D1D47FB4300AA4836 /* RetinaHD-5.5.png */; };
+		E4DE19341D47FB4300AA4836 /* iPhone-Potrait-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE192E1D47FB4300AA4836 /* iPhone-Potrait-2x.png */; };
+		E4DE19361D47FC3000AA4836 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */; };
+		E4DE19381D47FE8700AA4836 /* Launch screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19371D47FE8700AA4836 /* Launch screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,9 +37,27 @@
 		E4579DCF1D07118300E52D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4579DD61D07118300E52D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4579DD81D07118300E52D4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E4579DDB1D07118300E52D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4579DDD1D07118300E52D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4A4776B1D46394C00AC6872 /* Launch screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch screen.png"; sourceTree = "<group>"; };
+		E4DE190F1D47F1E400AA4836 /* PetOye logo29pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOye logo29pt@2x.png"; sourceTree = "<group>"; };
+		E4DE19101D47F1E400AA4836 /* PetOye logo29pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOye logo29pt@3x.png"; sourceTree = "<group>"; };
+		E4DE19111D47F1E400AA4836 /* PetOyeGreen29pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOyeGreen29pt@2x.png"; sourceTree = "<group>"; };
+		E4DE19121D47F1E400AA4836 /* PetOyeGreen29pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOyeGreen29pt@3x.png"; sourceTree = "<group>"; };
+		E4DE19131D47F1E400AA4836 /* PetOye logo40pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOye logo40pt@2x.png"; sourceTree = "<group>"; };
+		E4DE19141D47F1E400AA4836 /* PetOye logo40pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOye logo40pt@3x.png"; sourceTree = "<group>"; };
+		E4DE19151D47F1E400AA4836 /* PetOyeGreen40pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOyeGreen40pt@3x.png"; sourceTree = "<group>"; };
+		E4DE19161D47F1E400AA4836 /* PetOyeGreen40pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOyeGreen40pt@2x.png"; sourceTree = "<group>"; };
+		E4DE19171D47F1E400AA4836 /* PetOye logo60pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOye logo60pt@2x.png"; sourceTree = "<group>"; };
+		E4DE19181D47F1E400AA4836 /* PetOye logo60pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOye logo60pt@3x.png"; sourceTree = "<group>"; };
+		E4DE19191D47F1E400AA4836 /* PetOyeGreen60pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOyeGreen60pt@3x.png"; sourceTree = "<group>"; };
+		E4DE191A1D47F1E400AA4836 /* PetOyeGreen60pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PetOyeGreen60pt@2x.png"; sourceTree = "<group>"; };
+		E4DE19291D47FB4300AA4836 /* RetinaHD-4.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RetinaHD-4.7.png"; sourceTree = "<group>"; };
+		E4DE192A1D47FB4300AA4836 /* iPhonePotrait-2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhonePotrait-2x.png"; sourceTree = "<group>"; };
+		E4DE192B1D47FB4300AA4836 /* Retina-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retina-4.png"; sourceTree = "<group>"; };
+		E4DE192C1D47FB4300AA4836 /* iPhonePotrait1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhonePotrait1x.png; sourceTree = "<group>"; };
+		E4DE192D1D47FB4300AA4836 /* RetinaHD-5.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RetinaHD-5.5.png"; sourceTree = "<group>"; };
+		E4DE192E1D47FB4300AA4836 /* iPhone-Potrait-2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-Potrait-2x.png"; sourceTree = "<group>"; };
+		E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E4DE19371D47FE8700AA4836 /* Launch screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch screen.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +90,40 @@
 		E4579DCE1D07118300E52D4D /* petoyeapp_iphone */ = {
 			isa = PBXGroup;
 			children = (
+				E4DE18DE1D47E13300AA4836 /* assets */,
 				E4579DCF1D07118300E52D4D /* AppDelegate.swift */,
 				E4579DD51D07118300E52D4D /* Main.storyboard */,
 				E4579DD81D07118300E52D4D /* Assets.xcassets */,
-				E4579DDA1D07118300E52D4D /* LaunchScreen.storyboard */,
 				E4579DDD1D07118300E52D4D /* Info.plist */,
-				E4A4776B1D46394C00AC6872 /* Launch screen.png */,
+				E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */,
 			);
 			path = petoyeapp_iphone;
+			sourceTree = "<group>";
+		};
+		E4DE18DE1D47E13300AA4836 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				E4DE19291D47FB4300AA4836 /* RetinaHD-4.7.png */,
+				E4DE192A1D47FB4300AA4836 /* iPhonePotrait-2x.png */,
+				E4DE192B1D47FB4300AA4836 /* Retina-4.png */,
+				E4DE192C1D47FB4300AA4836 /* iPhonePotrait1x.png */,
+				E4DE192D1D47FB4300AA4836 /* RetinaHD-5.5.png */,
+				E4DE192E1D47FB4300AA4836 /* iPhone-Potrait-2x.png */,
+				E4DE190F1D47F1E400AA4836 /* PetOye logo29pt@2x.png */,
+				E4DE19101D47F1E400AA4836 /* PetOye logo29pt@3x.png */,
+				E4DE19111D47F1E400AA4836 /* PetOyeGreen29pt@2x.png */,
+				E4DE19121D47F1E400AA4836 /* PetOyeGreen29pt@3x.png */,
+				E4DE19131D47F1E400AA4836 /* PetOye logo40pt@2x.png */,
+				E4DE19141D47F1E400AA4836 /* PetOye logo40pt@3x.png */,
+				E4DE19151D47F1E400AA4836 /* PetOyeGreen40pt@3x.png */,
+				E4DE19161D47F1E400AA4836 /* PetOyeGreen40pt@2x.png */,
+				E4DE19171D47F1E400AA4836 /* PetOye logo60pt@2x.png */,
+				E4DE19181D47F1E400AA4836 /* PetOye logo60pt@3x.png */,
+				E4DE19191D47F1E400AA4836 /* PetOyeGreen60pt@3x.png */,
+				E4DE191A1D47F1E400AA4836 /* PetOyeGreen60pt@2x.png */,
+				E4DE19371D47FE8700AA4836 /* Launch screen.png */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,10 +185,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4579DDC1D07118300E52D4D /* LaunchScreen.storyboard in Resources */,
+				E4DE191F1D47F1E400AA4836 /* PetOye logo40pt@2x.png in Resources */,
+				E4DE19241D47F1E400AA4836 /* PetOye logo60pt@3x.png in Resources */,
+				E4DE19231D47F1E400AA4836 /* PetOye logo60pt@2x.png in Resources */,
+				E4DE191C1D47F1E400AA4836 /* PetOye logo29pt@3x.png in Resources */,
+				E4DE19261D47F1E400AA4836 /* PetOyeGreen60pt@2x.png in Resources */,
+				E4DE19341D47FB4300AA4836 /* iPhone-Potrait-2x.png in Resources */,
+				E4DE19361D47FC3000AA4836 /* Launch Screen.storyboard in Resources */,
+				E4DE19331D47FB4300AA4836 /* RetinaHD-5.5.png in Resources */,
+				E4DE19301D47FB4300AA4836 /* iPhonePotrait-2x.png in Resources */,
+				E4DE191E1D47F1E400AA4836 /* PetOyeGreen29pt@3x.png in Resources */,
 				E4579DD91D07118300E52D4D /* Assets.xcassets in Resources */,
+				E4DE19251D47F1E400AA4836 /* PetOyeGreen60pt@3x.png in Resources */,
+				E4DE19201D47F1E400AA4836 /* PetOye logo40pt@3x.png in Resources */,
+				E4DE19311D47FB4300AA4836 /* Retina-4.png in Resources */,
+				E4DE192F1D47FB4300AA4836 /* RetinaHD-4.7.png in Resources */,
+				E4DE19381D47FE8700AA4836 /* Launch screen.png in Resources */,
+				E4DE191D1D47F1E400AA4836 /* PetOyeGreen29pt@2x.png in Resources */,
+				E4DE19321D47FB4300AA4836 /* iPhonePotrait1x.png in Resources */,
+				E4DE191B1D47F1E400AA4836 /* PetOye logo29pt@2x.png in Resources */,
 				E4579DD71D07118300E52D4D /* Main.storyboard in Resources */,
-				E4A4776C1D46394C00AC6872 /* Launch screen.png in Resources */,
+				E4DE19211D47F1E400AA4836 /* PetOyeGreen40pt@3x.png in Resources */,
+				E4DE19221D47F1E400AA4836 /* PetOyeGreen40pt@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,14 +230,6 @@
 				E4579DD61D07118300E52D4D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E4579DDA1D07118300E52D4D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4579DDB1D07118300E52D4D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -250,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = petoyeapp_iphone/Info.plist;
@@ -264,6 +337,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = petoyeapp_iphone/Info.plist;
