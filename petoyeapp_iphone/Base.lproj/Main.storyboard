@@ -103,6 +103,15 @@
         <!--Create an account-->
         <scene sceneID="xaf-Vu-ael">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1S-zB-sh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7TD-j8-t6e">
+                    <connections>
+                        <outlet property="delegate" destination="To1-fO-rxB" id="zXT-Mv-fGU"/>
+                        <outlet property="searchContentsController" destination="To1-fO-rxB" id="Ej6-4j-f8o"/>
+                        <outlet property="searchResultsDataSource" destination="To1-fO-rxB" id="0Nf-Vt-16n"/>
+                        <outlet property="searchResultsDelegate" destination="To1-fO-rxB" id="SyT-el-pD9"/>
+                    </connections>
+                </searchDisplayController>
                 <viewController title="Create an account" id="To1-fO-rxB" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TRh-IE-DSs"/>
@@ -262,19 +271,21 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQb-nk-zTB">
-                                <rect key="frame" x="-1" y="0.0" width="414" height="44"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                <color key="barTintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="22"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="PetOye" id="xlQ-3f-cvK"/>
-                                </items>
-                            </navigationBar>
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cre-LI-1hW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="PetOye" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrz-q0-Ifq">
+                                        <rect key="frame" x="169" y="14" width="76" height="42"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="B4ADE43D-3DF2-4F69-B501-DE3B99D8418A"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="26"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="15B9E353-3D3B-48C4-B996-8A2091510B4F"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -283,15 +294,6 @@
                         <outlet property="searchDisplayController" destination="7TD-j8-t6e" id="fvy-00-LhA"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T1S-zB-sh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="7TD-j8-t6e">
-                    <connections>
-                        <outlet property="delegate" destination="To1-fO-rxB" id="zXT-Mv-fGU"/>
-                        <outlet property="searchContentsController" destination="To1-fO-rxB" id="Ej6-4j-f8o"/>
-                        <outlet property="searchResultsDataSource" destination="To1-fO-rxB" id="0Nf-Vt-16n"/>
-                        <outlet property="searchResultsDelegate" destination="To1-fO-rxB" id="SyT-el-pD9"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="281" y="530"/>
         </scene>
