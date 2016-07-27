@@ -793,10 +793,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="uUg-ct-Fka" secondAttribute="trailing" constant="-20" id="FGl-PX-43s"/>
-                            <constraint firstItem="uUg-ct-Fka" firstAttribute="leading" secondItem="LP8-1h-wDY" secondAttribute="leadingMargin" constant="-20" id="S4l-e5-LRp"/>
+                            <constraint firstItem="uUg-ct-Fka" firstAttribute="leading" secondItem="LP8-1h-wDY" secondAttribute="leadingMargin" constant="-20" id="LlZ-Ow-4Zn"/>
                             <constraint firstItem="L12-79-V3w" firstAttribute="top" secondItem="f7l-W8-OT6" secondAttribute="bottom" constant="17" id="eG6-D4-1Hd"/>
                             <constraint firstItem="L12-79-V3w" firstAttribute="centerX" secondItem="LP8-1h-wDY" secondAttribute="centerX" id="fTo-4W-iI6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uUg-ct-Fka" secondAttribute="trailing" constant="-20" id="y8M-Qq-rsg"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
