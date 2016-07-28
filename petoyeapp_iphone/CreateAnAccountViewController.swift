@@ -21,7 +21,7 @@ class CreateAnAccountViewController: UIViewController {
         {
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/signup")!)
             request.HTTPMethod = "POST"
-            let postString = "email=\(em).com&password=\(pass)"
+            let postString = "email=\(em)&password=\(pass)"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
                 guard error == nil && data != nil else {                                                          // check for fundamental networking error

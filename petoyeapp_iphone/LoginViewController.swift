@@ -13,6 +13,30 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func email_login(sender: AnyObject) {
+        
+        var em = email.text
+        var pass = password.text
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/login")!)
+        request.HTTPMethod = "POST"
+        let postString = "session[email]=\(em)&session[password]=\(pass)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+        }
+        task.resume()
     }
     
     @IBAction func fb_login(sender: AnyObject) {
