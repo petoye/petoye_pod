@@ -1422,7 +1422,7 @@ liked your post. </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rm6-sT-yb3">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rm6-sT-yb3">
                                                 <rect key="frame" x="242" y="140" width="140" height="30"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1757,8 +1757,8 @@ liked your post. </string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iQM-6t-9n6"/>
-        <segue reference="fbK-Hd-8MT"/>
-        <segue reference="sdT-Ly-hNR"/>
+        <segue reference="gbH-JH-B03"/>
+        <segue reference="hrC-N6-Ojl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

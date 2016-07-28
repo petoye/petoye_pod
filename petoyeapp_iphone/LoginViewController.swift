@@ -14,8 +14,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func email_login(sender: AnyObject) {
         
-        var em = email.text
-        var pass = password.text
+        var em = email.text!
+        var pass = password.text!
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/login")!)
         request.HTTPMethod = "POST"
@@ -27,8 +27,8 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print(response!)
             }
             

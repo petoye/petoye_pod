@@ -16,17 +16,15 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func done(sender: AnyObject) {
         
-        var u_name = username.text
-        var o_type = owner_type.text
-        var p_type = pet_type.text
-        var br = breed.text
+        var u_name = username.text!
+        var o_type = owner_type.text!
+        var p_type = pet_type.text!
+        var br = breed.text!
         var lat = currentLocation.coordinate.latitude
         var long = currentLocation.coordinate.longitude
         var id = 1 // change to the id of the user returned while signup
         
         
-        if (u_name != nil && o_type != nil) && (p_type != nil && br != nil)
-        {
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(id)/basicinfo")!)
             request.HTTPMethod = "POST"
             let postString = "username=\(u_name)&otype=\(o_type)&ptype=\(p_type)&breed=\(br)&lat=\(lat)&lng=\(long)"
@@ -47,31 +45,9 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate {
                 
             }
             task.resume()
-            
-        }
-        else
-        {
-            
-            //display password doesn't match
-            print("Password don't match")
-            
-        }
-
         
     }
     
-    /*func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        //print(locations)
-        var userLocation:CLLocation = locations[0]
-        var lati = userLocation.coordinate.latitude
-        var longi = userLocation.coordinate.longitude
-        lat = lati
-        long = longi
-        print(lati)
-        print(longi)
-        
-    }*/
 
     override func viewDidLoad() {
         super.viewDidLoad()

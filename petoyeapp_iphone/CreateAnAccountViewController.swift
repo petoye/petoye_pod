@@ -13,11 +13,11 @@ class CreateAnAccountViewController: UIViewController {
         
         //getPetOye()
         
-        var em = email.text
-        var pass = password.text
-        var conf = confirm.text
+        var em = email.text!
+        var pass = password.text!
+        var conf = confirm.text!
         
-        if (pass == conf && em != nil) && (pass != nil && conf != nil)
+        if (pass == conf)
         {
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/signup")!)
             request.HTTPMethod = "POST"
@@ -82,36 +82,6 @@ class CreateAnAccountViewController: UIViewController {
     
     
     
-    func postPetOye()
-    {
-        
-        func postPetOye()
-        {
-            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/signup")!)
-            request.HTTPMethod = "POST"
-            let postString = "email=user15@gmail.com&password=xcode123"
-            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-                guard error == nil && data != nil else {                                                          // check for fundamental networking error
-                    print(error!)
-                    return
-                }
-                
-                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                    print(response!)
-                }
-                
-                let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print(responseString!)
-            }
-            task.resume()
-        }
-
-        
-            
-    }
-    
     @IBAction func fb_signup(sender: AnyObject) {
         
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
@@ -147,20 +117,7 @@ class CreateAnAccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
-            // User is already logged in, do work such as go to next view controller.
-            //self.performSegueWithIdentifier("NewUserToBasicInfo", sender: nil)
-        }
-        /*
-        else
-        {
-         let loginView : FBSDKLoginButton = FBSDKLoginButton()
-         self.view.addSubview(loginView)
-         loginView.center = self.view.center
-         loginView.readPermissions = ["public_profile", "email", "user_friends"]
-         //loginView.delegate = self
-        }*/
+
     }
 
     override func didReceiveMemoryWarning() {
