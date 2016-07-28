@@ -2,22 +2,25 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "my_profile.png"
+      "filename" : "my_profile.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "my_profile@2x.png"
+      "filename" : "my_profile@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "my_profile@3x.png"
+      "filename" : "my_profile@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : "1"
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }
