@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BGv-1S-b1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CsR-bE-gpg">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -164,11 +164,11 @@
                         <color key="selectedImageTintColor" red="0.2784313725" green="0.79607843140000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CsR-bE-gpg" kind="relationship" relationship="viewControllers" id="bSY-0y-L2K"/>
-                        <segue destination="XQa-pH-P7k" kind="relationship" relationship="viewControllers" id="Amt-QL-Gps"/>
-                        <segue destination="cEK-xd-goU" kind="relationship" relationship="viewControllers" id="3IR-SZ-nU2"/>
-                        <segue destination="rMd-c3-zto" kind="relationship" relationship="viewControllers" id="ctv-Xj-LYn"/>
-                        <segue destination="piz-fy-Ml8" kind="relationship" relationship="viewControllers" id="hfY-nv-QJP"/>
+                        <segue destination="CsR-bE-gpg" kind="relationship" relationship="viewControllers" id="uiU-XJ-JCi"/>
+                        <segue destination="XQa-pH-P7k" kind="relationship" relationship="viewControllers" id="8JF-wo-E5j"/>
+                        <segue destination="cEK-xd-goU" kind="relationship" relationship="viewControllers" id="Sab-zO-O7q"/>
+                        <segue destination="rMd-c3-zto" kind="relationship" relationship="viewControllers" id="w8x-qA-VLt"/>
+                        <segue destination="piz-fy-Ml8" kind="relationship" relationship="viewControllers" id="Ewu-FT-rq6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xms-mT-QxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -854,7 +854,9 @@ liked your post. </string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="PetOye" prompt=" " id="XoS-Bb-w6K"/>
+                                    <navigationItem title="PetOye" prompt=" " id="XoS-Bb-w6K">
+                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="bnj-Dd-bLm"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlU-IE-419">
@@ -1086,7 +1088,7 @@ liked your post. </string>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="report_dots1" translatesAutoresizingMaskIntoConstraints="NO" id="cMX-Ef-rei">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="report_dots" translatesAutoresizingMaskIntoConstraints="NO" id="cMX-Ef-rei">
                                 <rect key="frame" x="359" y="667" width="25" height="7"/>
                                 <accessibility key="accessibilityConfiguration" identifier="986C0C09-F82B-4D1A-981F-726BDAA28619-asset"/>
                             </imageView>
@@ -1732,6 +1734,7 @@ liked your post. </string>
         <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
         <image name="forgot_pass" width="118" height="24"/>
+        <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>
         <image name="like_big" width="17" height="24"/>
         <image name="login_fb" width="316" height="64"/>
@@ -1744,7 +1747,6 @@ liked your post. </string>
         <image name="plus_button" width="43" height="42"/>
         <image name="rectangle" width="135" height="220"/>
         <image name="report_dots" width="25" height="7"/>
-        <image name="report_dots1" width="25" height="7"/>
         <image name="share_via" width="17" height="21"/>
         <image name="signup_email" width="316" height="64"/>
         <image name="signup_fb" width="316" height="64"/>
@@ -1753,9 +1755,9 @@ liked your post. </string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fbK-Hd-8MT"/>
-        <segue reference="sdT-Ly-hNR"/>
-        <segue reference="ZpM-99-iyb"/>
+        <segue reference="uiU-XJ-JCi"/>
+        <segue reference="hrC-N6-Ojl"/>
+        <segue reference="gbH-JH-B03"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
