@@ -10,6 +10,8 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func forgot_pass(sender: AnyObject) {
+        //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
+        //print(id)
     }
     
     @IBAction func email_login(sender: AnyObject) {
@@ -42,6 +44,17 @@ class LoginViewController: UIViewController {
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print(responseString!)
+            let json = JSON(data: data!)
+            
+            let jsonid = json["id"].stringValue
+            
+            self.storeId(jsonid)
+ 
+            //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
+            //print(id)
+            
+
+            
             
         }
         task.resume()

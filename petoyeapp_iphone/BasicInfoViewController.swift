@@ -119,7 +119,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         var br = breed.text!
         var lat = locationManager.location!.coordinate.latitude
         var long = locationManager.location!.coordinate.longitude
-        var id = 1 // change to the id of the user returned while signup
+        // change to the id of the user returned while signup
  
         /*if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized) {
             
@@ -129,6 +129,11 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         }*/
         print(lat)
         print(long)
+        
+            id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
+            print(id)
+        
+            
         
         
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(id)/basicinfo")!)

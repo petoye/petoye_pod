@@ -1,6 +1,8 @@
 import UIKit
 import FBSDKCoreKit
 
+var id = String()
+
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -10,7 +12,19 @@ extension UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    func storeId(value: String) {
+
+        
+        NSUserDefaults.standardUserDefaults().setValue("\(value)", forKey: "id")
+        id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
+        print(id)
+        
+    }
+    
 }
+
+
 
 class CreateAnAccountViewController: UIViewController {
     
@@ -52,9 +66,14 @@ class CreateAnAccountViewController: UIViewController {
                     print(response!)
                 }
                 
-                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print(responseString!)
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(responseString)
                 
+                let json = JSON(data: data!)
+                
+                let idjson = json["id"].stringValue
+                
+                self.storeId(idjson)
             }
             task.resume()
             
