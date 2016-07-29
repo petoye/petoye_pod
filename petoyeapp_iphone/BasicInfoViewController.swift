@@ -122,23 +122,11 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         //player.volume = 0.75
         
         picker.hidden = true
-        var u_name = String()
-        var o_type = String()
-        var p_type = String()
-        var br = String()
         
-        if username.text != nil {
-        u_name = username.text!
-        }
-        if owner_type.text != nil {
-        o_type = owner_type.text!
-        }
-        if pet_type.text != nil {
-        p_type = pet_type.text!
-        }
-        if breed.text != nil {
-        br = breed.text!
-        }
+        var u_name = username.text!
+        var o_type = owner_type.text!
+        var p_type = pet_type.text!
+        var br = breed.text!
         var lat = locationManager.location!.coordinate.latitude
         var long = locationManager.location!.coordinate.longitude
         // change to the id of the user returned while signup
@@ -154,8 +142,6 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         
             id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
             print(id)
-        
-        if (owner_type.text != nil && username.text != nil) && (pet_type.text != nil && breed.text != nil){
         
         
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(id)/basicinfo")!)
@@ -186,11 +172,8 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
                 
             }
             task.resume()
-        }
         
-        else {
-            print("Select all the fields!")
-        }
+        
     }
     
 
