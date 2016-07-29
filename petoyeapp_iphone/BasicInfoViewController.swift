@@ -155,6 +155,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
 
         // Do any additional setup after loading the view.
         
@@ -165,8 +166,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         
 
         
-        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse)
-        {
+        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
             
             currentLocation = locationManager.location!
         }

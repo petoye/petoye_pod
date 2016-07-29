@@ -85,13 +85,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //if (FBSDKAccessToken.currentAccessToken() != nil)
-        //{
-            // User is already logged in, do work such as go to next view controller.
-            self.performSegueWithIdentifier("OldUserToHome", sender: nil)
-        //}
+        self.hideKeyboardWhenTappedAround() 
 
     }
 

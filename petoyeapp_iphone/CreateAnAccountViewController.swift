@@ -1,6 +1,17 @@
 import UIKit
 import FBSDKCoreKit
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class CreateAnAccountViewController: UIViewController {
     
     @IBOutlet weak var confirm: UITextField!
@@ -124,6 +135,7 @@ class CreateAnAccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
 
     }
 
