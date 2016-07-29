@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 class LoginViewController: UIViewController {
     
@@ -7,15 +8,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var forgot_pass: UIButton!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var scrollView: UIScrollView!
+    var player:AVAudioPlayer = AVAudioPlayer()
+    
     
     @IBAction func forgot_pass(sender: AnyObject) {
         //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
         //print(id)
+        //playSound()
+        player.play()
+        player.volume = 0.75
     }
     
+
     @IBAction func email_login(sender: AnyObject) {
+        //player.play()
+        //player.volume = 0.75
         
     
         var em = String()
@@ -78,6 +86,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func fb_login(sender: AnyObject) {
         
+        player.play()
+        player.volume = 0.75
+        
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
@@ -94,6 +105,13 @@ class LoginViewController: UIViewController {
                         self.getFBUserData()
                     }
                 }
+                if (FBSDKAccessToken.currentAccessToken() != nil)
+                {
+                    // User is already logged in, do work such as go to next view controller.
+                    self.performSegueWithIdentifier("OldUserToHome", sender: nil)
+                }
+
+                
             }
             
         }
@@ -125,6 +143,16 @@ class LoginViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
+        
+        let audioPath = NSBundle.mainBundle().pathForResource("upvote", ofType: "wav")
+        var error:NSError? = nil
+        do {
+            player = try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath!))
+        }
+        catch {
+            print("Something bad happened. Try catching specific errors to narrow things down")
+        }
+
 
     }
 

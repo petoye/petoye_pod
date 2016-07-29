@@ -1,5 +1,6 @@
 import UIKit
 import FBSDKCoreKit
+import AVFoundation
 
 var id = String()
 
@@ -22,6 +23,8 @@ extension UIViewController {
         
     }
     
+    
+    
 }
 
 
@@ -34,7 +37,7 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     @IBOutlet weak var fb_signup: UIButton!
     @IBOutlet weak var email_signup: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    var player:AVAudioPlayer = AVAudioPlayer()
     
     
     
@@ -42,6 +45,8 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
 
     
     @IBAction func email_signup(sender: AnyObject) {
+        //player.play()
+        //player.volume = 0.75
         
         //getPetOye()
         var em = String()
@@ -57,7 +62,7 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
         if confirm.text != nil {
         conf = confirm.text!
         }
-        if (pass == conf && email.text != nil) && (password.text != nil && confirm.text != nil )
+        if (pass == conf)
         {
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/signup")!)
             request.HTTPMethod = "POST"
@@ -93,16 +98,12 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
             task.resume()
             
         }
-        else if (pass != conf)
+        else
         {
             
             //display password doesn't match
             print("Password don't match")
             
-        }
-        else
-        {
-            print("Type all the fields")
         }
 
         
@@ -139,6 +140,8 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     
     
     @IBAction func fb_signup(sender: AnyObject) {
+        player.play()
+        player.volume = 0.75
         
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self) { (result, error) -> Void in
@@ -156,6 +159,10 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
             {
             self.performSegueWithIdentifier("NewUserToBasicInfo", sender: nil)
             }
+        }
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            self.performSegueWithIdentifier("NewUserToBasicInfo", sender: nil)
         }
         
     }
@@ -182,6 +189,15 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
         self.hideKeyboardWhenTappedAround()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
+        
+        let audioPath = NSBundle.mainBundle().pathForResource("upvote", ofType: "wav")
+        var error:NSError? = nil
+        do {
+            player = try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath!))
+        }
+        catch {
+            print("Something bad happened. Try catching specific errors to narrow things down")
+        }
 
 
     }

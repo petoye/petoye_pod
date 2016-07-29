@@ -1,5 +1,6 @@
 import UIKit
 import CoreLocation
+import AVFoundation
 
 class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -14,6 +15,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var player:AVAudioPlayer = AVAudioPlayer()
     var locationManager = CLLocationManager()
     var lat = Double()
     var long = Double()
@@ -116,6 +118,9 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
  
     @IBAction func done(sender: AnyObject) {
         
+        //player.play()
+        //player.volume = 0.75
+        
         picker.hidden = true
         var u_name = String()
         var o_type = String()
@@ -200,9 +205,14 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        
-
-        
+        let audioPath = NSBundle.mainBundle().pathForResource("upvote", ofType: "wav")
+        var error:NSError? = nil
+        do {
+            player = try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath!))
+        }
+        catch {
+            print("Something bad happened. Try catching specific errors to narrow things down")
+        }
 
         
     }
