@@ -29,6 +29,13 @@ class CreateAnAccountViewController: UIViewController {
                     return
                 }
                 
+                if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+                {
+                    dispatch_async(dispatch_get_main_queue()){
+                        self.performSegueWithIdentifier("NewUserToBasicInfo", sender:self)
+                    }
+                }
+                
                 if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
                     print("statusCode should be 201, but is \(httpStatus.statusCode)")
                     print(response!)

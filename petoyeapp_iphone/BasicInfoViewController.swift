@@ -131,6 +131,14 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
                     return
                 }
                 
+                if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+                {
+                    dispatch_async(dispatch_get_main_queue()){
+                        self.performSegueWithIdentifier("NewUserToHome", sender:self)
+                    }
+                }
+
+                
                 if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
                     print("statusCode should be 200, but is \(httpStatus.statusCode)")
                     print(response!)
@@ -157,8 +165,8 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         
 
         
-        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized){
+        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse)
+        {
             
             currentLocation = locationManager.location!
         }
