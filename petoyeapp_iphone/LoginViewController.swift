@@ -10,6 +10,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     var player:AVAudioPlayer = AVAudioPlayer()
+    var fbLoginSuccess = false
+    
+    override func viewDidAppear(animated: Bool) {
+        if (FBSDKAccessToken.currentAccessToken() != nil || fbLoginSuccess == true)
+        {
+            performSegueWithIdentifier("OldUserToHome", sender: self)
+        }
+    }
     
     
     @IBAction func forgot_pass(sender: AnyObject) {
@@ -103,14 +111,10 @@ class LoginViewController: UIViewController {
                     if(fbloginresult.grantedPermissions != nil && fbloginresult.grantedPermissions.contains("email"))
                     {
                         self.getFBUserData()
+                        self.fbLoginSuccess = true
                     }
                 }
-                if (FBSDKAccessToken.currentAccessToken() != nil)
-                {
-                    // User is already logged in, do work such as go to next view controller.
-                    self.performSegueWithIdentifier("OldUserToHome", sender: nil)
-                }
-
+                
                 
             }
             

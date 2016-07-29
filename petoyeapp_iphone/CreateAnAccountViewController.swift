@@ -38,9 +38,16 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     @IBOutlet weak var email_signup: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     var player:AVAudioPlayer = AVAudioPlayer()
+    var fbLoginSuccess = false
     
     
-    
+    override func viewDidAppear(animated: Bool) {
+        if (FBSDKAccessToken.currentAccessToken() != nil || fbLoginSuccess == true)
+        {
+            performSegueWithIdentifier("NewUserToBasicInfo", sender: self)
+        }
+    }
+
     
 
     
@@ -151,19 +158,14 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
                 {
                     self.getFBUserData()
                     //print(result)
+                    self.fbLoginSuccess = true
                 }
                 
             //self.performSegueWithIdentifier("NewUserToBasicInfo", sender: nil)
             }
-            if (FBSDKAccessToken.currentAccessToken() != nil)
-            {
-            self.performSegueWithIdentifier("NewUserToBasicInfo", sender: nil)
-            }
+            
         }
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
-            self.performSegueWithIdentifier("NewUserToBasicInfo", sender: nil)
-        }
+        
         
     }
     
