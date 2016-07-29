@@ -8,6 +8,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func forgot_pass(sender: AnyObject) {
         //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
@@ -93,12 +94,22 @@ class LoginViewController: UIViewController {
             })
         }
     }
+    
+    
+    func keyboardDidShow() {
+        var bottomOffset: CGPoint = CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+        self.scrollView.setContentOffset(bottomOffset, animated: true)
+        
+    }
+
 
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
 
     }
 

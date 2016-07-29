@@ -1306,6 +1306,7 @@ liked your post. </string>
                         <outlet property="fb_login" destination="2vJ-M6-nog" id="jZH-hz-P2X"/>
                         <outlet property="forgot_pass" destination="OPv-Pn-fMj" id="OkY-P3-nTg"/>
                         <outlet property="password" destination="Jr5-ZX-pd4" id="vqU-Lq-sZT"/>
+                        <outlet property="scrollView" destination="TaP-8F-b8z" id="zaB-SH-sxM"/>
                         <segue destination="cgY-MP-jzm" kind="show" identifier="OldUserToHome" id="57R-6w-vmr"/>
                     </connections>
                 </viewController>
@@ -1763,6 +1764,7 @@ liked your post. </string>
                         <outlet property="email_signup" destination="7H2-wR-Iod" id="ozj-yO-1td"/>
                         <outlet property="fb_signup" destination="pdw-4i-FW6" id="NaW-vb-TyV"/>
                         <outlet property="password" destination="nms-Sc-Zqn" id="eXJ-d7-iBc"/>
+                        <outlet property="scrollView" destination="7UV-Ly-lh5" id="aEw-Zf-ko3"/>
                         <segue destination="hck-lK-mFU" kind="show" identifier="NewUserToBasicInfo" id="r4J-yL-sJJ"/>
                     </connections>
                 </viewController>
@@ -1798,9 +1800,9 @@ liked your post. </string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gbH-JH-B03"/>
+        <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
-        <segue reference="iQM-6t-9n6"/>
+        <segue reference="57R-6w-vmr"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

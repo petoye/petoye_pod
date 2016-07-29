@@ -26,13 +26,20 @@ extension UIViewController {
 
 
 
-class CreateAnAccountViewController: UIViewController {
+class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var confirm: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var fb_signup: UIButton!
     @IBOutlet weak var email_signup: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
+    
+    
+    
+
     
     @IBAction func email_signup(sender: AnyObject) {
         
@@ -151,10 +158,19 @@ class CreateAnAccountViewController: UIViewController {
         }
     }
     
+    func keyboardDidShow() {
+        var bottomOffset: CGPoint = CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+        self.scrollView.setContentOffset(bottomOffset, animated: true)
+
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
+
 
     }
 
