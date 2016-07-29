@@ -23,6 +23,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     var ro = Int()
     
     @IBAction func ownertype(sender: AnyObject) {
+        self.hideKeyboardWhenTappedAround()
         picker.hidden = false
         
         pickerData = ["Pet Owner", "Pet Lover", "Pet Business"]
@@ -116,9 +117,18 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         var o_type = owner_type.text!
         var p_type = pet_type.text!
         var br = breed.text!
-        var lat = currentLocation.coordinate.latitude
-        var long = currentLocation.coordinate.longitude
+        var lat = locationManager.location!.coordinate.latitude
+        var long = locationManager.location!.coordinate.longitude
         var id = 1 // change to the id of the user returned while signup
+ 
+        /*if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized) {
+            
+            
+            
+            
+        }*/
+        print(lat)
+        print(long)
         
         
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(id)/basicinfo")!)
@@ -149,6 +159,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
                 
             }
             task.resume()
+ 
         
     }
     
@@ -164,12 +175,10 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        
 
         
-        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
-            
-            currentLocation = locationManager.location!
-        }
+
         
     }
 
