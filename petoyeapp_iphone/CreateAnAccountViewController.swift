@@ -44,12 +44,20 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     @IBAction func email_signup(sender: AnyObject) {
         
         //getPetOye()
+        var em = String()
+        var pass = String()
+        var conf = String()
         
-        var em = email.text!
-        var pass = password.text!
-        var conf = confirm.text!
-        
-        if (pass == conf)
+        if email.text != nil {
+        em = email.text!
+        }
+        if password.text != nil {
+        pass = password.text!
+        }
+        if confirm.text != nil {
+        conf = confirm.text!
+        }
+        if (pass == conf && email.text != nil) && (password.text != nil && confirm.text != nil )
         {
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/signup")!)
             request.HTTPMethod = "POST"
@@ -85,12 +93,16 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
             task.resume()
             
         }
-        else
+        else if (pass != conf)
         {
             
             //display password doesn't match
             print("Password don't match")
             
+        }
+        else
+        {
+            print("Type all the fields")
         }
 
         

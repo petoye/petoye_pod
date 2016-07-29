@@ -17,8 +17,19 @@ class LoginViewController: UIViewController {
     
     @IBAction func email_login(sender: AnyObject) {
         
-        var em = email.text!
-        var pass = password.text!
+    
+        var em = String()
+        var pass = String()
+        
+        if email.text != nil {
+            em = email.text!
+        }
+        if password.text != nil {
+            pass = password.text!
+        }
+        
+        if email.text != nil && password.text != nil
+        {
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/login")!)
         request.HTTPMethod = "POST"
@@ -59,6 +70,10 @@ class LoginViewController: UIViewController {
             
         }
         task.resume()
+        }
+        else {
+            print("Type both email and password!")
+        }
     }
     
     @IBAction func fb_login(sender: AnyObject) {

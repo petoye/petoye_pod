@@ -1306,7 +1306,6 @@ liked your post. </string>
                         <outlet property="fb_login" destination="2vJ-M6-nog" id="jZH-hz-P2X"/>
                         <outlet property="forgot_pass" destination="OPv-Pn-fMj" id="OkY-P3-nTg"/>
                         <outlet property="password" destination="Jr5-ZX-pd4" id="vqU-Lq-sZT"/>
-                        <outlet property="scrollView" destination="TaP-8F-b8z" id="zaB-SH-sxM"/>
                         <segue destination="cgY-MP-jzm" kind="show" identifier="OldUserToHome" id="57R-6w-vmr"/>
                     </connections>
                 </viewController>
@@ -1668,12 +1667,12 @@ liked your post. </string>
                                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WFf-At-MOV" userLabel="email">
-                                                        <rect key="frame" x="192" y="13" width="148" height="30"/>
+                                                        <rect key="frame" x="192" y="13" width="148" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nms-Sc-Zqn" userLabel="password">
-                                                        <rect key="frame" x="192" y="65" width="148" height="30"/>
+                                                        <rect key="frame" x="192" y="65" width="148" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                     </textField>
@@ -1802,7 +1801,7 @@ liked your post. </string>
     <inferredMetricsTieBreakers>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
-        <segue reference="57R-6w-vmr"/>
+        <segue reference="iQM-6t-9n6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

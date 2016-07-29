@@ -23,8 +23,10 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     var ro = Int()
     
     @IBAction func ownertype(sender: AnyObject) {
-        self.hideKeyboardWhenTappedAround()
+        //self.hideKeyboardWhenTappedAround()
         picker.hidden = false
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         
         pickerData = ["Pet Owner", "Pet Lover", "Pet Business"]
         self.picker.delegate = self
@@ -47,6 +49,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     }
     
     @IBAction func breedtype(sender: AnyObject) {
+        picker.hidden = false
         pickerData = ["","","","","","","Labrador", "Beagle", "Pug"]
         self.picker.delegate = self
         self.picker.dataSource = self
@@ -113,10 +116,24 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
  
     @IBAction func done(sender: AnyObject) {
         
-        var u_name = username.text!
-        var o_type = owner_type.text!
-        var p_type = pet_type.text!
-        var br = breed.text!
+        picker.hidden = true
+        var u_name = String()
+        var o_type = String()
+        var p_type = String()
+        var br = String()
+        
+        if username.text != nil {
+        u_name = username.text!
+        }
+        if owner_type.text != nil {
+        o_type = owner_type.text!
+        }
+        if pet_type.text != nil {
+        p_type = pet_type.text!
+        }
+        if breed.text != nil {
+        br = breed.text!
+        }
         var lat = locationManager.location!.coordinate.latitude
         var long = locationManager.location!.coordinate.longitude
         // change to the id of the user returned while signup
@@ -133,7 +150,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
             id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
             print(id)
         
-            
+        if (owner_type.text != nil && username.text != nil) && (pet_type.text != nil && breed.text != nil){
         
         
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(id)/basicinfo")!)
@@ -164,8 +181,11 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
                 
             }
             task.resume()
- 
+        }
         
+        else {
+            print("Select all the fields!")
+        }
     }
     
 
