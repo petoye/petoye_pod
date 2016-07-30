@@ -27,8 +27,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
-            let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-            cell.textLabel?.text = "TEST"
+            let cell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath) as! feed
+            //cell.textLabel?.text = "TEST"
+            
+            cell.postedImage.image = UIImage(named: "PetOyeGreen60pt@2x.png")
+            cell.username.text = "Hello Hello!"
+            cell.message.text = "so cute"
             return cell
             
     }

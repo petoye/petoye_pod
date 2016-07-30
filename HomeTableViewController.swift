@@ -39,11 +39,13 @@ class HomeTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath)
+        let mycell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath) as! feed
 
         // Configure the cell...
-        cell.textLabel?.text = "TEST"
-        return cell
+        //cell.textLabel?.text = "TEST"
+        
+        
+        return mycell
     }
     
 
