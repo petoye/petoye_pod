@@ -9,6 +9,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+
     var player:AVAudioPlayer = AVAudioPlayer()
     var fbLoginSuccess = false
     
@@ -138,6 +139,7 @@ class LoginViewController: UIViewController {
         self.scrollView.setContentOffset(bottomOffset, animated: true)
         
     }
+
 
 
     

@@ -17,6 +17,28 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print("viewDidLoad")
         feedTable.delegate = self
         feedTable.dataSource = self
+        
+        //Get request for geting feeds
+        
+        let url = NSURL(string: "http://api.petoye.com/users/1/showprofile")!
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            
+            if let urlContent = data
+            {
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    
+                    print(jsonResult)
+                }
+                catch {
+                    print("JSON failed")
+                }
+            }
+        }
+        task.resume()
+
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
