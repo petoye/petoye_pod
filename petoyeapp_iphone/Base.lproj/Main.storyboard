@@ -164,11 +164,11 @@
                         <color key="selectedImageTintColor" red="0.2784313725" green="0.79607843140000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CsR-bE-gpg" kind="relationship" relationship="viewControllers" id="uiU-XJ-JCi"/>
-                        <segue destination="XQa-pH-P7k" kind="relationship" relationship="viewControllers" id="8JF-wo-E5j"/>
-                        <segue destination="cEK-xd-goU" kind="relationship" relationship="viewControllers" id="Sab-zO-O7q"/>
-                        <segue destination="rMd-c3-zto" kind="relationship" relationship="viewControllers" id="w8x-qA-VLt"/>
-                        <segue destination="piz-fy-Ml8" kind="relationship" relationship="viewControllers" id="Ewu-FT-rq6"/>
+                        <segue destination="PGw-Ef-JFS" kind="relationship" relationship="viewControllers" id="CbK-xQ-OgU"/>
+                        <segue destination="XQa-pH-P7k" kind="relationship" relationship="viewControllers" id="sCC-hH-yHX"/>
+                        <segue destination="cEK-xd-goU" kind="relationship" relationship="viewControllers" id="yfn-Dv-ADr"/>
+                        <segue destination="rMd-c3-zto" kind="relationship" relationship="viewControllers" id="Bmo-RU-ztF"/>
+                        <segue destination="piz-fy-Ml8" kind="relationship" relationship="viewControllers" id="l59-kP-Fpf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xms-mT-QxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -608,6 +608,62 @@ liked your post. </string>
             </objects>
             <point key="canvasLocation" x="1658" y="551"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="czb-n4-82u">
+            <objects>
+                <viewController title="Home" id="PGw-Ef-JFS" customClass="TableViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rJ6-C5-1qM"/>
+                        <viewControllerLayoutGuide type="bottom" id="afD-UZ-f9c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xFS-Ou-KjI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="092-6j-VD9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="34"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="PetOye" prompt=" " id="gME-pF-eAq">
+                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="SVr-5N-dsr"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IsT-E6-4Iy">
+                                <rect key="frame" x="0.0" y="74" width="414" height="613"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="lKa-6m-VS5">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lKa-6m-VS5" id="KeC-cO-ZIh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PGw-Ef-JFS" id="yJU-AM-53a"/>
+                                    <outlet property="delegate" destination="PGw-Ef-JFS" id="6q6-cm-IqA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="gcS-HZ-eP7"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="feedTable" destination="IsT-E6-4Iy" id="Yk2-e2-RW3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMy-Da-9Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="961" y="-1356"/>
+        </scene>
         <!--Discover-->
         <scene sceneID="Nxw-yT-PN3">
             <objects>
@@ -832,287 +888,7 @@ liked your post. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgl-nF-fr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1658" y="-1329"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="Hlr-z4-Jwu">
-            <objects>
-                <viewController title="Home" id="CsR-bE-gpg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2eC-mr-kWJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="JNG-iX-Qx5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tEM-wz-DXB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTN-IC-dk9">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
-                                <color key="barTintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="34"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="PetOye" prompt=" " id="XoS-Bb-w6K">
-                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="bnj-Dd-bLm"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlU-IE-419">
-                                <rect key="frame" x="0.0" y="74" width="414" height="43"/>
-                                <subviews>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Trending" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7c-ex-03v">
-                                        <rect key="frame" x="32" y="11" width="66" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="7A7B420D-8E5C-4A0D-B92B-9B05DFF3EFB3"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Followed" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-57-PcC">
-                                        <rect key="frame" x="172" y="11" width="70" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="68336FBC-0155-4E4E-9C72-A2761AFE95D2"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Nearby" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bl8-Rp-w8Q">
-                                        <rect key="frame" x="299" y="11" width="95" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="9BE4A5E5-0518-4BB5-8780-8C285D9B3ACA"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="8F6ABCA7-5328-42D8-9059-28EF5FBEE40F"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Voz-mh-Gp2">
-                                <rect key="frame" x="0.0" y="114" width="137" height="3"/>
-                                <color key="backgroundColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="675855EA-7806-476A-86B6-342B3294B44E"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="ouJ-mi-oEo"/>
-                                </constraints>
-                            </view>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mc1-nd-8hy">
-                                <rect key="frame" x="0.0" y="126" width="414" height="505"/>
-                                <subviews>
-                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijf-8z-KHO">
-                                        <rect key="frame" x="31" y="9" width="55" height="55"/>
-                                        <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="8DDF9689-6828-41CA-A90F-30CDB929A451"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <real key="value" value="27.519999999999982"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS0-AW-EHI">
-                                        <rect key="frame" x="104" y="11" width="149" height="26"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="60DB4F31-4B94-4EEE-8FAF-885BA2C0AE73"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                        <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-z7-haz">
-                                        <rect key="frame" x="104" y="40" width="98" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="0A16DFCB-2814-47E4-9056-3F50EE4CA791"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                        <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="report_dots" translatesAutoresizingMaskIntoConstraints="NO" id="dqi-ip-Cza">
-                                        <rect key="frame" x="359" y="27" width="25" height="7"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
-                                    </imageView>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Such a cute puppy!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ul-Aj-BZo">
-                                        <rect key="frame" x="42" y="68" width="131" height="19"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="AF370485-F4C7-452E-8812-93390F48A481"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" red="0.043137254899999998" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="keh-VI-vuR">
-                                        <rect key="frame" x="37" y="93" width="345" height="344"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="C858AC67-F6B1-49CD-A033-63D4AADCAD5F"/>
-                                    </view>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="880 Likes" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEC-vn-DHX">
-                                        <rect key="frame" x="42" y="444" width="52" height="15"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="4378E8F1-171E-491B-B0E1-F924A0A687A2"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                        <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="482 Comments" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yr0-Tw-PzU">
-                                        <rect key="frame" x="101" y="444" width="82" height="15"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="1F31010C-FCF5-453A-9E15-ACF4A686F57A"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                        <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="comment_big" translatesAutoresizingMaskIntoConstraints="NO" id="t6q-3P-wLB">
-                                        <rect key="frame" x="105" y="476" width="21" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="89A987C6-4CF2-4FB5-940A-5F1D9EC89FAA-asset"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="like_big" translatesAutoresizingMaskIntoConstraints="NO" id="Bt6-HU-yoG">
-                                        <rect key="frame" x="37" y="473" width="17" height="24"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="04AB031C-77F1-4EA5-B11D-CECB2C192949-asset"/>
-                                    </imageView>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Like" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ei-DP-q3f">
-                                        <rect key="frame" x="68" y="478" width="22" height="15"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="86585A42-674F-4B22-814D-30BC93B41847"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
-                                        <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Comment" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znz-d4-rsj">
-                                        <rect key="frame" x="140" y="478" width="52" height="15"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="23BB714F-AB56-473A-B0A3-7F4B684C8CBF"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
-                                        <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyJ-LY-pBh">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="505"/>
-                                        <subviews>
-                                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osd-fL-Snz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="494"/>
-                                                <subviews>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="share_via" translatesAutoresizingMaskIntoConstraints="NO" id="iXr-FD-qW6">
-                                                        <rect key="frame" x="207" y="473" width="17" height="21"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="A7CB0A94-0795-408E-8EE5-7A2F5BB342E3-asset"/>
-                                                    </imageView>
-                                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Share via" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSQ-dY-EOf">
-                                                        <rect key="frame" x="238" y="478" width="51" height="15"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="EB41C07F-6A21-4709-9DF1-97CAC6D73293"/>
-                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
-                                                        <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                    </label>
-                                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RkD-mi-RHM">
-                                                        <rect key="frame" x="0.0" y="-9" width="414" height="9"/>
-                                                        <color key="backgroundColor" red="0.94901960780000005" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="B4FC4A49-5F99-4C0E-A2F1-584F2E75467A"/>
-                                                    </view>
-                                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46e-6e-Sld">
-                                                        <rect key="frame" x="0.0" y="505" width="414" height="9"/>
-                                                        <color key="backgroundColor" red="0.94901960780000005" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="36FC5E35-9C96-4F3A-B9EC-DE8FB0115ECD"/>
-                                                    </view>
-                                                </subviews>
-                                                <accessibility key="accessibilityConfiguration" identifier="54922F62-C379-46C8-90BE-E017F12C05CF"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                        </subviews>
-                                        <accessibility key="accessibilityConfiguration" identifier="54922F62-C379-46C8-90BE-E017F12C05CF"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <accessibility key="accessibilityConfiguration" identifier="54922F62-C379-46C8-90BE-E017F12C05CF"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVe-BO-Pth">
-                                <rect key="frame" x="0.0" y="117" width="414" height="9"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="B4FC4A49-5F99-4C0E-A2F1-584F2E75467A"/>
-                            </view>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gxi-aU-RlH">
-                                <rect key="frame" x="0.0" y="639" width="414" height="9"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="36FC5E35-9C96-4F3A-B9EC-DE8FB0115ECD"/>
-                            </view>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIK-V3-yDw">
-                                <rect key="frame" x="31" y="649" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="9993BE8C-DDD7-4B07-8F87-27E1BF6AC3BD"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Tanzeel Shaikh" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgb-Ic-Xfi">
-                                <rect key="frame" x="104" y="651" width="149" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="FE0D2991-9B42-4A47-889C-6E1F6376461B"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eX-wj-A4o">
-                                <rect key="frame" x="104" y="680" width="98" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="50BF935A-6700-4E8E-B926-9583C17D68F4"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="report_dots" translatesAutoresizingMaskIntoConstraints="NO" id="cMX-Ef-rei">
-                                <rect key="frame" x="359" y="667" width="25" height="7"/>
-                                <accessibility key="accessibilityConfiguration" identifier="986C0C09-F82B-4D1A-981F-726BDAA28619-asset"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dlU-IE-419" firstAttribute="top" secondItem="QTN-IC-dk9" secondAttribute="bottom" id="4ir-35-h1Y"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QTN-IC-dk9" secondAttribute="trailing" constant="-20" id="NpP-3u-Wws"/>
-                            <constraint firstItem="QTN-IC-dk9" firstAttribute="top" secondItem="tEM-wz-DXB" secondAttribute="topMargin" id="R5g-EN-CcG"/>
-                            <constraint firstItem="QTN-IC-dk9" firstAttribute="leading" secondItem="tEM-wz-DXB" secondAttribute="leadingMargin" constant="-20" id="gV0-fa-Iw5"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="Scg-lh-xqh">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.32549019607843138" green="0.82745098039215681" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2v9-Tz-J5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="943" y="-1428"/>
+            <point key="canvasLocation" x="2002" y="-1265"/>
         </scene>
         <!--Login-->
         <scene sceneID="44h-Ah-ABl">
@@ -1774,13 +1550,11 @@ liked your post. </string>
     </scenes>
     <resources>
         <image name="already_have_account" width="151" height="25"/>
-        <image name="comment_big" width="21" height="21"/>
         <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>
-        <image name="like_big" width="17" height="24"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
         <image name="medical_records" width="29" height="25"/>
@@ -1790,8 +1564,6 @@ liked your post. </string>
         <image name="petoye_logo2" width="155" height="156"/>
         <image name="plus_button" width="43" height="42"/>
         <image name="rectangle" width="135" height="220"/>
-        <image name="report_dots" width="25" height="7"/>
-        <image name="share_via" width="17" height="21"/>
         <image name="signup_email" width="316" height="64"/>
         <image name="signup_fb" width="316" height="64"/>
         <image name="users" width="35" height="30"/>
@@ -1799,9 +1571,9 @@ liked your post. </string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sdT-Ly-hNR"/>
-        <segue reference="fbK-Hd-8MT"/>
         <segue reference="iQM-6t-9n6"/>
+        <segue reference="gbH-JH-B03"/>
+        <segue reference="hrC-N6-Ojl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

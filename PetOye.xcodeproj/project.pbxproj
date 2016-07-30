@@ -42,6 +42,7 @@
 		E4DE19461D48BFFE00AA4836 /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */; };
 		E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE19471D48C03800AA4836 /* LoginViewController.swift */; };
 		E4DE194A1D48C0B800AA4836 /* BasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */; };
+		E4FDD9B11D4CA4E400E7610B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		E4DE19471D48C03800AA4836 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoViewController.swift; sourceTree = "<group>"; };
+		E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */,
 				E4DE19471D48C03800AA4836 /* LoginViewController.swift */,
 				E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */,
+				E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */,
 				E4579DD81D07118300E52D4D /* Assets.xcassets */,
 				E4579DDD1D07118300E52D4D /* Info.plist */,
 				E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
+				E4FDD9B11D4CA4E400E7610B /* TableViewController.swift in Sources */,
 				E4DE194A1D48C0B800AA4836 /* BasicInfoViewController.swift in Sources */,
 				E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
