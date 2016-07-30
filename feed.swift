@@ -22,8 +22,10 @@ class feed: UITableViewCell {
     @IBOutlet weak var commentcount: UILabel!
     @IBOutlet weak var postedImage: UIImageView!
 
+
     @IBAction func profilePicClick(sender: AnyObject) {
     }
+
     
     @IBAction func usernameClick(sender: AnyObject) {
     }

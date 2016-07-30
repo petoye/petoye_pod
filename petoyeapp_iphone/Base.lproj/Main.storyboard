@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BGv-1S-b1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cgY-MP-jzm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -620,7 +620,7 @@ liked your post. </string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="092-6j-VD9">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="092-6j-VD9">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                 <color key="barTintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -633,7 +633,7 @@ liked your post. </string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xH5-fN-GbN">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xH5-fN-GbN">
                                 <rect key="frame" x="0.0" y="74" width="414" height="43"/>
                                 <subviews>
                                     <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6i2-fx-UuB">
@@ -677,15 +677,15 @@ liked your post. </string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="550" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IsT-E6-4Iy">
-                                <rect key="frame" x="0.0" y="117" width="414" height="553"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="517" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IsT-E6-4Iy">
+                                <rect key="frame" x="0.0" y="117" width="414" height="619"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feed" id="B2r-wT-Alt" customClass="feed" customModule="PetOye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="550"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feed" rowHeight="517" id="B2r-wT-Alt" customClass="feed" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="517"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B2r-wT-Alt" id="x4Z-zC-KF5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="549"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="516"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjD-dx-Kcg" userLabel="profilePic">
@@ -834,6 +834,12 @@ liked your post. </string>
                                                         <action selector="share2:" destination="B2r-wT-Alt" eventType="touchUpInside" id="Ygu-6u-fFk"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcI-pQ-nvG">
+                                                    <rect key="frame" x="31" y="12" width="55" height="48"/>
+                                                    <connections>
+                                                        <action selector="profilePicClick:" destination="B2r-wT-Alt" eventType="touchUpInside" id="CSm-L3-N9r"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -857,6 +863,8 @@ liked your post. </string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xH5-fN-GbN" firstAttribute="top" secondItem="092-6j-VD9" secondAttribute="bottom" id="31S-F4-gc5"/>
+                            <constraint firstItem="092-6j-VD9" firstAttribute="top" secondItem="xFS-Ou-KjI" secondAttribute="topMargin" id="9sG-Iv-zhB"/>
                             <constraint firstItem="092-6j-VD9" firstAttribute="leading" secondItem="xFS-Ou-KjI" secondAttribute="leadingMargin" constant="-20" id="ep6-ne-uXJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="092-6j-VD9" secondAttribute="trailing" constant="-20" id="wek-k0-1iL"/>
                         </constraints>
@@ -864,7 +872,7 @@ liked your post. </string>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="gcS-HZ-eP7">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.32549019607843138" green="0.82745098039215681" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
@@ -875,7 +883,7 @@ liked your post. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMy-Da-9Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="-1356"/>
+            <point key="canvasLocation" x="1069" y="-1351"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Nxw-yT-PN3">
