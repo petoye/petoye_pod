@@ -15,42 +15,20 @@ class feed: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var timestamp: UILabel!
     @IBOutlet weak var message: UILabel!
-    
     @IBOutlet weak var likes: UILabel!
     @IBOutlet weak var likecount: UILabel!
-    @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var commentcount: UILabel!
+    @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var postedImage: UIImageView!
 
-
-    @IBAction func profilePicClick(sender: AnyObject) {
-    }
-
-    
-    @IBAction func usernameClick(sender: AnyObject) {
-    }
-    
-    @IBAction func report(sender: AnyObject) {
-    }
-    
-    @IBAction func like1(sender: AnyObject) {
-    }
-    
-    @IBAction func like2(sender: AnyObject) {
-    }
-    
-    @IBAction func comment1(sender: AnyObject) {
-    }
-    
-    @IBAction func comment2(sender: AnyObject) {
-    }
-
-    @IBAction func share1(sender: AnyObject) {
-    }
-    
-    @IBAction func share2(sender: AnyObject) {
-    }
+    @IBOutlet weak var profilePicPress: UIButton!
+    @IBOutlet weak var usernamePress: UIButton!
+    @IBOutlet weak var reportPress: UIButton!
+    @IBOutlet weak var likePress: UIButton!
+    @IBOutlet weak var commentPress: UIButton!
+    @IBOutlet weak var share1Press: UIButton!
+    @IBOutlet weak var share2Press: UIButton!
+    @IBOutlet weak var imageTap: UIButton!
     
     
-
 }

@@ -617,7 +617,7 @@ liked your post. </string>
                         <viewControllerLayoutGuide type="bottom" id="afD-UZ-f9c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xFS-Ou-KjI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="092-6j-VD9">
@@ -677,15 +677,15 @@ liked your post. </string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="517" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IsT-E6-4Iy">
-                                <rect key="frame" x="0.0" y="117" width="414" height="619"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="585" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IsT-E6-4Iy">
+                                <rect key="frame" x="0.0" y="117" width="414" height="645"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feed" rowHeight="517" id="B2r-wT-Alt" customClass="feed" customModule="PetOye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="517"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feed" rowHeight="585" id="B2r-wT-Alt" customClass="feed" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="585"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B2r-wT-Alt" id="x4Z-zC-KF5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="516"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="584"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjD-dx-Kcg" userLabel="profilePic">
@@ -697,10 +697,6 @@ liked your post. </string>
                                                             <real key="value" value="27.519999999999982"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drw-wW-6s0" userLabel="image">
-                                                    <rect key="frame" x="37" y="93" width="345" height="344"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="C858AC67-F6B1-49CD-A033-63D4AADCAD5F"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMa-d3-u5C" userLabel="timestamp">
                                                     <rect key="frame" x="104" y="40" width="98" height="21"/>
@@ -718,43 +714,6 @@ liked your post. </string>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="880" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTi-2a-79W" userLabel="likeCount">
-                                                    <rect key="frame" x="42" y="444" width="21" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="4378E8F1-171E-491B-B0E1-F924A0A687A2"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Likes" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snd-TF-sCt" userLabel="likes">
-                                                    <rect key="frame" x="65" y="444" width="29" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="10A36C01-342E-4B2E-9D4C-9E56DF6EC05F"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="482 " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jup-Md-S81" userLabel="commentCount">
-                                                    <rect key="frame" x="101" y="444" width="24" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="1F31010C-FCF5-453A-9E15-ACF4A686F57A"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Comments " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGe-nB-G2t" userLabel="comments">
-                                                    <rect key="frame" x="127" y="444" width="62" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="47380AC2-1B97-4A93-A789-E2DF0CBF9BAC"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZ5-US-KEx" userLabel="separator">
-                                                    <rect key="frame" x="38" y="465" width="346" height="2"/>
-                                                    <color key="backgroundColor" red="0.94901960780000005" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="BFFA16B4-D8BA-4A1A-ADA4-F29C6FFB79F7"/>
-                                                </view>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo8-8d-E7b" userLabel="username">
                                                     <rect key="frame" x="104" y="11" width="149" height="26"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="60DB4F31-4B94-4EEE-8FAF-885BA2C0AE73"/>
@@ -765,93 +724,103 @@ liked your post. </string>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLa-pG-v0K" userLabel="usernameClick">
                                                     <rect key="frame" x="101" y="12" width="152" height="25"/>
-                                                    <connections>
-                                                        <action selector="usernameClick:" destination="B2r-wT-Alt" eventType="touchUpInside" id="y5k-hF-6CZ"/>
-                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DR-2d-Pcc" userLabel="report">
                                                     <rect key="frame" x="359" y="19" width="25" height="22"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
                                                     <state key="normal" image="report_dots"/>
-                                                    <connections>
-                                                        <action selector="report:" destination="B2r-wT-Alt" eventType="touchUpInside" id="fIx-w2-vgp"/>
-                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gD6-9w-VcO" userLabel="like1">
-                                                    <rect key="frame" x="37" y="473" width="17" height="24"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="04AB031C-77F1-4EA5-B11D-CECB2C192949-asset"/>
-                                                    <state key="normal" image="like_big"/>
-                                                    <connections>
-                                                        <action selector="like1:" destination="B2r-wT-Alt" eventType="touchUpInside" id="JHc-AP-dsD"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohS-mk-BrU" userLabel="like2">
-                                                    <rect key="frame" x="68" y="478" width="22" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="86585A42-674F-4B22-814D-30BC93B41847"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
-                                                    <state key="normal" title="Like">
-                                                        <color key="titleColor" red="0.71764705882352942" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="like2:" destination="B2r-wT-Alt" eventType="touchUpInside" id="L59-QD-qjk"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt5-XD-rSc" userLabel="comment1">
-                                                    <rect key="frame" x="105" y="475" width="21" height="22"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="89A987C6-4CF2-4FB5-940A-5F1D9EC89FAA-asset"/>
-                                                    <state key="normal" image="comment_big"/>
-                                                    <connections>
-                                                        <action selector="comment1:" destination="B2r-wT-Alt" eventType="touchUpInside" id="EAR-5Q-BuZ"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxa-XP-K50" userLabel="comment2">
-                                                    <rect key="frame" x="140" y="478" width="52" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="23BB714F-AB56-473A-B0A3-7F4B684C8CBF"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
-                                                    <state key="normal" title="Comment">
-                                                        <color key="titleColor" red="0.71764705882352942" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="comment2:" destination="B2r-wT-Alt" eventType="touchUpInside" id="rRM-HJ-I55"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jr-Be-aX6" userLabel="share1">
-                                                    <rect key="frame" x="207" y="472" width="17" height="22"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="A7CB0A94-0795-408E-8EE5-7A2F5BB342E3-asset"/>
-                                                    <state key="normal" image="share_via"/>
-                                                    <connections>
-                                                        <action selector="share1:" destination="B2r-wT-Alt" eventType="touchUpInside" id="Zcp-D6-f2e"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYV-1l-Sje" userLabel="share2">
-                                                    <rect key="frame" x="238" y="478" width="51" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="EB41C07F-6A21-4709-9DF1-97CAC6D73293"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
-                                                    <state key="normal" title="Share via">
-                                                        <color key="titleColor" red="0.71764705882352942" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="share2:" destination="B2r-wT-Alt" eventType="touchUpInside" id="Ygu-6u-fFk"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcI-pQ-nvG">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcI-pQ-nvG" userLabel="profilePicClick">
                                                     <rect key="frame" x="31" y="12" width="55" height="48"/>
-                                                    <connections>
-                                                        <action selector="profilePicClick:" destination="B2r-wT-Alt" eventType="touchUpInside" id="CSm-L3-N9r"/>
-                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SUv-ne-UU9">
+                                                    <rect key="frame" x="0.0" y="93" width="414" height="414"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="1D877AFA-AF7D-448F-B249-6CA9DB0CFB1D"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Likes" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXP-up-czl">
+                                                    <rect key="frame" x="64" y="514" width="29" height="15"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="10A36C01-342E-4B2E-9D4C-9E56DF6EC05F"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="880" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-QG-dwQ">
+                                                    <rect key="frame" x="41" y="514" width="21" height="15"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="4378E8F1-171E-491B-B0E1-F924A0A687A2"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="482 " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1N-2N-j6x">
+                                                    <rect key="frame" x="100" y="514" width="24" height="15"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="1F31010C-FCF5-453A-9E15-ACF4A686F57A"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Comments " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xr1-3r-3rf">
+                                                    <rect key="frame" x="126" y="514" width="62" height="15"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="47380AC2-1B97-4A93-A789-E2DF0CBF9BAC"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxK-2t-Vqa">
+                                                    <rect key="frame" x="51" y="547" width="69" height="28"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
+                                                    <state key="normal" image="like_big"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwh-B3-0Sn">
+                                                    <rect key="frame" x="155" y="550" width="103" height="25"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="6D599FA2-7727-4EB0-96CD-DDD0932AFCE5-asset"/>
+                                                    <state key="normal" image="comment_big"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Von-Sy-N2R">
+                                                    <rect key="frame" x="327" y="553" width="41" height="16"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="5B3BF7B8-A186-4FBC-A66F-646E795D06CE"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                                    <state key="normal" title="Share">
+                                                        <color key="titleColor" red="0.71764705882352942" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-cA-k70">
+                                                    <rect key="frame" x="287" y="545" width="20" height="25"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="7751DEA3-FC97-4825-8F81-58CF546973AA-asset"/>
+                                                    <state key="normal" image="share_via"/>
+                                                </button>
+                                                <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyj-p7-t49">
+                                                    <rect key="frame" x="37" y="536" width="346" height="2"/>
+                                                    <color key="backgroundColor" red="0.94901960780000005" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="BFFA16B4-D8BA-4A1A-ADA4-F29C6FFB79F7"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljg-It-diD" userLabel="imageTap">
+                                                    <rect key="frame" x="0.0" y="93" width="414" height="414"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentcount" destination="jup-Md-S81" id="PRK-5d-0ls"/>
-                                            <outlet property="comments" destination="WGe-nB-G2t" id="lcH-kL-Sd9"/>
-                                            <outlet property="likecount" destination="zTi-2a-79W" id="dcs-bt-mtH"/>
-                                            <outlet property="likes" destination="Snd-TF-sCt" id="vxO-WI-pVN"/>
+                                            <outlet property="commentPress" destination="zwh-B3-0Sn" id="esu-X4-nr4"/>
+                                            <outlet property="commentcount" destination="P1N-2N-j6x" id="ePF-mZ-iOt"/>
+                                            <outlet property="comments" destination="xr1-3r-3rf" id="fJ3-UE-ber"/>
+                                            <outlet property="imageTap" destination="Ljg-It-diD" id="EJx-wB-vpY"/>
+                                            <outlet property="likePress" destination="YxK-2t-Vqa" id="9ep-11-M6D"/>
+                                            <outlet property="likecount" destination="aKh-QG-dwQ" id="LIQ-af-RG1"/>
+                                            <outlet property="likes" destination="tXP-up-czl" id="jga-fm-XA3"/>
                                             <outlet property="message" destination="Xii-td-SSW" id="z26-aR-h6z"/>
-                                            <outlet property="postedImage" destination="drw-wW-6s0" id="ove-Ji-gNc"/>
+                                            <outlet property="postedImage" destination="SUv-ne-UU9" id="XEu-qc-Rku"/>
                                             <outlet property="profilePic" destination="WjD-dx-Kcg" id="z0x-Qy-3fy"/>
+                                            <outlet property="profilePicPress" destination="QcI-pQ-nvG" id="7X8-TX-agD"/>
+                                            <outlet property="reportPress" destination="8DR-2d-Pcc" id="ggD-9a-Ygk"/>
+                                            <outlet property="share1Press" destination="ASB-cA-k70" id="vHy-cA-Eu7"/>
+                                            <outlet property="share2Press" destination="Von-Sy-N2R" id="Aqf-6q-v7I"/>
                                             <outlet property="timestamp" destination="GMa-d3-u5C" id="cdk-iT-dHi"/>
                                             <outlet property="username" destination="fo8-8d-E7b" id="0jc-JN-QFX"/>
+                                            <outlet property="usernamePress" destination="lLa-pG-v0K" id="pdD-o9-V4V"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -872,18 +841,19 @@ liked your post. </string>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="gcS-HZ-eP7">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.32549019607843138" green="0.82745098039215681" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="850"/>
                     <connections>
                         <outlet property="feedTable" destination="IsT-E6-4Iy" id="Yk2-e2-RW3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMy-Da-9Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="-1351"/>
+            <point key="canvasLocation" x="1069" y="-1391"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Nxw-yT-PN3">
@@ -1772,13 +1742,13 @@ liked your post. </string>
     </scenes>
     <resources>
         <image name="already_have_account" width="151" height="25"/>
-        <image name="comment_big" width="21" height="21"/>
+        <image name="comment_big" width="103" height="25"/>
         <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>
-        <image name="like_big" width="17" height="24"/>
+        <image name="like_big" width="69" height="28"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
         <image name="medical_records" width="29" height="25"/>
@@ -1789,7 +1759,7 @@ liked your post. </string>
         <image name="plus_button" width="43" height="42"/>
         <image name="rectangle" width="135" height="220"/>
         <image name="report_dots" width="25" height="7"/>
-        <image name="share_via" width="17" height="21"/>
+        <image name="share_via" width="20" height="25"/>
         <image name="signup_email" width="316" height="64"/>
         <image name="signup_fb" width="316" height="64"/>
         <image name="users" width="35" height="30"/>
@@ -1797,9 +1767,9 @@ liked your post. </string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="57R-6w-vmr"/>
-        <segue reference="sdT-Ly-hNR"/>
-        <segue reference="fbK-Hd-8MT"/>
+        <segue reference="gbH-JH-B03"/>
+        <segue reference="hrC-N6-Ojl"/>
+        <segue reference="iQM-6t-9n6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

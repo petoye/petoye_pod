@@ -62,7 +62,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.comment_count.append(innerItem["comment_count"].stringValue)
                     
                     self.post_user_id.append(item["id"].stringValue)
-                    self.feedTable.reloadData()
+                    dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                        self.feedTable.reloadData()
+                    })
+                    
                     
                 }
                 
@@ -90,7 +93,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let cell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath) as! feed
             //cell.textLabel?.text = "TEST"
             
-            //cell.postedImage.image = UIImage(named: "PetOyeGreen60pt@2x.png")
+            cell.postedImage.image = UIImage(named: "IMG_2623.png")
             cell.username.text = username[indexPath.row]
             cell.message.text = message[indexPath.row]
             cell.likecount.text = like_count[indexPath.row]
