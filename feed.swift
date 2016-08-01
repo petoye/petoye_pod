@@ -138,6 +138,9 @@ class feed: UITableViewCell {
    
     @IBAction func commentBut(sender: AnyObject) {
         
+        let data = userDefault.objectForKey("storedPostId") as! [String]
+        print(data[commentPress.tag])
+        
         
     }
     
