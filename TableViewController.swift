@@ -6,6 +6,8 @@
 //  Copyright © 2016 Ameya Vichare. All rights reserved.
 //
 
+var userDefault = NSUserDefaults.standardUserDefaults()
+
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var feedTable: UITableView!
@@ -95,11 +97,33 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             cell.postedImage.image = UIImage(named: "IMG_2623.png")
             cell.username.text = username[indexPath.row]
+            
+            //cell.userNameArray?.append("1")
+            //print(cell.userNameArray)
+            
+            //storing usernames permanently for now
+            //let storedUsernames = cell.username.text
+            userDefault.setObject(username, forKey: "storedPostUsername")
+            userDefault.setObject(post_user_id, forKey: "storedPostUserId")
+            userDefault.setObject(message, forKey: "storedPostMessage")
+            userDefault.setObject(like_count, forKey: "storedPostLikeCount")
+            userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
+            userDefault.synchronize()
+            
             cell.message.text = message[indexPath.row]
             cell.likecount.text = like_count[indexPath.row]
             cell.commentcount.text = comment_count[indexPath.row]
             
+            cell.usernamePress.tag = indexPath.row
+            
             return cell
             
+    }
+    
+    func feedCell(didPressUsernameButtonInCell cell: feed) {
+        //guard let indexPath = feedTable.indexPathForCell(cell) else { return }
+        // Do your event-handling
+        print(cell.usernamePress.tag)
+        print(username[cell.usernamePress.tag])
     }
 }

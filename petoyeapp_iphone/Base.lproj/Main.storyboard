@@ -724,6 +724,9 @@ liked your post. </string>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLa-pG-v0K" userLabel="usernameClick">
                                                     <rect key="frame" x="101" y="12" width="152" height="25"/>
+                                                    <connections>
+                                                        <action selector="usernameBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="EQ6-yF-xlX"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DR-2d-Pcc" userLabel="report">
                                                     <rect key="frame" x="359" y="19" width="25" height="22"/>
@@ -1742,13 +1745,13 @@ liked your post. </string>
     </scenes>
     <resources>
         <image name="already_have_account" width="151" height="25"/>
-        <image name="comment_big" width="103" height="25"/>
+        <image name="comment_big" width="21" height="21"/>
         <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>
-        <image name="like_big" width="69" height="28"/>
+        <image name="like_big" width="17" height="24"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
         <image name="medical_records" width="29" height="25"/>
@@ -1759,7 +1762,7 @@ liked your post. </string>
         <image name="plus_button" width="43" height="42"/>
         <image name="rectangle" width="135" height="220"/>
         <image name="report_dots" width="25" height="7"/>
-        <image name="share_via" width="20" height="25"/>
+        <image name="share_via" width="17" height="21"/>
         <image name="signup_email" width="316" height="64"/>
         <image name="signup_fb" width="316" height="64"/>
         <image name="users" width="35" height="30"/>
