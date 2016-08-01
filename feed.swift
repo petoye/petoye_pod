@@ -48,47 +48,46 @@ class feed: UITableViewCell {
         print(data[usernamePress.tag])
         var showProfileId = data[usernamePress.tag]
         
-        //showing userProfile
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/3/nearbyfeeds")!)
-        request.HTTPMethod = "GET"
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            guard error == nil && data != nil else {                                                          // check for fundamental networking error
-                print(error!)
-                return
-            }
-            
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-                print("statusCode should be 201, but is \(httpStatus.statusCode)")
-                print(response!)
-            }
-            
-            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
-            
-            let json = JSON(data: data!)
-            
-            for item in json["feeds"].arrayValue {
-                
-
-
-                    
-                    dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                        
-                    })
-                    
-                    
-                
-                
-            }
- 
-            
-            
-            //for now doing nearby feeds
-        }
-        task.resume()
         
         
     }
+    
+    @IBAction func profilePicBut(sender: AnyObject) {
+        let data = userDefault.objectForKey("storedPostUserId") as! [String]
+        print(data[usernamePress.tag])
+        var showProfileId = data[usernamePress.tag]
+    }
+
+    @IBAction func reportBut(sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func likeBut(sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func imageTapBut(sender: AnyObject) {
+        
+        
+    }
+    
+    
+    @IBAction func commentBut(sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func share1But(sender: AnyObject) {
+    }
+    
+    @IBAction func share2But(sender: AnyObject) {
+    }
+    
+    
+    
+    
+    
     
 }

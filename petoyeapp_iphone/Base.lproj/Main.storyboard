@@ -732,9 +732,15 @@ liked your post. </string>
                                                     <rect key="frame" x="359" y="19" width="25" height="22"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
                                                     <state key="normal" image="report_dots"/>
+                                                    <connections>
+                                                        <action selector="reportBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="huI-se-uaw"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcI-pQ-nvG" userLabel="profilePicClick">
                                                     <rect key="frame" x="31" y="12" width="55" height="48"/>
+                                                    <connections>
+                                                        <action selector="profilePicBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="yQQ-K0-n9J"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SUv-ne-UU9">
                                                     <rect key="frame" x="0.0" y="93" width="414" height="414"/>
@@ -777,11 +783,17 @@ liked your post. </string>
                                                     <rect key="frame" x="51" y="547" width="69" height="28"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
                                                     <state key="normal" image="like_big"/>
+                                                    <connections>
+                                                        <action selector="likeBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="PSA-ja-fFU"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwh-B3-0Sn">
                                                     <rect key="frame" x="155" y="550" width="103" height="25"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="6D599FA2-7727-4EB0-96CD-DDD0932AFCE5-asset"/>
                                                     <state key="normal" image="comment_big"/>
+                                                    <connections>
+                                                        <action selector="commentBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="TTF-IJ-TKn"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Von-Sy-N2R">
                                                     <rect key="frame" x="327" y="553" width="41" height="16"/>
@@ -790,11 +802,17 @@ liked your post. </string>
                                                     <state key="normal" title="Share">
                                                         <color key="titleColor" red="0.71764705882352942" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="share2But:" destination="B2r-wT-Alt" eventType="touchUpInside" id="obI-5b-vHA"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-cA-k70">
                                                     <rect key="frame" x="287" y="545" width="20" height="25"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="7751DEA3-FC97-4825-8F81-58CF546973AA-asset"/>
                                                     <state key="normal" image="share_via"/>
+                                                    <connections>
+                                                        <action selector="share1But:" destination="B2r-wT-Alt" eventType="touchUpInside" id="3iA-SB-8l8"/>
+                                                    </connections>
                                                 </button>
                                                 <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyj-p7-t49">
                                                     <rect key="frame" x="37" y="536" width="346" height="2"/>
@@ -803,6 +821,10 @@ liked your post. </string>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljg-It-diD" userLabel="imageTap">
                                                     <rect key="frame" x="0.0" y="93" width="414" height="414"/>
+                                                    <connections>
+                                                        <action selector="imageTapBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="YeP-4S-8sX"/>
+                                                        <segue destination="piz-fy-Ml8" kind="show" identifier="showProfileFromFeed" id="1HX-Kx-0MM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1745,13 +1767,13 @@ liked your post. </string>
     </scenes>
     <resources>
         <image name="already_have_account" width="151" height="25"/>
-        <image name="comment_big" width="21" height="21"/>
+        <image name="comment_big" width="103" height="25"/>
         <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>
-        <image name="like_big" width="17" height="24"/>
+        <image name="like_big" width="69" height="28"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
         <image name="medical_records" width="29" height="25"/>
@@ -1770,9 +1792,10 @@ liked your post. </string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gbH-JH-B03"/>
-        <segue reference="hrC-N6-Ojl"/>
         <segue reference="iQM-6t-9n6"/>
+        <segue reference="fbK-Hd-8MT"/>
+        <segue reference="sdT-Ly-hNR"/>
+        <segue reference="1HX-Kx-0MM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
