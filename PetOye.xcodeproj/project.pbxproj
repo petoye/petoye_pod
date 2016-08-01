@@ -13,6 +13,7 @@
 		E44A71D21D4A002200FDA473 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CE1D4A002200FDA473 /* FBSDKCoreKit.framework */; };
 		E44A71D31D4A002200FDA473 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CF1D4A002200FDA473 /* FBSDKLoginKit.framework */; };
 		E44A71D41D4A002200FDA473 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71D01D4A002200FDA473 /* FBSDKShareKit.framework */; };
+		E45592201D4F4EBC00D36B28 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455921F1D4F4EBC00D36B28 /* CommentsViewController.swift */; };
 		E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4579DCF1D07118300E52D4D /* AppDelegate.swift */; };
 		E4579DD71D07118300E52D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4579DD51D07118300E52D4D /* Main.storyboard */; };
 		E4579DD91D07118300E52D4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4579DD81D07118300E52D4D /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		E44A71CE1D4A002200FDA473 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E44A71CF1D4A002200FDA473 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E44A71D01D4A002200FDA473 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		E455921F1D4F4EBC00D36B28 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = ../CommentsViewController.swift; sourceTree = "<group>"; };
 		E4579DCC1D07118300E52D4D /* PetOye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetOye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4579DCF1D07118300E52D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4579DD61D07118300E52D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */,
 				E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */,
 				E4FDD9B21D4CB43800E7610B /* feed.swift */,
+				E455921F1D4F4EBC00D36B28 /* CommentsViewController.swift */,
 				E4579DD81D07118300E52D4D /* Assets.xcassets */,
 				E4579DDD1D07118300E52D4D /* Info.plist */,
 				E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */,
@@ -201,6 +204,7 @@
 				E4FDD9B31D4CB43800E7610B /* feed.swift in Sources */,
 				E4FDD9B11D4CA4E400E7610B /* TableViewController.swift in Sources */,
 				E4DE194A1D48C0B800AA4836 /* BasicInfoViewController.swift in Sources */,
+				E45592201D4F4EBC00D36B28 /* CommentsViewController.swift in Sources */,
 				E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
 				E4DE19461D48BFFE00AA4836 /* CreateAnAccountViewController.swift in Sources */,
