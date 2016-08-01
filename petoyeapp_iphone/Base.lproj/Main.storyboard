@@ -807,7 +807,6 @@ liked your post. </string>
                                                     <rect key="frame" x="0.0" y="93" width="414" height="414"/>
                                                     <connections>
                                                         <action selector="imageTapBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="YeP-4S-8sX"/>
-                                                        <segue destination="piz-fy-Ml8" kind="show" identifier="showProfileFromFeed" id="1HX-Kx-0MM"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSt-30-FxF">
@@ -826,7 +825,7 @@ liked your post. </string>
                                                         <action selector="likeBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="5NN-Iq-jds"/>
                                                     </connections>
                                                 </button>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="like_selected" translatesAutoresizingMaskIntoConstraints="NO" id="2UG-ww-ivp">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="like_selected" translatesAutoresizingMaskIntoConstraints="NO" id="2UG-ww-ivp">
                                                     <rect key="frame" x="51" y="547" width="22" height="29"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
                                                 </imageView>
@@ -1801,7 +1800,6 @@ liked your post. </string>
         <segue reference="iQM-6t-9n6"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
-        <segue reference="1HX-Kx-0MM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

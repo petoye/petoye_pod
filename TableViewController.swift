@@ -17,6 +17,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var message = [String]()
     var like_count = [String]()
     var comment_count = [String]()
+    var post_id = [String]()
    
 
     
@@ -59,6 +60,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     //print(innerItem["like_count"])
                     //print(innerItem["comment_count"])
                     self.username.append(item["username"].stringValue)
+                    self.post_id.append(innerItem["id"].stringValue)
                     self.message.append(innerItem["message"].stringValue)
                     self.like_count.append(innerItem["like_count"].stringValue)
                     self.comment_count.append(innerItem["comment_count"].stringValue)
@@ -77,6 +79,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             print(self.like_count)
             print(self.comment_count)
             print(self.post_user_id)
+            print(self.post_id)
 
             
             //for now doing nearby feeds
@@ -108,6 +111,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             userDefault.setObject(message, forKey: "storedPostMessage")
             userDefault.setObject(like_count, forKey: "storedPostLikeCount")
             userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
+            userDefault.setObject(post_id, forKey: "storedPostId")
             userDefault.synchronize()
             
             cell.message.text = message[indexPath.row]
@@ -115,6 +119,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.commentcount.text = comment_count[indexPath.row]
             
             cell.usernamePress.tag = indexPath.row
+            cell.likePress.tag = indexPath.row
             cell.like_selected.hidden = true
             
             return cell
