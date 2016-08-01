@@ -115,6 +115,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.commentcount.text = comment_count[indexPath.row]
             
             cell.usernamePress.tag = indexPath.row
+            cell.like_selected.hidden = true
             
             return cell
             

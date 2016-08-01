@@ -779,22 +779,6 @@ liked your post. </string>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxK-2t-Vqa">
-                                                    <rect key="frame" x="51" y="547" width="69" height="28"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
-                                                    <state key="normal" image="like_big"/>
-                                                    <connections>
-                                                        <action selector="likeBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="PSA-ja-fFU"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwh-B3-0Sn">
-                                                    <rect key="frame" x="155" y="550" width="103" height="25"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="6D599FA2-7727-4EB0-96CD-DDD0932AFCE5-asset"/>
-                                                    <state key="normal" image="comment_big"/>
-                                                    <connections>
-                                                        <action selector="commentBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="TTF-IJ-TKn"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Von-Sy-N2R">
                                                     <rect key="frame" x="327" y="553" width="41" height="16"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="5B3BF7B8-A186-4FBC-A66F-646E795D06CE"/>
@@ -826,14 +810,35 @@ liked your post. </string>
                                                         <segue destination="piz-fy-Ml8" kind="show" identifier="showProfileFromFeed" id="1HX-Kx-0MM"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSt-30-FxF">
+                                                    <rect key="frame" x="155" y="550" width="103" height="25"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="6D599FA2-7727-4EB0-96CD-DDD0932AFCE5-asset"/>
+                                                    <state key="normal" image="comment_big"/>
+                                                    <connections>
+                                                        <action selector="commentBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="v4d-2Y-3Yp"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-c4-JOT">
+                                                    <rect key="frame" x="51" y="547" width="69" height="28"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
+                                                    <state key="normal" image="like_unselected"/>
+                                                    <connections>
+                                                        <action selector="likeBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="5NN-Iq-jds"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="like_selected" translatesAutoresizingMaskIntoConstraints="NO" id="2UG-ww-ivp">
+                                                    <rect key="frame" x="51" y="547" width="22" height="29"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentPress" destination="zwh-B3-0Sn" id="esu-X4-nr4"/>
+                                            <outlet property="commentPress" destination="uSt-30-FxF" id="LwP-CT-dSs"/>
                                             <outlet property="commentcount" destination="P1N-2N-j6x" id="ePF-mZ-iOt"/>
                                             <outlet property="comments" destination="xr1-3r-3rf" id="fJ3-UE-ber"/>
                                             <outlet property="imageTap" destination="Ljg-It-diD" id="EJx-wB-vpY"/>
-                                            <outlet property="likePress" destination="YxK-2t-Vqa" id="9ep-11-M6D"/>
+                                            <outlet property="likePress" destination="LDk-c4-JOT" id="mty-iL-jst"/>
+                                            <outlet property="like_selected" destination="2UG-ww-ivp" id="8nM-rA-4Wh"/>
                                             <outlet property="likecount" destination="aKh-QG-dwQ" id="LIQ-af-RG1"/>
                                             <outlet property="likes" destination="tXP-up-czl" id="jga-fm-XA3"/>
                                             <outlet property="message" destination="Xii-td-SSW" id="z26-aR-h6z"/>
@@ -1773,7 +1778,8 @@ liked your post. </string>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>
-        <image name="like_big" width="69" height="28"/>
+        <image name="like_selected" width="22" height="29"/>
+        <image name="like_unselected" width="69" height="28"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
         <image name="medical_records" width="29" height="25"/>
