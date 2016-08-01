@@ -722,6 +722,50 @@ liked your post. </string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2HH-yh-7YO">
+                                <rect key="frame" x="0.0" y="74" width="414" height="441"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="comment" rowHeight="66" id="v9p-9k-QAH" userLabel="comment_cell" customClass="comment_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v9p-9k-QAH" id="tB7-Ir-frA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Wow!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exP-f3-MMt">
+                                                    <rect key="frame" x="105" y="34" width="300" height="30"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="50E28EC8-1B0C-46EE-A22F-2A104671D89F"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deU-UD-r3x">
+                                                    <rect key="frame" x="20" y="9" width="50" height="49"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Keerti Karande" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX6-6D-4eC">
+                                                    <rect key="frame" x="105" y="8" width="300" height="23"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="8215AFFE-BC17-42D0-A9A5-DEEBEA906B77"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
+                                                    <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="comment_message" destination="exP-f3-MMt" id="gLn-gB-BIW"/>
+                                            <outlet property="profilePic" destination="deU-UD-r3x" id="zPs-FQ-7e1"/>
+                                            <outlet property="user_name" destination="oX6-6D-4eC" id="mxT-0p-GFG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uTk-rr-tqL" id="qGd-e3-oaD"/>
+                                    <outlet property="delegate" destination="uTk-rr-tqL" id="tma-gR-3fC"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

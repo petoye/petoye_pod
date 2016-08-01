@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentsViewController: UIViewController {
+class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var commentbox: UIView!
     
@@ -21,6 +21,10 @@ class CommentsViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         comment.becomeFirstResponder()
         self.hideKeyboardWhenTappedAround()
+        
+        //downloading comments for a post
+        
+        
         
         
     }
@@ -49,6 +53,30 @@ class CommentsViewController: UIViewController {
     @IBAction func commentBut(sender: AnyObject) {
         print("pressed")
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return username.count
+        return 3
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
+        UITableViewCell{
+            let cell = tableView.dequeueReusableCellWithIdentifier("comment", forIndexPath: indexPath) as! comment_cell
+            //cell.textLabel?.text = "TEST"
+            cell.comment_message.text = "amazing stuff"
+            cell.user_name.text = "Messi"
+            cell.profilePic.image = UIImage(named: "dawg.png")
+            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+            cell.profilePic.clipsToBounds = true
+            //self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+            //self.profileImageView.clipsToBounds = YES;
+            
+            return cell
+            
+    }
+
 
     /*
     // MARK: - Navigation

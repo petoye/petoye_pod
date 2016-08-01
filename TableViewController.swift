@@ -99,6 +99,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //cell.textLabel?.text = "TEST"
             
             cell.postedImage.image = UIImage(named: "IMG_2623.png")
+            cell.profilePic.image = UIImage(named: "dawg.png")
+            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+            cell.profilePic.clipsToBounds = true
+            
             cell.username.text = username[indexPath.row]
             
             //cell.userNameArray?.append("1")
