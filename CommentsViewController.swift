@@ -15,6 +15,10 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var comment: UITextField!
     
     @IBOutlet weak var commentTable: UITableView!
+    
+    var commentField: UITextField = UITextField()
+    
+    var button = UIButton(type: .Custom)
 
     
     
@@ -37,12 +41,12 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
          self.view.addSubview(button)
          */
         
-        let button = UIButton(type: .Custom)
+        var button = UIButton(type: .Custom)
         button.setImage(UIImage(named: "comment_add.png"), forState: UIControlState.Normal)
         button.addTarget(self, action: #selector(CommentsViewController.commentBut(_:)), forControlEvents: .TouchUpInside)
         button.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width * 0.225) - 5 , y: 12.5, width: self.view.frame.size.width * 0.225, height: 25)
         
-        var commentField: UITextField = UITextField()
+        
         commentField.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width * 0.225) - 5 - (self.view.frame.size.width * 0.6) - 9, y: 10, width: self.view.frame.size.width * 0.6, height: 30)
         commentField.backgroundColor = UIColor.whiteColor()
         //commentField.borderStyle = .RoundedRect
@@ -52,8 +56,14 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let attributes = [
             NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 15)! // Note the !
         ]
-        commentField.textAlignment = .Center
-        commentField.attributedPlaceholder = NSAttributedString(string: "Add your comment...", attributes:attributes)
+        commentField.textAlignment = .Left
+        commentField.attributedPlaceholder = NSAttributedString(string: "   Tap to add comment...", attributes:attributes)
+        var paddingView: UIView = UIView(frame: CGRectMake(0, 0, 10, commentField.frame.size.height))
+        commentField.leftView = paddingView
+        
+        commentField.leftViewMode = .Always
+
+        
         
         let commentIcon: UIImageView = UIImageView()
         commentIcon.image = UIImage(named: "add_comment.png")
@@ -71,13 +81,13 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         comment.inputAccessoryView = customView
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
-        //comment.becomeFirstResponder()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        comment.becomeFirstResponder()
         self.hideKeyboardWhenTappedAround()
         
         //downloading comments for a post
-        let data = 10//userDefault.objectForKey("storedPidForComment")!
+        let data = 1//userDefault.objectForKey("storedPidForComment")!
         print(data)
         
         
@@ -119,23 +129,26 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         task.resume()
     }
     
-    /*func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(notification: NSNotification) {
      
-     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+     //if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
      //self.view.frame.origin.y -= keyboardSize.height
      //self.commentbox.frame.origin.y = self.view.frame.size.height - keyboardSize.height
-     commentbox.frame = CGRect(x: 0, y: self.view.frame.size.height - keyboardSize.height, width: keyboardSize.width, height: 50)
-     }
-     
+     //commentbox.frame = CGRect(x: 0, y: self.view.frame.size.height - keyboardSize.height, width: keyboardSize.width, height: 50)
+     //}
+        
+        //comment.text = commentField.text
+        //commentField.text = comment.text
      }
      
      func keyboardWillHide(notification: NSNotification) {
-     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+     //if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
      //self.view.frame.origin.y += keyboardSize.height
      
+     //}
+        comment.text = ""
      }
-     }
-     */
+    
     
     func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
@@ -152,11 +165,13 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func commentBut(sender: AnyObject) {
         print("pressed")
-        
+        commentField.text = ""
         //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
         //print(id)
         
-        var commentmessage = comment.text!
+        var commentmessage = commentField.text!
+        print(commentmessage)
+  /*
         let post_id = 6 //userDefault.objectForKey("storedPidForComment")!
         print(post_id)
         let u_id = userDefault.objectForKey("id")
@@ -165,7 +180,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         comment.endEditing(true)
         
         // add a comment api call
-        
+  
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(post_id)/comment")!)
         request.HTTPMethod = "POST"
         let postString = "uid=6&comment=\(commentmessage)"
@@ -195,7 +210,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }
         task.resume()
-        
+ */
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
