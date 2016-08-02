@@ -161,7 +161,7 @@ class feed: UITableViewCell {
         let data = userDefault.objectForKey("storedPostId") as! [String]
         //print(data[commentPress.tag])
         let pid = data[commentPress.tag]
-        NSUserDefaults.standardUserDefaults().setValue("\(pid)", forKey: "storedPidForComment")
+        NSUserDefaults.standardUserDefaults().setValue("\(pid)", forKey: "storedPidForLike")
         
         if(self.delegate != nil){ //Just to be safe.
             print(pid)

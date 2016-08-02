@@ -4,10 +4,52 @@ import UIKit
 
 class LikesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    var username = [String]()
+    
+    @IBOutlet weak var likeTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let data = 3//userDefault.objectForKey("storedPidForLike")!
+        print(data)
+        
+        
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(data)/showlike")!)
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
             }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            print(responseString)
+            
+            let json = JSON(data: data!)
+            
+            for item in json["feeds"].arrayValue {
+                
+                //print(item["username"].stringValue)
+                self.username.append(item["username"].stringValue)
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    self.likeTable.reloadData()
+                })
+
+            }
+            print(self.username)
+        }
+        task.resume()
+
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -19,14 +61,17 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return username.count
-        return 3
+        return username.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
             let cell = tableView.dequeueReusableCellWithIdentifier("likes", forIndexPath: indexPath) as! like_cell
             //cell.textLabel?.text = "TEST"
-            cell.username.text = "wow"
+            cell.username.text = username[indexPath.row]
+            cell.profilePic.image = UIImage(named: "dawg.png")
+            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+            cell.profilePic.clipsToBounds = true
+
             return cell
     }
     
