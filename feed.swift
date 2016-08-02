@@ -10,6 +10,7 @@ import UIKit
 
 protocol MyCustomCellDelegator {
     func callSegueFromCell(data dataobject: AnyObject)
+    func callLikedBySegueFromCell(data dataobject: AnyObject)
 }
 
 
@@ -22,7 +23,6 @@ class feed: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var timestamp: UILabel!
     @IBOutlet weak var message: UILabel!
-    @IBOutlet weak var likes: UILabel!
     @IBOutlet weak var likecount: UILabel!
     @IBOutlet weak var commentcount: UILabel!
     @IBOutlet weak var comments: UILabel!
@@ -156,6 +156,19 @@ class feed: UITableViewCell {
         
     }
     
+    @IBAction func likedByBut(sender: AnyObject) {
+        let data = userDefault.objectForKey("storedPostId") as! [String]
+        //print(data[commentPress.tag])
+        let pid = data[commentPress.tag]
+        NSUserDefaults.standardUserDefaults().setValue("\(pid)", forKey: "storedPidForComment")
+        
+        if(self.delegate != nil){ //Just to be safe.
+            print(pid)
+            self.delegate.callSegueFromCell(data: pid)
+            //print("in")
+        }
+
+    }
     
     @IBAction func share1But(sender: AnyObject) {
     }

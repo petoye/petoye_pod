@@ -792,7 +792,7 @@ liked your post. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVO-Di-eXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="-1437"/>
+            <point key="canvasLocation" x="369" y="-1448"/>
         </scene>
         <!--Home-->
         <scene sceneID="czb-n4-82u">
@@ -933,14 +933,6 @@ liked your post. </string>
                                                     <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="1D877AFA-AF7D-448F-B249-6CA9DB0CFB1D"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Likes" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXP-up-czl">
-                                                    <rect key="frame" x="64" y="514" width="29" height="15"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="10A36C01-342E-4B2E-9D4C-9E56DF6EC05F"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                    <color key="textColor" red="0.72549019609999998" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="880" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-QG-dwQ">
                                                     <rect key="frame" x="41" y="514" width="21" height="15"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="4378E8F1-171E-491B-B0E1-F924A0A687A2"/>
@@ -1017,6 +1009,17 @@ liked your post. </string>
                                                     <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
                                                     <state key="normal" image="like_unselected1"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vf-br-JZe">
+                                                    <rect key="frame" x="31" y="513" width="62" height="18"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="10A36C01-342E-4B2E-9D4C-9E56DF6EC05F"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                    <state key="normal" title="Likes">
+                                                        <color key="titleColor" red="0.72549019607843135" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="likedByBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="HGL-6h-rWa"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1027,7 +1030,6 @@ liked your post. </string>
                                             <outlet property="likePress" destination="LDk-c4-JOT" id="mty-iL-jst"/>
                                             <outlet property="like_selected" destination="4J2-0A-DJP" id="4Va-Sg-clN"/>
                                             <outlet property="likecount" destination="aKh-QG-dwQ" id="LIQ-af-RG1"/>
-                                            <outlet property="likes" destination="tXP-up-czl" id="jga-fm-XA3"/>
                                             <outlet property="message" destination="Xii-td-SSW" id="z26-aR-h6z"/>
                                             <outlet property="postedImage" destination="SUv-ne-UU9" id="XEu-qc-Rku"/>
                                             <outlet property="profilePic" destination="WjD-dx-Kcg" id="z0x-Qy-3fy"/>
