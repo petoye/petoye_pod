@@ -8,9 +8,11 @@
 
 import UIKit
 
-protocol FeedCellDelegate {
-    func feedCell(didPressUsernameButtonInCell: feed)
+protocol MyCustomCellDelegator {
+    func callSegueFromCell(data dataobject: AnyObject)
 }
+
+
 
 
 class feed: UITableViewCell {
@@ -35,10 +37,11 @@ class feed: UITableViewCell {
     @IBOutlet weak var share1Press: UIButton!
     @IBOutlet weak var share2Press: UIButton!
     @IBOutlet weak var imageTap: UIButton!
-    @IBOutlet weak var like_selected: UIImageView!
+    @IBOutlet weak var like_selected: UIButton!
     
-    var delegate: FeedCellDelegate?
-    
+    //var delegate: FeedCellDelegate?
+    var delegate:MyCustomCellDelegator!
+
     //var userNameArray:[String]?
     
     @IBAction func usernameBut(sender: AnyObject) {
@@ -139,8 +142,17 @@ class feed: UITableViewCell {
     @IBAction func commentBut(sender: AnyObject) {
         
         let data = userDefault.objectForKey("storedPostId") as! [String]
-        print(data[commentPress.tag])
+        //print(data[commentPress.tag])
+        let pid = data[commentPress.tag]
+        NSUserDefaults.standardUserDefaults().setValue("\(pid)", forKey: "storedPidForComment")
         
+        //var pid = "Anydata you want to send to the next controller"
+        
+        if(self.delegate != nil){ //Just to be safe.
+            print(pid)
+            self.delegate.callSegueFromCell(data: pid)
+            //print("in")
+        }
         
     }
     

@@ -8,7 +8,7 @@
 
 var userDefault = NSUserDefaults.standardUserDefaults()
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator {
     
     @IBOutlet weak var feedTable: UITableView!
     
@@ -97,7 +97,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         UITableViewCell{
             let cell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath) as! feed
             //cell.textLabel?.text = "TEST"
-            
+            cell.delegate = self
+
             cell.postedImage.image = UIImage(named: "IMG_2623.png")
             cell.profilePic.image = UIImage(named: "dawg.png")
             cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
@@ -137,5 +138,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Do your event-handling
         print(cell.usernamePress.tag)
         print(username[cell.usernamePress.tag])
+    }
+    
+    func callSegueFromCell(data dataobject: AnyObject) {
+        //try not to send self, just to avoid retain cycles(depends on how you handle the code on the next controller)
+        self.performSegueWithIdentifier("trendingCommentShower", sender:dataobject )
+        
     }
 }

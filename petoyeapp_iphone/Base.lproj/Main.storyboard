@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uTk-rr-tqL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PGw-Ef-JFS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -635,6 +635,9 @@ liked your post. </string>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
                                                 <state key="normal" image="back"/>
+                                                <connections>
+                                                    <segue destination="PGw-Ef-JFS" kind="show" id="met-4k-d8Q"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -734,7 +737,7 @@ liked your post. </string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Wow!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exP-f3-MMt">
-                                                    <rect key="frame" x="105" y="34" width="300" height="30"/>
+                                                    <rect key="frame" x="85" y="34" width="300" height="30"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="50E28EC8-1B0C-46EE-A22F-2A104671D89F"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -742,10 +745,10 @@ liked your post. </string>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deU-UD-r3x">
-                                                    <rect key="frame" x="20" y="9" width="50" height="49"/>
+                                                    <rect key="frame" x="10" y="9" width="50" height="49"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Keerti Karande" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX6-6D-4eC">
-                                                    <rect key="frame" x="105" y="8" width="300" height="23"/>
+                                                    <rect key="frame" x="85" y="8" width="300" height="23"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="8215AFFE-BC17-42D0-A9A5-DEEBEA906B77"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
                                                     <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -779,6 +782,7 @@ liked your post. </string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="comment" destination="0Io-FY-tEi" id="IPv-I0-mVm"/>
+                        <outlet property="commentTable" destination="2HH-yh-7YO" id="PdG-Di-nKE"/>
                         <outlet property="commentbox" destination="Ic6-pe-Rof" id="cxW-B1-AjR"/>
                     </connections>
                 </viewController>
@@ -985,6 +989,7 @@ liked your post. </string>
                                                     <rect key="frame" x="0.0" y="93" width="414" height="414"/>
                                                     <connections>
                                                         <action selector="imageTapBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="YeP-4S-8sX"/>
+                                                        <segue destination="uTk-rr-tqL" kind="show" identifier="trendingCommentShower" id="hxz-kY-RAs"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSt-30-FxF">
@@ -1003,10 +1008,11 @@ liked your post. </string>
                                                         <action selector="likeBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="5NN-Iq-jds"/>
                                                     </connections>
                                                 </button>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="like_selected" translatesAutoresizingMaskIntoConstraints="NO" id="2UG-ww-ivp">
-                                                    <rect key="frame" x="51" y="547" width="22" height="29"/>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4J2-0A-DJP">
+                                                    <rect key="frame" x="51" y="547" width="69" height="28"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
-                                                </imageView>
+                                                    <state key="normal" image="like_unselected1"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1015,7 +1021,7 @@ liked your post. </string>
                                             <outlet property="comments" destination="xr1-3r-3rf" id="fJ3-UE-ber"/>
                                             <outlet property="imageTap" destination="Ljg-It-diD" id="EJx-wB-vpY"/>
                                             <outlet property="likePress" destination="LDk-c4-JOT" id="mty-iL-jst"/>
-                                            <outlet property="like_selected" destination="2UG-ww-ivp" id="8nM-rA-4Wh"/>
+                                            <outlet property="like_selected" destination="4J2-0A-DJP" id="4Va-Sg-clN"/>
                                             <outlet property="likecount" destination="aKh-QG-dwQ" id="LIQ-af-RG1"/>
                                             <outlet property="likes" destination="tXP-up-czl" id="jga-fm-XA3"/>
                                             <outlet property="message" destination="Xii-td-SSW" id="z26-aR-h6z"/>
@@ -1957,8 +1963,8 @@ liked your post. </string>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>
-        <image name="like_selected" width="22" height="29"/>
         <image name="like_unselected" width="69" height="28"/>
+        <image name="like_unselected1" width="69" height="28"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
         <image name="medical_records" width="29" height="25"/>
@@ -1977,6 +1983,7 @@ liked your post. </string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="met-4k-d8Q"/>
         <segue reference="iQM-6t-9n6"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
