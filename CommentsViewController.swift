@@ -55,15 +55,15 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         commentField.textAlignment = .Center
         commentField.attributedPlaceholder = NSAttributedString(string: "Add your comment...", attributes:attributes)
         
-        //let commentIcon: UIImageView = UIImageView()
-        //commentIcon.image = UIImage(named: "add_comment.png")
-        //commentIcon.frame = CGRect(x: 10, y: 15, width: 21, height: 20)
+        let commentIcon: UIImageView = UIImageView()
+        commentIcon.image = UIImage(named: "add_comment.png")
+        commentIcon.frame = CGRect(x: 10, y: 15, width: 21, height: 20)
         
         
         customView.addSubview(commentField)
         
         //self.view.addSubview(commentIcon)
-        //customView.addSubview(commentIcon)
+        customView.addSubview(commentIcon)
         
         customView.addSubview(button)
         
