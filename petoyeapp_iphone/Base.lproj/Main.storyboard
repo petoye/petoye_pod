@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cgY-MP-jzm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XQa-pH-P7k">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1161,7 +1161,7 @@ liked your post. </string>
         <!--Discover-->
         <scene sceneID="Nxw-yT-PN3">
             <objects>
-                <viewController title="Discover" id="XQa-pH-P7k" sceneMemberID="viewController">
+                <viewController title="Discover" id="XQa-pH-P7k" customClass="discoverViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hP1-SY-UCx"/>
                         <viewControllerLayoutGuide type="bottom" id="2z7-7W-Wvo"/>
@@ -1181,188 +1181,83 @@ liked your post. </string>
                                     <navigationItem title="Discover" prompt=" " id="kFj-Xd-38j"/>
                                 </items>
                             </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0am-cK-e8z">
-                                <rect key="frame" x="23" y="84" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="D4E40B1A-2847-457F-91F1-9DD7A3DBA0E4"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbQ-Lv-95v">
-                                <rect key="frame" x="96" y="80" width="149" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="2BFE150C-5149-4E0D-9087-ABB008622CC5"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet owner - Pug" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFU-Qu-UFW">
-                                <rect key="frame" x="96" y="112" width="129" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="FAC68175-5A29-4C3F-AD60-4019CC26885D"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgV-Ey-asH">
-                                <rect key="frame" x="23" y="165" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="54C045AA-4DF5-4C4D-8AE3-F3E9C83CD489"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Cristiano Ronaldo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6b-Gh-cpD">
-                                <rect key="frame" x="96" y="161" width="175" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="90EDD79F-8B4F-42C6-A4B7-A753AA847B05"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet lover - Dog" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tra-Dz-mnr">
-                                <rect key="frame" x="96" y="193" width="120" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="6F7A3A75-CA6C-4A43-8E6C-3AAE4F31A45E"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Lionel Messi" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPt-dB-PyW">
-                                <rect key="frame" x="96" y="242" width="122" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="543465D8-0B02-4C88-B684-77BC0EE45A9C"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wzR-kN-cX6">
-                                <rect key="frame" x="23" y="246" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="F32447A6-B61B-4248-BB7A-07C95EC99D64"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet owner - Dalmation" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu0-ux-e5C">
-                                <rect key="frame" x="96" y="274" width="178" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="3858BB6F-B674-4E9A-B64E-E2A85092837D"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AwZ-Uk-92X">
-                                <rect key="frame" x="23" y="327" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="0BC086EB-519D-47A4-871D-6AC9AE512829"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Taylor Swift" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUN-cb-Jh3">
-                                <rect key="frame" x="96" y="323" width="113" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="31C24E25-6A2C-4A38-A7D3-A7AA4D155FF6"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet owner - Labrador" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oju-AC-kbt">
-                                <rect key="frame" x="96" y="354" width="169" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="C6CE2DC6-9720-4EF3-AF2E-98B9BDF0EFE7"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Arya Stark" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwx-WN-Zrg">
-                                <rect key="frame" x="96" y="403" width="103" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="D3FFD0BF-FCC2-432A-B28B-01EDBE524ECE"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K52-IT-83o">
-                                <rect key="frame" x="23" y="408" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="745F60EE-6C96-4F19-B960-27DF4F151D09"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet lover - Cat" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHR-RR-udi">
-                                <rect key="frame" x="96" y="435" width="115" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="09E2EFE8-6381-467E-84FE-82C8FDD25163"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Jon Snow" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsS-yd-Fs6">
-                                <rect key="frame" x="96" y="484" width="97" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="E6290F3C-35EE-42F1-A926-C9A3044E507F"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="POu-AI-7bN">
-                                <rect key="frame" x="23" y="488" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="E337758E-B354-4540-8D24-9D248BF62CDA"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet owner - Chihuaha" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDb-gn-Obs">
-                                <rect key="frame" x="96" y="516" width="174" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="BC215876-1DB2-49E6-B3C4-316A293009CC"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LB8-7w-Hqw">
-                                <rect key="frame" x="23" y="569" width="55" height="55"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="78A4A68E-0667-4D75-BC42-5551CFA58AF4"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="27.519999999999982"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Tanzeel Shaikh" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0az-oc-3pe">
-                                <rect key="frame" x="96" y="565" width="149" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="DDA74EF6-6B4E-4E9F-BBA6-1AB8E525DB79"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet lover - Hamster" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqI-E2-is3">
-                                <rect key="frame" x="96" y="597" width="155" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="1C637C1D-E795-4080-BFB5-328BD8B4CD22"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rga-rT-jeU">
+                                <rect key="frame" x="0.0" y="74" width="414" height="613"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="discover" rowHeight="75" id="Zvb-MA-ruM" customClass="discover_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zvb-MA-ruM" id="Ijw-Q5-7f4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThM-7o-pkU">
+                                                    <rect key="frame" x="96" y="8" width="149" height="26"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="2BFE150C-5149-4E0D-9087-ABB008622CC5"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
+                                                    <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet owner -" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGJ-ud-dsk">
+                                                    <rect key="frame" x="96" y="39" width="95" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="FAC68175-5A29-4C3F-AD60-4019CC26885D"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                    <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55B-vS-df8">
+                                                    <rect key="frame" x="23" y="9" width="55" height="55"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="D4E40B1A-2847-457F-91F1-9DD7A3DBA0E4"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="27.519999999999982"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pug" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1K-tz-A4d">
+                                                    <rect key="frame" x="191" y="39" width="91" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="FAC68175-5A29-4C3F-AD60-4019CC26885D"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                    <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-gg-NRz">
+                                                    <rect key="frame" x="321" y="24" width="72" height="26"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="48DC256B-9005-46B2-A23D-25A6311E5103-asset"/>
+                                                    <state key="normal" image="followed"/>
+                                                    <connections>
+                                                        <action selector="followed:" destination="Zvb-MA-ruM" eventType="touchUpInside" id="kNF-ek-1ut"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBC-V0-2Lu">
+                                                    <rect key="frame" x="322" y="24" width="72" height="26"/>
+                                                    <state key="normal" title="Button" image="follow"/>
+                                                    <connections>
+                                                        <action selector="to_follow:" destination="Zvb-MA-ruM" eventType="touchUpInside" id="cxw-Vj-4dc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="breed" destination="I1K-tz-A4d" id="Tpw-hP-BBO"/>
+                                            <outlet property="followedBut" destination="t8H-gg-NRz" id="5SR-zx-ilt"/>
+                                            <outlet property="owner_type" destination="gGJ-ud-dsk" id="7qG-aR-dGY"/>
+                                            <outlet property="profilePic" destination="55B-vS-df8" id="89p-Ff-75Y"/>
+                                            <outlet property="toFollowBut" destination="FBC-V0-2Lu" id="QEJ-iP-Wuo"/>
+                                            <outlet property="username" destination="ThM-7o-pkU" id="0Mg-zs-rxq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XQa-pH-P7k" id="MIv-vG-j7z"/>
+                                    <outlet property="delegate" destination="XQa-pH-P7k" id="XJY-4u-NUA"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1379,6 +1274,9 @@ liked your post. </string>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="discoverTable" destination="Rga-rT-jeU" id="TJX-8w-Bqm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgl-nF-fr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2050,6 +1948,8 @@ liked your post. </string>
         <image name="comment_big" width="103" height="25"/>
         <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
+        <image name="follow" width="70" height="26"/>
+        <image name="followed" width="70" height="26"/>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
         <image name="home" width="32" height="31"/>

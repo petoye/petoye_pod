@@ -49,16 +49,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let json = JSON(data: data!)
             
             for item in json["feeds"].arrayValue {
-                
-                //print(item["id"].stringValue)
-                //print(item["username"].stringValue)
-                
                 for innerItem in item["feeds"].arrayValue {
-                    //print(item["id"].stringValue)
-                    //print(item["username"].stringValue)
-                    //print(innerItem["message"])
-                    //print(innerItem["like_count"])
-                    //print(innerItem["comment_count"])
                     self.username.append(item["username"].stringValue)
                     self.post_id.append(innerItem["id"].stringValue)
                     self.message.append(innerItem["message"].stringValue)
@@ -69,10 +60,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.feedTable.reloadData()
                     })
-                    
-                    
                 }
-                
             }
             print(self.username)
             print(self.message)
@@ -111,12 +99,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             //storing usernames permanently for now
             //let storedUsernames = cell.username.text
-            userDefault.setObject(username, forKey: "storedPostUsername")
+            //userDefault.setObject(username, forKey: "storedPostUsername")
             userDefault.setObject(post_user_id, forKey: "storedPostUserId")
-            userDefault.setObject(message, forKey: "storedPostMessage")
-            userDefault.setObject(like_count, forKey: "storedPostLikeCount")
-            userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
-            userDefault.setObject(post_id, forKey: "storedPostId")
+            //userDefault.setObject(message, forKey: "storedPostMessage")
+            //userDefault.setObject(like_count, forKey: "storedPostLikeCount")
+            //userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
+            //userDefault.setObject(post_id, forKey: "storedPostId")
             userDefault.synchronize()
             
             cell.message.text = message[indexPath.row]
