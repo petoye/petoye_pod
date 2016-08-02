@@ -29,10 +29,11 @@ class feed: UITableViewCell {
     @IBOutlet weak var postedImage: UIImageView!
 
     @IBOutlet weak var profilePicPress: UIButton!
-    @IBOutlet weak var usernamePress: UIButton!
+    
     @IBOutlet weak var reportPress: UIButton!
     @IBOutlet weak var likePress: UIButton!
 
+    @IBOutlet weak var usernamePress: UIButton!
     @IBOutlet weak var commentPress: UIButton!
     @IBOutlet weak var share1Press: UIButton!
     @IBOutlet weak var share2Press: UIButton!
@@ -164,7 +165,7 @@ class feed: UITableViewCell {
         
         if(self.delegate != nil){ //Just to be safe.
             print(pid)
-            self.delegate.callSegueFromCell(data: pid)
+            self.delegate.callLikedBySegueFromCell(data: pid)
             //print("in")
         }
 

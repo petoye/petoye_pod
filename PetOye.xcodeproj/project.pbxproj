@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40E98611D50982100112273 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E98601D50982100112273 /* LikesViewController.swift */; };
+		E40E98651D509C1300112273 /* like_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E98641D509C1300112273 /* like_cell.swift */; };
 		E42049D81D4BAB34001A49F5 /* upvote.wav in Resources */ = {isa = PBXBuildFile; fileRef = E42049D71D4BAB34001A49F5 /* upvote.wav */; };
 		E42049DA1D4BAB52001A49F5 /* TiVo - Selection.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E42049D91D4BAB52001A49F5 /* TiVo - Selection.mp3 */; };
 		E44A71D11D4A002200FDA473 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CD1D4A002200FDA473 /* Bolts.framework */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E40E98601D50982100112273 /* LikesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikesViewController.swift; path = ../LikesViewController.swift; sourceTree = "<group>"; };
+		E40E98641D509C1300112273 /* like_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = like_cell.swift; path = ../like_cell.swift; sourceTree = "<group>"; };
 		E42049D71D4BAB34001A49F5 /* upvote.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upvote.wav; sourceTree = "<group>"; };
 		E42049D91D4BAB52001A49F5 /* TiVo - Selection.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "TiVo - Selection.mp3"; sourceTree = "<group>"; };
 		E44A71CC1D49FCBF00FDA473 /* PetOye-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetOye-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				E4FDD9B21D4CB43800E7610B /* feed.swift */,
 				E455921F1D4F4EBC00D36B28 /* CommentsViewController.swift */,
 				E45592231D4F685200D36B28 /* comment_cell.swift */,
+				E40E98601D50982100112273 /* LikesViewController.swift */,
+				E40E98641D509C1300112273 /* like_cell.swift */,
 				E4579DD81D07118300E52D4D /* Assets.xcassets */,
 				E4579DDD1D07118300E52D4D /* Info.plist */,
 				E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */,
@@ -207,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40E98611D50982100112273 /* LikesViewController.swift in Sources */,
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
 				E4FDD9B31D4CB43800E7610B /* feed.swift in Sources */,
 				E45592241D4F685200D36B28 /* comment_cell.swift in Sources */,
@@ -216,6 +223,7 @@
 				E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
 				E4DE19461D48BFFE00AA4836 /* CreateAnAccountViewController.swift in Sources */,
+				E40E98651D509C1300112273 /* like_cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uTk-rr-tqL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PGw-Ef-JFS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -794,6 +794,82 @@ liked your post. </string>
             </objects>
             <point key="canvasLocation" x="369" y="-1448"/>
         </scene>
+        <!--Likes View Controller-->
+        <scene sceneID="uuk-Qo-gCA">
+            <objects>
+                <viewController id="tjm-fV-O0b" customClass="LikesViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iAC-q4-6qy"/>
+                        <viewControllerLayoutGuide type="bottom" id="n9l-8f-jW2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fme-6s-oHi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOl-2T-ujp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Liked by" prompt=" " id="QSh-zF-2sp">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="gBO-3o-8IL">
+                                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HGC-NX-nRP">
+                                                <rect key="frame" x="20" y="38" width="11" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
+                                                <state key="normal" image="back"/>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zOR-vI-BY4">
+                                <rect key="frame" x="0.0" y="74" width="414" height="662"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="likes" rowHeight="52" id="eZ7-sN-UQN" customClass="like_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZ7-sN-UQN" id="oFB-fh-WuY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdB-w6-4C6">
+                                                    <rect key="frame" x="10" y="0.0" width="50" height="51"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Keerti Karande" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXc-nj-8Xo">
+                                                    <rect key="frame" x="75" y="14" width="132" height="23"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="8215AFFE-BC17-42D0-A9A5-DEEBEA906B77"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
+                                                    <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profilePic" destination="rdB-w6-4C6" id="G2b-9l-4PJ"/>
+                                            <outlet property="username" destination="iXc-nj-8Xo" id="WUA-wM-Mb1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tjm-fV-O0b" id="PG5-7b-oJi"/>
+                                    <outlet property="delegate" destination="tjm-fV-O0b" id="HGf-6P-eNw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4gS-3G-Awj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1053" y="-2287"/>
+        </scene>
         <!--Home-->
         <scene sceneID="czb-n4-82u">
             <objects>
@@ -908,12 +984,6 @@ liked your post. </string>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLa-pG-v0K" userLabel="usernameClick">
-                                                    <rect key="frame" x="101" y="12" width="152" height="25"/>
-                                                    <connections>
-                                                        <action selector="usernameBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="EQ6-yF-xlX"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DR-2d-Pcc" userLabel="report">
                                                     <rect key="frame" x="359" y="19" width="25" height="22"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
@@ -1020,6 +1090,9 @@ liked your post. </string>
                                                         <action selector="likedByBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="HGL-6h-rWa"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0j-XN-edl" userLabel="usernamePress">
+                                                    <rect key="frame" x="104" y="7" width="149" height="30"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1039,7 +1112,8 @@ liked your post. </string>
                                             <outlet property="share2Press" destination="Von-Sy-N2R" id="Aqf-6q-v7I"/>
                                             <outlet property="timestamp" destination="GMa-d3-u5C" id="cdk-iT-dHi"/>
                                             <outlet property="username" destination="fo8-8d-E7b" id="0jc-JN-QFX"/>
-                                            <outlet property="usernamePress" destination="lLa-pG-v0K" id="pdD-o9-V4V"/>
+                                            <outlet property="usernamePress" destination="O0j-XN-edl" id="Dlo-0C-BDM"/>
+                                            <segue destination="tjm-fV-O0b" kind="show" identifier="feedToLikedBy" id="LeH-1s-MEo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
