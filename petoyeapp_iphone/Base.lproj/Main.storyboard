@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XQa-pH-P7k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PGw-Ef-JFS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1061,7 +1061,7 @@ liked your post. </string>
                                                     <color key="backgroundColor" red="0.94901960780000005" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="BFFA16B4-D8BA-4A1A-ADA4-F29C6FFB79F7"/>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljg-It-diD" userLabel="imageTap">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljg-It-diD" userLabel="imageTap">
                                                     <rect key="frame" x="0.0" y="93" width="414" height="414"/>
                                                     <connections>
                                                         <action selector="imageTapBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="YeP-4S-8sX"/>
@@ -1076,6 +1076,11 @@ liked your post. </string>
                                                         <action selector="commentBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="v4d-2Y-3Yp"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4J2-0A-DJP">
+                                                    <rect key="frame" x="51" y="547" width="69" height="28"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
+                                                    <state key="normal" image="like_unselected1"/>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-c4-JOT">
                                                     <rect key="frame" x="51" y="547" width="69" height="28"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
@@ -1083,11 +1088,6 @@ liked your post. </string>
                                                     <connections>
                                                         <action selector="likeBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="5NN-Iq-jds"/>
                                                     </connections>
-                                                </button>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4J2-0A-DJP">
-                                                    <rect key="frame" x="51" y="547" width="69" height="28"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
-                                                    <state key="normal" image="like_unselected1"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vf-br-JZe">
                                                     <rect key="frame" x="31" y="513" width="62" height="18"/>
@@ -1101,7 +1101,10 @@ liked your post. </string>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0j-XN-edl" userLabel="usernamePress">
-                                                    <rect key="frame" x="104" y="7" width="149" height="30"/>
+                                                    <rect key="frame" x="104" y="9" width="149" height="30"/>
+                                                    <connections>
+                                                        <action selector="usernameBut:" destination="B2r-wT-Alt" eventType="touchUpInside" id="pm7-wd-GQV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1973,7 +1976,7 @@ liked your post. </string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CbK-xQ-OgU"/>
+        <segue reference="met-4k-d8Q"/>
         <segue reference="iQM-6t-9n6"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>

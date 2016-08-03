@@ -29,7 +29,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         //Get request for geting feeds
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/3/nearbyfeeds")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/4/nearbyfeeds")!)
         request.HTTPMethod = "GET"
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
@@ -104,7 +104,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //userDefault.setObject(message, forKey: "storedPostMessage")
             //userDefault.setObject(like_count, forKey: "storedPostLikeCount")
             //userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
-            //userDefault.setObject(post_id, forKey: "storedPostId")
+            userDefault.setObject(post_id, forKey: "storedPostId")
             userDefault.synchronize()
             
             cell.message.text = message[indexPath.row]
@@ -115,7 +115,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.usernamePress.tag = indexPath.row
             cell.likePress.tag = indexPath.row
             cell.commentPress.tag = indexPath.row
-            cell.like_selected.hidden = true
+            //cell.like_selected.hidden = true
             
             return cell
             
@@ -137,6 +137,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //try not to send self, just to avoid retain cycles(depends on how you handle the code on the next controller)
         self.performSegueWithIdentifier("feedToLikedBy", sender:dataobject )
         
+    }
+    func reloadLike() {
+        self.feedTable.reloadData()
     }
 
 }

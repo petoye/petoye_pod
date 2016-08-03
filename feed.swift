@@ -11,6 +11,7 @@ import UIKit
 protocol MyCustomCellDelegator {
     func callSegueFromCell(data dataobject: AnyObject)
     func callLikedBySegueFromCell(data dataobject: AnyObject)
+    func reloadLike()
 }
 
 
@@ -76,6 +77,10 @@ class feed: UITableViewCell {
         print(likePress.tag)
         var likedPostId = data[likePress.tag]
         var buttonId = Int(likedPostId)
+        likePress.viewWithTag(likePress.tag)?.hidden = true
+        self.delegate.reloadLike()
+        
+        
         
         //liking a post API call
         

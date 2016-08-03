@@ -25,7 +25,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        var u_id = 3
+        var u_id = 6
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(u_id)/discover")!)
         request.HTTPMethod = "GET"
         
