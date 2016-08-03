@@ -86,7 +86,7 @@ class feed: UITableViewCell {
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
         request.HTTPMethod = "POST"
-        let postString = "uid=42"
+        let postString = "uid=44"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -119,7 +119,7 @@ class feed: UITableViewCell {
                     print("already liked")
                     //print(buttonId!)
                     //print(self.likePress.tag)
-                    self.likePress.viewWithTag(self.likePress.tag)?.userInteractionEnabled = false
+                    //self.likePress.viewWithTag(self.likePress.tag)?.userInteractionEnabled = false
                     //self.like_selected.hidden = false
                     //self.like_selected.hidden = false
                     //self.likePress.viewWithTag(self.likePress.tag)?.hidden = true

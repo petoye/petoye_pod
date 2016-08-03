@@ -27,9 +27,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         feedTable.delegate = self
         feedTable.dataSource = self
         
+        
+        
         //Get request for geting feeds
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/4/nearbyfeeds")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/5/nearbyfeeds")!)
         request.HTTPMethod = "GET"
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in

@@ -23,6 +23,8 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        discoverTable.tableFooterView = UIView(frame: CGRectZero)
 
         // Do any additional setup after loading the view.
         var u_id = 6

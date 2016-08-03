@@ -38,8 +38,8 @@ class discover_cell: UITableViewCell {
  
         let my_id = 1//userDefault.objectForKey("id")
         //print("u_id=\(u_id)")
-        let his_id = userDefault.objectForKey("storedUserIds")
-        let hisid = his_id![toFollowBut.tag]
+        let his_id = userDefault.objectForKey("storedUserIds") as! [String]
+        let hisid = his_id[toFollowBut.tag]
         print(hisid)
         
         

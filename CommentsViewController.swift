@@ -30,6 +30,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        commentTable.tableFooterView = UIView(frame: CGRectZero)
+        
         let customView = UIView(frame: CGRectMake(0, 0, 10, 50))
         customView.backgroundColor = UIColorFromHex(0xF7F7F7,alpha: 1)
         /*
