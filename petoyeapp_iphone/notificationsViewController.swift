@@ -19,6 +19,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     var customView = UIView()
     var selectedView = UIView()
     
+    @IBOutlet weak var notifTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         notifications.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
         notifications.tag = 0
         messages.tag = 1
+        notifTable.reloadData()
         
     }
     
@@ -70,7 +72,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         messages.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
         messages.tag = 0
         notifications.tag = 1
-    
+        notifTable.reloadData()
     }
 
     
@@ -83,7 +85,29 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
     
-    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
+        UITableViewCell{
+            var cell = UITableViewCell()
+            
+            if notifications.tag == 1 {
+            cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath)
+            cell.textLabel?.text = "TEST"
+            }
+            else if messages.tag == 1 {
+                cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath)
+                cell.textLabel?.text = "hola2!"
+            }
+            return cell
+            
+            
+    }
+
     
     
     

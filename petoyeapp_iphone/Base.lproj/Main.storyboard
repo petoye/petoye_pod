@@ -476,6 +476,7 @@ you the opportunity to share it here!</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="messages" destination="Vui-v2-E0B" id="0B1-Ke-Pcf"/>
+                        <outlet property="notifTable" destination="nSF-jQ-1gE" id="t9L-lA-Ws5"/>
                         <outlet property="notifications" destination="Ksr-FX-rJ5" id="D7h-xg-3y0"/>
                         <outlet property="tool" destination="0KS-0v-i6e" id="6ay-Tt-Re7"/>
                         <outlet property="toolBar" destination="0KS-0v-i6e" id="deq-da-7UH"/>
