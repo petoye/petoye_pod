@@ -29,6 +29,9 @@
 		E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */ = {isa = PBXBuildFile; fileRef = E478A3081D4E39AA00865189 /* IMG_2623.png */; };
 		E4AFB6F21D53639C00FDD6B6 /* notificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */; };
 		E4AFB6F41D5363E600FDD6B6 /* messaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFB6F31D5363E600FDD6B6 /* messaViewController.swift */; };
+		E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B21D54478600B41A87 /* notification_cell.swift */; };
+		E4CA78B51D5447B900B41A87 /* conversation_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B41D5447B900B41A87 /* conversation_cell.swift */; };
+		E4CA78B71D544BAB00B41A87 /* notification2_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B61D544BAB00B41A87 /* notification2_cell.swift */; };
 		E4D116FD1D4A6DD4008DA903 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D116FC1D4A6DD4008DA903 /* CoreLocation.framework */; };
 		E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D116FE1D4A8EE5008DA903 /* SwiftyJSON.swift */; };
 		E4DE19361D47FC3000AA4836 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */; };
@@ -65,6 +68,9 @@
 		E478A3081D4E39AA00865189 /* IMG_2623.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2623.png; sourceTree = "<group>"; };
 		E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsViewController.swift; sourceTree = "<group>"; };
 		E4AFB6F31D5363E600FDD6B6 /* messaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = messaViewController.swift; path = ../messaViewController.swift; sourceTree = "<group>"; };
+		E4CA78B21D54478600B41A87 /* notification_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notification_cell.swift; sourceTree = "<group>"; };
+		E4CA78B41D5447B900B41A87 /* conversation_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversation_cell.swift; sourceTree = "<group>"; };
+		E4CA78B61D544BAB00B41A87 /* notification2_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notification2_cell.swift; sourceTree = "<group>"; };
 		E4D116FC1D4A6DD4008DA903 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E4D116FE1D4A8EE5008DA903 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		E4DE19351D47FC3000AA4836 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -94,6 +100,9 @@
 		E4579DC31D07118200E52D4D = {
 			isa = PBXGroup;
 			children = (
+				E4CA78B21D54478600B41A87 /* notification_cell.swift */,
+				E4CA78B41D5447B900B41A87 /* conversation_cell.swift */,
+				E4CA78B61D544BAB00B41A87 /* notification2_cell.swift */,
 				E4579DCE1D07118300E52D4D /* petoyeapp_iphone */,
 				E4579DCD1D07118300E52D4D /* Products */,
 			);
@@ -232,15 +241,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40E986B1D51BFFC00112273 /* messagesViewController.swift in Sources */,
+				E4CA78B51D5447B900B41A87 /* conversation_cell.swift in Sources */,
 				E40E98611D50982100112273 /* LikesViewController.swift in Sources */,
 				E4AFB6F41D5363E600FDD6B6 /* messaViewController.swift in Sources */,
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
 				E40E98691D50DE7600112273 /* discover_cell.swift in Sources */,
 				E4FDD9B31D4CB43800E7610B /* feed.swift in Sources */,
+				E4CA78B71D544BAB00B41A87 /* notification2_cell.swift in Sources */,
 				E45592241D4F685200D36B28 /* comment_cell.swift in Sources */,
 				E4FDD9B11D4CA4E400E7610B /* TableViewController.swift in Sources */,
 				E4DE194A1D48C0B800AA4836 /* BasicInfoViewController.swift in Sources */,
 				E45592201D4F4EBC00D36B28 /* CommentsViewController.swift in Sources */,
+				E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */,
 				E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
 				E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */,

@@ -18,6 +18,11 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     
     var customView = UIView()
     var selectedView = UIView()
+    var username = [String]()
+    var notif = [String]()
+    var u_id = [String]()
+    var p_id = [String]()
+
     
     @IBOutlet weak var notifTable: UITableView!
     
@@ -45,7 +50,63 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         //var swipeDown = UISwipeGestureRecognizer(target: self, action: "swiped:")
         //swipeDown.direction = UISwipeGestureRecognizerDirection.Down
         //self.view.addGestureRecognizer(swipeDown)
+        notifs()
     }
+    
+    func notifs() {
+        print("called")
+        
+        var data = 1
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(data)/notifications")!)
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            print(responseString)
+            
+            let json = JSON(data: data!)
+            //print(json["notifications"].arrayValue)
+            for item in (json["notifications"].arrayValue) {
+                //print("new")
+                //print(item.stringValue)
+                var str = item.stringValue
+                var str1 = str.componentsSeparatedByString("[")
+                self.username.append(str1[0].capitalizedString)
+                var str2 = str1[1].componentsSeparatedByString("]")
+                self.u_id.append(str2[0])
+                str2[1].removeAtIndex(str2[1].startIndex)
+                self.notif.append(str2[1])
+                if str1.count == 2{
+                    print("nothing")
+                    self.p_id.append("")
+                }
+                else if str1.count == 3{
+                    var str3 = str1[2].componentsSeparatedByString("]")
+                    self.p_id.append(str3[0])
+                }
+
+            }
+            print(self.username)
+            print(self.u_id)
+            print(self.notif)
+            print(self.p_id)
+            
+        }
+        task.resume()
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,13 +157,17 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             var cell = UITableViewCell()
             
             if notifications.tag == 1 {
-            cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath)
-            cell.textLabel?.text = "TEST"
+            //print("in notifications")
+                cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! notification_cell
+                //cell.textLabel?.text = "TEST"
+                
             }
             else if messages.tag == 1 {
+                //print("in messages")
                 cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath)
                 cell.textLabel?.text = "hola2!"
             }
+            
             return cell
             
             
