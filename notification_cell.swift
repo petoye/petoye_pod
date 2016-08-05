@@ -16,11 +16,4 @@ class notification_cell: UITableViewCell {
     
     @IBOutlet weak var followNotif: UILabel!
     
-    @IBOutlet weak var c_l_notif: UILabel!
-    
-    @IBOutlet weak var postButton: UIButton!
-    
-    @IBOutlet weak var postImage: UIImageView!
-
-    
 }

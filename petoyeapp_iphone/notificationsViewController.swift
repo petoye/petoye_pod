@@ -22,9 +22,11 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     var notif = [String]()
     var u_id = [String]()
     var p_id = [String]()
+    var username_m = [String]()
 
     
     @IBOutlet weak var notifTable: UITableView!
+    @IBOutlet weak var messageTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,8 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         self.view.addSubview(selectedView)
         
         selectedView.hidden = true
+        
+        messageTable.hidden = true
 
         // Do any additional setup after loading the view.
         
@@ -51,12 +55,13 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         //swipeDown.direction = UISwipeGestureRecognizerDirection.Down
         //self.view.addGestureRecognizer(swipeDown)
         notifs()
+        conversations()
     }
     
     func notifs() {
         print("called")
         
-        var data = 1
+        var data = 4
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(data)/notifications")!)
         request.HTTPMethod = "GET"
@@ -95,6 +100,9 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                     var str3 = str1[2].componentsSeparatedByString("]")
                     self.p_id.append(str3[0])
                 }
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    self.notifTable.reloadData()
+                })
 
             }
             print(self.username)
@@ -104,6 +112,44 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             
         }
         task.resume()
+        
+    }
+    
+    func conversations() {
+        
+        var data = 1
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/\(data)/all")!)
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            //print(responseString)
+            
+            let json = JSON(data: data!)
+            //print(json["notifications"].arrayValue)
+            for item in json["conversations"].arrayValue {
+                self.username_m.append(item["username"].stringValue)
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    self.messageTable.reloadData()
+                })
+
+            }
+            print(self.username_m)
+        }
+        task.resume()
+
         
     }
 
@@ -121,7 +167,9 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         notifications.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
         notifications.tag = 0
         messages.tag = 1
-        notifTable.reloadData()
+        //notifTable.reloadData()
+        notifTable.hidden = true
+        messageTable.hidden = false
         
     }
     
@@ -133,7 +181,10 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         messages.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
         messages.tag = 0
         notifications.tag = 1
-        notifTable.reloadData()
+        //notifTable.reloadData()
+        messageTable.hidden = true
+        notifTable.hidden = false
+        
     }
 
     
@@ -149,27 +200,67 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        var items = Int()
+        if(tableView == self.notifTable) {
+            items = username.count
+        }
+        else {
+            items = 3
+        }
+        return items
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
             var cell = UITableViewCell()
+            var index = [Int]()
             
-            if notifications.tag == 1 {
-            //print("in notifications")
-                cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! notification_cell
-                //cell.textLabel?.text = "TEST"
+            if(tableView==self.notifTable)
+            {
+                
+                    if p_id[indexPath.row].isEmpty {
+                        
+                    //cell for followed you
+                    let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! notification_cell
+                        cell.username.text = username[indexPath.row]
+                        cell.followNotif.text =
+                        notif[indexPath.row]
+                        cell.profilePic.image = UIImage(named: "dawg.png")
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                        cell.profilePic.clipsToBounds = true
+                        return cell
+ 
+                    }
+                    else {
+                        
+                        //cell for commented/liked
+                        let cell = tableView.dequeueReusableCellWithIdentifier("cell3", forIndexPath: indexPath) as! notification2_cell
+                        cell.username.text = username[indexPath.row]
+                        cell.c_l_notif.text = notif[indexPath.row]
+                        cell.profilePic.image = UIImage(named: "dawg.png")
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                        cell.profilePic.clipsToBounds = true
+                        cell.postImage.image = UIImage(named: "dawg1.png")
+                        //cell.postImage.layer.cornerRadius = cell.postImage.frame.size.width/2
+                        //cell.postImage.clipsToBounds = true
+                        return cell
+ 
+                    }
+ 
+                
                 
             }
-            else if messages.tag == 1 {
-                //print("in messages")
-                cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath)
-                cell.textLabel?.text = "hola2!"
+            else
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath)
+                cell.textLabel?.text = "hola"
+                
+                return cell
+                
             }
-            
-            return cell
-            
+
             
     }
 

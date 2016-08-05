@@ -440,18 +440,69 @@ you the opportunity to share it here!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                 <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nSF-jQ-1gE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kr2-pO-oVE">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="66" id="NyS-jS-t4O" customClass="notification_cell" customModule="PetOye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" id="HBs-Ey-NXT">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HBs-Ey-NXT" id="jT3-yo-9rP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nWJ-NL-ba1" id="0gB-BK-5rJ"/>
+                                    <outlet property="delegate" destination="nWJ-NL-ba1" id="Grh-9G-rhG"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nSF-jQ-1gE">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="70" id="NyS-jS-t4O" customClass="notification_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NyS-jS-t4O" id="IOq-k8-Bel">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSi-d8-8Ef">
+                                                    <rect key="frame" x="86" y="23" width="155" height="24"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="2AAAD9DF-9C44-400B-BF69-88970C9224D0"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                                    <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="udE-f6-Gcm">
+                                                    <rect key="frame" x="21" y="8" width="48" height="48"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="followed you. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnN-Qk-LDg">
+                                                    <rect key="frame" x="234" y="23" width="108" height="24"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="2AAAD9DF-9C44-400B-BF69-88970C9224D0"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="followNotif" destination="pnN-Qk-LDg" id="uOJ-gf-Aya"/>
+                                            <outlet property="profilePic" destination="udE-f6-Gcm" id="LWm-sg-yyi"/>
+                                            <outlet property="username" destination="ZSi-d8-8Ef" id="4Zd-mi-war"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" rowHeight="70" id="xt5-o7-d9d" customClass="notification2_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="98" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xt5-o7-d9d" id="3i0-hs-wMG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-xL-keN">
                                                     <rect key="frame" x="87" y="8" width="155" height="24"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="2AAAD9DF-9C44-400B-BF69-88970C9224D0"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
@@ -459,51 +510,27 @@ you the opportunity to share it here!</string>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="followed you. " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnN-Qk-LDg">
-                                                    <rect key="frame" x="216" y="8" width="108" height="24"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="2AAAD9DF-9C44-400B-BF69-88970C9224D0"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="commented on your" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3u-dr-c4b">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="commented on your" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihJ-wb-97A">
                                                     <rect key="frame" x="87" y="32" width="160" height="24"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="2AAAD9DF-9C44-400B-BF69-88970C9224D0"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="udE-f6-Gcm">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psG-Tb-1Zt">
                                                     <rect key="frame" x="21" y="8" width="48" height="48"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oY-pB-tDx">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jcq-9p-Yzb">
                                                     <rect key="frame" x="354" y="11" width="43" height="43"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7f6-Is-2ze">
-                                                    <rect key="frame" x="249" y="36" width="43" height="16"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
-                                                    <state key="normal" title="post.">
-                                                        <color key="titleColor" red="0.28627450980392155" green="0.39215686274509803" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="c_l_notif" destination="K3u-dr-c4b" id="ee7-Pv-E3X"/>
-                                            <outlet property="followNotif" destination="pnN-Qk-LDg" id="uOJ-gf-Aya"/>
-                                            <outlet property="postButton" destination="7f6-Is-2ze" id="vx2-P1-HWk"/>
-                                            <outlet property="postImage" destination="5oY-pB-tDx" id="lCH-wx-lLX"/>
-                                            <outlet property="profilePic" destination="udE-f6-Gcm" id="LWm-sg-yyi"/>
-                                            <outlet property="username" destination="ZSi-d8-8Ef" id="4Zd-mi-war"/>
+                                            <outlet property="c_l_notif" destination="ihJ-wb-97A" id="Ei7-sY-a7l"/>
+                                            <outlet property="postImage" destination="Jcq-9p-Yzb" id="5ce-OR-UpF"/>
+                                            <outlet property="profilePic" destination="psG-Tb-1Zt" id="xcU-rN-CVS"/>
+                                            <outlet property="username" destination="jkZ-xL-keN" id="11O-O6-2rH"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" rowHeight="79" id="70U-gs-8aO" customClass="message_cell" customModule="PetOye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="94" width="414" height="79"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="70U-gs-8aO" id="4P5-HA-bN5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -520,6 +547,7 @@ you the opportunity to share it here!</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="messageTable" destination="Kr2-pO-oVE" id="AQS-Rt-APW"/>
                         <outlet property="messages" destination="Vui-v2-E0B" id="0B1-Ke-Pcf"/>
                         <outlet property="notifTable" destination="nSF-jQ-1gE" id="t9L-lA-Ws5"/>
                         <outlet property="notifications" destination="Ksr-FX-rJ5" id="D7h-xg-3y0"/>
@@ -557,7 +585,7 @@ you the opportunity to share it here!</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsF-RP-0jH">
                                 <rect key="frame" x="234" y="392" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-AV-8Z8">
