@@ -167,8 +167,8 @@
                         <segue destination="PGw-Ef-JFS" kind="relationship" relationship="viewControllers" id="CbK-xQ-OgU"/>
                         <segue destination="XQa-pH-P7k" kind="relationship" relationship="viewControllers" id="sCC-hH-yHX"/>
                         <segue destination="cEK-xd-goU" kind="relationship" relationship="viewControllers" id="yfn-Dv-ADr"/>
-                        <segue destination="rMd-c3-zto" kind="relationship" relationship="viewControllers" id="Bmo-RU-ztF"/>
-                        <segue destination="piz-fy-Ml8" kind="relationship" relationship="viewControllers" id="l59-kP-Fpf"/>
+                        <segue destination="nWJ-NL-ba1" kind="relationship" relationship="viewControllers" id="GG4-Bt-RM2"/>
+                        <segue destination="piz-fy-Ml8" kind="relationship" relationship="viewControllers" id="hzn-lv-CAD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xms-mT-QxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -401,7 +401,7 @@ you the opportunity to share it here!</string>
             </objects>
             <point key="canvasLocation" x="961" y="599"/>
         </scene>
-        <!--Notifications View Controller-->
+        <!--Notifications-->
         <scene sceneID="aHS-vE-Sd0">
             <objects>
                 <viewController id="nWJ-NL-ba1" customClass="notificationsViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
@@ -440,24 +440,6 @@ you the opportunity to share it here!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                 <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kr2-pO-oVE">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" id="HBs-Ey-NXT">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HBs-Ey-NXT" id="jT3-yo-9rP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="nWJ-NL-ba1" id="0gB-BK-5rJ"/>
-                                    <outlet property="delegate" destination="nWJ-NL-ba1" id="Grh-9G-rhG"/>
-                                </connections>
-                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nSF-jQ-1gE">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -538,6 +520,50 @@ you the opportunity to share it here!</string>
                                     <outlet property="delegate" destination="nWJ-NL-ba1" id="ysf-Di-Gos"/>
                                 </connections>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kr2-pO-oVE">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" rowHeight="70" id="HBs-Ey-NXT" customClass="conversation_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HBs-Ey-NXT" id="jT3-yo-9rP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Hey!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anr-uB-eAT">
+                                                    <rect key="frame" x="92" y="42" width="211" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="5F572AE1-D1C0-46AF-BE21-2556A5503905"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                                    <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-oM-HmB">
+                                                    <rect key="frame" x="21" y="7" width="55" height="55"/>
+                                                </imageView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GH-fw-HP2">
+                                                    <rect key="frame" x="92" y="7" width="211" height="24"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="15162872-A09E-4A69-98AB-D4A251F74E9F"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                                    <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="last_message" destination="anr-uB-eAT" id="bdb-7h-jfc"/>
+                                            <outlet property="profilePic" destination="c0e-oM-HmB" id="rTb-yV-4IY"/>
+                                            <outlet property="username" destination="3GH-fw-HP2" id="uwG-ej-PxO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nWJ-NL-ba1" id="0gB-BK-5rJ"/>
+                                    <outlet property="delegate" destination="nWJ-NL-ba1" id="Grh-9G-rhG"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -545,6 +571,7 @@ you the opportunity to share it here!</string>
                             <constraint firstItem="0KS-0v-i6e" firstAttribute="centerX" secondItem="JVh-Zh-Dh7" secondAttribute="centerX" id="aWF-pB-9LT"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notif" id="7jw-7O-Elv"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="messageTable" destination="Kr2-pO-oVE" id="AQS-Rt-APW"/>
@@ -557,161 +584,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loG-53-w57" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361" y="1458"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="aoc-zd-Qtc">
-            <objects>
-                <viewController id="soH-iz-EM4" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CBo-Qo-1Px"/>
-                        <viewControllerLayoutGuide type="bottom" id="hji-3f-3z9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jBW-0f-hOx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qdv-Sm-h2i">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
-                                <color key="barTintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Letterbox" prompt=" " id="B7N-YM-SBt"/>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsF-RP-0jH">
-                                <rect key="frame" x="234" y="392" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-AV-8Z8">
-                                <rect key="frame" x="0.0" y="74" width="414" height="43"/>
-                                <subviews>
-                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ViG-Ub-XqI">
-                                        <rect key="frame" x="212" y="40" width="207" height="3"/>
-                                        <color key="backgroundColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="B641FF07-6F50-4550-AF43-0780BE39CBE6"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-51-glW">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="43"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="E4B558F1-C88A-4772-8679-02899642D2C8"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Notifications">
-                                            <color key="titleColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryD-a1-NIX">
-                                        <rect key="frame" x="215" y="6" width="199" height="30"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="4A80AD1F-A9D7-4579-93D5-2D35393B04BA"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Messages">
-                                            <color key="titleColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="CE34B15E-48EF-4660-BED2-A67DEDF46611"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IBe-rb-rOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1887" y="1476"/>
-        </scene>
-        <!--Notifications-->
-        <scene sceneID="9a0-hY-Fu1">
-            <objects>
-                <viewController title="Notifications" id="rMd-c3-zto" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b8P-q0-to5"/>
-                        <viewControllerLayoutGuide type="bottom" id="aFG-2X-GlG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oxR-yU-Egx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6y-mB-gza">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
-                                <color key="barTintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Letterbox" prompt=" " id="f6q-cx-noW"/>
-                                </items>
-                            </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aes-0J-Wlc">
-                                <rect key="frame" x="0.0" y="73" width="414" height="43"/>
-                                <subviews>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Notifications" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fm-tG-UCk">
-                                        <rect key="frame" x="55" y="11" width="97" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="E4B558F1-C88A-4772-8679-02899642D2C8"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="4CFFEEAF-BE9B-4098-A1A6-456E1ABFCF20"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLW-0J-UUj">
-                                <rect key="frame" x="0.0" y="114" width="207" height="3"/>
-                                <color key="backgroundColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="B641FF07-6F50-4550-AF43-0780BE39CBE6"/>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Messages" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntI-6i-hh4">
-                                <rect key="frame" x="269" y="84" width="79" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="4A80AD1F-A9D7-4579-93D5-2D35393B04BA"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="e6y-mB-gza" secondAttribute="trailing" constant="-20" id="CJJ-qL-QGF"/>
-                            <constraint firstItem="e6y-mB-gza" firstAttribute="leading" secondItem="oxR-yU-Egx" secondAttribute="leadingMargin" constant="-20" id="Qaz-Tt-71z"/>
-                            <constraint firstItem="e6y-mB-gza" firstAttribute="top" secondItem="oxR-yU-Egx" secondAttribute="topMargin" id="tww-ff-dUP"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" image="notif" id="p0A-bz-w1e">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.27843137254901962" green="0.79607843137254897" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rNz-Sr-Vn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1658" y="551"/>
+            <point key="canvasLocation" x="1589" y="500"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="NJd-Dy-RCO">
@@ -2279,10 +2152,10 @@ you the opportunity to share it here!</string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="met-4k-d8Q"/>
         <segue reference="iQM-6t-9n6"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
+        <segue reference="CbK-xQ-OgU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -33,6 +33,9 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         
         //toolBar.frame.size.height = 64
         
+        notifTable.tableFooterView = UIView(frame: CGRectZero)
+        messageTable.tableFooterView = UIView(frame: CGRectZero)
+        
         customView = UIView(frame: CGRectMake(0,self.toolBar.frame.size.height + 20, self.view.bounds.size.width / 2, 3))
         customView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
         self.view.addSubview(customView)
@@ -207,7 +210,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             items = username.count
         }
         else {
-            items = 3
+            items = username_m.count
         }
         return items
     }
@@ -215,7 +218,6 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
             var cell = UITableViewCell()
-            var index = [Int]()
             
             if(tableView==self.notifTable)
             {
@@ -254,8 +256,13 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             }
             else
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath)
-                cell.textLabel?.text = "hola"
+                let cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath) as! conversation_cell
+                //cell.textLabel?.text = "hola"
+                cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                cell.profilePic.clipsToBounds = true
+                cell.username.text = username_m[indexPath.row]
+                cell.last_message.hidden = true
                 
                 return cell
                 
