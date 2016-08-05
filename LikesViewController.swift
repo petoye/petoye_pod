@@ -38,7 +38,7 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
             for item in json["feeds"].arrayValue {
                 
                 //print(item["username"].stringValue)
-                self.username.append(item["username"].stringValue)
+                self.username.append(item["username"].stringValue.capitalizedString)
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.likeTable.reloadData()
                 })

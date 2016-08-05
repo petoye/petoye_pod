@@ -50,7 +50,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
             for item in json["users"].arrayValue {
                 
                 //print(item["username"].stringValue)
-                self.username.append(item["username"].stringValue)
+                self.username.append(item["username"].stringValue.capitalizedString)
                 self.ownertype.append(item["owner_type"].stringValue)
                 self.pettype.append(item["pet_type"].stringValue)
                 self.breed.append(item["pet_breed"].stringValue)

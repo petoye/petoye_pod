@@ -120,7 +120,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                 //print(item["user"]["username"].stringValue)
                 
                 self.commentMessage.append(item["comment_message"].stringValue)
-                self.userName.append(item["user"]["username"].stringValue)
+                self.userName.append(item["user"]["username"].stringValue.capitalizedString)
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.commentTable.reloadData()
                 })

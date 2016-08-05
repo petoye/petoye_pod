@@ -52,7 +52,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             for item in json["feeds"].arrayValue {
                 for innerItem in item["feeds"].arrayValue {
-                    self.username.append(item["username"].stringValue)
+                    self.username.append(item["username"].stringValue.capitalizedString)
                     self.post_id.append(innerItem["id"].stringValue)
                     self.message.append(innerItem["message"].stringValue)
                     self.like_count.append(innerItem["like_count"].stringValue)

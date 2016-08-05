@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nWJ-NL-ba1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cgY-MP-jzm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -571,7 +571,13 @@ you the opportunity to share it here!</string>
                             <constraint firstItem="0KS-0v-i6e" firstAttribute="centerX" secondItem="JVh-Zh-Dh7" secondAttribute="centerX" id="aWF-pB-9LT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" image="notif" id="7jw-7O-Elv"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notif" id="7jw-7O-Elv">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.32549019607843138" green="0.82745098039215681" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="messageTable" destination="Kr2-pO-oVE" id="AQS-Rt-APW"/>
@@ -949,24 +955,24 @@ you the opportunity to share it here!</string>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMa-d3-u5C" userLabel="timestamp">
-                                                    <rect key="frame" x="104" y="40" width="98" height="21"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMa-d3-u5C" userLabel="timestamp">
+                                                    <rect key="frame" x="104" y="40" width="154" height="21"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="0A16DFCB-2814-47E4-9056-3F50EE4CA791"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                     <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Such a cute puppy!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-td-SSW" userLabel="message">
-                                                    <rect key="frame" x="42" y="68" width="131" height="19"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Such a cute puppy!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-td-SSW" userLabel="message">
+                                                    <rect key="frame" x="42" y="68" width="364" height="19"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="AF370485-F4C7-452E-8812-93390F48A481"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.043137254899999998" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo8-8d-E7b" userLabel="username">
-                                                    <rect key="frame" x="104" y="11" width="149" height="26"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo8-8d-E7b" userLabel="username">
+                                                    <rect key="frame" x="104" y="11" width="203" height="26"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="60DB4F31-4B94-4EEE-8FAF-885BA2C0AE73"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
                                                     <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -1175,7 +1181,7 @@ you the opportunity to share it here!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThM-7o-pkU">
-                                                    <rect key="frame" x="96" y="8" width="149" height="26"/>
+                                                    <rect key="frame" x="96" y="8" width="217" height="26"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="2BFE150C-5149-4E0D-9087-ABB008622CC5"/>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
                                                     <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -2155,7 +2161,7 @@ you the opportunity to share it here!</string>
         <segue reference="iQM-6t-9n6"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
-        <segue reference="CbK-xQ-OgU"/>
+        <segue reference="met-4k-d8Q"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
