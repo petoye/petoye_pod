@@ -18,6 +18,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var like_count = [String]()
     var comment_count = [String]()
     var post_id = [String]()
+    
+    var post_user_id1 = [String]()
+    var username1 = [String]()
+    var message1 = [String]()
+    var like_count1 = [String]()
+    var comment_count1 = [String]()
+    var post_id1 = [String]()
+
+    
     var trendingView = UIView()
     var followedView = UIView()
     var nearbyView = UIView()
@@ -36,29 +45,26 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         feedTable.delegate = self
         feedTable.dataSource = self
         
-        
+        //indicator thing
         trendingView = UIView(frame: CGRectMake(0,self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
         trendingView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
         self.view.addSubview(trendingView)
-        
         followedView = UIView(frame: CGRectMake(self.view.bounds.size.width / 3, self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
         followedView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
         self.view.addSubview(followedView)
-        
         followedView.hidden = true
-        
         nearbyView = UIView(frame: CGRectMake(self.view.bounds.size.width * 0.66, self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
         nearbyView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
         self.view.addSubview(nearbyView)
-        
         nearbyView.hidden = true
 
-        
-        
-        
-        
-        
         //Get request for geting feeds
+        getNearby()
+        getFollowed()
+        
+            }
+    
+    func getNearby() {
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/5/nearbyfeeds")!)
         request.HTTPMethod = "GET"
@@ -75,7 +81,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             
@@ -93,18 +99,76 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     })
                 }
             }
-            print(self.username)
-            print(self.message)
-            print(self.like_count)
-            print(self.comment_count)
-            print(self.post_user_id)
-            print(self.post_id)
-
+            //print(self.username)
+            //print(self.message)
+            //print(self.like_count)
+            //print(self.comment_count)
+            //print(self.post_user_id)
+            //print(self.post_id)
+            
             
             //for now doing nearby feeds
         }
         task.resume()
     }
+    
+    func getTrending()
+    {
+        
+    }
+    
+    func getFollowed()
+    {
+     
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/1/followedfeeds")!)
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            print(responseString)
+            
+            let json = JSON(data: data!)
+            
+            for item in json["feeds"].arrayValue {
+                self.username1.append(item["user"]["username"].stringValue.capitalizedString)
+                self.post_user_id1.append(item["user"]["id"].stringValue)
+                self.post_id1.append(item["id"].stringValue)
+                self.message1.append(item["message"].stringValue)
+                self.like_count1.append(item["like_count"].stringValue)
+                self.comment_count1.append(item["comment_count"].stringValue)
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                        //self.feedTable.reloadData()
+                    })
+                
+            }
+            print(self.username1)
+            print(self.message1)
+            print(self.like_count1)
+            print(self.comment_count1)
+            print(self.post_user_id1)
+            print(self.post_id1)
+            
+            
+            //for now doing followed feeds
+        }
+        task.resume()
+
+        
+    }
+    
+    
+    
     @IBAction func trending(sender: AnyObject) {
         trendingView.hidden = false
         followedView.hidden = true
