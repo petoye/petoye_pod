@@ -18,14 +18,43 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var like_count = [String]()
     var comment_count = [String]()
     var post_id = [String]()
-   
+    var trendingView = UIView()
+    var followedView = UIView()
+    var nearbyView = UIView()
 
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var trending: UIBarButtonItem!
+    @IBOutlet weak var followed: UIBarButtonItem!
+    @IBOutlet weak var nearby: UIBarButtonItem!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
         feedTable.delegate = self
         feedTable.dataSource = self
+        
+        
+        trendingView = UIView(frame: CGRectMake(0,self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
+        trendingView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
+        self.view.addSubview(trendingView)
+        
+        followedView = UIView(frame: CGRectMake(self.view.bounds.size.width / 3, self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
+        followedView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
+        self.view.addSubview(followedView)
+        
+        followedView.hidden = true
+        
+        nearbyView = UIView(frame: CGRectMake(self.view.bounds.size.width * 0.66, self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
+        nearbyView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
+        self.view.addSubview(nearbyView)
+        
+        nearbyView.hidden = true
+
+        
+        
         
         
         
@@ -76,6 +105,53 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         task.resume()
     }
+    @IBAction func trending(sender: AnyObject) {
+        trendingView.hidden = false
+        followedView.hidden = true
+        nearbyView.hidden = true
+        
+        trending.tintColor = UIColorFromHex(0x43ACB9, alpha: 1)
+        followed.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        nearby.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        trending.tag = 1
+        followed.tag = 0
+        nearby.tag = 0
+        
+        //notifTable.reloadData()
+        //notifTable.hidden = true
+        //messageTable.hidden = false
+    }
+    
+    @IBAction func followed(sender: AnyObject) {
+        trendingView.hidden = true
+        followedView.hidden = false
+        nearbyView.hidden = true
+        
+        followed.tintColor = UIColorFromHex(0x43ACB9, alpha: 1)
+        trending.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        nearby.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        trending.tag = 0
+        followed.tag = 1
+        nearby.tag = 0
+        
+    }
+    
+    @IBAction func nearby(sender: AnyObject) {
+        trendingView.hidden = true
+        followedView.hidden = true
+        nearbyView.hidden = false
+
+        nearby.tintColor = UIColorFromHex(0x43ACB9, alpha: 1)
+        trending.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        followed.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        trending.tag = 0
+        followed.tag = 0
+        nearby.tag = 1
+        
+    }
+    
+    
+
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -122,6 +198,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             return cell
             
     }
+    
+    func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
+    }
+
     
     func feedCell(didPressUsernameButtonInCell cell: feed) {
         //guard let indexPath = feedTable.indexPathForCell(cell) else { return }

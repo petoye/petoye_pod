@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Splash screen-->
@@ -886,56 +887,16 @@ you the opportunity to share it here!</string>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="PetOye" prompt=" " id="gME-pF-eAq">
-                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="SVr-5N-dsr"/>
+                                        <leftBarButtonItems>
+                                            <barButtonItem image="ham_button" id="SVr-5N-dsr"/>
+                                            <barButtonItem image="search" id="kaC-eX-hqf"/>
+                                        </leftBarButtonItems>
+                                        <barButtonItem key="rightBarButtonItem" image="post" id="F7I-xM-ztF"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xH5-fN-GbN">
-                                <rect key="frame" x="0.0" y="74" width="414" height="43"/>
-                                <subviews>
-                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6i2-fx-UuB">
-                                        <rect key="frame" x="0.0" y="40" width="137" height="3"/>
-                                        <color key="backgroundColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="675855EA-7806-476A-86B6-342B3294B44E"/>
-                                    </view>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Trending" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPN-xe-6wJ">
-                                        <rect key="frame" x="32" y="11" width="66" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="7A7B420D-8E5C-4A0D-B92B-9B05DFF3EFB3"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.26274509800000001" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Followed" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV8-UG-Lqj">
-                                        <rect key="frame" x="172" y="11" width="70" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="68336FBC-0155-4E4E-9C72-A2761AFE95D2"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Nearby Pets" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-Gt-VDY">
-                                        <rect key="frame" x="299" y="11" width="95" height="21"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="9BE4A5E5-0518-4BB5-8780-8C285D9B3ACA"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="8F6ABCA7-5328-42D8-9059-28EF5FBEE40F"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="585" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IsT-E6-4Iy">
-                                <rect key="frame" x="0.0" y="117" width="414" height="645"/>
+                                <rect key="frame" x="0.0" y="118" width="414" height="644"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feed" rowHeight="585" id="B2r-wT-Alt" customClass="feed" customModule="PetOye" customModuleProvider="target">
@@ -1120,10 +1081,34 @@ you the opportunity to share it here!</string>
                                     <outlet property="delegate" destination="PGw-Ef-JFS" id="6q6-cm-IqA"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-9k-rx0">
+                                <rect key="frame" x="0.0" y="74" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem tag="1" title="Trending" width="93" id="Hmy-QK-pGT">
+                                        <color key="tintColor" red="0.21960784310000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="trending:" destination="PGw-Ef-JFS" id="brZ-Kz-J58"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Uzv-72-4af"/>
+                                    <barButtonItem title="Followed" width="93" id="JAD-dV-3mR">
+                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="followed:" destination="PGw-Ef-JFS" id="2J4-J1-sUn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PO4-FG-eoi"/>
+                                    <barButtonItem title="Nearby" width="93" id="pKf-cE-ZV0">
+                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="nearby:" destination="PGw-Ef-JFS" id="JRd-Mk-rlr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xH5-fN-GbN" firstAttribute="top" secondItem="092-6j-VD9" secondAttribute="bottom" id="31S-F4-gc5"/>
                             <constraint firstItem="092-6j-VD9" firstAttribute="top" secondItem="xFS-Ou-KjI" secondAttribute="topMargin" id="9sG-Iv-zhB"/>
                             <constraint firstItem="092-6j-VD9" firstAttribute="leading" secondItem="xFS-Ou-KjI" secondAttribute="leadingMargin" constant="-20" id="ep6-ne-uXJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="092-6j-VD9" secondAttribute="trailing" constant="-20" id="wek-k0-1iL"/>
@@ -1136,10 +1121,20 @@ you the opportunity to share it here!</string>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Zv7-1f-EUH"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0CF-8v-9vG"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="850"/>
                     <connections>
                         <outlet property="feedTable" destination="IsT-E6-4Iy" id="Yk2-e2-RW3"/>
+                        <outlet property="followed" destination="JAD-dV-3mR" id="LwP-Ef-ew4"/>
+                        <outlet property="navBar" destination="092-6j-VD9" id="rfd-10-g2S"/>
+                        <outlet property="nearby" destination="pKf-cE-ZV0" id="SHM-M4-2Mr"/>
+                        <outlet property="toolBar" destination="Q74-9k-rx0" id="F6x-nx-VjD"/>
+                        <outlet property="trending" destination="Hmy-QK-pGT" id="Lhe-ga-z2l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMy-Da-9Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2148,8 +2143,10 @@ you the opportunity to share it here!</string>
         <image name="petoye_logo" width="155" height="156"/>
         <image name="petoye_logo2" width="155" height="156"/>
         <image name="plus_button" width="43" height="42"/>
+        <image name="post" width="26" height="26"/>
         <image name="rectangle" width="135" height="220"/>
         <image name="report_dots" width="25" height="7"/>
+        <image name="search" width="26" height="26"/>
         <image name="share_via" width="17" height="21"/>
         <image name="signup_email" width="316" height="64"/>
         <image name="signup_fb" width="316" height="64"/>
@@ -2161,7 +2158,7 @@ you the opportunity to share it here!</string>
         <segue reference="iQM-6t-9n6"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
-        <segue reference="met-4k-d8Q"/>
+        <segue reference="NWE-qe-Vls"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
