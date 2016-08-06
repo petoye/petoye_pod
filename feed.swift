@@ -176,7 +176,9 @@ class feed: UITableViewCell {
 
     }
     
+
     @IBAction func share1But(sender: AnyObject) {
+        
     }
     
     @IBAction func share2But(sender: AnyObject) {

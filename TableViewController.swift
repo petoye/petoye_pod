@@ -11,6 +11,7 @@ var userDefault = NSUserDefaults.standardUserDefaults()
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator {
     
     @IBOutlet weak var feedTable: UITableView!
+    @IBOutlet weak var followedTable: UITableView!
     
     var post_user_id = [String]()
     var username = [String]()
@@ -42,8 +43,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
-        feedTable.delegate = self
-        feedTable.dataSource = self
         
         //indicator thing
         trendingView = UIView(frame: CGRectMake(0,self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
@@ -60,7 +59,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         //Get request for geting feeds
         getNearby()
+        //get request for getting followed feeds
         getFollowed()
+        
+        feedTable.hidden = true
+        followedTable.hidden = true
         
             }
     
@@ -148,7 +151,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.comment_count1.append(item["comment_count"].stringValue)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                        //self.feedTable.reloadData()
+                        self.followedTable.reloadData()
                     })
                 
             }
@@ -184,6 +187,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //notifTable.reloadData()
         //notifTable.hidden = true
         //messageTable.hidden = false
+        
+        feedTable.hidden = true
+        followedTable.hidden = true
     }
     
     @IBAction func followed(sender: AnyObject) {
@@ -197,6 +203,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         trending.tag = 0
         followed.tag = 1
         nearby.tag = 0
+        
+        feedTable.hidden = true
+        followedTable.hidden = false
         
     }
     
@@ -212,6 +221,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         followed.tag = 0
         nearby.tag = 1
         
+        feedTable.hidden = false
+        followedTable.hidden = true
+        
     }
     
     
@@ -221,45 +233,84 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return username.count
+        var items = Int()
+        if(tableView == self.followedTable) {
+            items = username1.count
+        }
+        else {
+            items = username.count
+        }
+        return items
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
-            let cell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath) as! feed
-            //cell.textLabel?.text = "TEST"
-            cell.delegate = self
+            
+            var cell = UITableViewCell()
 
-            cell.postedImage.image = UIImage(named: "IMG_2623.png")
-            cell.profilePic.image = UIImage(named: "dawg.png")
-            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-            cell.profilePic.clipsToBounds = true
+            if (tableView == self.followedTable)
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("feed1", forIndexPath: indexPath) as! feed
+                //cell.textLabel?.text = "TEST"
+                cell.delegate = self
+                
+                cell.username.text = username1[indexPath.row]
+                cell.postedImage.image = UIImage(named: "IMG_2623.png")
+                cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                cell.profilePic.clipsToBounds = true
+                
+                cell.message.text = message1[indexPath.row]
+                cell.likecount.text = like_count1[indexPath.row]
+                cell.commentcount.text = comment_count1[indexPath.row]
+                
+                
+                cell.usernamePress.tag = indexPath.row
+                cell.likePress.tag = indexPath.row
+                cell.commentPress.tag = indexPath.row
+
+                return cell
+            }
+            else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath) as! feed
+                //cell.textLabel?.text = "TEST"
+                cell.delegate = self
+                
+                cell.postedImage.image = UIImage(named: "IMG_2623.png")
+                cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                cell.profilePic.clipsToBounds = true
+                
+                cell.username.text = username[indexPath.row]
+                
+                //cell.userNameArray?.append("1")
+                //print(cell.userNameArray)
+                
+                //storing usernames permanently for now
+                //let storedUsernames = cell.username.text
+                //userDefault.setObject(username, forKey: "storedPostUsername")
+                userDefault.setObject(post_user_id, forKey: "storedPostUserId")
+                //userDefault.setObject(message, forKey: "storedPostMessage")
+                //userDefault.setObject(like_count, forKey: "storedPostLikeCount")
+                //userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
+                userDefault.setObject(post_id, forKey: "storedPostId")
+                userDefault.synchronize()
+                
+                cell.message.text = message[indexPath.row]
+                cell.likecount.text = like_count[indexPath.row]
+                cell.commentcount.text = comment_count[indexPath.row]
+                
+                
+                cell.usernamePress.tag = indexPath.row
+                cell.likePress.tag = indexPath.row
+                cell.commentPress.tag = indexPath.row
+                //cell.like_selected.hidden = true
+                
+                return cell
+
+                
+            }
             
-            cell.username.text = username[indexPath.row]
-            
-            //cell.userNameArray?.append("1")
-            //print(cell.userNameArray)
-            
-            //storing usernames permanently for now
-            //let storedUsernames = cell.username.text
-            //userDefault.setObject(username, forKey: "storedPostUsername")
-            userDefault.setObject(post_user_id, forKey: "storedPostUserId")
-            //userDefault.setObject(message, forKey: "storedPostMessage")
-            //userDefault.setObject(like_count, forKey: "storedPostLikeCount")
-            //userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
-            userDefault.setObject(post_id, forKey: "storedPostId")
-            userDefault.synchronize()
-            
-            cell.message.text = message[indexPath.row]
-            cell.likecount.text = like_count[indexPath.row]
-            cell.commentcount.text = comment_count[indexPath.row]
-            
-            
-            cell.usernamePress.tag = indexPath.row
-            cell.likePress.tag = indexPath.row
-            cell.commentPress.tag = indexPath.row
-            //cell.like_selected.hidden = true
-            
-            return cell
             
     }
     
