@@ -620,12 +620,15 @@ you the opportunity to share it here!</string>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
                                                 <state key="normal" image="back"/>
+                                                <connections>
+                                                    <segue destination="cgY-MP-jzm" kind="show" id="qtx-jv-fsc"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="add_comment" translatesAutoresizingMaskIntoConstraints="NO" id="7dx-8y-oGf">
@@ -805,6 +808,9 @@ you the opportunity to share it here!</string>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
                                                 <state key="normal" image="back"/>
+                                                <connections>
+                                                    <segue destination="cgY-MP-jzm" kind="show" id="3cq-VV-wew"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -895,6 +901,9 @@ you the opportunity to share it here!</string>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fM-sm-18S">
                                 <rect key="frame" x="372" y="28" width="22" height="22"/>
                                 <state key="normal" title="Button" image="cancel"/>
+                                <connections>
+                                    <segue destination="cgY-MP-jzm" kind="show" id="hGL-cy-ogw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfz-kf-GOt">
                                 <rect key="frame" x="192" y="679" width="30" height="30"/>
@@ -910,7 +919,7 @@ you the opportunity to share it here!</string>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VL-uN-0ef">
                                 <rect key="frame" x="312" y="193" width="15" height="16"/>
-                                <state key="normal" image="cancel_pic"/>
+                                <state key="normal" image="cancel_po"/>
                                 <connections>
                                     <action selector="cancel:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="oI7-66-h6h"/>
                                 </connections>
@@ -933,6 +942,7 @@ you the opportunity to share it here!</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="cancel" destination="1VL-uN-0ef" id="zy6-wy-Wxg"/>
                         <outlet property="hack" destination="XQg-SC-P63" id="yJG-do-mhE"/>
                         <outlet property="message" destination="V9G-AV-qqS" id="Hxx-hD-Hcq"/>
                         <outlet property="postImage" destination="rbs-aL-HNR" id="mrI-FX-Oju"/>
@@ -2380,7 +2390,7 @@ you the opportunity to share it here!</string>
         <image name="already_have_account" width="151" height="25"/>
         <image name="back" width="11" height="27"/>
         <image name="cancel" width="20" height="20"/>
-        <image name="cancel_pic" width="15" height="15"/>
+        <image name="cancel_po" width="21" height="21"/>
         <image name="comment_add" width="83" height="26"/>
         <image name="comment_big" width="103" height="25"/>
         <image name="done_button" width="164" height="63"/>
@@ -2414,7 +2424,7 @@ you the opportunity to share it here!</string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iQM-6t-9n6"/>
+        <segue reference="hGL-cy-ogw"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
     </inferredMetricsTieBreakers>

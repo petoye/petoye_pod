@@ -13,6 +13,7 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     @IBOutlet weak var message: UITextView!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var hack: UITextView!
+    @IBOutlet weak var cancel: UIButton!
 
     
     override func viewDidLoad() {
@@ -42,6 +43,7 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         message.inputAccessoryView = customView
         hack.inputAccessoryView = customView
         self.hideKeyboardWhenTappedAround()
+        cancel.hidden = true
         
         
         //tap
@@ -58,12 +60,57 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     @IBAction func cancel(sender: AnyObject) {
         
         postImage.image = nil
+        cancel.hidden = true
     }
     
     @IBAction func upload(sender: AnyObject) {
         
         if (postImage != nil && message != nil){
             
+            
+            ////////////
+            
+            
+             let uid = 6 //userDefault.objectForKey("id")!
+             let msg = message.text!
+            
+            
+            let imageData = UIImagePNGRepresentation(postImage.image!)!
+            //print(imageData)
+            
+             // add a comment api call
+            
+             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(uid)/create")!)
+             request.HTTPMethod = "POST"
+             let postString = "message=\(msg)&image=\(imageData)"
+             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+             guard error == nil && data != nil else {                                                          // check for fundamental networking error
+             print(error!)
+             return
+             }
+             
+             if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+             {
+             //pop up comment added
+             
+             
+             }
+             
+             
+             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+             print("statusCode should be 201, but is \(httpStatus.statusCode)")
+             print(response!)
+             }
+             
+             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+             print(responseString!)
+             
+             
+             }
+             task.resume()
+            
+
             
             
         }
@@ -83,6 +130,7 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         self.dismissViewControllerAnimated(true, completion: nil)
         postImage.image = image
         hack.becomeFirstResponder()
+        cancel.hidden = false
         
     }
     
