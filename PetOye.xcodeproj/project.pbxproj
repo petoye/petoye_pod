@@ -28,6 +28,7 @@
 		E45811601D492C1D0020A446 /* Spring in Resources */ = {isa = PBXBuildFile; fileRef = E458115F1D492C1D0020A446 /* Spring */; };
 		E45FE2251D54C18D00AFA106 /* dawg1.png in Resources */ = {isa = PBXBuildFile; fileRef = E45FE2241D54C18D00AFA106 /* dawg1.png */; };
 		E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE2261D54C5B500AFA106 /* conversation_cell.swift */; };
+		E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE22C1D559F3C00AFA106 /* postViewController.swift */; };
 		E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */ = {isa = PBXBuildFile; fileRef = E478A3081D4E39AA00865189 /* IMG_2623.png */; };
 		E4AFB6F21D53639C00FDD6B6 /* notificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */; };
 		E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B21D54478600B41A87 /* notification_cell.swift */; };
@@ -67,6 +68,7 @@
 		E458115F1D492C1D0020A446 /* Spring */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Spring; sourceTree = "<group>"; };
 		E45FE2241D54C18D00AFA106 /* dawg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dawg1.png; sourceTree = "<group>"; };
 		E45FE2261D54C5B500AFA106 /* conversation_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversation_cell.swift; sourceTree = "<group>"; };
+		E45FE22C1D559F3C00AFA106 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postViewController.swift; sourceTree = "<group>"; };
 		E478A3081D4E39AA00865189 /* IMG_2623.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2623.png; sourceTree = "<group>"; };
 		E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsViewController.swift; sourceTree = "<group>"; };
 		E4CA78B21D54478600B41A87 /* notification_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification_cell.swift; path = ../notification_cell.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		E4579DC31D07118200E52D4D = {
 			isa = PBXGroup;
 			children = (
+				E45FE22C1D559F3C00AFA106 /* postViewController.swift */,
 				E4579DCE1D07118300E52D4D /* petoyeapp_iphone */,
 				E4579DCD1D07118300E52D4D /* Products */,
 			);
@@ -285,6 +288,7 @@
 				E45592201D4F4EBC00D36B28 /* CommentsViewController.swift in Sources */,
 				E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */,
 				E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */,
+				E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
 				E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */,
 				E40E986D1D51C96F00112273 /* message_cell.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cgY-MP-jzm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KZ2-rY-tB5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -861,6 +861,87 @@ you the opportunity to share it here!</string>
             </objects>
             <point key="canvasLocation" x="1053" y="-2287"/>
         </scene>
+        <!--Post View Controller-->
+        <scene sceneID="lV3-V4-h4e">
+            <objects>
+                <viewController id="KZ2-rY-tB5" customClass="postViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qpf-VY-QIC"/>
+                        <viewControllerLayoutGuide type="bottom" id="dZB-pu-qhw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h8K-oL-PIC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="What's up with your pet?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V9G-AV-qqS">
+                                <rect key="frame" x="20" y="69" width="374" height="95"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KZ2-rY-tB5" id="HP8-Tf-jWN"/>
+                                </connections>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-aL-HNR">
+                                <rect key="frame" x="77" y="184" width="260" height="260"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XQg-SC-P63">
+                                <rect key="frame" x="41" y="688" width="52" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fM-sm-18S">
+                                <rect key="frame" x="372" y="28" width="22" height="22"/>
+                                <state key="normal" title="Button" image="cancel"/>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfz-kf-GOt">
+                                <rect key="frame" x="192" y="679" width="30" height="30"/>
+                                <connections>
+                                    <action selector="importImage:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="T7u-7g-Lte"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-gG-P2l">
+                                <rect key="frame" x="312" y="662" width="30" height="30"/>
+                                <connections>
+                                    <action selector="upload:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="y1a-Fg-reK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VL-uN-0ef">
+                                <rect key="frame" x="312" y="193" width="15" height="16"/>
+                                <state key="normal" image="cancel_pic"/>
+                                <connections>
+                                    <action selector="cancel:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="oI7-66-h6h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1VL-uN-0ef" firstAttribute="top" secondItem="rbs-aL-HNR" secondAttribute="top" id="Fez-5h-m4o"/>
+                            <constraint firstItem="rbs-aL-HNR" firstAttribute="top" secondItem="V9G-AV-qqS" secondAttribute="bottom" constant="20" id="SDt-zQ-taf"/>
+                            <constraint firstItem="V9G-AV-qqS" firstAttribute="top" secondItem="1fM-sm-18S" secondAttribute="bottom" constant="19" id="TXJ-Xm-cHQ"/>
+                            <constraint firstItem="V9G-AV-qqS" firstAttribute="centerX" secondItem="h8K-oL-PIC" secondAttribute="centerX" id="UYu-us-9Qf"/>
+                            <constraint firstItem="rbs-aL-HNR" firstAttribute="height" secondItem="h8K-oL-PIC" secondAttribute="height" multiplier="0.353" id="bXZ-BG-W73"/>
+                            <constraint firstItem="V9G-AV-qqS" firstAttribute="trailing" secondItem="h8K-oL-PIC" secondAttribute="trailingMargin" id="e7d-wX-n2X"/>
+                            <constraint firstItem="V9G-AV-qqS" firstAttribute="height" secondItem="h8K-oL-PIC" secondAttribute="height" multiplier="0.129" id="knD-6L-PDF"/>
+                            <constraint firstItem="rbs-aL-HNR" firstAttribute="centerX" secondItem="h8K-oL-PIC" secondAttribute="centerX" id="npS-Yq-9Ey"/>
+                            <constraint firstItem="V9G-AV-qqS" firstAttribute="leading" secondItem="h8K-oL-PIC" secondAttribute="leadingMargin" id="pYy-ln-t1P"/>
+                            <constraint firstItem="1VL-uN-0ef" firstAttribute="leading" secondItem="rbs-aL-HNR" secondAttribute="trailing" constant="-25" id="s8o-G4-Gxp"/>
+                            <constraint firstItem="rbs-aL-HNR" firstAttribute="width" secondItem="h8K-oL-PIC" secondAttribute="width" multiplier="0.628" id="u2b-IX-LLU"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="hack" destination="XQg-SC-P63" id="yJG-do-mhE"/>
+                        <outlet property="message" destination="V9G-AV-qqS" id="Hxx-hD-Hcq"/>
+                        <outlet property="postImage" destination="rbs-aL-HNR" id="mrI-FX-Oju"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1hL-CV-qJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824" y="-2261"/>
+        </scene>
         <!--Home-->
         <scene sceneID="czb-n4-82u">
             <objects>
@@ -886,7 +967,11 @@ you the opportunity to share it here!</string>
                                             <barButtonItem image="ham_button" id="SVr-5N-dsr"/>
                                             <barButtonItem image="search" id="kaC-eX-hqf"/>
                                         </leftBarButtonItems>
-                                        <barButtonItem key="rightBarButtonItem" image="post" id="F7I-xM-ztF"/>
+                                        <barButtonItem key="rightBarButtonItem" image="post" id="F7I-xM-ztF">
+                                            <connections>
+                                                <segue destination="KZ2-rY-tB5" kind="show" id="14w-5S-SdD"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -2294,6 +2379,8 @@ you the opportunity to share it here!</string>
         <image name="add_comment" width="21" height="20"/>
         <image name="already_have_account" width="151" height="25"/>
         <image name="back" width="11" height="27"/>
+        <image name="cancel" width="20" height="20"/>
+        <image name="cancel_pic" width="15" height="15"/>
         <image name="comment_add" width="83" height="26"/>
         <image name="comment_big" width="103" height="25"/>
         <image name="done_button" width="164" height="63"/>
