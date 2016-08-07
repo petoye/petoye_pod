@@ -30,16 +30,24 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         var button = UIButton(type: .Custom)
         button.setImage(UIImage(named: "camera_button.png"), forState: UIControlState.Normal)
         button.addTarget(self, action:#selector(postViewController.importImage(_:)), forControlEvents: .TouchUpInside)
-        button.frame = CGRect(x: 20, y: 15, width: 23, height: 20)
+        button.frame = CGRect(x: 15, y: 15, width: 23, height: 20)
         
         var button1 = UIButton(type: .Custom)
         button1.setImage(UIImage(named: "post_button.png"), forState: UIControlState.Normal)
         button1.addTarget(self, action: #selector(postViewController.upload(_:)), forControlEvents: .TouchUpInside)
         button1.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width * 0.225) - 5 , y: 12.5, width: self.view.frame.size.width * 0.225, height: 25)
+        
+        var button2 = UIButton(type: .Custom)
+        button2.setImage(UIImage(named: "gallery.png"), forState: UIControlState.Normal)
+        button2.addTarget(self, action:#selector(postViewController.importGallery(_:)), forControlEvents: .TouchUpInside)
+        button2.frame = CGRect(x: 53, y: 15, width: 23, height: 20)
+        
+        
 
         
         customView.addSubview(button)
         customView.addSubview(button1)
+        customView.addSubview(button2)
         message.inputAccessoryView = customView
         hack.inputAccessoryView = customView
         self.hideKeyboardWhenTappedAround()
@@ -55,6 +63,11 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         
         
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        hack.becomeFirstResponder()
     }
     
     @IBAction func cancel(sender: AnyObject) {
@@ -140,7 +153,8 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         
         var image = UIImagePickerController()
         image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        //image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        image.sourceType = UIImagePickerControllerSourceType.Camera
         image.allowsEditing = true
         
         self.presentViewController(image, animated: true, completion: nil)
@@ -148,6 +162,18 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         
     }
     
+    @IBAction func importGallery(sender: AnyObject) {
+        
+        print("gallery")
+        var image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        image.allowsEditing = true
+        
+        self.presentViewController(image, animated: true, completion: nil)
+        
+    }
+
     
   
 

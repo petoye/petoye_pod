@@ -628,7 +628,7 @@ you the opportunity to share it here!</string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="add_comment" translatesAutoresizingMaskIntoConstraints="NO" id="7dx-8y-oGf">
@@ -879,17 +879,7 @@ you the opportunity to share it here!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="What's up with your pet?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V9G-AV-qqS">
-                                <rect key="frame" x="20" y="69" width="374" height="95"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="KZ2-rY-tB5" id="HP8-Tf-jWN"/>
-                                </connections>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-aL-HNR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-aL-HNR">
                                 <rect key="frame" x="77" y="184" width="260" height="260"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XQg-SC-P63">
@@ -898,8 +888,8 @@ you the opportunity to share it here!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fM-sm-18S">
-                                <rect key="frame" x="372" y="28" width="22" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fM-sm-18S">
+                                <rect key="frame" x="380" y="28" width="22" height="22"/>
                                 <state key="normal" title="Button" image="cancel"/>
                                 <connections>
                                     <segue destination="cgY-MP-jzm" kind="show" id="hGL-cy-ogw"/>
@@ -917,27 +907,45 @@ you the opportunity to share it here!</string>
                                     <action selector="upload:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="y1a-Fg-reK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VL-uN-0ef">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VL-uN-0ef">
                                 <rect key="frame" x="312" y="193" width="15" height="16"/>
                                 <state key="normal" image="cancel_po"/>
                                 <connections>
                                     <action selector="cancel:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="oI7-66-h6h"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU3-lH-1Nb">
+                                <rect key="frame" x="116" y="649" width="30" height="30"/>
+                                <connections>
+                                    <action selector="importGallery:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="Fqe-nH-T5T"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's up with your pet?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V9G-AV-qqS">
+                                <rect key="frame" x="20" y="69" width="374" height="95"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KZ2-rY-tB5" id="HP8-Tf-jWN"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1VL-uN-0ef" firstAttribute="top" secondItem="rbs-aL-HNR" secondAttribute="top" id="Fez-5h-m4o"/>
                             <constraint firstItem="rbs-aL-HNR" firstAttribute="top" secondItem="V9G-AV-qqS" secondAttribute="bottom" constant="20" id="SDt-zQ-taf"/>
-                            <constraint firstItem="V9G-AV-qqS" firstAttribute="top" secondItem="1fM-sm-18S" secondAttribute="bottom" constant="19" id="TXJ-Xm-cHQ"/>
                             <constraint firstItem="V9G-AV-qqS" firstAttribute="centerX" secondItem="h8K-oL-PIC" secondAttribute="centerX" id="UYu-us-9Qf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1fM-sm-18S" secondAttribute="trailing" constant="-50" id="WWR-ZY-bKz"/>
                             <constraint firstItem="rbs-aL-HNR" firstAttribute="height" secondItem="h8K-oL-PIC" secondAttribute="height" multiplier="0.353" id="bXZ-BG-W73"/>
+                            <constraint firstItem="1fM-sm-18S" firstAttribute="top" secondItem="qpf-VY-QIC" secondAttribute="bottom" constant="8" id="czW-Jq-gbW"/>
                             <constraint firstItem="V9G-AV-qqS" firstAttribute="trailing" secondItem="h8K-oL-PIC" secondAttribute="trailingMargin" id="e7d-wX-n2X"/>
                             <constraint firstItem="V9G-AV-qqS" firstAttribute="height" secondItem="h8K-oL-PIC" secondAttribute="height" multiplier="0.129" id="knD-6L-PDF"/>
                             <constraint firstItem="rbs-aL-HNR" firstAttribute="centerX" secondItem="h8K-oL-PIC" secondAttribute="centerX" id="npS-Yq-9Ey"/>
                             <constraint firstItem="V9G-AV-qqS" firstAttribute="leading" secondItem="h8K-oL-PIC" secondAttribute="leadingMargin" id="pYy-ln-t1P"/>
                             <constraint firstItem="1VL-uN-0ef" firstAttribute="leading" secondItem="rbs-aL-HNR" secondAttribute="trailing" constant="-25" id="s8o-G4-Gxp"/>
                             <constraint firstItem="rbs-aL-HNR" firstAttribute="width" secondItem="h8K-oL-PIC" secondAttribute="width" multiplier="0.628" id="u2b-IX-LLU"/>
+                            <constraint firstItem="V9G-AV-qqS" firstAttribute="top" secondItem="1fM-sm-18S" secondAttribute="bottom" constant="19" id="vbH-3b-cz5"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
