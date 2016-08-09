@@ -160,7 +160,19 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     
     func UploadRequest()
     {
+        
+        
+        
+        let msg = message.text!
+        print(msg)
+        
+        let param = ["message" : msg]
+        
+        
+        
         let url = NSURL(string: "http://api.petoye.com/feeds/6/create")
+        
+        print(url)
         
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
@@ -192,11 +204,13 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         
         //define the data post parameter
         
-        /*
-        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData("Content-Disposition:form-data; name=\"test\"\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData("hi\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        */
+        
+        for (key, value) in param {
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            body.appendString("\(value)\r\n")
+        }
+
         
         
         body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
@@ -252,6 +266,13 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     {
         return "Boundary-\(NSUUID().UUIDString)"
     }
+    
+    
+    
+    
+        
+ 
+
   
 
 
