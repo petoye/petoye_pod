@@ -101,46 +101,11 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
             ////////////
             
             
-             let uid = 6 //userDefault.objectForKey("id")!
-             let msg = message.text!
+             //let uid = 6 //userDefault.objectForKey("id")!
+             //let msg = message.text!
             
+            UploadRequest()
             
-            //let imageData = UIImagePNGRepresentation(postImage.image!)!
-            //print(imageData)
-            
-             //////////////////////////
-            /*
-             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(uid)/create")!)
-             request.HTTPMethod = "POST"
-             let postString = "message=\(msg)&image=\(imageData)"
-             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-             guard error == nil && data != nil else {                                                          // check for fundamental networking error
-             print(error!)
-             return
-             }
-             
-             if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
-             {
-             //pop up comment added
-             
-             
-             }
-             
-             
-             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-             print("statusCode should be 201, but is \(httpStatus.statusCode)")
-             print(response!)
-             }
-             
-             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-             print(responseString!)
-             
-             
-             }
-             task.resume()
-            
-            */
             
            
 
@@ -192,6 +157,101 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     }
 
     
+    
+    func UploadRequest()
+    {
+        let url = NSURL(string: "http://api.petoye.com/feeds/6/create")
+        
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        let boundary = generateBoundaryString()
+        
+        //define the multipart request type
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        if (postImage.image == nil)
+        {
+            return
+        }
+        
+        let image_data = UIImagePNGRepresentation(postImage.image!)
+        
+        
+        if(image_data == nil)
+        {
+            return
+        }
+        
+        
+        let body = NSMutableData()
+        
+        let fname = "test.png"
+        let mimetype = "image/png"
+        
+        //define the data post parameter
+        
+        /*
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"test\"\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("hi\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        */
+        
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"image\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(image_data!)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        body.appendData("--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        request.HTTPBody = body
+        
+        
+        
+        let session = NSURLSession.sharedSession()
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+            {
+                //pop up comment added
+                
+                
+            }
+            
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+            
+        }
+        task.resume()
+
+        
+        
+    }
+    
+    
+    func generateBoundaryString() -> String
+    {
+        return "Boundary-\(NSUUID().UUIDString)"
+    }
   
 
 
