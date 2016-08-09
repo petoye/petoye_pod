@@ -30,6 +30,8 @@
 		E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE2261D54C5B500AFA106 /* conversation_cell.swift */; };
 		E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE22C1D559F3C00AFA106 /* postViewController.swift */; };
 		E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */ = {isa = PBXBuildFile; fileRef = E478A3081D4E39AA00865189 /* IMG_2623.png */; };
+		E4938F1A1D5A0B45008ACE46 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */; };
+		E4938F1C1D5A1184008ACE46 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4938F1B1D5A1184008ACE46 /* image1.png */; };
 		E4AFB6F21D53639C00FDD6B6 /* notificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */; };
 		E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B21D54478600B41A87 /* notification_cell.swift */; };
 		E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */; };
@@ -68,8 +70,10 @@
 		E458115F1D492C1D0020A446 /* Spring */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Spring; sourceTree = "<group>"; };
 		E45FE2241D54C18D00AFA106 /* dawg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dawg1.png; sourceTree = "<group>"; };
 		E45FE2261D54C5B500AFA106 /* conversation_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversation_cell.swift; sourceTree = "<group>"; };
-		E45FE22C1D559F3C00AFA106 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postViewController.swift; sourceTree = "<group>"; };
+		E45FE22C1D559F3C00AFA106 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = postViewController.swift; path = ../postViewController.swift; sourceTree = "<group>"; };
 		E478A3081D4E39AA00865189 /* IMG_2623.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2623.png; sourceTree = "<group>"; };
+		E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E4938F1B1D5A1184008ACE46 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsViewController.swift; sourceTree = "<group>"; };
 		E4CA78B21D54478600B41A87 /* notification_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification_cell.swift; path = ../notification_cell.swift; sourceTree = "<group>"; };
 		E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification2_cell.swift; path = ../notification2_cell.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4938F1A1D5A0B45008ACE46 /* MobileCoreServices.framework in Frameworks */,
 				E4D116FD1D4A6DD4008DA903 /* CoreLocation.framework in Frameworks */,
 				E44A71D41D4A002200FDA473 /* FBSDKShareKit.framework in Frameworks */,
 				E44A71D11D4A002200FDA473 /* Bolts.framework in Frameworks */,
@@ -102,7 +107,6 @@
 		E4579DC31D07118200E52D4D = {
 			isa = PBXGroup;
 			children = (
-				E45FE22C1D559F3C00AFA106 /* postViewController.swift */,
 				E4579DCE1D07118300E52D4D /* petoyeapp_iphone */,
 				E4579DCD1D07118300E52D4D /* Products */,
 			);
@@ -133,6 +137,7 @@
 		E45811631D49E8E20020A446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */,
 				E4D116FC1D4A6DD4008DA903 /* CoreLocation.framework */,
 				E44A71CD1D4A002200FDA473 /* Bolts.framework */,
 				E44A71CE1D4A002200FDA473 /* FBSDKCoreKit.framework */,
@@ -154,6 +159,7 @@
 				E40E98661D50DAA700112273 /* discoverViewController.swift */,
 				E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */,
 				E40E986A1D51BFFC00112273 /* messagesViewController.swift */,
+				E45FE22C1D559F3C00AFA106 /* postViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 				E45592251D4F6EC000D36B28 /* dawg.png */,
 				E45FE2241D54C18D00AFA106 /* dawg1.png */,
 				E478A3081D4E39AA00865189 /* IMG_2623.png */,
+				E4938F1B1D5A1184008ACE46 /* image1.png */,
 				E42049D71D4BAB34001A49F5 /* upvote.wav */,
 				E42049D91D4BAB52001A49F5 /* TiVo - Selection.mp3 */,
 			);
@@ -258,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42049D81D4BAB34001A49F5 /* upvote.wav in Resources */,
+				E4938F1C1D5A1184008ACE46 /* image1.png in Resources */,
 				E42049DA1D4BAB52001A49F5 /* TiVo - Selection.mp3 in Resources */,
 				E45811601D492C1D0020A446 /* Spring in Resources */,
 				E4DE19361D47FC3000AA4836 /* Launch Screen.storyboard in Resources */,

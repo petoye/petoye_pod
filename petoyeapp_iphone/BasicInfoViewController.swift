@@ -128,8 +128,8 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         var p_type = pet_type.text!
         var br = breed.text!
         
-        var lat = locationManager.location?.coordinate.latitude
-        var long = locationManager.location?.coordinate.longitude
+        var lat = locationManager.location!.coordinate.latitude
+        var long = locationManager.location!.coordinate.longitude
         // change to the id of the user returned while signup
  
         /*if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized) {

@@ -2433,8 +2433,8 @@ you the opportunity to share it here!</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hGL-cy-ogw"/>
-        <segue reference="fbK-Hd-8MT"/>
         <segue reference="sdT-Ly-hNR"/>
+        <segue reference="fbK-Hd-8MT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
