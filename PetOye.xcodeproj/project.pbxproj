@@ -33,6 +33,7 @@
 		E4938F1A1D5A0B45008ACE46 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */; };
 		E4938F1C1D5A1184008ACE46 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4938F1B1D5A1184008ACE46 /* image1.png */; };
 		E4938F1E1D5CC8B3008ACE46 /* imageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */; };
+		E4938F201D5CD72C008ACE46 /* no_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4938F1F1D5CD72C008ACE46 /* no_image.jpg */; };
 		E4AFB6F21D53639C00FDD6B6 /* notificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */; };
 		E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B21D54478600B41A87 /* notification_cell.swift */; };
 		E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */; };
@@ -76,6 +77,7 @@
 		E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E4938F1B1D5A1184008ACE46 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageViewController.swift; sourceTree = "<group>"; };
+		E4938F1F1D5CD72C008ACE46 /* no_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_image.jpg; sourceTree = "<group>"; };
 		E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsViewController.swift; sourceTree = "<group>"; };
 		E4CA78B21D54478600B41A87 /* notification_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification_cell.swift; path = ../notification_cell.swift; sourceTree = "<group>"; };
 		E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification2_cell.swift; path = ../notification2_cell.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		E45FE22A1D54C66100AFA106 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E4938F1F1D5CD72C008ACE46 /* no_image.jpg */,
 				E4579DD81D07118300E52D4D /* Assets.xcassets */,
 				E45592251D4F6EC000D36B28 /* dawg.png */,
 				E45FE2241D54C18D00AFA106 /* dawg1.png */,
@@ -276,6 +279,7 @@
 				E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */,
 				E45592261D4F6EC000D36B28 /* dawg.png in Resources */,
 				E45FE2251D54C18D00AFA106 /* dawg1.png in Resources */,
+				E4938F201D5CD72C008ACE46 /* no_image.jpg in Resources */,
 				E4579DD71D07118300E52D4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

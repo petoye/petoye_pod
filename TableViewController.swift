@@ -269,12 +269,46 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 //cell.textLabel?.text = "TEST"
                 cell.delegate = self
                 
+                if imageurl1[indexPath.row].isEmpty {
+                 
+                    cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    
+                    
+
+                }
+                else
+                {
+                  
+                    let url = NSURL(string: imageurl1[indexPath.row])
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                        
+                        if error != nil
+                        {
+                            cell.postedImage.image = UIImage(named: "no_image.jpg")
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                if let image = UIImage(data: data!) {
+                                    
+                                    cell.postedImage.image = image
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    task.resume()
+
+                    
+                    
+                }
                 
                 cell.username.text = username1[indexPath.row]
-                cell.postedImage.image = UIImage(named: "IMG_2623.png")
-                cell.profilePic.image = UIImage(named: "dawg.png")
-                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-                cell.profilePic.clipsToBounds = true
                 
                 cell.message.text = message1[indexPath.row]
                 cell.likecount.text = like_count1[indexPath.row]
@@ -284,6 +318,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.usernamePress.tag = indexPath.row
                 cell.likePress.tag = indexPath.row
                 cell.commentPress.tag = indexPath.row
+                
+                cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                cell.profilePic.clipsToBounds = true
 
                 return cell
             }
@@ -293,23 +331,54 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 //cell.textLabel?.text = "TEST"
                 cell.delegate = self
                 
-                cell.postedImage.image = UIImage(named: "IMG_2623.png")
+                if imageurl[indexPath.row].isEmpty {
+                    
+                    cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    
+                    
+                    
+                }
+                else
+                {
+                    
+                    let url = NSURL(string: imageurl[indexPath.row])
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                        
+                        if error != nil
+                        {
+                            cell.postedImage.image = UIImage(named: "no_image.jpg")
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                if let image = UIImage(data: data!) {
+                                    
+                                    cell.postedImage.image = image
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    task.resume()
+                    
+                    
+                    
+                }
+
+                
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
                 
                 cell.username.text = username[indexPath.row]
                 
-                //cell.userNameArray?.append("1")
-                //print(cell.userNameArray)
                 
-                //storing usernames permanently for now
-                //let storedUsernames = cell.username.text
-                //userDefault.setObject(username, forKey: "storedPostUsername")
                 userDefault.setObject(post_user_id, forKey: "storedPostUserId")
-                //userDefault.setObject(message, forKey: "storedPostMessage")
-                //userDefault.setObject(like_count, forKey: "storedPostLikeCount")
-                //userDefault.setObject(comment_count, forKey: "storedPostCommentCount")
                 userDefault.setObject(post_id, forKey: "storedPostId")
                 userDefault.synchronize()
                 
