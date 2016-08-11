@@ -269,6 +269,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 //cell.textLabel?.text = "TEST"
                 cell.delegate = self
                 
+                
                 cell.username.text = username1[indexPath.row]
                 cell.postedImage.image = UIImage(named: "IMG_2623.png")
                 cell.profilePic.image = UIImage(named: "dawg.png")
