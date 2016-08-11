@@ -3,6 +3,7 @@ import FBSDKCoreKit
 import AVFoundation
 
 var id = String()
+var fbid = String()
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
@@ -21,6 +22,13 @@ extension UIViewController {
         id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
         print(id)
         
+    }
+    
+    func storefbid(value: String) {
+        
+        NSUserDefaults.standardUserDefaults().setValue("\(value)", forKey: "fbid")
+        fbid = NSUserDefaults.standardUserDefaults().stringForKey("fbid")!
+        print(fbid)
     }
     
     

@@ -78,11 +78,7 @@ class LoginViewController: UIViewController {
             let jsonid = json["id"].stringValue
             
             self.storeId(jsonid)
- 
-            //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
-            //print(id)
-            
-
+            print(jsonid)
             
             
         }

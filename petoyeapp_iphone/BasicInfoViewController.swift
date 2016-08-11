@@ -292,17 +292,19 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print(response!)
                 
-                let json = JSON(data: data!)
                 
-                let idjson = json["id"].stringValue
-                
-                self.storeId(idjson)
-                id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
-                print(id)
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print(responseString!)
+            
+            let json = JSON(data: data!)
+            
+            let fbidjson = json["id"].stringValue
+            
+            self.storefbid(fbidjson)
+            //print(fbidjson)
+
             
         }
         task.resume()

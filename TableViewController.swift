@@ -44,6 +44,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         print("viewDidLoad")
         
+        
         //indicator thing
         trendingView = UIView(frame: CGRectMake(0,self.toolBar.frame.size.height + self.navBar.bounds.size.height, self.view.bounds.size.width / 3, 3))
         trendingView.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
