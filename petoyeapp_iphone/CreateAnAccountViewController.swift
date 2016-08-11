@@ -175,9 +175,10 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
                 if (error == nil){
                     let fbDetails = result as! NSDictionary
                     //print(fbDetails)
+                    
                     var user_email = fbDetails["email"]!   //
                     var first_name = fbDetails["first_name"]!    //
-                    var username = fbDetails["name"]!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "_")
+                    var username = fbDetails["name"]!
                     var profilepic_url = fbDetails["picture"]!["data"]!!["url"]!!
                     
                     print(user_email)
@@ -185,13 +186,14 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
                     print(username)
                     print(profilepic_url)
                     
+                    
                     NSUserDefaults.standardUserDefaults().setValue("\(user_email)", forKey: "email")
                     NSUserDefaults.standardUserDefaults().setValue("\(first_name)", forKey: "first_name")
                     NSUserDefaults.standardUserDefaults().setValue("\(username)", forKey: "user_name")
                     NSUserDefaults.standardUserDefaults().setValue("\(profilepic_url)", forKey: "profilepic_url")
 
                     //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
-                    
+ 
                 }
             })
         }

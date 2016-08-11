@@ -246,20 +246,67 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         //var email
         //var username
         
-        var password = username.text!
-        var o_type = owner_type.text!
-        var p_type = pet_type.text!
-        var br = breed.text!
+        var password = username.text! //
+        var o_type = owner_type.text! //
+        var p_type = pet_type.text!   //
+        var br = breed.text!  //
         
-        var lat = locationManager.location!.coordinate.latitude
-        var long = locationManager.location!.coordinate.longitude
+        var lat = locationManager.location!.coordinate.latitude //
+        var long = locationManager.location!.coordinate.longitude //
         
-        var email = NSUserDefaults.standardUserDefaults().stringForKey("email")!
-        var user_name = NSUserDefaults.standardUserDefaults().stringForKey("user_name")!
+        var email = NSUserDefaults.standardUserDefaults().stringForKey("email")! //
+        var user_name = NSUserDefaults.standardUserDefaults().stringForKey("user_name")! //
         var profilepic_url = NSUserDefaults.standardUserDefaults().stringForKey("profilepic_url")!
 
         print(lat)
         print(long)
+        ///////////////////////
+        
+        print(password)
+        print(o_type)
+        print(p_type)
+        print(br)
+        print(email)
+        print(user_name)
+        print(profilepic_url)
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/fb")!)
+        request.HTTPMethod = "POST"
+        let postString = "email=\(email)&password=\(password)&username=\(user_name)&otype=\(o_type)&ptype=\(p_type)&breed=\(br)&lat=\(lat)&lng=\(long)&url=\(profilepic_url)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+            {
+                dispatch_async(dispatch_get_main_queue()){
+                    self.performSegueWithIdentifier("NewUserToHome", sender:self)
+                }
+            }
+            
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+                
+                let json = JSON(data: data!)
+                
+                let idjson = json["id"].stringValue
+                
+                self.storeId(idjson)
+                print(idjson)
+                
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+        }
+        task.resume()
+
 
         
     }
@@ -274,7 +321,6 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
         
         let audioPath = NSBundle.mainBundle().pathForResource("upvote", ofType: "wav")
         var error:NSError? = nil
