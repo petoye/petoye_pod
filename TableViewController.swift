@@ -19,6 +19,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var like_count = [String]()
     var comment_count = [String]()
     var post_id = [String]()
+    var created_at = [String]()
+    var imageurl = [String]()
     
     var post_user_id1 = [String]()
     var username1 = [String]()
@@ -26,6 +28,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var like_count1 = [String]()
     var comment_count1 = [String]()
     var post_id1 = [String]()
+    var created_at1 = [String]()
+    var imageurl1 = [String]()
 
     
     var trendingView = UIView()
@@ -96,6 +100,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.message.append(innerItem["message"].stringValue)
                     self.like_count.append(innerItem["like_count"].stringValue)
                     self.comment_count.append(innerItem["comment_count"].stringValue)
+                    self.created_at.append(innerItem["created_at"].stringValue)
+                    self.imageurl.append(innerItem["imageurl"].stringValue)
                     ///////
                     
                     self.post_user_id.append(item["id"].stringValue)
@@ -110,6 +116,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //print(self.comment_count)
             //print(self.post_user_id)
             //print(self.post_id)
+            print(self.created_at)
+            print(self.imageurl)
             
             
             //for now doing nearby feeds
@@ -140,7 +148,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             
@@ -151,18 +159,24 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.message1.append(item["message"].stringValue)
                 self.like_count1.append(item["like_count"].stringValue)
                 self.comment_count1.append(item["comment_count"].stringValue)
+                self.created_at1.append(item["created_at"].stringValue)
+                self.imageurl1.append(item["imageurl"].stringValue)
+                /////////
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.followedTable.reloadData()
                     })
                 
             }
-            print(self.username1)
-            print(self.message1)
-            print(self.like_count1)
-            print(self.comment_count1)
-            print(self.post_user_id1)
-            print(self.post_id1)
+            //print(self.username1)
+            //print(self.message1)
+            //print(self.like_count1)
+            //print(self.comment_count1)
+            //print(self.post_user_id1)
+            //print(self.post_id1)
+            print(self.created_at1)
+            print(self.imageurl1)
+
             
             
             //for now doing followed feeds
