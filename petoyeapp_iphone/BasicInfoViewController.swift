@@ -13,7 +13,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     @IBOutlet weak var pettype: UIButton!
     @IBOutlet weak var breedtype: UIButton!
     @IBOutlet weak var picker: UIPickerView!
-    
+    @IBOutlet weak var hi: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var password: UILabel!
     
@@ -37,7 +37,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
-        pickerData = ["Pet Owner", "Pet Lover", "Pet Business"]
+        pickerData = ["Pet Parent", "Pet Lover", "Pet Business"]
         self.picker.delegate = self
         self.picker.dataSource = self
         picker.center = CGPointMake(self.view.bounds.size.width / 2, self.view.frame.size.height/2 + 320 )
@@ -54,7 +54,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         self.breedtype.tag = 0
         
         picker.hidden = false
-        pickerData = ["Dog", "Cat", "Other"]
+        pickerData = ["Dog", "Cat", "Other","ahh","ooh"]
         self.picker.delegate = self
         self.picker.dataSource = self
         var bottomOffset: CGPoint = CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
@@ -115,7 +115,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         
         if(row == 0)
         {
-            owner_type.text = "Pet Owner"
+            owner_type.text = "Pet Parent"
         }
         else if(row == 1)
         {
@@ -141,6 +141,10 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
             {
                 pet_type.text = "Other"
             }
+            else if (row == 3)
+            {
+                pet_type.text = "ahh"
+            }
 
         }
         else if (self.breedtype.tag == 3) {
@@ -159,34 +163,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
             }
 
         }
-        
-        
-        /*
-        else if (row == 3)
-        {
-            pet_type.text = "Dog"
-        }
-        else if (row == 4)
-        {
-            pet_type.text = "Cat"
-        }
-        else if (row == 5)
-        {
-            pet_type.text = "Other"
-        }
-        else if (row == 6)
-        {
-            breed.text = "Labrador"
-        }
-        else if (row == 7)
-        {
-            breed.text = "Beagle"
-        }
-        else if (row == 8)
-        {
-            breed.text = "Pug"
-        }
-        */
+
     }
  
     @IBAction func done(sender: AnyObject) {
@@ -276,6 +253,10 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         
         var lat = locationManager.location!.coordinate.latitude
         var long = locationManager.location!.coordinate.longitude
+        
+        var email = NSUserDefaults.standardUserDefaults().stringForKey("email")!
+        var user_name = NSUserDefaults.standardUserDefaults().stringForKey("user_name")!
+        var profilepic_url = NSUserDefaults.standardUserDefaults().stringForKey("profilepic_url")!
 
         print(lat)
         print(long)
@@ -306,11 +287,14 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
+             var first_name = NSUserDefaults.standardUserDefaults().stringForKey("first_name")!
             self.password.text = "Password"
+            self.hi.text = "Hi, \(first_name)"
         }
         else
         {
             //as it is
+            self.hi.text = "Hi,"
         }
         
     }

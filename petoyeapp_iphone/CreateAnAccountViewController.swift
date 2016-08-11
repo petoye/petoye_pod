@@ -44,7 +44,7 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     override func viewDidAppear(animated: Bool) {
         if (FBSDKAccessToken.currentAccessToken() != nil || fbLoginSuccess == true)
         {
-            ///////performSegueWithIdentifier("NewUserToBasicInfo", sender: self)
+            performSegueWithIdentifier("NewUserToBasicInfo", sender: self)
         }
     }
 
@@ -173,7 +173,25 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
         if((FBSDKAccessToken.currentAccessToken()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
                 if (error == nil){
-                    print(result)
+                    let fbDetails = result as! NSDictionary
+                    //print(fbDetails)
+                    var user_email = fbDetails["email"]!   //
+                    var first_name = fbDetails["first_name"]!    //
+                    var username = fbDetails["name"]!.lowercaseString.stringByReplacingOccurrencesOfString(" ", withString: "_")
+                    var profilepic_url = fbDetails["picture"]!["data"]!!["url"]!!
+                    
+                    print(user_email)
+                    print(first_name)
+                    print(username)
+                    print(profilepic_url)
+                    
+                    NSUserDefaults.standardUserDefaults().setValue("\(user_email)", forKey: "email")
+                    NSUserDefaults.standardUserDefaults().setValue("\(first_name)", forKey: "first_name")
+                    NSUserDefaults.standardUserDefaults().setValue("\(username)", forKey: "user_name")
+                    NSUserDefaults.standardUserDefaults().setValue("\(profilepic_url)", forKey: "profilepic_url")
+
+                    //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
+                    
                 }
             })
         }
