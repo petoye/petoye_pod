@@ -24,15 +24,6 @@ extension UIViewController {
         
     }
     
-    func storefbid(value: String) {
-        
-        NSUserDefaults.standardUserDefaults().setValue("\(value)", forKey: "fbid")
-        fbid = NSUserDefaults.standardUserDefaults().stringForKey("fbid")!
-        print(fbid)
-    }
-    
-    
-    
 }
 
 

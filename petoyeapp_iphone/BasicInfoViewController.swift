@@ -302,7 +302,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
             
             let fbidjson = json["id"].stringValue
             
-            self.storefbid(fbidjson)
+            self.storeId(fbidjson)
             //print(fbidjson)
 
             
