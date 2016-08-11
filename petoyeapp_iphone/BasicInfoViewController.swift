@@ -297,8 +297,8 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
                 let idjson = json["id"].stringValue
                 
                 self.storeId(idjson)
-                print(idjson)
-                
+                id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
+                print(id)
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
