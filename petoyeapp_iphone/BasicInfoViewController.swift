@@ -13,7 +13,9 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     @IBOutlet weak var pettype: UIButton!
     @IBOutlet weak var breedtype: UIButton!
     @IBOutlet weak var picker: UIPickerView!
+    
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var password: UILabel!
     
     var player:AVAudioPlayer = AVAudioPlayer()
     var locationManager = CLLocationManager()
@@ -27,6 +29,11 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     @IBAction func ownertype(sender: AnyObject) {
         //self.hideKeyboardWhenTappedAround()
         picker.hidden = false
+        self.ownertype.tag = 1
+        self.pettype.tag = 0
+        self.breedtype.tag = 0
+        
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
@@ -41,8 +48,13 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     
     @IBAction func pettype(sender: AnyObject) {
         
+        
+        self.ownertype.tag = 0
+        self.pettype.tag = 2
+        self.breedtype.tag = 0
+        
         picker.hidden = false
-        pickerData = ["","","","Dog", "Cat", "Other"]
+        pickerData = ["Dog", "Cat", "Other"]
         self.picker.delegate = self
         self.picker.dataSource = self
         var bottomOffset: CGPoint = CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
@@ -51,13 +63,34 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     }
     
     @IBAction func breedtype(sender: AnyObject) {
+        
+        
+        self.ownertype.tag = 0
+        self.pettype.tag = 0
+        self.breedtype.tag = 3
+        
         picker.hidden = false
-        pickerData = ["","","","","","","Labrador", "Beagle", "Pug"]
+        pickerData = ["Labrador", "Beagle", "Pug"]
         self.picker.delegate = self
         self.picker.dataSource = self
         var bottomOffset: CGPoint = CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
         self.scrollView.setContentOffset(bottomOffset, animated: true)
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // The number of columns of data
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -77,6 +110,9 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
+        
+        if(self.ownertype.tag == 1) {
+        
         if(row == 0)
         {
             owner_type.text = "Pet Owner"
@@ -89,6 +125,43 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         {
             owner_type.text = "Pet Business"
         }
+            
+        }
+        else if (self.pettype.tag == 2) {
+            
+            if(row == 0)
+            {
+                pet_type.text = "Dog"
+            }
+            else if(row == 1)
+            {
+                pet_type.text = "Cat"
+            }
+            else if (row == 2)
+            {
+                pet_type.text = "Other"
+            }
+
+        }
+        else if (self.breedtype.tag == 3) {
+            
+            if(row == 0)
+            {
+                breed.text = "Labrador"
+            }
+            else if(row == 1)
+            {
+                breed.text = "Beagle"
+            }
+            else if (row == 2)
+            {
+                breed.text = "Pug"
+            }
+
+        }
+        
+        
+        /*
         else if (row == 3)
         {
             pet_type.text = "Dog"
@@ -113,7 +186,7 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         {
             breed.text = "Pug"
         }
-        
+        */
     }
  
     @IBAction func done(sender: AnyObject) {
@@ -123,6 +196,20 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         
         picker.hidden = true
         
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            fbuser()
+        }
+        else
+        {
+            normaluser()
+        }
+
+    }
+    
+    func normaluser() {
+        
         var u_name = username.text!
         var o_type = owner_type.text!
         var p_type = pet_type.text!
@@ -131,56 +218,75 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         var lat = locationManager.location!.coordinate.latitude
         var long = locationManager.location!.coordinate.longitude
         // change to the id of the user returned while signup
- 
+        
         /*if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized) {
-            
-            
-            
-            
-        }*/
+         
+         
+         
+         
+         }*/
         print(lat)
         print(long)
         
-            id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
-            print(id)
+        id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
+        print(id)
         
         
-            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(id)/basicinfo")!)
-            request.HTTPMethod = "POST"
-            let postString = "username=\(u_name)&otype=\(o_type)&ptype=\(p_type)&breed=\(br)&lat=\(lat)&lng=\(long)"
-            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-                guard error == nil && data != nil else {                                                          // check for fundamental networking error
-                    print(error!)
-                    return
-                }
-                
-                if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
-                {
-                    dispatch_async(dispatch_get_main_queue()){
-                        self.performSegueWithIdentifier("NewUserToHome", sender:self)
-                    }
-                }
-
-                
-                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
-                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                    print(response!)
-                }
-                
-                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print(responseString!)
-                
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(id)/basicinfo")!)
+        request.HTTPMethod = "POST"
+        let postString = "username=\(u_name)&otype=\(o_type)&ptype=\(p_type)&breed=\(br)&lat=\(lat)&lng=\(long)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
             }
-            task.resume()
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+            {
+                dispatch_async(dispatch_get_main_queue()){
+                    self.performSegueWithIdentifier("NewUserToHome", sender:self)
+                }
+            }
+            
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+        }
+        task.resume()
+
+    }
+    
+    func fbuser()
+    {
         
+        //var email
+        //var username
+        
+        var password = username.text!
+        var o_type = owner_type.text!
+        var p_type = pet_type.text!
+        var br = breed.text!
+        
+        var lat = locationManager.location!.coordinate.latitude
+        var long = locationManager.location!.coordinate.longitude
+
+        print(lat)
+        print(long)
+
         
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
         
@@ -197,7 +303,15 @@ class BasicInfoViewController: UIViewController, CLLocationManagerDelegate, UIPi
         catch {
             print("Something bad happened. Try catching specific errors to narrow things down")
         }
-
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            self.password.text = "Password"
+        }
+        else
+        {
+            //as it is
+        }
         
     }
 

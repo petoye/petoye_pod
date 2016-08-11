@@ -44,7 +44,7 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     override func viewDidAppear(animated: Bool) {
         if (FBSDKAccessToken.currentAccessToken() != nil || fbLoginSuccess == true)
         {
-            performSegueWithIdentifier("NewUserToBasicInfo", sender: self)
+            ///////performSegueWithIdentifier("NewUserToBasicInfo", sender: self)
         }
     }
 
@@ -147,8 +147,8 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     
     
     @IBAction func fb_signup(sender: AnyObject) {
-        player.play()
-        player.volume = 0.75
+        //player.play()
+        //player.volume = 0.75
         
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self) { (result, error) -> Void in

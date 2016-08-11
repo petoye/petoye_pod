@@ -95,6 +95,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.message.append(innerItem["message"].stringValue)
                     self.like_count.append(innerItem["like_count"].stringValue)
                     self.comment_count.append(innerItem["comment_count"].stringValue)
+                    ///////
                     
                     self.post_user_id.append(item["id"].stringValue)
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in

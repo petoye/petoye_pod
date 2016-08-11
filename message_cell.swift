@@ -13,11 +13,7 @@ class message_cell: UITableViewCell {
 
     @IBOutlet weak var green: UIView!
 
-
-    @IBOutlet weak var gray: UIView!
-
     @IBOutlet weak var sent_m: UILabel!
     
-    @IBOutlet weak var recieved_m: UILabel!
     
 }
