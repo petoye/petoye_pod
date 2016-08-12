@@ -13,6 +13,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var feedTable: UITableView!
     @IBOutlet weak var followedTable: UITableView!
     
+    @IBOutlet weak var Open: UIBarButtonItem!
+    
     var post_user_id = [String]()
     var username = [String]()
     var message = [String]()
@@ -47,6 +49,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+        
+        Open.target = self.revealViewController()
+        Open.action = Selector("revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         
         //indicator thing

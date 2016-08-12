@@ -30,6 +30,10 @@
 		E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE2261D54C5B500AFA106 /* conversation_cell.swift */; };
 		E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE22C1D559F3C00AFA106 /* postViewController.swift */; };
 		E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */ = {isa = PBXBuildFile; fileRef = E478A3081D4E39AA00865189 /* IMG_2623.png */; };
+		E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484FAD61D5E1989007B8918 /* SWRevealViewController.m */; };
+		E484FAD91D5E1BA9007B8918 /* slideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FAD81D5E1BA9007B8918 /* slideViewController.swift */; };
+		E484FAFE1D5E2568007B8918 /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FAFD1D5E2568007B8918 /* BackTableVC.swift */; };
+		E484FB001D5E2FC5007B8918 /* hamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FAFF1D5E2FC5007B8918 /* hamViewController.swift */; };
 		E4938F1A1D5A0B45008ACE46 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */; };
 		E4938F1C1D5A1184008ACE46 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4938F1B1D5A1184008ACE46 /* image1.png */; };
 		E4938F1E1D5CC8B3008ACE46 /* imageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */; };
@@ -74,6 +78,11 @@
 		E45FE2261D54C5B500AFA106 /* conversation_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversation_cell.swift; sourceTree = "<group>"; };
 		E45FE22C1D559F3C00AFA106 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = postViewController.swift; path = ../postViewController.swift; sourceTree = "<group>"; };
 		E478A3081D4E39AA00865189 /* IMG_2623.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2623.png; sourceTree = "<group>"; };
+		E484FAD51D5E1989007B8918 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		E484FAD61D5E1989007B8918 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E484FAD81D5E1BA9007B8918 /* slideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = slideViewController.swift; path = petoyeapp_iphone/slideViewController.swift; sourceTree = "<group>"; };
+		E484FAFD1D5E2568007B8918 /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableVC.swift; sourceTree = "<group>"; };
+		E484FAFF1D5E2FC5007B8918 /* hamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hamViewController.swift; sourceTree = "<group>"; };
 		E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E4938F1B1D5A1184008ACE46 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +120,10 @@
 		E4579DC31D07118200E52D4D = {
 			isa = PBXGroup;
 			children = (
+				E484FAFF1D5E2FC5007B8918 /* hamViewController.swift */,
+				E484FAFD1D5E2568007B8918 /* BackTableVC.swift */,
 				E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */,
+				E484FAD81D5E1BA9007B8918 /* slideViewController.swift */,
 				E4579DCE1D07118300E52D4D /* petoyeapp_iphone */,
 				E4579DCD1D07118300E52D4D /* Products */,
 			);
@@ -202,6 +214,8 @@
 		E45FE22B1D54C68700AFA106 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E484FAD51D5E1989007B8918 /* SWRevealViewController.h */,
+				E484FAD61D5E1989007B8918 /* SWRevealViewController.m */,
 				E4579DCF1D07118300E52D4D /* AppDelegate.swift */,
 				E4D116FE1D4A8EE5008DA903 /* SwiftyJSON.swift */,
 				E44A71CC1D49FCBF00FDA473 /* PetOye-Bridging-Header.h */,
@@ -295,6 +309,7 @@
 				E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */,
 				E40E98611D50982100112273 /* LikesViewController.swift in Sources */,
 				E4938F1E1D5CC8B3008ACE46 /* imageViewController.swift in Sources */,
+				E484FB001D5E2FC5007B8918 /* hamViewController.swift in Sources */,
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
 				E40E98691D50DE7600112273 /* discover_cell.swift in Sources */,
 				E4FDD9B31D4CB43800E7610B /* feed.swift in Sources */,
@@ -304,12 +319,15 @@
 				E45592201D4F4EBC00D36B28 /* CommentsViewController.swift in Sources */,
 				E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */,
 				E4579DD01D07118300E52D4D /* AppDelegate.swift in Sources */,
+				E484FAD91D5E1BA9007B8918 /* slideViewController.swift in Sources */,
+				E484FAFE1D5E2568007B8918 /* BackTableVC.swift in Sources */,
 				E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
 				E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */,
 				E40E986D1D51C96F00112273 /* message_cell.swift in Sources */,
 				E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */,
 				E4DE19461D48BFFE00AA4836 /* CreateAnAccountViewController.swift in Sources */,
+				E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */,
 				E40E98651D509C1300112273 /* like_cell.swift in Sources */,
 				E4AFB6F21D53639C00FDD6B6 /* notificationsViewController.swift in Sources */,
 			);
@@ -425,7 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.2wc.petoyeapp-iphone";
 				PRODUCT_NAME = PetOye;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/users/ameyavichare/Desktop/PetOye/petoyeapp_iphone/petoyeapp_iphone/PetOye-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "petoyeapp_iphone/PetOye-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -442,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.2wc.petoyeapp-iphone";
 				PRODUCT_NAME = PetOye;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/users/ameyavichare/Desktop/PetOye/petoyeapp_iphone/petoyeapp_iphone/PetOye-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "petoyeapp_iphone/PetOye-Bridging-Header.h";
 			};
 			name = Release;
 		};
