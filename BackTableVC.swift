@@ -19,7 +19,7 @@ class BackTableVC: UITableViewController {
         
         hamTable.tableFooterView = UIView(frame: CGRectZero)
         
-        TableArray = ["Home","Adoption","Pet Breeds","Kennels","Shelters","Groomers","Trainers","Events","Settings","About us","App Info"]
+        TableArray = ["Home","Adoption","Pet Breeds","Pet Vets","Groomers","Trainers","Events","Settings","About us","Why PetOye?"]
         
     }
     
@@ -32,6 +32,39 @@ class BackTableVC: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("ham_cell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.text = TableArray[indexPath.row]
+       
+        if indexPath.row == 0 {
+        cell.imageView?.image = UIImage(named: "home.png")
+        }
+        else if indexPath.row == 1 {
+            cell.imageView?.image = UIImage(named: "adoption.png")
+        }
+        else if indexPath.row == 2 {
+            cell.imageView?.image = UIImage(named: "petbreeds.png")
+        }
+        else if indexPath.row == 3 {
+            cell.imageView?.image = UIImage(named: "vet.png")
+        }
+        else if indexPath.row == 4 {
+            cell.imageView?.image = UIImage(named: "grooming.png")
+        }
+        else if indexPath.row == 5 {
+            cell.imageView?.image = UIImage(named: "training.png")
+        }
+        else if indexPath.row == 6 {
+            cell.imageView?.image = UIImage(named: "events.png")
+        }
+        else if indexPath.row == 7 {
+            cell.imageView?.image = UIImage(named: "settings.png")
+        }
+        else if indexPath.row == 8 {
+            cell.imageView?.image = UIImage(named: "about.png")
+        }
+        else if indexPath.row == 9 {
+            cell.imageView?.image = UIImage(named: "settings.png")
+        }
+        
+        
         return cell
     }
 }
