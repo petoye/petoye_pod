@@ -8,7 +8,7 @@
 
 var userDefault = NSUserDefaults.standardUserDefaults()
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator {
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator, UIActionSheetDelegate{
     
     @IBOutlet weak var feedTable: UITableView!
     @IBOutlet weak var followedTable: UITableView!
@@ -279,7 +279,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                  
                     cell.postedImage.image = UIImage(named: "no_image.jpg")
                     
-                    
 
                 }
                 else
@@ -321,9 +320,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.commentcount.text = comment_count1[indexPath.row]
                 
                 
-                cell.usernamePress.tag = indexPath.row
-                cell.likePress.tag = indexPath.row
-                cell.commentPress.tag = indexPath.row
+                //cell.usernamePress.tag = indexPath.row
+                //cell.likePress.tag = indexPath.row
+                //cell.commentPress.tag = indexPath.row
                 
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
@@ -434,6 +433,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     func reloadLike() {
         self.feedTable.reloadData()
+    }
+    
+    func report() {
+        
+        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Report", otherButtonTitles: "Follow","Share to Facebook","Share to Twitter")
+        
+        actionSheet.showInView(self.view)
+        
+        
     }
 
 }

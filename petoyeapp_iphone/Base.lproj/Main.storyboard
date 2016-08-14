@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BGv-1S-b1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UgT-XF-BaW">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1366,7 +1366,7 @@ you the opportunity to share it here!</string>
                                                     <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
                                                     <state key="normal" image="report_dots"/>
                                                     <connections>
-                                                        <action selector="reportBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="PTh-dj-RCe"/>
+                                                        <action selector="reportBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="Ym5-9Q-Qv7"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuH-UD-yxf">
@@ -1374,7 +1374,7 @@ you the opportunity to share it here!</string>
                                                     <accessibility key="accessibilityConfiguration" identifier="6D599FA2-7727-4EB0-96CD-DDD0932AFCE5-asset"/>
                                                     <state key="normal" image="comment_big"/>
                                                     <connections>
-                                                        <action selector="commentBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="7rm-uq-b1v"/>
+                                                        <action selector="commentBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="lcO-vv-g1m"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cK2-Tg-2zb">
@@ -1385,19 +1385,21 @@ you the opportunity to share it here!</string>
                                                         <color key="titleColor" red="0.71764705882352942" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="share2But:" destination="BfM-av-xHo" eventType="touchUpInside" id="zzM-ow-9YE"/>
+                                                        <action selector="share2But:" destination="BfM-av-xHo" eventType="touchUpInside" id="Is2-TL-JDB"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiH-jS-kD6">
                                                     <rect key="frame" x="287" y="544" width="20" height="25"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="7751DEA3-FC97-4825-8F81-58CF546973AA-asset"/>
                                                     <state key="normal" image="share_via"/>
+                                                    <connections>
+                                                        <action selector="share1But:" destination="BfM-av-xHo" eventType="touchUpInside" id="8xY-NP-hkO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iz-ze-V3I" userLabel="likedBy">
                                                     <rect key="frame" x="37" y="510" width="55" height="20"/>
                                                     <connections>
-                                                        <action selector="likedByBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="ao2-LI-nRi"/>
-                                                        <action selector="share1But:" destination="BfM-av-xHo" eventType="touchUpInside" id="g0j-AF-sGt"/>
+                                                        <action selector="likedByBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="iNH-4B-6fD"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C33-wQ-C4U">
@@ -1410,40 +1412,33 @@ you the opportunity to share it here!</string>
                                                     <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
                                                     <state key="normal" image="like_unselected"/>
                                                     <connections>
-                                                        <action selector="likeBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="gqA-8G-Xdn"/>
+                                                        <action selector="likeBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="wBO-Qg-VPT"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-8Z-vNW">
                                                     <rect key="frame" x="31" y="10" width="55" height="49"/>
                                                     <connections>
-                                                        <action selector="profilePicBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="EOv-cj-3bP"/>
+                                                        <action selector="profilePicBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="Wwc-BD-HRo"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlK-bp-KKB">
                                                     <rect key="frame" x="104" y="6" width="154" height="30"/>
                                                     <connections>
-                                                        <action selector="usernameBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="32t-GJ-Idd"/>
+                                                        <action selector="usernameBut:" destination="BfM-av-xHo" eventType="touchUpInside" id="alZ-EF-O1y"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentPress" destination="JuH-UD-yxf" id="4KT-MS-bn8"/>
                                             <outlet property="commentcount" destination="PsG-tB-7lP" id="AXQ-YJ-z6Z"/>
                                             <outlet property="comments" destination="1gR-dG-TZL" id="nA5-yV-VBY"/>
-                                            <outlet property="likePress" destination="Grh-ha-3t9" id="LV6-ee-9gc"/>
                                             <outlet property="like_selected" destination="C33-wQ-C4U" id="kIB-q4-bvV"/>
                                             <outlet property="likecount" destination="FiO-o3-hE0" id="tV5-AU-DH2"/>
                                             <outlet property="message" destination="hkx-mT-XiH" id="RXe-8e-xd6"/>
                                             <outlet property="postedImage" destination="dAn-Vl-vt6" id="Qdv-eH-4rd"/>
                                             <outlet property="profilePic" destination="ImR-0w-SiL" id="BEv-ao-RXl"/>
-                                            <outlet property="profilePicPress" destination="8i9-8Z-vNW" id="BSC-2E-3dD"/>
-                                            <outlet property="reportPress" destination="qXW-Yz-JSh" id="hhx-3b-nmA"/>
-                                            <outlet property="share1Press" destination="iiH-jS-kD6" id="4EG-wJ-tFM"/>
-                                            <outlet property="share2Press" destination="cK2-Tg-2zb" id="iaS-qE-ooQ"/>
                                             <outlet property="timestamp" destination="Son-y1-qSd" id="UW8-kS-xTC"/>
                                             <outlet property="username" destination="taJ-YD-LKR" id="wlA-31-Q5B"/>
-                                            <outlet property="usernamePress" destination="dlK-bp-KKB" id="dhq-lo-cNd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
