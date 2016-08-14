@@ -320,9 +320,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.commentcount.text = comment_count1[indexPath.row]
                 
                 
-                //cell.usernamePress.tag = indexPath.row
-                //cell.likePress.tag = indexPath.row
-                //cell.commentPress.tag = indexPath.row
+                cell.usernamePress.tag = indexPath.row
+                cell.likePress.tag = indexPath.row
+                cell.commentPress.tag = indexPath.row
                 
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2

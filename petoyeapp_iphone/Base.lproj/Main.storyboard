@@ -1274,11 +1274,11 @@ you the opportunity to share it here!</string>
                                     <outlet property="delegate" destination="PGw-Ef-JFS" id="6q6-cm-IqA"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="599" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zYh-zy-TxH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="599" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zYh-zy-TxH">
                                 <rect key="frame" x="0.0" y="118" width="414" height="634"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feed1" rowHeight="599" id="BfM-av-xHo" customClass="feed" customModule="PetOye" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feed1" rowHeight="599" id="BfM-av-xHo" customClass="feed" customModule="PetOye" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="599"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BfM-av-xHo" id="r8w-yg-gvZ">
@@ -1430,15 +1430,22 @@ you the opportunity to share it here!</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="commentPress" destination="JuH-UD-yxf" id="m8G-uj-1aP"/>
                                             <outlet property="commentcount" destination="PsG-tB-7lP" id="AXQ-YJ-z6Z"/>
                                             <outlet property="comments" destination="1gR-dG-TZL" id="nA5-yV-VBY"/>
+                                            <outlet property="likePress" destination="Grh-ha-3t9" id="zMS-94-4yf"/>
                                             <outlet property="like_selected" destination="C33-wQ-C4U" id="kIB-q4-bvV"/>
                                             <outlet property="likecount" destination="FiO-o3-hE0" id="tV5-AU-DH2"/>
                                             <outlet property="message" destination="hkx-mT-XiH" id="RXe-8e-xd6"/>
                                             <outlet property="postedImage" destination="dAn-Vl-vt6" id="Qdv-eH-4rd"/>
                                             <outlet property="profilePic" destination="ImR-0w-SiL" id="BEv-ao-RXl"/>
+                                            <outlet property="profilePicPress" destination="8i9-8Z-vNW" id="ucp-s6-13D"/>
+                                            <outlet property="reportPress" destination="qXW-Yz-JSh" id="jkM-7k-gAx"/>
+                                            <outlet property="share1Press" destination="iiH-jS-kD6" id="tnQ-CN-azd"/>
+                                            <outlet property="share2Press" destination="cK2-Tg-2zb" id="fH6-3o-UlW"/>
                                             <outlet property="timestamp" destination="Son-y1-qSd" id="UW8-kS-xTC"/>
                                             <outlet property="username" destination="taJ-YD-LKR" id="wlA-31-Q5B"/>
+                                            <outlet property="usernamePress" destination="dlK-bp-KKB" id="qpn-UD-iiA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

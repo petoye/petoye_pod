@@ -68,15 +68,8 @@ class feed: UITableViewCell {
 
     @IBAction func reportBut(sender: AnyObject) {
         
-        //let customView = UIView(frame: CGRectMake(10, 10, 10, 50))
-        //customView.backgroundColor = UIColorFromHex(0xF7F7F7,alpha: 1)
-        
-        print("tapped")
-        
         self.delegate.report()
-        
-        
-        
+
     }
     
 
