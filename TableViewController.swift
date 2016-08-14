@@ -14,6 +14,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var followedTable: UITableView!
     
     @IBOutlet weak var Open: UIBarButtonItem!
+    @IBOutlet weak var post: UIBarButtonItem!
     
     var post_user_id = [String]()
     var username = [String]()
@@ -37,6 +38,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var trendingView = UIView()
     var followedView = UIView()
     var nearbyView = UIView()
+    var searchController: UISearchController!
 
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var navBar: UINavigationBar!
@@ -49,6 +51,28 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+        
+        //search bar
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
@@ -443,5 +467,26 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         
     }
+    
+    @IBAction func search(sender: AnyObject) {
+        
+        self.toolBar.hidden = true
+        self.followedTable.hidden = true
+        self.feedTable.hidden = true
+        self.navBar.hidden = true
+        self.trendingView.hidden = true
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
 
 }

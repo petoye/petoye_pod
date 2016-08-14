@@ -1078,7 +1078,11 @@ you the opportunity to share it here!</string>
                                     <navigationItem title="PetOye" prompt=" " id="gME-pF-eAq">
                                         <leftBarButtonItems>
                                             <barButtonItem image="ham_button" id="SVr-5N-dsr"/>
-                                            <barButtonItem image="search" id="kaC-eX-hqf"/>
+                                            <barButtonItem image="search" id="kaC-eX-hqf">
+                                                <connections>
+                                                    <action selector="search:" destination="PGw-Ef-JFS" id="K26-uc-l2v"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" image="post" id="F7I-xM-ztF">
                                             <connections>
@@ -1505,6 +1509,7 @@ you the opportunity to share it here!</string>
                         <outlet property="followedTable" destination="zYh-zy-TxH" id="CLC-Qa-fkq"/>
                         <outlet property="navBar" destination="092-6j-VD9" id="rfd-10-g2S"/>
                         <outlet property="nearby" destination="pKf-cE-ZV0" id="SHM-M4-2Mr"/>
+                        <outlet property="post" destination="F7I-xM-ztF" id="9XU-8V-tU5"/>
                         <outlet property="toolBar" destination="Q74-9k-rx0" id="F6x-nx-VjD"/>
                         <outlet property="trending" destination="Hmy-QK-pGT" id="Lhe-ga-z2l"/>
                     </connections>
