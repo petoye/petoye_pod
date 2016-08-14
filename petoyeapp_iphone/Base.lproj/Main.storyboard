@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UgT-XF-BaW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BGv-1S-b1y">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -648,7 +648,7 @@ you the opportunity to share it here!</string>
                                                 <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
                                                 <state key="normal" image="back"/>
                                                 <connections>
-                                                    <segue destination="cgY-MP-jzm" kind="show" id="qtx-jv-fsc"/>
+                                                    <segue destination="UgT-XF-BaW" kind="show" id="78e-Vv-IzS"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -829,7 +829,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNY-Xf-s7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-167" y="-3230"/>
+            <point key="canvasLocation" x="-951" y="-1878"/>
         </scene>
         <!--Back TableVC-->
         <scene sceneID="xek-rJ-yBO">
@@ -869,6 +869,7 @@ you the opportunity to share it here!</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="hamTable" destination="CHD-vb-T6i" id="BlQ-20-H6E"/>
+                        <outlet property="hello" destination="mCe-QX-mi9" id="SMk-QZ-TFm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wA4-Hs-EHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -903,7 +904,7 @@ you the opportunity to share it here!</string>
                                                 <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
                                                 <state key="normal" image="back"/>
                                                 <connections>
-                                                    <segue destination="cgY-MP-jzm" kind="show" id="3cq-VV-wew"/>
+                                                    <segue destination="UgT-XF-BaW" kind="show" id="WfD-Ky-beX"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -986,7 +987,7 @@ you the opportunity to share it here!</string>
                                 <rect key="frame" x="380" y="28" width="22" height="22"/>
                                 <state key="normal" title="Button" image="cancel"/>
                                 <connections>
-                                    <segue destination="cgY-MP-jzm" kind="show" id="hGL-cy-ogw"/>
+                                    <segue destination="UgT-XF-BaW" kind="show" id="qt2-TK-KoY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfz-kf-GOt">
@@ -2006,7 +2007,7 @@ you the opportunity to share it here!</string>
                         <outlet property="forgot_pass" destination="OPv-Pn-fMj" id="OkY-P3-nTg"/>
                         <outlet property="password" destination="Jr5-ZX-pd4" id="vqU-Lq-sZT"/>
                         <outlet property="scrollView" destination="TaP-8F-b8z" id="C4e-Z9-pHN"/>
-                        <segue destination="cgY-MP-jzm" kind="show" identifier="OldUserToHome" id="57R-6w-vmr"/>
+                        <segue destination="UgT-XF-BaW" kind="show" identifier="OldUserToHome" id="etG-Sr-xAM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTD-zO-Sln" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2268,7 +2269,7 @@ you the opportunity to share it here!</string>
                         <outlet property="picker" destination="BMH-it-SvY" id="cj9-MV-Bzr"/>
                         <outlet property="scrollView" destination="kf7-5z-M0q" id="zyn-Q3-CKQ"/>
                         <outlet property="username" destination="rm6-sT-yb3" id="3AQ-hQ-e6m"/>
-                        <segue destination="cgY-MP-jzm" kind="show" identifier="NewUserToHome" id="iQM-6t-9n6"/>
+                        <segue destination="UgT-XF-BaW" kind="show" identifier="NewUserToHome" id="wCD-iV-Iag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsG-NO-JgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2513,9 +2514,9 @@ you the opportunity to share it here!</string>
         <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wCD-iV-Iag"/>
         <segue reference="gbH-JH-B03"/>
         <segue reference="hrC-N6-Ojl"/>
-        <segue reference="Vdi-sv-r0e"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
