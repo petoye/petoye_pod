@@ -53,7 +53,7 @@ class feed: UITableViewCell {
         //print(userNameArray?[usernamePress.tag])
         
         let data = userDefault.objectForKey("storedPostUserId") as! [String]
-        print(data[usernamePress.tag])
+        //print(data[usernamePress.tag])
         var showProfileId = data[usernamePress.tag]
         
         

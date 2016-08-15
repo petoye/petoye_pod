@@ -460,21 +460,57 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func report() {
-        
+        /*
         let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Report", otherButtonTitles: "Follow","Share to Facebook","Share to Twitter")
         
         actionSheet.showInView(self.view)
+        */
         
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController()
+        
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            print("Cancel")
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+        let followActionButton: UIAlertAction = UIAlertAction(title: "Follow", style: .Default)
+        { action -> Void in
+            print("Follow")
+        }
+        actionSheetControllerIOS8.addAction(followActionButton)
+        
+        let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
+        { action -> Void in
+            print("FB shared")
+        }
+        actionSheetControllerIOS8.addAction(shareFBActionButton)
+        
+        let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
+        { action -> Void in
+            print("Tweet")
+        }
+        actionSheetControllerIOS8.addAction(TweetActionButton)
+        
+        let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
+        { action -> Void in
+            print("Report")
+        }
+        actionSheetControllerIOS8.addAction(ReportActionButton)
+        
+        self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+
         
     }
     
     @IBAction func search(sender: AnyObject) {
         
-        self.toolBar.hidden = true
-        self.followedTable.hidden = true
-        self.feedTable.hidden = true
-        self.navBar.hidden = true
-        self.trendingView.hidden = true
+        //self.toolBar.hidden = true
+        //self.followedTable.hidden = true
+        //self.feedTable.hidden = true
+        //self.navBar.hidden = true
+        //self.trendingView.hidden = true
+        //self.followedView.hidden = true
+        // self.nearbyView.hidden = true
         
         
         
