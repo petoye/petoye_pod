@@ -6,6 +6,9 @@
 //  Copyright © 2016 Ameya Vichare. All rights reserved.
 //
 
+import UIKit
+import Social
+
 var userDefault = NSUserDefaults.standardUserDefaults()
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator, UIActionSheetDelegate{
@@ -478,12 +481,44 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
             { action -> Void in
                 print("FB shared")
+                
+                //////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                    var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    
+                    fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                    self.presentViewController(fbShare, animated: true, completion: nil)
+                    
+                } else {
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                /////////////
             }
             actionSheetControllerIOS8.addAction(shareFBActionButton)
             
             let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
             { action -> Void in
                 print("Tweet")
+                ////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                    
+                    var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                    
+                    self.presentViewController(tweetShare, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                ////////////
             }
             actionSheetControllerIOS8.addAction(TweetActionButton)
             
@@ -513,12 +548,45 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
         { action -> Void in
             print("FB shared")
+            /////////////
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                
+                fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                
+                self.presentViewController(fbShare, animated: true, completion: nil)
+                
+            } else {
+                var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            ////////////
         }
         actionSheetControllerIOS8.addAction(shareFBActionButton)
         
         let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
         { action -> Void in
             print("Tweet")
+            
+            ////////////
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                
+                var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                
+                tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                self.presentViewController(tweetShare, animated: true, completion: nil)
+                
+            } else {
+                
+                var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            ///////////
         }
         actionSheetControllerIOS8.addAction(TweetActionButton)
         
