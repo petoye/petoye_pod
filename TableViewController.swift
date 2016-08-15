@@ -468,6 +468,37 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
         
+        if (followed.tag == 1) {
+            
+            let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                print("Cancel")
+            }
+            actionSheetControllerIOS8.addAction(cancelActionButton)
+            
+            let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
+            { action -> Void in
+                print("FB shared")
+            }
+            actionSheetControllerIOS8.addAction(shareFBActionButton)
+            
+            let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
+            { action -> Void in
+                print("Tweet")
+            }
+            actionSheetControllerIOS8.addAction(TweetActionButton)
+            
+            let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
+            { action -> Void in
+                print("Report")
+            }
+            actionSheetControllerIOS8.addAction(ReportActionButton)
+            
+            self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+            
+        }
+        
+        else {
+        
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
             print("Cancel")
         }
@@ -498,6 +529,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         actionSheetControllerIOS8.addAction(ReportActionButton)
         
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+        }
 
         
     }

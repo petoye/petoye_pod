@@ -52,18 +52,18 @@ class feed: UITableViewCell {
         //delegate?.feedCell(self)
         //print(userNameArray?[usernamePress.tag])
         
-        let data = userDefault.objectForKey("storedPostUserId") as! [String]
+        //let data = userDefault.objectForKey("storedPostUserId") as! [String]
         //print(data[usernamePress.tag])
-        var showProfileId = data[usernamePress.tag]
+        //var showProfileId = data[usernamePress.tag]
         
         
         
     }
     
     @IBAction func profilePicBut(sender: AnyObject) {
-        let data = userDefault.objectForKey("storedPostUserId") as! [String]
-        print(data[usernamePress.tag])
-        var showProfileId = data[usernamePress.tag]
+        //let data = userDefault.objectForKey("storedPostUserId") as! [String]
+        //print(data[usernamePress.tag])
+        //var showProfileId = data[usernamePress.tag]
     }
 
     @IBAction func reportBut(sender: AnyObject) {
