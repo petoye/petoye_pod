@@ -350,6 +350,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.usernamePress.tag = indexPath.row
                 cell.likePress.tag = indexPath.row
                 cell.commentPress.tag = indexPath.row
+                cell.reportPress.tag = indexPath.row
                 
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
@@ -422,6 +423,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.usernamePress.tag = indexPath.row
                 cell.likePress.tag = indexPath.row
                 cell.commentPress.tag = indexPath.row
+                cell.reportPress.tag = indexPath.row
                 //cell.like_selected.hidden = true
                 
                 return cell
@@ -462,7 +464,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.feedTable.reloadData()
     }
     
-    func report() {
+    func report(cell_id:Int) {
         /*
         let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Report", otherButtonTitles: "Follow","Share to Facebook","Share to Twitter")
         
@@ -487,6 +489,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                     
                     fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                    let cell = self.followedTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    fbShare.addImage(cell.postedImage.image)
                     self.presentViewController(fbShare, animated: true, completion: nil)
                     
                 } else {

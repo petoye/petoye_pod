@@ -12,7 +12,7 @@ protocol MyCustomCellDelegator {
     func callSegueFromCell(data dataobject: AnyObject)
     func callLikedBySegueFromCell(data dataobject: AnyObject)
     func reloadLike()
-    func report()
+    func report(cell_id: Int)
 }
 
 
@@ -68,7 +68,14 @@ class feed: UITableViewCell {
 
     @IBAction func reportBut(sender: AnyObject) {
         
-        self.delegate.report()
+        
+        //var cell_no = reportPress.tag
+        //NSUserDefaults.standardUserDefaults().setValue("\(cell_no)", forKey: "cell_no")
+        
+        
+        let indexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
+        //print(indexPath.row)
+        self.delegate.report(indexPath.row)
 
     }
     
