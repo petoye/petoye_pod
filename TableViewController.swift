@@ -513,6 +513,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                     tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                    let cell = self.followedTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    tweetShare.addImage(cell.postedImage.image)
                     
                     self.presentViewController(tweetShare, animated: true, completion: nil)
                     
@@ -559,6 +563,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                 
                 fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                let cell = self.feedTable.cellForRowAtIndexPath(indexPath) as! feed
+                
+                fbShare.addImage(cell.postedImage.image)
                 
                 self.presentViewController(fbShare, animated: true, completion: nil)
                 
@@ -582,6 +590,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                 
                 tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                let cell = self.feedTable.cellForRowAtIndexPath(indexPath) as! feed
+                
+                tweetShare.addImage(cell.postedImage.image)
+                
                 self.presentViewController(tweetShare, animated: true, completion: nil)
                 
             } else {
