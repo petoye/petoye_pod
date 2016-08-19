@@ -37,6 +37,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var post_id1 = [String]()
     var created_at1 = [String]()
     var imageurl1 = [String]()
+    
+    var s_username = [String]()
+    var s_ownertype = [String]()
+    var s_breed = [String]()
+    var s_location = [String]()
+    var s_profilepic = [String]()
+
+
+
+
 
     
     var trendingView = UIView()
@@ -102,6 +112,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //get request for getting followed feeds
         getFollowed()
         
+        performSearch()
+        
         feedTable.hidden = true
         followedTable.hidden = true
         searchTable.hidden = true
@@ -154,8 +166,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //print(self.comment_count)
             //print(self.post_user_id)
             //print(self.post_id)
-            print(self.created_at)
-            print(self.imageurl)
+            //print(self.created_at)
+            //print(self.imageurl)
             
             
             //for now doing nearby feeds
@@ -212,8 +224,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //print(self.comment_count1)
             //print(self.post_user_id1)
             //print(self.post_id1)
-            print(self.created_at1)
-            print(self.imageurl1)
+            //print(self.created_at1)
+            //print(self.imageurl1)
 
             
             
@@ -295,7 +307,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             items = username.count
         }
         else {
-            items = 3
+            items = s_username.count
         }
         return items
     }
@@ -443,9 +455,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let cell = tableView.dequeueReusableCellWithIdentifier("search", forIndexPath: indexPath) as! search_cell
                 //cell.textLabel?.text = "TEST"
                 
-                cell.username.text = "Messi"
-                cell.owner_type.text = "Pet Parent"
-                cell.breed.text = "Labrador"
+                cell.username.text = s_username[indexPath.row]
+                cell.owner_type.text = s_ownertype[indexPath.row]
+                cell.breed.text = s_breed[indexPath.row]
                 cell.location.text = "Dadar, Mumbai"
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
@@ -754,6 +766,52 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //var query = CustomSearchController.searchBar.text
         //print(query)
         print(searchText)
+        
+    }
+    
+    func performSearch() {
+        
+        var query = "anton"
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(query)/user/search")!)
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 302 {           // check for http errors
+                print("statusCode should be 302, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            print(responseString)
+            
+            let json = JSON(data: data!)
+            
+            
+            
+            for item in json["users"].arrayValue {
+                
+                self.s_username.append(item["username"].stringValue.capitalizedString)
+                self.s_ownertype.append(item["owner_type"].stringValue.capitalizedString)
+                self.s_breed.append(item["pet_breed"].stringValue.capitalizedString)
+
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    self.searchTable.reloadData()
+                })
+            }
+            
+            print(self.s_username)
+            print(self.s_ownertype)
+            print(self.s_breed)
+    
+        }
+        task.resume()
+
     }
     
     
