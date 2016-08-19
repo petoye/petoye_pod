@@ -782,45 +782,54 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         //var query = "anton"
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(query)/user/search")!)
-        request.HTTPMethod = "GET"
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            guard error == nil && data != nil else {                                                          // check for fundamental networking error
-                print(error!)
-                return
-            }
+        if query.characters.count >= 3 {
             
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 302 {           // check for http errors
-                print("statusCode should be 302, but is \(httpStatus.statusCode)")
-                print(response!)
-            }
-            
-            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
-            
-            let json = JSON(data: data!)
+            print(query)
             
             
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(query)/user/search")!)
+            request.HTTPMethod = "GET"
             
-            for item in json["users"].arrayValue {
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                    print(error!)
+                    return
+                }
                 
-                self.s_username.append(item["username"].stringValue.capitalizedString)
-                self.s_ownertype.append(item["owner_type"].stringValue.capitalizedString)
-                self.s_breed.append(item["pet_breed"].stringValue.capitalizedString)
-
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    self.searchTable.reloadData()
-                })
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 302 {           // check for http errors
+                    print("statusCode should be 302, but is \(httpStatus.statusCode)")
+                    print(response!)
+                }
+                
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(responseString)
+                
+                let json = JSON(data: data!)
+                
+                
+                
+                for item in json["users"].arrayValue {
+                    
+                    self.s_username.append(item["username"].stringValue.capitalizedString)
+                    self.s_ownertype.append(item["owner_type"].stringValue.capitalizedString)
+                    self.s_breed.append(item["pet_breed"].stringValue.capitalizedString)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                        self.searchTable.reloadData()
+                    })
+                }
+                
+                print(self.s_username)
+                print(self.s_ownertype)
+                print(self.s_breed)
+                
             }
-            
-            print(self.s_username)
-            print(self.s_ownertype)
-            print(self.s_breed)
-    
-        }
-        task.resume()
+            task.resume()
 
+            
+        }
+        
+        
     }
     
     
