@@ -462,9 +462,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
                 
-                self.s_username.removeAll()
-                self.s_ownertype.removeAll()
-                self.s_breed.removeAll()
+                //self.s_username.removeAll()
+                //self.s_ownertype.removeAll()
+                //self.s_breed.removeAll()
                 return cell
             }
             
