@@ -827,8 +827,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 //print(self.s_username)
                 //print(self.s_ownertype)
                 //print(self.s_breed)
-                print(self.s_userid)
-                print(self.s_profilepic)
+                //print(self.s_userid)
+                //print(self.s_profilepic)
                 
             }
             task.resume()
