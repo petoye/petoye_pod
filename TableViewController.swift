@@ -700,6 +700,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func didStartSearching() {
         //shouldShowSearchResults = true
         //tblSearchResults.reloadData()
+        
+        //var query = CustomSearchController.searchBar.text
+        //print(query)
     }
     
     func didTapOnSearchButton() {
@@ -748,6 +751,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Reload the tableview.
         tblSearchResults.reloadData()
  */
+        //var query = CustomSearchController.searchBar.text
+        //print(query)
+        print(searchText)
     }
     
     
