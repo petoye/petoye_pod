@@ -113,6 +113,8 @@ class messagesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
+
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
 
@@ -122,7 +124,7 @@ class messagesViewController: UIViewController, UITableViewDelegate, UITableView
                 let cell = tableView.dequeueReusableCellWithIdentifier("sent_message", forIndexPath: indexPath) as! sent_cell
                 //cell.textLabel?.text = "TEST"
             
-                cell.sent.text = "HI"
+                cell.sent.text = "HI, whatsup! amazing stuff is going on now"
             
             
 

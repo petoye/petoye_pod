@@ -1840,18 +1840,16 @@ you the opportunity to share it here!</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Hey hi!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMd-BZ-9nP">
-                                                    <rect key="frame" x="281" y="36" width="76" height="31"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="7BC90054-D9E3-4372-9C50-71D29A317B8E"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hey" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oik-ku-63B">
+                                                    <rect key="frame" x="165" y="8" width="218" height="85"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="sent" destination="sMd-BZ-9nP" id="uKg-hN-GMY"/>
+                                            <outlet property="sent" destination="oik-ku-63B" id="LWU-OK-VaL"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recieved_message" rowHeight="139" id="4OA-uH-Iqv" customClass="recieved_cell" customModule="PetOye" customModuleProvider="target">
@@ -1861,18 +1859,16 @@ you the opportunity to share it here!</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Hey!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abh-tG-43B">
-                                                    <rect key="frame" x="70" y="4" width="50" height="31"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="2EAD8DBD-0258-4FEC-94C9-E2BA410CC6C8"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hey" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TAu-Lw-HdB">
+                                                    <rect key="frame" x="8" y="6" width="240" height="112"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="recieved" destination="Abh-tG-43B" id="9kT-Vy-F5U"/>
+                                            <outlet property="recieved" destination="TAu-Lw-HdB" id="VAy-BA-isV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

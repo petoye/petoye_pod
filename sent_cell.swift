@@ -11,6 +11,7 @@ import UIKit
 class sent_cell: UITableViewCell {
 
 
-    @IBOutlet weak var sent: UILabel!
+    @IBOutlet weak var sent: UITextView!
+
 
 }

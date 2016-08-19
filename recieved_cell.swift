@@ -10,6 +10,7 @@ import UIKit
 
 class recieved_cell: UITableViewCell {
 
-    @IBOutlet weak var recieved: UILabel!
+
+    @IBOutlet weak var recieved: UITextView!
 
 }
