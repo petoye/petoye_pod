@@ -33,6 +33,8 @@
 		E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484FAD61D5E1989007B8918 /* SWRevealViewController.m */; };
 		E484FAFE1D5E2568007B8918 /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FAFD1D5E2568007B8918 /* BackTableVC.swift */; };
 		E484FB071D66E833007B8918 /* search_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FB061D66E833007B8918 /* search_cell.swift */; };
+		E484FB091D66F304007B8918 /* customSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FB081D66F304007B8918 /* customSearchBar.swift */; };
+		E484FB0C1D66F51E007B8918 /* customSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FB0B1D66F51E007B8918 /* customSearchController.swift */; };
 		E4938F1A1D5A0B45008ACE46 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */; };
 		E4938F1E1D5CC8B3008ACE46 /* imageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */; };
 		E4938F201D5CD72C008ACE46 /* no_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4938F1F1D5CD72C008ACE46 /* no_image.jpg */; };
@@ -80,6 +82,8 @@
 		E484FAD61D5E1989007B8918 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		E484FAFD1D5E2568007B8918 /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackTableVC.swift; path = ../BackTableVC.swift; sourceTree = "<group>"; };
 		E484FB061D66E833007B8918 /* search_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = search_cell.swift; sourceTree = "<group>"; };
+		E484FB081D66F304007B8918 /* customSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customSearchBar.swift; path = ../customSearchBar.swift; sourceTree = "<group>"; };
+		E484FB0B1D66F51E007B8918 /* customSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customSearchController.swift; path = ../customSearchController.swift; sourceTree = "<group>"; };
 		E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageViewController.swift; sourceTree = "<group>"; };
 		E4938F1F1D5CD72C008ACE46 /* no_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_image.jpg; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				E45811631D49E8E20020A446 /* Frameworks */,
 				E45FE2281D54C5C000AFA106 /* View Controllers */,
 				E4579DD51D07118300E52D4D /* Main.storyboard */,
+				E484FB0A1D66F318007B8918 /* Search Bar */,
 				E45FE2291D54C62000AFA106 /* Custom cells */,
 			);
 			path = petoyeapp_iphone;
@@ -227,6 +232,15 @@
 			name = Hamburger;
 			sourceTree = "<group>";
 		};
+		E484FB0A1D66F318007B8918 /* Search Bar */ = {
+			isa = PBXGroup;
+			children = (
+				E484FB0B1D66F51E007B8918 /* customSearchController.swift */,
+				E484FB081D66F304007B8918 /* customSearchBar.swift */,
+			);
+			name = "Search Bar";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,6 +324,8 @@
 				E484FB071D66E833007B8918 /* search_cell.swift in Sources */,
 				E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */,
 				E40E98611D50982100112273 /* LikesViewController.swift in Sources */,
+				E484FB0C1D66F51E007B8918 /* customSearchController.swift in Sources */,
+				E484FB091D66F304007B8918 /* customSearchBar.swift in Sources */,
 				E4938F1E1D5CC8B3008ACE46 /* imageViewController.swift in Sources */,
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
 				E40E98691D50DE7600112273 /* discover_cell.swift in Sources */,

@@ -11,7 +11,7 @@ import Social
 
 var userDefault = NSUserDefaults.standardUserDefaults()
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator, UIActionSheetDelegate, UISearchResultsUpdating, UISearchBarDelegate{
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator, UIActionSheetDelegate, UISearchResultsUpdating, UISearchBarDelegate, CustomSearchControllerDelegate {
     
     @IBOutlet weak var feedTable: UITableView!
     @IBOutlet weak var followedTable: UITableView!
@@ -42,7 +42,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var trendingView = UIView()
     var followedView = UIView()
     var nearbyView = UIView()
-    var searchController: UISearchController!
+    //var searchController: UISearchController!
+    var CustomSearchController: customSearchController!
 
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var navBar: UINavigationBar!
@@ -649,7 +650,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.toolBar.hidden = true
         self.navBar.hidden = true
         self.searchTable.hidden = false
-        configureSearchController()
+        configureCustomSearchController()
         
         if trending.tag == 1 {
             
@@ -668,6 +669,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     }
     
+    /*
     func configureSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -677,7 +679,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchTable.tableHeaderView = searchController.searchBar
         
     }
-    
+ 
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         //shouldShowSearchResults = true
         //earchResults.reloadData()
@@ -687,6 +689,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         //shouldShowSearchResults = false
         //tblSearchResults.reloadData()
+        CustomSearchController.searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -696,8 +699,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             tblSearchResults.reloadData()
         }
         */
-        searchController.searchBar.resignFirstResponder()
+        //searchController.searchBar.resignFirstResponder()
+        CustomSearchController.searchBar.resignFirstResponder()
     }
+     
+ */
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         /*
         let searchString = searchController.searchBar.text
@@ -714,6 +721,70 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
  */
     }
     
+ 
+    
+    func configureCustomSearchController() {
+        CustomSearchController = customSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, searchTable.frame.size.width, 70.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.whiteColor(), searchBarTintColor: UIColorFromHex(0x53D3E3,alpha: 1))
+        
+        CustomSearchController.CustomSearchBar.placeholder = "Search for users, pet breeds, pet types..."
+        CustomSearchController.CustomSearchBar.preferredTextColor = UIColor.whiteColor()
+        searchTable.tableHeaderView = CustomSearchController.CustomSearchBar
+        
+        CustomSearchController.customDelegate = self
+    }
+    
+    func didStartSearching() {
+        //shouldShowSearchResults = true
+        //tblSearchResults.reloadData()
+    }
+    
+    func didTapOnSearchButton() {
+        //if !shouldShowSearchResults {
+          //  shouldShowSearchResults = true
+            //tblSearchResults.reloadData()
+        //}
+    }
+    
+    func didTapOnCancelButton() {
+        //shouldShowSearchResults = false
+        //tblSearchResults.reloadData()
+        
+        self.toolBar.hidden = false
+        self.navBar.hidden = false
+        self.searchTable.hidden = true
+        //configureCustomSearchController()
+        
+        if trending.tag == 1 {
+            
+            self.trendingView.hidden = false
+        }
+        else if followed.tag == 1 {
+            
+            self.followedTable.hidden = false
+            self.followedView.hidden = false
+        }
+        else if nearby.tag == 1 {
+            
+            self.feedTable.hidden = false
+            self.nearbyView.hidden = false
+        }
+
+        
+    }
+    
+    func didChangeSearchText(searchText: String) {
+        // Filter the data array and get only those countries that match the search text.
+        /*
+        filteredArray = dataArray.filter({ (country) -> Bool in
+            let countryText: NSString = country
+            
+            return (countryText.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+        })
+        
+        // Reload the tableview.
+        tblSearchResults.reloadData()
+ */
+    }
     
     
 
