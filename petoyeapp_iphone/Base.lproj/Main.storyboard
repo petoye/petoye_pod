@@ -1092,6 +1092,31 @@ you the opportunity to share it here!</string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-9k-rx0">
+                                <rect key="frame" x="0.0" y="74" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem tag="1" title="Trending" width="93" id="Hmy-QK-pGT">
+                                        <color key="tintColor" red="0.21960784310000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="trending:" destination="PGw-Ef-JFS" id="brZ-Kz-J58"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Uzv-72-4af"/>
+                                    <barButtonItem title="Followed" width="93" id="JAD-dV-3mR">
+                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="followed:" destination="PGw-Ef-JFS" id="2J4-J1-sUn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PO4-FG-eoi"/>
+                                    <barButtonItem title="Nearby" width="93" id="pKf-cE-ZV0">
+                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="nearby:" destination="PGw-Ef-JFS" id="JRd-Mk-rlr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="593" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IsT-E6-4Iy">
                                 <rect key="frame" x="0.0" y="118" width="414" height="634"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1458,31 +1483,14 @@ you the opportunity to share it here!</string>
                                     <outlet property="delegate" destination="PGw-Ef-JFS" id="UCr-IW-9cb"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-9k-rx0">
-                                <rect key="frame" x="0.0" y="74" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem tag="1" title="Trending" width="93" id="Hmy-QK-pGT">
-                                        <color key="tintColor" red="0.21960784310000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="trending:" destination="PGw-Ef-JFS" id="brZ-Kz-J58"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Uzv-72-4af"/>
-                                    <barButtonItem title="Followed" width="93" id="JAD-dV-3mR">
-                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="followed:" destination="PGw-Ef-JFS" id="2J4-J1-sUn"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PO4-FG-eoi"/>
-                                    <barButtonItem title="Nearby" width="93" id="pKf-cE-ZV0">
-                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="nearby:" destination="PGw-Ef-JFS" id="JRd-Mk-rlr"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g8C-nW-Tvn">
+                                <rect key="frame" x="0.0" y="74" width="414" height="678"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PGw-Ef-JFS" id="Grm-Jb-qWJ"/>
+                                    <outlet property="delegate" destination="PGw-Ef-JFS" id="bwi-ne-PCU"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1510,6 +1518,7 @@ you the opportunity to share it here!</string>
                         <outlet property="navBar" destination="092-6j-VD9" id="rfd-10-g2S"/>
                         <outlet property="nearby" destination="pKf-cE-ZV0" id="SHM-M4-2Mr"/>
                         <outlet property="post" destination="F7I-xM-ztF" id="9XU-8V-tU5"/>
+                        <outlet property="searchTable" destination="g8C-nW-Tvn" id="yst-qV-rvB"/>
                         <outlet property="toolBar" destination="Q74-9k-rx0" id="F6x-nx-VjD"/>
                         <outlet property="trending" destination="Hmy-QK-pGT" id="Lhe-ga-z2l"/>
                     </connections>

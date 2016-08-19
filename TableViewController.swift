@@ -15,6 +15,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var feedTable: UITableView!
     @IBOutlet weak var followedTable: UITableView!
+    @IBOutlet weak var searchTable: UITableView!
     
     @IBOutlet weak var Open: UIBarButtonItem!
     @IBOutlet weak var post: UIBarButtonItem!
@@ -102,6 +103,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         feedTable.hidden = true
         followedTable.hidden = true
+        searchTable.hidden = true
         
             }
     
@@ -623,22 +625,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func search(sender: AnyObject) {
         
-        //self.toolBar.hidden = true
-        //self.followedTable.hidden = true
-        //self.feedTable.hidden = true
-        //self.navBar.hidden = true
-        //self.trendingView.hidden = true
-        //self.followedView.hidden = true
-        // self.nearbyView.hidden = true
+        self.toolBar.hidden = true
+        self.navBar.hidden = true
+        self.searchTable.hidden = false
         
-        
-        
-        
-        
-        
-        
-        
-        
+        if trending.tag == 1 {
+            
+            self.trendingView.hidden = true
+        }
+        else if followed.tag == 1 {
+            
+            self.followedTable.hidden = true
+            self.followedView.hidden = true
+        }
+        else if nearby.tag == 1 {
+            
+            self.feedTable.hidden = true
+            self.nearbyView.hidden = true
+        }
+
     }
     
     
