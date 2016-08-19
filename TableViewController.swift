@@ -288,8 +288,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if(tableView == self.followedTable) {
             items = username1.count
         }
-        else {
+        else if (tableView == self.feedTable) {
             items = username.count
+        }
+        else {
+            items = 3
         }
         return items
     }
@@ -360,7 +363,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
                 return cell
             }
-            else {
+            else if(tableView == self.feedTable){
                 
                 let cell = tableView.dequeueReusableCellWithIdentifier("feed", forIndexPath: indexPath) as! feed
                 //cell.textLabel?.text = "TEST"
@@ -431,6 +434,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 return cell
 
                 
+            }
+            
+            else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("search", forIndexPath: indexPath)
+                cell.textLabel?.text = "TEST"
+                
+                return cell
             }
             
             
