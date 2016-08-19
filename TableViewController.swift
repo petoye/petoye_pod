@@ -11,7 +11,7 @@ import Social
 
 var userDefault = NSUserDefaults.standardUserDefaults()
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator, UIActionSheetDelegate{
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator, UIActionSheetDelegate, UISearchResultsUpdating, UISearchBarDelegate{
     
     @IBOutlet weak var feedTable: UITableView!
     @IBOutlet weak var followedTable: UITableView!
@@ -104,6 +104,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         feedTable.hidden = true
         followedTable.hidden = true
         searchTable.hidden = true
+        
+        searchTable.tableFooterView = UIView(frame: CGRectZero)
         
             }
     
@@ -647,6 +649,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.toolBar.hidden = true
         self.navBar.hidden = true
         self.searchTable.hidden = false
+        configureSearchController()
         
         if trending.tag == 1 {
             
@@ -663,6 +666,52 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.nearbyView.hidden = true
         }
 
+    }
+    
+    func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.searchBar.placeholder = "Search here..."
+        searchController.searchBar.sizeToFit()
+        searchTable.tableHeaderView = searchController.searchBar
+        
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        //shouldShowSearchResults = true
+        //earchResults.reloadData()
+    }
+    
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        //shouldShowSearchResults = false
+        //tblSearchResults.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        /*
+        if !shouldShowSearchResults {
+            shouldShowSearchResults = true
+            tblSearchResults.reloadData()
+        }
+        */
+        searchController.searchBar.resignFirstResponder()
+    }
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        /*
+        let searchString = searchController.searchBar.text
+        
+        // Filter the data array and get only those countries that match the search text.
+        filteredArray = dataArray.filter({ (country) -> Bool in
+            let countryText: NSString = country
+            
+            return (countryText.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+        })
+        
+        // Reload the tableview.
+        tblSearchResults.reloadData()
+ */
     }
     
     
