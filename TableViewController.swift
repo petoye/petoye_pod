@@ -669,42 +669,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     }
     
-    /*
-    func configureSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = true
-        searchController.searchBar.placeholder = "Search here..."
-        searchController.searchBar.sizeToFit()
-        searchTable.tableHeaderView = searchController.searchBar
-        
-    }
- 
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        //shouldShowSearchResults = true
-        //earchResults.reloadData()
-    }
-    
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        //shouldShowSearchResults = false
-        //tblSearchResults.reloadData()
-        CustomSearchController.searchBar.resignFirstResponder()
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        /*
-        if !shouldShowSearchResults {
-            shouldShowSearchResults = true
-            tblSearchResults.reloadData()
-        }
-        */
-        //searchController.searchBar.resignFirstResponder()
-        CustomSearchController.searchBar.resignFirstResponder()
-    }
-     
- */
-    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         /*
         let searchString = searchController.searchBar.text
@@ -724,7 +688,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
  
     
     func configureCustomSearchController() {
-        CustomSearchController = customSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, searchTable.frame.size.width, 70.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.whiteColor(), searchBarTintColor: UIColorFromHex(0x53D3E3,alpha: 1))
+        CustomSearchController = customSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, searchTable.frame.size.width, 68.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.whiteColor(), searchBarTintColor: UIColorFromHex(0x53D3E3,alpha: 1))
         
         CustomSearchController.CustomSearchBar.placeholder = "Search for users, pet breeds, pet types..."
         CustomSearchController.CustomSearchBar.preferredTextColor = UIColor.whiteColor()
