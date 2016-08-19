@@ -375,6 +375,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
+                
 
                 return cell
             }

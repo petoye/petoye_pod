@@ -76,6 +76,7 @@ class feed: UITableViewCell {
         let indexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
         //print(indexPath.row)
         self.delegate.report(indexPath.row)
+        
 
     }
     

@@ -115,12 +115,34 @@ class messagesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
-            let cell = tableView.dequeueReusableCellWithIdentifier("message", forIndexPath: indexPath)
-            cell.textLabel?.text = "TEST"
 
+           // if p_id[indexPath.row].isEmpty {
+                
+                //cell for sent message
+                let cell = tableView.dequeueReusableCellWithIdentifier("sent_message", forIndexPath: indexPath) as! sent_cell
+                //cell.textLabel?.text = "TEST"
+            
+                cell.sent.text = "HI"
             
             
-            return cell
+
+                
+                return cell
+                
+            //}
+            /*
+            else {
+                
+                //cell for recieved message
+                let cell = tableView.dequeueReusableCellWithIdentifier("recieved_message", forIndexPath: indexPath)
+                cell.textLabel?.text = "TEST"
+                
+            
+                return cell
+                
+            }
+ */
+
     }
 
 

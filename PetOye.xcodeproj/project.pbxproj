@@ -12,9 +12,10 @@
 		E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E98661D50DAA700112273 /* discoverViewController.swift */; };
 		E40E98691D50DE7600112273 /* discover_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E98681D50DE7600112273 /* discover_cell.swift */; };
 		E40E986B1D51BFFC00112273 /* messagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E986A1D51BFFC00112273 /* messagesViewController.swift */; };
-		E40E986D1D51C96F00112273 /* message_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E986C1D51C96F00112273 /* message_cell.swift */; };
 		E42049D81D4BAB34001A49F5 /* upvote.wav in Resources */ = {isa = PBXBuildFile; fileRef = E42049D71D4BAB34001A49F5 /* upvote.wav */; };
 		E42049DA1D4BAB52001A49F5 /* TiVo - Selection.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E42049D91D4BAB52001A49F5 /* TiVo - Selection.mp3 */; };
+		E42435B31D67602D000C1DD8 /* sent_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42435B21D67602C000C1DD8 /* sent_cell.swift */; };
+		E42435B51D676045000C1DD8 /* recieved_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42435B41D676045000C1DD8 /* recieved_cell.swift */; };
 		E44A71D11D4A002200FDA473 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CD1D4A002200FDA473 /* Bolts.framework */; };
 		E44A71D21D4A002200FDA473 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CE1D4A002200FDA473 /* FBSDKCoreKit.framework */; };
 		E44A71D31D4A002200FDA473 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CF1D4A002200FDA473 /* FBSDKLoginKit.framework */; };
@@ -57,9 +58,10 @@
 		E40E98661D50DAA700112273 /* discoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = discoverViewController.swift; path = ../discoverViewController.swift; sourceTree = "<group>"; };
 		E40E98681D50DE7600112273 /* discover_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = discover_cell.swift; sourceTree = "<group>"; };
 		E40E986A1D51BFFC00112273 /* messagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messagesViewController.swift; sourceTree = "<group>"; };
-		E40E986C1D51C96F00112273 /* message_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = message_cell.swift; path = ../message_cell.swift; sourceTree = "<group>"; };
 		E42049D71D4BAB34001A49F5 /* upvote.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upvote.wav; sourceTree = "<group>"; };
 		E42049D91D4BAB52001A49F5 /* TiVo - Selection.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "TiVo - Selection.mp3"; sourceTree = "<group>"; };
+		E42435B21D67602C000C1DD8 /* sent_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = sent_cell.swift; path = ../sent_cell.swift; sourceTree = "<group>"; };
+		E42435B41D676045000C1DD8 /* recieved_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = recieved_cell.swift; path = ../recieved_cell.swift; sourceTree = "<group>"; };
 		E44A71CC1D49FCBF00FDA473 /* PetOye-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetOye-Bridging-Header.h"; sourceTree = "<group>"; };
 		E44A71CD1D4A002200FDA473 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../../../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		E44A71CE1D4A002200FDA473 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -191,7 +193,8 @@
 				E4CA78B21D54478600B41A87 /* notification_cell.swift */,
 				E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */,
 				E45FE2261D54C5B500AFA106 /* conversation_cell.swift */,
-				E40E986C1D51C96F00112273 /* message_cell.swift */,
+				E42435B21D67602C000C1DD8 /* sent_cell.swift */,
+				E42435B41D676045000C1DD8 /* recieved_cell.swift */,
 			);
 			name = "Custom cells";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				E40E986B1D51BFFC00112273 /* messagesViewController.swift in Sources */,
 				E484FB071D66E833007B8918 /* search_cell.swift in Sources */,
 				E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */,
+				E42435B31D67602D000C1DD8 /* sent_cell.swift in Sources */,
 				E40E98611D50982100112273 /* LikesViewController.swift in Sources */,
 				E484FB0C1D66F51E007B8918 /* customSearchController.swift in Sources */,
 				E484FB091D66F304007B8918 /* customSearchBar.swift in Sources */,
@@ -339,8 +343,8 @@
 				E484FAFE1D5E2568007B8918 /* BackTableVC.swift in Sources */,
 				E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
+				E42435B51D676045000C1DD8 /* recieved_cell.swift in Sources */,
 				E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */,
-				E40E986D1D51C96F00112273 /* message_cell.swift in Sources */,
 				E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */,
 				E4DE19461D48BFFE00AA4836 /* CreateAnAccountViewController.swift in Sources */,
 				E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */,
