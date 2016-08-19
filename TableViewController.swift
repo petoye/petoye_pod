@@ -112,7 +112,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //get request for getting followed feeds
         getFollowed()
         
-        performSearch()
         
         feedTable.hidden = true
         followedTable.hidden = true
@@ -463,7 +462,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
                 
-                
+                self.s_username.removeAll()
+                self.s_ownertype.removeAll()
+                self.s_breed.removeAll()
                 return cell
             }
             
@@ -713,6 +714,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //shouldShowSearchResults = true
         //tblSearchResults.reloadData()
         
+        searchTable.reloadData()
+        
         //var query = CustomSearchController.searchBar.text
         //print(query)
     }
@@ -722,6 +725,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
           //  shouldShowSearchResults = true
             //tblSearchResults.reloadData()
         //}
+        searchTable.reloadData()
     }
     
     func didTapOnCancelButton() {
@@ -765,13 +769,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
  */
         //var query = CustomSearchController.searchBar.text
         //print(query)
-        print(searchText)
+        //print(searchText)
+        
+        searchTable.reloadData()
+        performSearch(searchText)
         
     }
     
-    func performSearch() {
+    func performSearch(query: String) {
         
-        var query = "anton"
+        //var query = "anton"
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(query)/user/search")!)
         request.HTTPMethod = "GET"
