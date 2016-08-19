@@ -700,9 +700,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
  
     
     func configureCustomSearchController() {
-        CustomSearchController = customSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, searchTable.frame.size.width, 68.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.whiteColor(), searchBarTintColor: UIColorFromHex(0x53D3E3,alpha: 1))
+        CustomSearchController = customSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, searchTable.frame.size.width, 68.0), searchBarFont: UIFont(name: "Helvetica Neue", size: 15.0)!, searchBarTextColor: UIColor.whiteColor(), searchBarTintColor: UIColorFromHex(0x53D3E3,alpha: 1))
         
-        CustomSearchController.CustomSearchBar.placeholder = "Search for users, pet breeds, pet types..."
+        CustomSearchController.CustomSearchBar.placeholder = "Search for users..."
         CustomSearchController.CustomSearchBar.preferredTextColor = UIColor.whiteColor()
         searchTable.tableHeaderView = CustomSearchController.CustomSearchBar
         
@@ -734,7 +734,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.toolBar.hidden = false
         self.navBar.hidden = false
         self.searchTable.hidden = true
+        
+        self.s_username.removeAll()
+        self.s_ownertype.removeAll()
+        self.s_breed.removeAll()
+        self.s_userid.removeAll()
+        self.s_profilepic.removeAll()
+        
+        searchTable.reloadData()
+
         //configureCustomSearchController()
+        
         
         if trending.tag == 1 {
             

@@ -61,6 +61,9 @@ class customSearchBar: UISearchBar {
             
             // Set the background color of the search field.
             searchField.backgroundColor = UIColorFromHex(0x43ACB9,alpha: 1)
+            
+            let textFieldInsideUISearchBarLabel = searchField.valueForKey("placeholderLabel") as? UILabel
+            textFieldInsideUISearchBarLabel?.textColor = UIColor.whiteColor()
         }
         
         super.drawRect(rect)
