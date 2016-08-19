@@ -437,8 +437,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             else {
-                let cell = tableView.dequeueReusableCellWithIdentifier("search", forIndexPath: indexPath)
-                cell.textLabel?.text = "TEST"
+                let cell = tableView.dequeueReusableCellWithIdentifier("search", forIndexPath: indexPath) as! search_cell
+                //cell.textLabel?.text = "TEST"
+                
+                cell.username.text = "Messi"
+                cell.owner_type.text = "Pet Parent"
+                cell.breed.text = "Labrador"
+                cell.location.text = "Dadar, Mumbai"
+                cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                cell.profilePic.clipsToBounds = true
+                
                 
                 return cell
             }
