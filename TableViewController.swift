@@ -39,6 +39,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var imageurl1 = [String]()
     
     var s_username = [String]()
+    var s_userid = [String]()
     var s_ownertype = [String]()
     var s_breed = [String]()
     var s_location = [String]()
@@ -772,6 +773,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.s_username.removeAll()
         self.s_ownertype.removeAll()
         self.s_breed.removeAll()
+        self.s_userid.removeAll()
+        self.s_profilepic.removeAll()
         
         searchTable.reloadData()
         performSearch(searchText)
@@ -813,15 +816,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.s_username.append(item["username"].stringValue.capitalizedString)
                     self.s_ownertype.append(item["owner_type"].stringValue.capitalizedString)
                     self.s_breed.append(item["pet_breed"].stringValue.capitalizedString)
+                    self.s_userid.append(item["id"].stringValue)
+                    self.s_profilepic.append(item["imageurl"].stringValue)
                     
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.searchTable.reloadData()
                     })
                 }
                 
-                print(self.s_username)
-                print(self.s_ownertype)
-                print(self.s_breed)
+                //print(self.s_username)
+                //print(self.s_ownertype)
+                //print(self.s_breed)
+                print(self.s_userid)
+                print(self.s_profilepic)
                 
             }
             task.resume()
