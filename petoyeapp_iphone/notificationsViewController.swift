@@ -8,6 +8,9 @@
 
 import UIKit
 
+var his_id = String()
+var his_name = String()
+
 class notificationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tool: UIToolbar!
@@ -22,7 +25,10 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     var notif = [String]()
     var u_id = [String]()
     var p_id = [String]()
+    
     var username_m = [String]()
+    var hisId = [String]()
+    
 
     
     @IBOutlet weak var notifTable: UITableView!
@@ -142,14 +148,15 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             let json = JSON(data: data!)
             //print(json["notifications"].arrayValue)
             for item in json["conversations"].arrayValue {
-                self.username_m.append(item["username"].stringValue)
+                self.username_m.append(item["username"].stringValue.capitalizedString)
+                self.hisId.append(item["id"].stringValue)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.messageTable.reloadData()
                 })
 
             }
-            print(self.username_m)
+            //print(self.username_m)
         }
         task.resume()
 
@@ -215,6 +222,39 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         return items
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView == self.messageTable{
+            
+            //print(indexPath.row)
+            his_id = hisId[indexPath.row]
+            his_name = username_m[indexPath.row]
+            
+            //print(his_id)
+            //print(his_name)
+            
+            self.performSegueWithIdentifier("message_show", sender: self)
+            
+            
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        print(his_id)
+        print(his_name)
+        
+        if (segue.identifier == "message_show") {
+            
+            let navVC = segue.destinationViewController as! UINavigationController
+            
+            var messageController = navVC.viewControllers.first as! messagesViewController;
+            messageController.hisId = his_id
+            messageController.hisName = his_name
+        }
+        
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         UITableViewCell{
             var cell = UITableViewCell()
@@ -271,47 +311,6 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             
     }
 
-    
-    
-    
-    
-    
-    /*func swiped(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch swipeGesture.direction {
-                
-            case UISwipeGestureRecognizerDirection.Down:
-                toolBar.hidden = true
-                selectedView.hidden = true
-                customView.hidden = true
-                
-            case UISwipeGestureRecognizerDirection.Up:
-                toolBar.hidden = false
-                selectedView.hidden = false
-                customView.hidden = false
-            default:
-                break
-            }
-            
-        }
-        
-    }*/
-    
-    
-    
-    
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

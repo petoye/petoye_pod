@@ -15,6 +15,9 @@ var incomingBubbleImageView: JSQMessagesBubbleImage!
 
 class messagesViewController: JSQMessagesViewController{
     
+    var hisId = String()
+    var hisName = String()
+    
     @IBOutlet weak var navBar: UINavigationItem!
     
     override func viewDidLoad() {
@@ -26,10 +29,10 @@ class messagesViewController: JSQMessagesViewController{
         self.inputToolbar.contentView.leftBarButtonItem = nil
         
         self.senderId = "1"
-        self.senderDisplayName = "Ameya"
+        self.senderDisplayName = hisName
         
         title = "ChatChat"
-        navBar.title = "Ameya Vichare"
+        navBar.title = hisName
         
         //navBar.backBarButtonItem?.image = UIImage(named: "back.png")
         
@@ -48,7 +51,7 @@ class messagesViewController: JSQMessagesViewController{
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/1/2/open")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/1/\(hisId)/open")!)
         request.HTTPMethod = "GET"
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
@@ -71,9 +74,9 @@ class messagesViewController: JSQMessagesViewController{
             
             
             for item in json["conversations"].arrayValue {
-                print(item["body"].stringValue)
-                print(item["user_id"].stringValue)
-                print(item["user"]["username"].stringValue)
+                //print(item["body"].stringValue)
+                //print(item["user_id"].stringValue)
+                //print(item["user"]["username"].stringValue)
                 self.addMessage(item["user_id"].stringValue, text: item["body"].stringValue)
                 
                 
@@ -198,7 +201,7 @@ class messagesViewController: JSQMessagesViewController{
         finishSendingMessage()
         
         ///////////////////////
-        var recipientId = 2
+        var recipientId = hisId
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations")!)
         request.HTTPMethod = "POST"
