@@ -13,6 +13,4 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "SWRevealViewController.h"
 
-
-
 #endif /* PetOye_Bridging_Header_h */

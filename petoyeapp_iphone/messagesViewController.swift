@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import JSQMessagesViewController
 
 class messagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
