@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UgT-XF-BaW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GoT-vY-QkD">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -620,6 +620,25 @@ you the opportunity to share it here!</string>
             </objects>
             <point key="canvasLocation" x="1275" y="1614"/>
         </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="BPv-4q-Gg3">
+            <objects>
+                <viewController id="GoT-vY-QkD" customClass="messagesViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pE2-9K-Imu"/>
+                        <viewControllerLayoutGuide type="bottom" id="2FI-Eq-rnf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x4H-sH-DpM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OSa-b3-aST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="1667"/>
+        </scene>
         <!--Comments View Controller-->
         <scene sceneID="NJd-Dy-RCO">
             <objects>
@@ -655,7 +674,7 @@ you the opportunity to share it here!</string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="add_comment" translatesAutoresizingMaskIntoConstraints="NO" id="7dx-8y-oGf">
@@ -1715,10 +1734,10 @@ you the opportunity to share it here!</string>
             </objects>
             <point key="canvasLocation" x="2002" y="-1265"/>
         </scene>
-        <!--Messages View Controller-->
+        <!--View Controller-->
         <scene sceneID="imO-Zk-QWO">
             <objects>
-                <viewController id="C9U-N3-HZJ" customClass="messagesViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C9U-N3-HZJ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LCW-PB-whf"/>
                         <viewControllerLayoutGuide type="bottom" id="9c3-C6-51c"/>
@@ -1848,9 +1867,6 @@ you the opportunity to share it here!</string>
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="sent" destination="oik-ku-63B" id="LWU-OK-VaL"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recieved_message" rowHeight="139" id="4OA-uH-Iqv" customClass="recieved_cell" customModule="PetOye" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="121" width="414" height="139"/>
@@ -1867,9 +1883,6 @@ you the opportunity to share it here!</string>
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="recieved" destination="TAu-Lw-HdB" id="VAy-BA-isV"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

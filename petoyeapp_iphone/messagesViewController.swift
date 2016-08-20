@@ -7,91 +7,150 @@
 //
 
 import UIKit
+import JSQMessagesViewController
 
-class messagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+var messages = [JSQMessage]()
+var outgoingBubbleImageView: JSQMessagesBubbleImage!
+var incomingBubbleImageView: JSQMessagesBubbleImage!
 
-    @IBOutlet weak var message_field: UITextField!
-    
-    var messageField: UITextField = UITextField()
-    
-    var button = UIButton(type: .Custom)
+class messagesViewController: JSQMessagesViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view, typically from a nib.
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
-        message_field.becomeFirstResponder()
-        self.hideKeyboardWhenTappedAround()
+        self.inputToolbar.contentView.leftBarButtonItem = nil
         
-        let customView = UIView(frame: CGRectMake(0, 0, 10, 50))
-        customView.backgroundColor = UIColorFromHex(0xF7F7F7,alpha: 1)
-        /*
-         let button = UIButton(type: .System) // let preferred over var here
-         button.frame = CGRectMake(100, 100, 100, 50)
-         button.backgroundColor = UIColor.greenColor()
-         button.setTitle("Button", forState: UIControlState.Normal)
-         button.addTarget(self, action: "Action:", forControlEvents: UIControlEvents.TouchUpInside)
-         self.view.addSubview(button)
-         */
+        self.senderId = "1"
+        self.senderDisplayName = "Ameya"
         
-        var button = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "message.png"), forState: UIControlState.Normal)
-        button.addTarget(self, action: #selector(CommentsViewController.commentBut(_:)), forControlEvents: .TouchUpInside)
-        button.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width * 0.225) - 5 , y: 12.5, width: self.view.frame.size.width * 0.225, height: 25)
+        title = "ChatChat"
+        setupBubbles()
+        
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/1/2/open")!)
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            //print(responseString)
+            
+            
+            
+            let json = JSON(data: data!)
+            
+            
+            for item in json["conversations"].arrayValue {
+                print(item["body"].stringValue)
+                print(item["user_id"].stringValue)
+                print(item["user"]["username"].stringValue)
+                self.addMessage(item["user_id"].stringValue, text: item["body"].stringValue)
+                
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    
+                    
+                    self.collectionView.reloadData()
+                })
+            }
+            
+            /*
+             for item in json["feeds"].arrayValue {
+             for innerItem in item["feeds"].arrayValue {
+             self.username.append(item["username"].stringValue.capitalizedString)
+             self.post_id.append(innerItem["id"].stringValue)
+             self.message.append(innerItem["message"].stringValue)
+             self.like_count.append(innerItem["like_count"].stringValue)
+             self.comment_count.append(innerItem["comment_count"].stringValue)
+             self.created_at.append(innerItem["created_at"].stringValue)
+             self.imageurl.append(innerItem["imageurl"].stringValue)
+             ///////
+             
+             self.post_user_id.append(item["id"].stringValue)
+             dispatch_async(dispatch_get_main_queue(), {() -> Void in
+             self.feedTable.reloadData()
+             })
+             }
+             }
+             */
+        }
+        task.resume()
         
         
-        messageField.frame = CGRect(x: self.view.frame.size.width - (self.view.frame.size.width * 0.225) - 5 - (self.view.frame.size.width * 0.6) - 9, y: 10, width: self.view.frame.size.width * 0.6, height: 30)
-        messageField.backgroundColor = UIColor.whiteColor()
-        //commentField.borderStyle = .RoundedRect
-        messageField.layer.borderColor = UIColor(red: 204.0 / 255.0, green: 204.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0).CGColor
-        messageField.layer.borderWidth = 0.6
-        messageField.layer.cornerRadius = 5.0
-        let attributes = [
-            NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 15)! // Note the !
-        ]
-        messageField.textAlignment = .Left
-        messageField.attributedPlaceholder = NSAttributedString(string: "   Tap to add comment...", attributes:attributes)
-        var paddingView: UIView = UIView(frame: CGRectMake(0, 0, 10, messageField.frame.size.height))
-        messageField.leftView = paddingView
         
-        messageField.leftViewMode = .Always
+        finishReceivingMessage()
         
-        
-        
-        let messageIcon: UIImageView = UIImageView()
-        messageIcon.image = UIImage(named: "messageIcon.png")
-        messageIcon.frame = CGRect(x: 10, y: 17.25, width: 21, height: 15.27)
-        
-        
-        customView.addSubview(messageField)
-        
-        //self.view.addSubview(commentIcon)
-        customView.addSubview(messageIcon)
-        
-        customView.addSubview(button)
-        
-        
-        
-        message_field.inputAccessoryView = customView
-        
-        // downloading messages
-        
-
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        
-        
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        
-        message_field.text = ""
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
     }
-
+    
+    override func collectionView(collectionView: UICollectionView,
+                                 numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    private func setupBubbles() {
+        let factory = JSQMessagesBubbleImageFactory()
+        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
+            UIColorFromHex(0x53D3E3,alpha: 1))
+        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleLightGrayColor())
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+        let message = messages[indexPath.item] // 1
+        if message.senderId == senderId { // 2
+            return outgoingBubbleImageView
+        } else { // 3
+            return incomingBubbleImageView
+        }
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+        return nil
+    }
+    
+    func addMessage(id: String, text: String) {
+        let message = JSQMessage(senderId: id, displayName: "", text: text)
+        messages.append(message)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        //get the messages
+        
+        
+        
+        // messages from someone else
+        //addMessage("foo", text: "Hey person!")
+        // messages sent from local sender
+        //addMessage(senderId, text: "Yo!")
+        //addMessage(senderId, text: "I like turtles!")
+        // animates the receiving of a new message on the view
+        finishReceivingMessage()
+    }
     
     func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
@@ -100,53 +159,84 @@ class messagesViewController: UIViewController, UITableViewDelegate, UITableView
         
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func collectionView(collectionView: UICollectionView,
+                                 cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+            as! JSQMessagesCollectionViewCell
+        
+        let message = messages[indexPath.item]
+        
+        if message.senderId == senderId {
+            cell.textView!.textColor = UIColor.whiteColor()
+        } else {
+            cell.textView!.textColor = UIColor.blackColor()
+        }
+        
+        return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
-        UITableViewCell{
-
-           // if p_id[indexPath.row].isEmpty {
-                
-                //cell for sent message
-                let cell = tableView.dequeueReusableCellWithIdentifier("sent_message", forIndexPath: indexPath) as! sent_cell
-                //cell.textLabel?.text = "TEST"
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
+                                     senderDisplayName: String!, date: NSDate!) {
+        let messageItem = [ // 2
+            "text": text,
+            "senderId": senderId
+        ]
+        
+        
+        // 4
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        // 5
+        finishSendingMessage()
+        
+        ///////////////////////
+        var recipientId = 2
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations")!)
+        request.HTTPMethod = "POST"
+        let postString = "sender_id=\(senderId)&recipient_id=\(recipientId)&body=\(text)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
             
-                cell.sent.text = "HI, whatsup! amazing stuff is going on now"
-            
-            
-
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+            {
+                self.addMessage(senderId, text: text)
                 
-                return cell
-                
-            //}
-            /*
-            else {
-                
-                //cell for recieved message
-                let cell = tableView.dequeueReusableCellWithIdentifier("recieved_message", forIndexPath: indexPath)
-                cell.textLabel?.text = "TEST"
-                
-            
-                return cell
+                dispatch_async(dispatch_get_main_queue()){
+                    self.collectionView.reloadData()
+                }
                 
             }
- */
-
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+                
+                //pop up message sending error
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            print(responseString)
+            
+            
+        }
+        task.resume()
+        
+        
+        
+        
     }
-
-
-
+    
+    override func didPressAccessoryButton(sender: UIButton!) {
+        print("okay")
+    }
+    
+    
+    
+    
 }

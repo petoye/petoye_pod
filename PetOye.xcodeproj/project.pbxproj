@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59552D2C23BAB29FA1BF4426 /* Pods_petoyeapp_iphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B274E70F9D229A621F9926AB /* Pods_petoyeapp_iphone.framework */; };
 		E40E98611D50982100112273 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E98601D50982100112273 /* LikesViewController.swift */; };
 		E40E98651D509C1300112273 /* like_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E98641D509C1300112273 /* like_cell.swift */; };
 		E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E98661D50DAA700112273 /* discoverViewController.swift */; };
@@ -53,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6712983B7573407926588CF9 /* Pods-petoyeapp_iphone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petoyeapp_iphone.release.xcconfig"; path = "Pods/Target Support Files/Pods-petoyeapp_iphone/Pods-petoyeapp_iphone.release.xcconfig"; sourceTree = "<group>"; };
+		B274E70F9D229A621F9926AB /* Pods_petoyeapp_iphone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petoyeapp_iphone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40E98601D50982100112273 /* LikesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikesViewController.swift; path = ../LikesViewController.swift; sourceTree = "<group>"; };
 		E40E98641D509C1300112273 /* like_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = like_cell.swift; path = ../like_cell.swift; sourceTree = "<group>"; };
 		E40E98661D50DAA700112273 /* discoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = discoverViewController.swift; path = ../discoverViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoViewController.swift; sourceTree = "<group>"; };
 		E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 		E4FDD9B21D4CB43800E7610B /* feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = feed.swift; path = ../feed.swift; sourceTree = "<group>"; };
+		E850B2CC83682EE2AE21EDDD /* Pods-petoyeapp_iphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petoyeapp_iphone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petoyeapp_iphone/Pods-petoyeapp_iphone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,18 +117,38 @@
 				E44A71D11D4A002200FDA473 /* Bolts.framework in Frameworks */,
 				E44A71D21D4A002200FDA473 /* FBSDKCoreKit.framework in Frameworks */,
 				E44A71D31D4A002200FDA473 /* FBSDKLoginKit.framework in Frameworks */,
+				59552D2C23BAB29FA1BF4426 /* Pods_petoyeapp_iphone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2686CD1B4C194D8C749DAB99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E850B2CC83682EE2AE21EDDD /* Pods-petoyeapp_iphone.debug.xcconfig */,
+				6712983B7573407926588CF9 /* Pods-petoyeapp_iphone.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E6B7E6B77E3C2C702AA7831 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B274E70F9D229A621F9926AB /* Pods_petoyeapp_iphone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E4579DC31D07118200E52D4D = {
 			isa = PBXGroup;
 			children = (
 				E4938F1D1D5CC8B3008ACE46 /* imageViewController.swift */,
 				E4579DCE1D07118300E52D4D /* petoyeapp_iphone */,
 				E4579DCD1D07118300E52D4D /* Products */,
+				2686CD1B4C194D8C749DAB99 /* Pods */,
+				6E6B7E6B77E3C2C702AA7831 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,9 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4579DE01D07118300E52D4D /* Build configuration list for PBXNativeTarget "petoyeapp_iphone" */;
 			buildPhases = (
+				8E9FAD9E20D19A1381ECA39C /* [CP] Check Pods Manifest.lock */,
 				E4579DC81D07118200E52D4D /* Sources */,
 				E4579DC91D07118200E52D4D /* Frameworks */,
 				E4579DCA1D07118200E52D4D /* Resources */,
+				6B45AE19F9626F39DDCAE13E /* [CP] Embed Pods Frameworks */,
+				13A8EA8C82ADA51174EB06BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,6 +344,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13A8EA8C82ADA51174EB06BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petoyeapp_iphone/Pods-petoyeapp_iphone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B45AE19F9626F39DDCAE13E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-petoyeapp_iphone/Pods-petoyeapp_iphone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E9FAD9E20D19A1381ECA39C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4579DC81D07118200E52D4D /* Sources */ = {
@@ -452,12 +527,16 @@
 		};
 		E4579DE11D07118300E52D4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E850B2CC83682EE2AE21EDDD /* Pods-petoyeapp_iphone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Documents/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Documents/FacebookSDK,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = petoyeapp_iphone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.2wc.petoyeapp-iphone";
@@ -469,12 +548,16 @@
 		};
 		E4579DE21D07118300E52D4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6712983B7573407926588CF9 /* Pods-petoyeapp_iphone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Documents/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Documents/FacebookSDK,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = petoyeapp_iphone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.2wc.petoyeapp-iphone";
