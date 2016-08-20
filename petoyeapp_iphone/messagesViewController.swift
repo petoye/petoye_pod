@@ -15,9 +15,13 @@ var incomingBubbleImageView: JSQMessagesBubbleImage!
 
 class messagesViewController: JSQMessagesViewController{
     
+    @IBOutlet weak var navBar: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.hideKeyboardWhenTappedAround()
         
         self.inputToolbar.contentView.leftBarButtonItem = nil
         
@@ -25,6 +29,20 @@ class messagesViewController: JSQMessagesViewController{
         self.senderDisplayName = "Ameya"
         
         title = "ChatChat"
+        navBar.title = "Ameya Vichare"
+        
+        //navBar.backBarButtonItem?.image = UIImage(named: "back.png")
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "back.png"), style: .Plain, target: self, action: "backbutton")
+        navigationItem.leftBarButtonItem = backButton
+        
+        navigationController?.navigationBar.barTintColor =
+        UIColorFromHex(0x53D3E3,alpha: 1)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        
+        
         setupBubbles()
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
@@ -61,37 +79,26 @@ class messagesViewController: JSQMessagesViewController{
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     
-                    
+                    //self.automaticallyScrollsToMostRecentMessage = true
                     self.collectionView.reloadData()
                 })
             }
             
-            /*
-             for item in json["feeds"].arrayValue {
-             for innerItem in item["feeds"].arrayValue {
-             self.username.append(item["username"].stringValue.capitalizedString)
-             self.post_id.append(innerItem["id"].stringValue)
-             self.message.append(innerItem["message"].stringValue)
-             self.like_count.append(innerItem["like_count"].stringValue)
-             self.comment_count.append(innerItem["comment_count"].stringValue)
-             self.created_at.append(innerItem["created_at"].stringValue)
-             self.imageurl.append(innerItem["imageurl"].stringValue)
-             ///////
-             
-             self.post_user_id.append(item["id"].stringValue)
-             dispatch_async(dispatch_get_main_queue(), {() -> Void in
-             self.feedTable.reloadData()
-             })
-             }
-             }
-             */
         }
         task.resume()
         
         
         
+        
+        
+        
         finishReceivingMessage()
         
+    }
+    
+    func backbutton() {
+        
+        print("back")
     }
     
     override func didReceiveMemoryWarning() {
