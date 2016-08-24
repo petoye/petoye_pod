@@ -19,13 +19,13 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var commentField: UITextField = UITextField()
     
     var button = UIButton(type: .Custom)
+    
+    var pid = String()
 
     
     
     var userName = [String]()
     var commentMessage = [String]()
-    //var pid: String?
-    //var delegate: MyCustomCellDelegator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +34,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let customView = UIView(frame: CGRectMake(0, 0, 10, 50))
         customView.backgroundColor = UIColorFromHex(0xF7F7F7,alpha: 1)
-        /*
-         let button = UIButton(type: .System) // let preferred over var here
-         button.frame = CGRectMake(100, 100, 100, 50)
-         button.backgroundColor = UIColor.greenColor()
-         button.setTitle("Button", forState: UIControlState.Normal)
-         button.addTarget(self, action: "Action:", forControlEvents: UIControlEvents.TouchUpInside)
-         self.view.addSubview(button)
-         */
+
         
         var button = UIButton(type: .Custom)
         button.setImage(UIImage(named: "comment_add.png"), forState: UIControlState.Normal)
@@ -89,13 +82,11 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.hideKeyboardWhenTappedAround()
         
         //downloading comments for a post
-        let data = 1//userDefault.objectForKey("storedPidForComment")!
-        print(data)
+        
+        print(pid)
         
         
-        
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(data)/showcomment")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(pid)/showcomment")!)
         request.HTTPMethod = "GET"
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
@@ -105,31 +96,55 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print(response!)
+                //print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                //print(response!)
+                
+                let json = JSON(data: data!)
+                let bug = json["errors"].stringValue
+
+                if bug == "No comments yet"
+                {
+                    // pop up showing be the first to comment
+                    print("No comments yet")
+                    
+                }
+                else {
+                    print("try again later")
+                }
+
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             
             for item in json["comments"].arrayValue {
-                
-                //print(item["comment_message"].stringValue)
-                //print(item["user"]["username"].stringValue)
-                
+
                 self.commentMessage.append(item["comment_message"].stringValue)
                 self.userName.append(item["user"]["username"].stringValue.capitalizedString)
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.commentTable.reloadData()
                 })
             }
-            print(self.userName)
-            print(self.commentMessage)
+
         }
         task.resume()
     }
+    
+    
+    
+    @IBAction func back(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
+    
+    
+    
+    
+    
     
     func keyboardWillShow(notification: NSNotification) {
      
@@ -166,24 +181,22 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func commentBut(sender: AnyObject) {
-        print("pressed")
-        commentField.text = ""
+        print(pid)
+        
+        
+        //commentField.text = ""
         //id = NSUserDefaults.standardUserDefaults().stringForKey("id")!
         //print(id)
         
         var commentmessage = commentField.text!
         print(commentmessage)
-  /*
-        let post_id = 6 //userDefault.objectForKey("storedPidForComment")!
-        print(post_id)
-        let u_id = userDefault.objectForKey("id")
-        print("u_id=\(u_id)")
+        
         
         comment.endEditing(true)
         
         // add a comment api call
   
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(post_id)/comment")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(pid)/comment")!)
         request.HTTPMethod = "POST"
         let postString = "uid=6&comment=\(commentmessage)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -196,6 +209,10 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
             {
                 //pop up comment added
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
                 
                 
             }
@@ -212,7 +229,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }
         task.resume()
- */
+
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

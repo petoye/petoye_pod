@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1EBB683AF18C0B874D7E37ACC0213022E4D3B34E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1EBB683AF18C0B874D7E37ACC0213022E4D3B34E" : 0,
+    "0BAD6EE702E43A29C476F6A1EA8E44BDD4CC5BFA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CD8C1678-4F3E-4C7A-A11B-02319A3431CC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1EBB683AF18C0B874D7E37ACC0213022E4D3B34E" : "petoye_iphone\/",
+    "0BAD6EE702E43A29C476F6A1EA8E44BDD4CC5BFA" : "XLActionController\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PetOye",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PetOye.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xmartlabs\/XLActionController.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0BAD6EE702E43A29C476F6A1EA8E44BDD4CC5BFA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/petoye\/petoye_iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1EBB683AF18C0B874D7E37ACC0213022E4D3B34E"
+    }
+  ]
+}

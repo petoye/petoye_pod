@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UgT-XF-BaW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CMU-rr-Eob">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -153,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="281" y="-314"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar-->
         <scene sceneID="OHW-Ug-dwH">
             <objects>
-                <tabBarController id="cgY-MP-jzm" sceneMemberID="viewController">
+                <tabBarController id="cgY-MP-jzm" customClass="tabBar" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3o4-eD-tK4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -170,6 +170,7 @@
                         <segue destination="cEK-xd-goU" kind="relationship" relationship="viewControllers" id="yfn-Dv-ADr"/>
                         <segue destination="nWJ-NL-ba1" kind="relationship" relationship="viewControllers" id="GG4-Bt-RM2"/>
                         <segue destination="piz-fy-Ml8" kind="relationship" relationship="viewControllers" id="hzn-lv-CAD"/>
+                        <segue destination="KZ2-rY-tB5" kind="show" identifier="post" id="aEG-YF-Mgo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xms-mT-QxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,90 +188,9 @@
                     <view key="view" contentMode="scaleToFill" id="QXc-yO-n2h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3SX-7A-FyV">
-                                <rect key="frame" x="0.0" y="467" width="414" height="220"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="write_a_post_button" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-J7-aC9">
-                                        <rect key="frame" x="55" y="6" width="28" height="29"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="BE7C3A66-5B35-473D-A439-8D0A3535796F-asset"/>
-                                    </imageView>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wd9-jc-n1I">
-                                        <rect key="frame" x="23" y="50" width="90" height="36"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="41942784-0A12-498D-9A26-AA9B1451179B"/>
-                                        <string key="text">Share a Post
-</string>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                                        <color key="textColor" red="0.023529411760000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOt-cO-sjr">
-                                        <rect key="frame" x="176" y="50" width="62" height="36"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="6A017AEC-BABE-44A2-B49D-A875711EC101"/>
-                                        <string key="text">Adoption
-</string>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                                        <color key="textColor" red="0.023529411760000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="vTB-EP-chF">
-                                        <rect key="frame" x="279" y="0.0" width="135" height="220"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="20A9FAD8-6FE5-4A35-9E35-4A2CA182EC75-asset"/>
-                                    </imageView>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuU-Kb-c81">
-                                        <rect key="frame" x="285" y="72" width="128" height="50"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="B9EB3911-C612-44B1-B743-823A56A77FA9"/>
-                                        <string key="text">Look into this space 
-for new features
-in future</string>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="walk_mode" translatesAutoresizingMaskIntoConstraints="NO" id="Ijx-8v-YY2">
-                                        <rect key="frame" x="54" y="104" width="28" height="25"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="5FEDD619-24F3-419A-B1C1-6323588F032B-asset"/>
-                                    </imageView>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-0E-4hY">
-                                        <rect key="frame" x="20" y="144" width="95" height="36"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="9D97D417-AA23-4E61-AD7F-21A237390350"/>
-                                        <string key="text">Walk-in mode
-</string>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                                        <color key="textColor" red="0.023529411760000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="medical_records" translatesAutoresizingMaskIntoConstraints="NO" id="xuX-zP-YPE">
-                                        <rect key="frame" x="192" y="104" width="29" height="25"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="D2B63624-779F-4876-9764-51FF4CE5A1E7-asset"/>
-                                    </imageView>
-                                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auy-SP-FX5">
-                                        <rect key="frame" x="149" y="144" width="116" height="36"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="1244AE58-71B9-41B6-82FC-70C6486906D2"/>
-                                        <string key="text">Medical Records
-</string>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                                        <color key="textColor" red="0.023529411760000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="1AB8D001-DEAE-4714-91D6-162E9182824C"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FU6-6O-0IR" firstAttribute="top" secondItem="3SX-7A-FyV" secondAttribute="bottom" id="915-pX-ae4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3SX-7A-FyV" secondAttribute="trailing" constant="-20" id="atv-vd-TCO"/>
-                            <constraint firstItem="3SX-7A-FyV" firstAttribute="leading" secondItem="QXc-yO-n2h" secondAttribute="leadingMargin" constant="-20" id="jDM-WI-w0m"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="plus_button" id="oSi-yq-DuH"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="plus_button" id="oSi-yq-DuH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dmz-hh-Zr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,7 +309,7 @@ you the opportunity to share it here!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Profile" image="my_profile" id="tTv-AF-RgW">
+                    <tabBarItem key="tabBarItem" tag="5" title="My Profile" image="my_profile" id="tTv-AF-RgW">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.27843137254901962" green="0.79607843137254897" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
@@ -572,7 +492,7 @@ you the opportunity to share it here!</string>
                             <constraint firstItem="0KS-0v-i6e" firstAttribute="centerX" secondItem="JVh-Zh-Dh7" secondAttribute="centerX" id="aWF-pB-9LT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" image="notif" id="7jw-7O-Elv">
+                    <tabBarItem key="tabBarItem" tag="4" title="Notifications" image="notif" id="7jw-7O-Elv">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.32549019607843138" green="0.82745098039215681" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
@@ -672,7 +592,7 @@ you the opportunity to share it here!</string>
                                                 <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
                                                 <state key="normal" image="back"/>
                                                 <connections>
-                                                    <segue destination="UgT-XF-BaW" kind="show" id="78e-Vv-IzS"/>
+                                                    <action selector="back:" destination="uTk-rr-tqL" eventType="touchUpInside" id="y5D-cg-kuv"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -830,7 +750,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVO-Di-eXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="369" y="-1448"/>
+            <point key="canvasLocation" x="1181" y="-1448"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="RpM-yy-vKt">
@@ -845,6 +765,7 @@ you the opportunity to share it here!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tnA-Bl-piX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="cgY-MP-jzm" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Vdi-sv-r0e"/>
@@ -853,7 +774,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNY-Xf-s7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-951" y="-1878"/>
+            <point key="canvasLocation" x="-139" y="-1878"/>
         </scene>
         <!--Back TableVC-->
         <scene sceneID="xek-rJ-yBO">
@@ -928,7 +849,7 @@ you the opportunity to share it here!</string>
                                                 <accessibility key="accessibilityConfiguration" identifier="1B8D388F-2538-4D9D-A146-DC81ED9D6E81-asset"/>
                                                 <state key="normal" image="back"/>
                                                 <connections>
-                                                    <segue destination="UgT-XF-BaW" kind="show" id="WfD-Ky-beX"/>
+                                                    <action selector="back:" destination="tjm-fV-O0b" eventType="touchUpInside" id="BoW-ME-bJO"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -984,12 +905,12 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gS-3G-Awj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053" y="-2287"/>
+            <point key="canvasLocation" x="1865" y="-2287"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="lV3-V4-h4e">
             <objects>
-                <viewController id="KZ2-rY-tB5" customClass="postViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="post" id="KZ2-rY-tB5" customClass="postViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qpf-VY-QIC"/>
                         <viewControllerLayoutGuide type="bottom" id="dZB-pu-qhw"/>
@@ -1011,7 +932,7 @@ you the opportunity to share it here!</string>
                                 <rect key="frame" x="380" y="28" width="22" height="22"/>
                                 <state key="normal" title="Button" image="cancel"/>
                                 <connections>
-                                    <segue destination="UgT-XF-BaW" kind="show" id="qt2-TK-KoY"/>
+                                    <action selector="back:" destination="KZ2-rY-tB5" eventType="touchUpInside" id="BA9-ZH-6r0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfz-kf-GOt">
@@ -1077,7 +998,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hL-CV-qJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="-2261"/>
+            <point key="canvasLocation" x="2636" y="-2261"/>
         </scene>
         <!--Home-->
         <scene sceneID="czb-n4-82u">
@@ -1182,7 +1103,7 @@ you the opportunity to share it here!</string>
                                         </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" image="post" id="F7I-xM-ztF">
                                             <connections>
-                                                <segue destination="KZ2-rY-tB5" kind="show" id="14w-5S-SdD"/>
+                                                <segue destination="KZ2-rY-tB5" kind="show" identifier="" id="14w-5S-SdD"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1380,6 +1301,7 @@ you the opportunity to share it here!</string>
                                             <outlet property="likePress" destination="LDk-c4-JOT" id="mty-iL-jst"/>
                                             <outlet property="like_selected" destination="4J2-0A-DJP" id="4Va-Sg-clN"/>
                                             <outlet property="likecount" destination="aKh-QG-dwQ" id="LIQ-af-RG1"/>
+                                            <outlet property="likedBy" destination="4vf-br-JZe" id="nvz-Ie-Dum"/>
                                             <outlet property="message" destination="Xii-td-SSW" id="z26-aR-h6z"/>
                                             <outlet property="postedImage" destination="SUv-ne-UU9" id="XEu-qc-Rku"/>
                                             <outlet property="profilePic" destination="WjD-dx-Kcg" id="z0x-Qy-3fy"/>
@@ -1561,6 +1483,7 @@ you the opportunity to share it here!</string>
                                             <outlet property="likePress" destination="Grh-ha-3t9" id="zMS-94-4yf"/>
                                             <outlet property="like_selected" destination="C33-wQ-C4U" id="kIB-q4-bvV"/>
                                             <outlet property="likecount" destination="FiO-o3-hE0" id="tV5-AU-DH2"/>
+                                            <outlet property="likedBy" destination="5iz-ze-V3I" id="ExZ-HZ-HMi"/>
                                             <outlet property="message" destination="hkx-mT-XiH" id="RXe-8e-xd6"/>
                                             <outlet property="postedImage" destination="dAn-Vl-vt6" id="Qdv-eH-4rd"/>
                                             <outlet property="profilePic" destination="ImR-0w-SiL" id="BEv-ao-RXl"/>
@@ -1587,7 +1510,7 @@ you the opportunity to share it here!</string>
                             <constraint firstAttribute="trailingMargin" secondItem="092-6j-VD9" secondAttribute="trailing" constant="-20" id="wek-k0-1iL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="gcS-HZ-eP7">
+                    <tabBarItem key="tabBarItem" tag="1" title="Home" image="home_1" id="gcS-HZ-eP7">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.32549019607843138" green="0.82745098039215681" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
@@ -1613,7 +1536,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMy-Da-9Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="-1391"/>
+            <point key="canvasLocation" x="1881" y="-1391"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Nxw-yT-PN3">
@@ -1723,7 +1646,7 @@ you the opportunity to share it here!</string>
                             <constraint firstItem="Omo-ss-mK7" firstAttribute="leading" secondItem="chb-Ns-0WG" secondAttribute="leadingMargin" constant="-20" id="dvD-v4-ski"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Discover" image="users" id="FWy-Cg-wdV">
+                    <tabBarItem key="tabBarItem" tag="2" title="Discover" image="users" id="FWy-Cg-wdV">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.27843137254901962" green="0.79607843137254897" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
@@ -1737,7 +1660,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgl-nF-fr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002" y="-1265"/>
+            <point key="canvasLocation" x="2814" y="-1265"/>
         </scene>
         <!--Login-->
         <scene sceneID="44h-Ah-ABl">
@@ -1932,7 +1855,7 @@ you the opportunity to share it here!</string>
                         <outlet property="forgot_pass" destination="OPv-Pn-fMj" id="OkY-P3-nTg"/>
                         <outlet property="password" destination="Jr5-ZX-pd4" id="vqU-Lq-sZT"/>
                         <outlet property="scrollView" destination="TaP-8F-b8z" id="C4e-Z9-pHN"/>
-                        <segue destination="UgT-XF-BaW" kind="show" identifier="OldUserToHome" id="etG-Sr-xAM"/>
+                        <segue destination="CMU-rr-Eob" kind="show" identifier="OldUserToHome" id="etG-Sr-xAM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTD-zO-Sln" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2194,7 +2117,7 @@ you the opportunity to share it here!</string>
                         <outlet property="picker" destination="BMH-it-SvY" id="cj9-MV-Bzr"/>
                         <outlet property="scrollView" destination="kf7-5z-M0q" id="zyn-Q3-CKQ"/>
                         <outlet property="username" destination="rm6-sT-yb3" id="3AQ-hQ-e6m"/>
-                        <segue destination="UgT-XF-BaW" kind="show" identifier="NewUserToHome" id="wCD-iV-Iag"/>
+                        <segue destination="CMU-rr-Eob" kind="show" identifier="NewUserToHome" id="wCD-iV-Iag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsG-NO-JgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2418,6 +2341,24 @@ you the opportunity to share it here!</string>
             </objects>
             <point key="canvasLocation" x="2374" y="643"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2gk-xI-IQk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CMU-rr-Eob" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="keB-fw-1PQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UgT-XF-BaW" kind="relationship" relationship="rootViewController" id="rV4-9C-84A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFw-1H-pQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-951" y="-1878"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add_comment" width="21" height="20"/>
@@ -2433,33 +2374,30 @@ you the opportunity to share it here!</string>
         <image name="followed" width="70" height="26"/>
         <image name="forgot_pass" width="118" height="24"/>
         <image name="ham_button" width="31" height="19"/>
-        <image name="home" width="32" height="31"/>
+        <image name="home_1" width="32" height="31"/>
         <image name="like_unselected" width="69" height="28"/>
         <image name="like_unselected1" width="69" height="28"/>
         <image name="location" width="12" height="16"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
-        <image name="medical_records" width="29" height="25"/>
         <image name="my_profile" width="32" height="30"/>
         <image name="notif" width="32" height="31"/>
         <image name="petoye_logo" width="155" height="156"/>
         <image name="petoye_logo2" width="155" height="156"/>
         <image name="plus_button" width="43" height="42"/>
         <image name="post" width="26" height="26"/>
-        <image name="rectangle" width="135" height="220"/>
         <image name="report_dots" width="25" height="7"/>
         <image name="search" width="26" height="26"/>
         <image name="share_via" width="20" height="25"/>
         <image name="signup_email" width="316" height="64"/>
         <image name="signup_fb" width="316" height="64"/>
         <image name="users" width="35" height="30"/>
-        <image name="walk_mode" width="28" height="25"/>
-        <image name="write_a_post_button" width="28" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="etG-Sr-xAM"/>
-        <segue reference="sdT-Ly-hNR"/>
+        <segue reference="wCD-iV-Iag"/>
         <segue reference="fbK-Hd-8MT"/>
+        <segue reference="sdT-Ly-hNR"/>
+        <segue reference="14w-5S-SdD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

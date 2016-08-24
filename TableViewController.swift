@@ -8,6 +8,7 @@
 
 import UIKit
 import Social
+import XLActionController
 
 var userDefault = NSUserDefaults.standardUserDefaults()
 
@@ -46,7 +47,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var s_profilepic = [String]()
 
 
-
+    var PostId = String()
 
 
     
@@ -68,27 +69,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         print("viewDidLoad")
         
-        //search bar
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        navigationController?.navigationBar.hidden = true
+
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
@@ -121,6 +103,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchTable.tableFooterView = UIView(frame: CGRectZero)
         
             }
+    
+    
+    
+    
+    
     
     func getNearby() {
         
@@ -174,6 +161,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         task.resume()
     }
+    
+    
+
+    
     
     func getTrending()
     {
@@ -371,6 +362,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.likePress.tag = indexPath.row
                 cell.commentPress.tag = indexPath.row
                 cell.reportPress.tag = indexPath.row
+                cell.likedBy.tag = indexPath.row
                 
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
@@ -431,10 +423,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 cell.username.text = username[indexPath.row]
                 
-                
-                userDefault.setObject(post_user_id, forKey: "storedPostUserId")
-                userDefault.setObject(post_id, forKey: "storedPostId")
-                userDefault.synchronize()
+
                 
                 cell.message.text = message[indexPath.row]
                 cell.likecount.text = like_count[indexPath.row]
@@ -445,6 +434,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.likePress.tag = indexPath.row
                 cell.commentPress.tag = indexPath.row
                 cell.reportPress.tag = indexPath.row
+                cell.likedBy.tag = indexPath.row
+                
                 //cell.like_selected.hidden = true
                 
                 return cell
@@ -487,30 +478,202 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print(username[cell.usernamePress.tag])
     }
     
-    func callSegueFromCell(data dataobject: AnyObject) {
-        //try not to send self, just to avoid retain cycles(depends on how you handle the code on the next controller)
-        self.performSegueWithIdentifier("trendingCommentShower", sender:dataobject )
-        
-    }
     func callLikedBySegueFromCell(data dataobject: AnyObject) {
         //try not to send self, just to avoid retain cycles(depends on how you handle the code on the next controller)
         self.performSegueWithIdentifier("feedToLikedBy", sender:dataobject )
         
     }
-    func reloadLike() {
-        self.feedTable.reloadData()
+    
+    func likeIt(likeTag: Int) {
+        
+        //print(likeTag)
+        
+        if followed.tag == 1 {
+            
+            var likedPostId = post_id1[likeTag]
+            
+            
+            let indexPath = NSIndexPath(forRow: likeTag, inSection: 0)
+            let cell = self.followedTable.cellForRowAtIndexPath(indexPath) as! feed
+            
+            cell.likePress.viewWithTag(likeTag)?.hidden = true
+            
+            
+            //liking a post API call
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
+            request.HTTPMethod = "POST"
+            let postString = "uid=47"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                    //print(error!)
+                    return
+                }
+                
+                if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+                {
+                    //set like buttonimage to filled
+                    var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    print(responseString)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        //self.followedTable.reloadData()
+                    })
+                    
+                    
+                }
+                
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                    
+                    let json = JSON(data: data!)
+                    let bug = json["errors"].stringValue
+                    // pop up showing already liked and set image to filled
+                    if bug == "already liked"
+                    {
+                        // pop up showing already liked and set image to filled
+                        print("already liked")
+                        
+                        //self.likePress.viewWithTag(self.likePress.tag)?.hidden = true
+                    }
+                    else {
+                        print("try again later")
+                    }
+                }
+                
+            }
+            task.resume()
+
+        }
+        else if nearby.tag == 1 {
+
+            var likedPostId = post_id[likeTag]
+            
+            
+            let indexPath = NSIndexPath(forRow: likeTag, inSection: 0)
+            let cell = self.feedTable.cellForRowAtIndexPath(indexPath) as! feed
+            
+            cell.likePress.viewWithTag(likeTag)?.hidden = true
+            
+            
+            //liking a post API call
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
+            request.HTTPMethod = "POST"
+            let postString = "uid=47"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                    //print(error!)
+                    return
+                }
+                
+                if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+                {
+                    //set like buttonimage to filled
+                    var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    print(responseString)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        //self.feedTable.reloadData()
+                    })
+                    
+                    
+                }
+                
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                    
+                    let json = JSON(data: data!)
+                    let bug = json["errors"].stringValue
+                    // pop up showing already liked and set image to filled
+                    if bug == "already liked"
+                    {
+                        // pop up showing already liked and set image to filled
+                        print("already liked")
+                        
+                        //self.likePress.viewWithTag(self.likePress.tag)?.hidden = true
+                    }
+                    else {
+                        print("try again later")
+                    }
+                }
+                
+            }
+            task.resume()
+            
+        }
+        
+    }
+
+    func commentIt(commentTag: Int) {
+        
+        //print(commentTag)
+        
+        if followed.tag == 1 {
+            
+            PostId = post_id1[commentTag]
+            
+            self.performSegueWithIdentifier("trendingCommentShower", sender: self)
+            
+        }
+        else if nearby.tag == 1 {
+            
+            PostId = post_id[commentTag]
+            
+            self.performSegueWithIdentifier("trendingCommentShower", sender: self)
+        }
+        
     }
     
-    func report(cell_id:Int) {
-        /*
-        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Report", otherButtonTitles: "Follow","Share to Facebook","Share to Twitter")
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        actionSheet.showInView(self.view)
-        */
+        if (segue.identifier == "trendingCommentShower") {
+            
+            let commentVC = segue.destinationViewController as! CommentsViewController
+            
+            commentVC.pid = PostId
+            
+        }
+        else if (segue.identifier == "feedToLikedBy") {
+            
+            let likeVC = segue.destinationViewController as! LikesViewController
+            
+            likeVC.pid = PostId
+            
+        }
+        
+    }
+    
+    func likedBy(byTag: Int) {
+        
+        
+        if followed.tag == 1 {
+            
+            PostId = post_id1[byTag]
+            
+            self.performSegueWithIdentifier("feedToLikedBy", sender: self)
+            
+        }
+        else if nearby.tag == 1 {
+            
+            PostId = post_id[byTag]
+            
+            self.performSegueWithIdentifier("feedToLikedBy", sender: self)
+            
+        }
+        
+    }
+    
+    
+    func report(cell_id:Int) {
+
         
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
         
         if (followed.tag == 1) {
+            
+            
+            
             
             let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
                 print("Cancel")
@@ -572,6 +735,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
             { action -> Void in
                 print("Report")
+                
+                
             }
             actionSheetControllerIOS8.addAction(ReportActionButton)
             
@@ -658,11 +823,23 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        
+        if self.toolBar.hidden == true {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
     @IBAction func search(sender: AnyObject) {
         
         self.toolBar.hidden = true
         self.navBar.hidden = true
         self.searchTable.hidden = false
+        self.prefersStatusBarHidden()
+        self.setNeedsStatusBarAppearanceUpdate()
         configureCustomSearchController()
         
         if trending.tag == 1 {

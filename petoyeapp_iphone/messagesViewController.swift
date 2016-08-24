@@ -28,6 +28,9 @@ class messagesViewController: JSQMessagesViewController{
         
         self.inputToolbar.contentView.leftBarButtonItem = nil
         
+        
+        // take stored id from ns user defaults and store as self.senderId
+        
         self.senderId = "1"
         self.senderDisplayName = hisName
         
@@ -36,7 +39,7 @@ class messagesViewController: JSQMessagesViewController{
         
         //navBar.backBarButtonItem?.image = UIImage(named: "back.png")
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "back.png"), style: .Plain, target: self, action: "backbutton")
+        let backButton = UIBarButtonItem(image: UIImage(named: "back.png"), style: .Plain , target: self, action: "backbutton")
         navigationItem.leftBarButtonItem = backButton
         
         navigationController?.navigationBar.barTintColor =
@@ -51,7 +54,7 @@ class messagesViewController: JSQMessagesViewController{
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/1/\(hisId)/open")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/\(senderId)/\(hisId)/open")!)
         request.HTTPMethod = "GET"
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
@@ -102,6 +105,13 @@ class messagesViewController: JSQMessagesViewController{
     func backbutton() {
         
         print("back")
+        //self.dismissViewControllerAnimated(true, completion: nil);
+        
+        //navigationController?.popViewControllerAnimated(true)
+        //navigationController?.popViewControllerAnimated(true)
+        
+        //navigationController?.navigationController?.popViewControllerAnimated(true)
+        
     }
     
     override func didReceiveMemoryWarning() {

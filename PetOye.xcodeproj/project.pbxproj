@@ -49,6 +49,8 @@
 		E4DE19461D48BFFE00AA4836 /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */; };
 		E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE19471D48C03800AA4836 /* LoginViewController.swift */; };
 		E4DE194A1D48C0B800AA4836 /* BasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */; };
+		E4EC928E1D69621F00FD5B3B /* middleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC928D1D69621F00FD5B3B /* middleViewController.swift */; };
+		E4EC92981D6C71D800FD5B3B /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC92971D6C71D800FD5B3B /* tabBar.swift */; };
 		E4FDD9B11D4CA4E400E7610B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */; };
 		E4FDD9B31D4CB43800E7610B /* feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FDD9B21D4CB43800E7610B /* feed.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +103,9 @@
 		E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		E4DE19471D48C03800AA4836 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoViewController.swift; sourceTree = "<group>"; };
+		E4EC928D1D69621F00FD5B3B /* middleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = middleViewController.swift; sourceTree = "<group>"; };
+		E4EC928F1D69635500FD5B3B /* XLActionController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLActionController.framework; path = "../../Library/Developer/Xcode/DerivedData/PetOye-cacpaendgvxuwcewxlbacigzefcv/Build/Products/Debug-iphonesimulator/XLActionController/XLActionController.framework"; sourceTree = "<group>"; };
+		E4EC92971D6C71D800FD5B3B /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 		E4FDD9B21D4CB43800E7610B /* feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = feed.swift; path = ../feed.swift; sourceTree = "<group>"; };
 		E850B2CC83682EE2AE21EDDD /* Pods-petoyeapp_iphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petoyeapp_iphone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-petoyeapp_iphone/Pods-petoyeapp_iphone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +141,7 @@
 		6E6B7E6B77E3C2C702AA7831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4EC928F1D69635500FD5B3B /* XLActionController.framework */,
 				B274E70F9D229A621F9926AB /* Pods_petoyeapp_iphone.framework */,
 			);
 			name = Frameworks;
@@ -191,6 +197,7 @@
 		E45FE2281D54C5C000AFA106 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4EC92971D6C71D800FD5B3B /* tabBar.swift */,
 				E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */,
 				E4DE19471D48C03800AA4836 /* LoginViewController.swift */,
 				E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */,
@@ -201,6 +208,7 @@
 				E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */,
 				E40E986A1D51BFFC00112273 /* messagesViewController.swift */,
 				E45FE22C1D559F3C00AFA106 /* postViewController.swift */,
+				E4EC928D1D69621F00FD5B3B /* middleViewController.swift */,
 				E484FB011D6012B7007B8918 /* Hamburger */,
 			);
 			name = "View Controllers";
@@ -409,6 +417,7 @@
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
 				E40E98691D50DE7600112273 /* discover_cell.swift in Sources */,
 				E4FDD9B31D4CB43800E7610B /* feed.swift in Sources */,
+				E4EC928E1D69621F00FD5B3B /* middleViewController.swift in Sources */,
 				E45592241D4F685200D36B28 /* comment_cell.swift in Sources */,
 				E4FDD9B11D4CA4E400E7610B /* TableViewController.swift in Sources */,
 				E4DE194A1D48C0B800AA4836 /* BasicInfoViewController.swift in Sources */,
@@ -420,6 +429,7 @@
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
 				E42435B51D676045000C1DD8 /* recieved_cell.swift in Sources */,
 				E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */,
+				E4EC92981D6C71D800FD5B3B /* tabBar.swift in Sources */,
 				E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */,
 				E4DE19461D48BFFE00AA4836 /* CreateAnAccountViewController.swift in Sources */,
 				E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */,

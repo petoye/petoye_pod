@@ -6,17 +6,15 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var username = [String]()
     
+    var pid = String()
+    
     @IBOutlet weak var likeTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let data = 3//userDefault.objectForKey("storedPidForLike")!
-        print(data)
-        
-        
-        
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(data)/showlike")!)
+        likeTable.tableFooterView = UIView(frame: CGRectZero)
+    
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(pid)/showlike")!)
         request.HTTPMethod = "GET"
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
@@ -26,8 +24,21 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print(response!)
+                //print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                //print(response!)
+                
+                let json = JSON(data: data!)
+                let bug = json["errors"].stringValue
+                
+                if bug == "No likes yet"
+                {
+                    print("No likes yet")
+                    
+                }
+                else {
+                    print("try again later")
+                }
+
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -49,6 +60,10 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
 
         
+    }
+    @IBAction func back(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
     }
     
     override func didReceiveMemoryWarning() {

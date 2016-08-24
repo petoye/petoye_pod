@@ -2,14 +2,37 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - XLActionController (2.0.0):
+    - XLActionController/Core (= 2.0.0)
+  - XLActionController/Core (2.0.0)
+  - XLActionController/Periscope (2.0.0):
+    - XLActionController/Core
+  - XLActionController/Skype (2.0.0):
+    - XLActionController/Core
+  - XLActionController/Spotify (2.0.0):
+    - XLActionController/Core
+  - XLActionController/Tweetbot (2.0.0):
+    - XLActionController/Core
+  - XLActionController/Twitter (2.0.0):
+    - XLActionController/Core
+  - XLActionController/Youtube (2.0.0):
+    - XLActionController/Core
 
 DEPENDENCIES:
   - JSQMessagesViewController
+  - XLActionController
+  - XLActionController/Periscope
+  - XLActionController/Skype
+  - XLActionController/Spotify
+  - XLActionController/Tweetbot
+  - XLActionController/Twitter
+  - XLActionController/Youtube
 
 SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  XLActionController: 97ed31237413db4d9401c6a559270f4d2b4de136
 
-PODFILE CHECKSUM: 20b5b12ea212e462aae8a067a17580779f625093
+PODFILE CHECKSUM: 88645438cac1ff22e6a4d2531e687c40df492402
 
 COCOAPODS: 1.0.1

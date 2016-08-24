@@ -92,6 +92,11 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         postImage.image = nil
         cancel.hidden = true
     }
+    @IBAction func back(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
     
     @IBAction func upload(sender: AnyObject) {
         
