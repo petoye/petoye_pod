@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CMU-rr-Eob">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xiS-f3-99y">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -821,6 +821,133 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVO-Di-eXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="961" y="-1304"/>
+        </scene>
+        <!--Adoptions View Controller-->
+        <scene sceneID="GuO-5t-gkV">
+            <objects>
+                <viewController id="xiS-f3-99y" customClass="adoptionsViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iez-j9-0Rt"/>
+                        <viewControllerLayoutGuide type="bottom" id="OiJ-mq-hFW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XUz-dk-nKH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NeX-E6-ijq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.32156862749999998" green="0.80784313730000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Adoptions" prompt=" " id="7g0-J5-uuS"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="514" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2ns-Mg-X9M">
+                                <rect key="frame" x="0.0" y="118" width="414" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="adopt" rowHeight="514" id="qOl-7m-ahR" customClass="adopt_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="514"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qOl-7m-ahR" id="fOI-G5-4NH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="513"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yt5-9r-H8M">
+                                                    <rect key="frame" x="31" y="8" width="55" height="55"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="8DDF9689-6828-41CA-A90F-30CDB929A451"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="27.519999999999982"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ameya Vichare" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt2-j6-nL3">
+                                                    <rect key="frame" x="104" y="10" width="149" height="26"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="60DB4F31-4B94-4EEE-8FAF-885BA2C0AE73"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
+                                                    <color key="textColor" red="0.28627450980392155" green="0.39215686274509803" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfw-Ao-RBs">
+                                                    <rect key="frame" x="104" y="39" width="271" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="0A16DFCB-2814-47E4-9056-3F50EE4CA791"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVg-5f-krL">
+                                                    <rect key="frame" x="359" y="18" width="25" height="22"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
+                                                    <state key="normal" image="report_dots"/>
+                                                    <connections>
+                                                        <action selector="share:" destination="qOl-7m-ahR" eventType="touchUpInside" id="vN1-5Y-DzL"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2D-bV-bqb">
+                                                    <rect key="frame" x="0.0" y="83" width="414" height="414"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="1D877AFA-AF7D-448F-B249-6CA9DB0CFB1D"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pet_info" destination="hfw-Ao-RBs" id="c9G-pr-0Ix"/>
+                                            <outlet property="postedImage" destination="S2D-bV-bqb" id="be3-hU-u0N"/>
+                                            <outlet property="profilePic" destination="Yt5-9r-H8M" id="xKO-e7-wDM"/>
+                                            <outlet property="shareBut" destination="WVg-5f-krL" id="8cS-nG-x2k"/>
+                                            <outlet property="username" destination="qt2-j6-nL3" id="qDC-F9-coy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xiS-f3-99y" id="jVp-en-l2C"/>
+                                    <outlet property="delegate" destination="xiS-f3-99y" id="yW9-Mt-hKf"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJG-dg-5Wf">
+                                <rect key="frame" x="0.0" y="74" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem width="55" style="plain" systemItem="flexibleSpace" id="ha3-He-uG3"/>
+                                    <barButtonItem tag="1" title="Adopt a Pet" width="133" id="hSi-tP-Ef5">
+                                        <color key="tintColor" red="0.21960784310000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="adopt1:" destination="xiS-f3-99y" id="FRE-MB-9F2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Kln-Qj-OJB"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DrW-jX-o1U"/>
+                                    <barButtonItem title="Give a pet for adoption" width="133" id="fcn-bG-Hss">
+                                        <color key="tintColor" red="0.2784313725" green="0.79607843140000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="adopt2:" destination="xiS-f3-99y" id="mlY-KO-1HK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="55" style="plain" systemItem="flexibleSpace" id="RZF-fY-lRX"/>
+                                </items>
+                                <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="a1" destination="hSi-tP-Ef5" id="MlQ-O8-wnV"/>
+                        <outlet property="a2" destination="fcn-bG-Hss" id="II2-7x-oVD"/>
+                        <outlet property="adoptionsTable" destination="2ns-Mg-X9M" id="1jI-6d-8fZ"/>
+                        <outlet property="navigBar" destination="NeX-E6-ijq" id="nq2-P8-Kjn"/>
+                        <outlet property="toolBar" destination="XJG-dg-5Wf" id="g78-Jq-Gs1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiQ-RK-iGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-190" y="-2118"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="RpM-yy-vKt">
@@ -2450,11 +2577,11 @@
         <image name="users" width="35" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vdi-sv-r0e"/>
-        <segue reference="etG-Sr-xAM"/>
-        <segue reference="sdT-Ly-hNR"/>
-        <segue reference="fbK-Hd-8MT"/>
         <segue reference="14w-5S-SdD"/>
+        <segue reference="ONz-So-d6F"/>
+        <segue reference="fbK-Hd-8MT"/>
+        <segue reference="sdT-Ly-hNR"/>
+        <segue reference="etG-Sr-xAM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

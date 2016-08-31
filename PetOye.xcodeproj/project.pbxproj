@@ -39,6 +39,8 @@
 		E484FB0C1D66F51E007B8918 /* customSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E484FB0B1D66F51E007B8918 /* customSearchController.swift */; };
 		E4938F1A1D5A0B45008ACE46 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */; };
 		E4938F201D5CD72C008ACE46 /* no_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4938F1F1D5CD72C008ACE46 /* no_image.jpg */; };
+		E4A542651D76B15100E9FCD2 /* adoptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A542641D76B15100E9FCD2 /* adoptionsViewController.swift */; };
+		E4A542671D76BB5D00E9FCD2 /* adopt_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A542661D76BB5D00E9FCD2 /* adopt_cell.swift */; };
 		E4AFB6F21D53639C00FDD6B6 /* notificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */; };
 		E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B21D54478600B41A87 /* notification_cell.swift */; };
 		E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */; };
@@ -121,6 +123,8 @@
 		E484FB0B1D66F51E007B8918 /* customSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customSearchController.swift; path = ../customSearchController.swift; sourceTree = "<group>"; };
 		E4938F191D5A0B45008ACE46 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E4938F1F1D5CD72C008ACE46 /* no_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_image.jpg; sourceTree = "<group>"; };
+		E4A542641D76B15100E9FCD2 /* adoptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adoptionsViewController.swift; sourceTree = "<group>"; };
+		E4A542661D76BB5D00E9FCD2 /* adopt_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adopt_cell.swift; sourceTree = "<group>"; };
 		E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsViewController.swift; sourceTree = "<group>"; };
 		E4CA78B21D54478600B41A87 /* notification_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification_cell.swift; path = ../notification_cell.swift; sourceTree = "<group>"; };
 		E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification2_cell.swift; path = ../notification2_cell.swift; sourceTree = "<group>"; };
@@ -256,7 +260,6 @@
 				E4841D651D708ED60066BEC3 /* profileViewController.swift */,
 				E4EC92971D6C71D800FD5B3B /* tabBar.swift */,
 				E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */,
-				E4DE19471D48C03800AA4836 /* LoginViewController.swift */,
 				E4DE19491D48C0B800AA4836 /* BasicInfoViewController.swift */,
 				E4FDD9B01D4CA4E400E7610B /* TableViewController.swift */,
 				E455921F1D4F4EBC00D36B28 /* CommentsViewController.swift */,
@@ -266,6 +269,8 @@
 				E40E986A1D51BFFC00112273 /* messagesViewController.swift */,
 				E45FE22C1D559F3C00AFA106 /* postViewController.swift */,
 				E4EC928D1D69621F00FD5B3B /* middleViewController.swift */,
+				E4DE19471D48C03800AA4836 /* LoginViewController.swift */,
+				E4A542641D76B15100E9FCD2 /* adoptionsViewController.swift */,
 				E484FB011D6012B7007B8918 /* Hamburger */,
 			);
 			name = "View Controllers";
@@ -274,6 +279,7 @@
 		E45FE2291D54C62000AFA106 /* Custom cells */ = {
 			isa = PBXGroup;
 			children = (
+				E4A542661D76BB5D00E9FCD2 /* adopt_cell.swift */,
 				E4FDD9B21D4CB43800E7610B /* feed.swift */,
 				E40E98641D509C1300112273 /* like_cell.swift */,
 				E484FB061D66E833007B8918 /* search_cell.swift */,
@@ -512,6 +518,7 @@
 				E484FB0C1D66F51E007B8918 /* customSearchController.swift in Sources */,
 				E4EC930D1D6ED97800FD5B3B /* DesignableImageView.swift in Sources */,
 				E4EC931D1D6ED97800FD5B3B /* SpringImageView.swift in Sources */,
+				E4A542651D76B15100E9FCD2 /* adoptionsViewController.swift in Sources */,
 				E4EC93121D6ED97800FD5B3B /* DesignableView.swift in Sources */,
 				E4EC931F1D6ED97800FD5B3B /* SpringTextField.swift in Sources */,
 				E4EC930A1D6ED97800FD5B3B /* AutoTextView.swift in Sources */,
@@ -540,6 +547,7 @@
 				E42435B51D676045000C1DD8 /* recieved_cell.swift in Sources */,
 				E4EC93231D6ED97800FD5B3B /* TransitionZoom.swift in Sources */,
 				E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */,
+				E4A542671D76BB5D00E9FCD2 /* adopt_cell.swift in Sources */,
 				E4EC93101D6ED97800FD5B3B /* DesignableTextField.swift in Sources */,
 				E4EC92981D6C71D800FD5B3B /* tabBar.swift in Sources */,
 				E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */,
