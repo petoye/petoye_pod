@@ -26,6 +26,8 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var postTable: UITableView!
+    
     var trendingView = UIView()
     var followedView = UIView()
     var nearbyView = UIView()
@@ -62,7 +64,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         
         collectionView.hidden = true
-        
+        postTable.hidden = true
         
         
         
@@ -103,6 +105,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         collectionView.hidden = true
         
         petInfo.hidden = false
+        postTable.hidden = true
         
         //notifTable.reloadData()
         //notifTable.hidden = true
@@ -129,6 +132,8 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         petInfo.hidden = true
         
         collectionView.hidden = false
+        
+        postTable.hidden = true
         
         if imageUrl.count == 0 {
             
@@ -165,6 +170,8 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         petInfo.hidden = true
         
         collectionView.hidden = true
+        
+        postTable.hidden = false
         
         //profile()
         
