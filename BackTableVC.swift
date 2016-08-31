@@ -21,10 +21,18 @@ class BackTableVC: UITableViewController {
         
         hamTable.tableFooterView = UIView(frame: CGRectZero)
         
-        TableArray = ["Home","Adoption","Pet Breeds","Pet Vets","Groomers","Trainers","Day Care","Events","Settings","About us","Why PetOye?"]
+        TableArray = ["Home","Adoption","Pet Breeds","Settings","About us","Why PetOye?","","","","","",""]
         
         var first_name = "Vaibhav"//NSUserDefaults.standardUserDefaults().stringForKey("first_name")!
         hello.title = "Hello, \(first_name)"
+        
+        //self.prefersStatusBarHidden()
+        
+        //UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        //self.setNeedsStatusBarAppearanceUpdate()
+        
+        navigationController?.prefersStatusBarHidden()
         
     }
     
@@ -34,6 +42,15 @@ class BackTableVC: UITableViewController {
         return TableArray.count
     }
     
+    /*
+    
+    override func prefersStatusBarHidden() -> Bool {
+        
+            return true
+        
+    }
+ 
+ */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("ham_cell", forIndexPath: indexPath) as! UITableViewCell
@@ -50,27 +67,12 @@ class BackTableVC: UITableViewController {
             cell.imageView?.image = UIImage(named: "petbreeds.png")
         }
         else if indexPath.row == 3 {
-            cell.imageView?.image = UIImage(named: "vet.png")
-        }
-        else if indexPath.row == 4 {
-            cell.imageView?.image = UIImage(named: "groom.png")
-        }
-        else if indexPath.row == 5 {
-            cell.imageView?.image = UIImage(named: "training.png")
-        }
-        else if indexPath.row == 6 {
-            cell.imageView?.image = UIImage(named: "kennel.png")
-        }
-        else if indexPath.row == 7 {
-            cell.imageView?.image = UIImage(named: "events.png")
-        }
-        else if indexPath.row == 8 {
             cell.imageView?.image = UIImage(named: "settings.png")
         }
-        else if indexPath.row == 9 {
+        else if indexPath.row == 4 {
             cell.imageView?.image = UIImage(named: "about.png")
         }
-        else if indexPath.row == 10 {
+        else if indexPath.row == 5 {
             cell.imageView?.image = UIImage(named: "petoye.png")
         }
         

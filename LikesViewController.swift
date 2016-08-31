@@ -16,6 +16,7 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(pid)/showlike")!)
         request.HTTPMethod = "GET"
+        view.showLoading()
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -30,31 +31,43 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let json = JSON(data: data!)
                 let bug = json["errors"].stringValue
                 
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.view.hideLoading()
+                })
+
                 if bug == "No likes yet"
                 {
                     print("No likes yet")
+                    //self.view.hideLoading()
                     
                 }
                 else {
                     print("try again later")
+                    //self.view.hideLoading()
                 }
 
             }
             
-            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
-            
-            let json = JSON(data: data!)
-            
-            for item in json["feeds"].arrayValue {
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode == 200 {
                 
-                //print(item["username"].stringValue)
-                self.username.append(item["username"].stringValue.capitalizedString)
-                dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                    self.likeTable.reloadData()
-                })
-
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(responseString)
+                
+                let json = JSON(data: data!)
+                
+                for item in json["feeds"].arrayValue {
+                    
+                    //print(item["username"].stringValue)
+                    self.username.append(item["username"].stringValue.capitalizedString)
+                    dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                        self.likeTable.reloadData()
+                        self.view.hideLoading()
+                    })
+                    
+                }
+                
             }
+            
             print(self.username)
         }
         task.resume()

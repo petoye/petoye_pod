@@ -9,6 +9,8 @@
 import UIKit
 import JSQMessagesViewController
 
+
+
 var messages = [JSQMessage]()
 var outgoingBubbleImageView: JSQMessagesBubbleImage!
 var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -18,6 +20,7 @@ class messagesViewController: JSQMessagesViewController{
     var hisId = String()
     var hisName = String()
     
+
     @IBOutlet weak var navBar: UINavigationItem!
     
     override func viewDidLoad() {
@@ -34,28 +37,56 @@ class messagesViewController: JSQMessagesViewController{
         self.senderId = "1"
         self.senderDisplayName = hisName
         
-        title = "ChatChat"
-        navBar.title = hisName
+        //title = "ChatChat"
+        //navBar.title = hisName
         
         //navBar.backBarButtonItem?.image = UIImage(named: "back.png")
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "back.png"), style: .Plain , target: self, action: "backbutton")
-        navigationItem.leftBarButtonItem = backButton
+        //let backButton = UIBarButtonItem(image: UIImage(named: "back.png"), style: .Plain , target: self, action: "backbutton")
+        //navigationItem.leftBarButtonItem = backButton
         
-        navigationController?.navigationBar.barTintColor =
-        UIColorFromHex(0x53D3E3,alpha: 1)
+        //navigationController?.navigationBar.barTintColor =
+        //UIColorFromHex(0x53D3E3,alpha: 1)
         
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        //navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        //navigationController?.navigationBar.hidden = true
+        
+        //navigationController?.navigationController?.navigationBar.hidden = false
+        //navigationController?.navigationController?.navigationBar.barTintColor =
+            UIColorFromHex(0x53D3E3,alpha: 1)
+        //navigationController?.navigationController?.navigationItem.title = hisName
+        //navigationController?.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        //navigationItem.leftBarButtonItem = backButton
         
         
+        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 414, height: 64))
+        navBar.barTintColor = UIColorFromHex(0x53D3E3,alpha: 1)
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.view.addSubview(navBar);
+        let navItem = UINavigationItem(title: hisName);
+        let backItem = UIBarButtonItem(image: UIImage(named: "back.png"), style: .Plain , target: self, action: "backbutton")
+        navItem.leftBarButtonItem = backItem;
+        navBar.setItems([navItem], animated: false);
+        
+ 
         
         setupBubbles()
+        
+        //collectionView.contentOffset = CGPoint(x: 0.0, y: 64.0)
+        
+        collectionView.contentInset = UIEdgeInsetsMake(38, 0, 0, 0)
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         
+        messages.removeAll()
+        
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/\(senderId)/\(hisId)/open")!)
         request.HTTPMethod = "GET"
+        
+        view.showLoading()
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -75,6 +106,8 @@ class messagesViewController: JSQMessagesViewController{
             
             let json = JSON(data: data!)
             
+            //self.addMessage(self.senderId, text: "Welcome to PetOye!")
+            
             
             for item in json["conversations"].arrayValue {
                 //print(item["body"].stringValue)
@@ -87,6 +120,7 @@ class messagesViewController: JSQMessagesViewController{
                     
                     //self.automaticallyScrollsToMostRecentMessage = true
                     self.collectionView.reloadData()
+                    self.view.hideLoading()
                 })
             }
             
@@ -105,14 +139,21 @@ class messagesViewController: JSQMessagesViewController{
     func backbutton() {
         
         print("back")
-        //self.dismissViewControllerAnimated(true, completion: nil);
         
-        //navigationController?.popViewControllerAnimated(true)
-        //navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
         
-        //navigationController?.navigationController?.popViewControllerAnimated(true)
+        print(messages.last!.text)
+        
+        print(messages.last!.senderId)
+        
+        NSUserDefaults.standardUserDefaults().setValue("\(messages.last!.text)", forKey: "last")
+        
+
+        
         
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -213,6 +254,8 @@ class messagesViewController: JSQMessagesViewController{
         ///////////////////////
         var recipientId = hisId
         
+        view.showLoading()
+        
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations")!)
         request.HTTPMethod = "POST"
         let postString = "sender_id=\(senderId)&recipient_id=\(recipientId)&body=\(text)"
@@ -229,6 +272,7 @@ class messagesViewController: JSQMessagesViewController{
                 
                 dispatch_async(dispatch_get_main_queue()){
                     self.collectionView.reloadData()
+                    self.view.hideLoading()
                 }
                 
             }

@@ -63,11 +63,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var followed: UIBarButtonItem!
     @IBOutlet weak var nearby: UIBarButtonItem!
     
+    var activityIndicatorImage = UIImageView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+        
+        
         
         navigationController?.navigationBar.hidden = true
 
@@ -91,10 +94,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         nearbyView.hidden = true
 
         //Get request for geting feeds
-        getNearby()
+        //getNearby()
         //get request for getting followed feeds
-        getFollowed()
-        
+        //getFollowed()
         
         feedTable.hidden = true
         followedTable.hidden = true
@@ -102,17 +104,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         searchTable.tableFooterView = UIView(frame: CGRectZero)
         
-            }
-    
-    
-    
-    
+    }
+
     
     
     func getNearby() {
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/5/nearbyfeeds")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/2/nearbyfeeds")!)
         request.HTTPMethod = "GET"
+        view.showLoading()
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -144,6 +144,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.post_user_id.append(item["id"].stringValue)
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.feedTable.reloadData()
+                        self.view.hideLoading()
                     })
                 }
             }
@@ -177,6 +178,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/1/followedfeeds")!)
         request.HTTPMethod = "GET"
         
+        view.showLoading()
+
+        
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print(error!)
@@ -206,6 +210,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.followedTable.reloadData()
+                        self.view.hideLoading()
+                    
                     })
                 
             }
@@ -264,6 +270,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         feedTable.hidden = true
         followedTable.hidden = false
         
+        
+        if username1.count == 0 {
+            
+            getFollowed()
+        }
+        
     }
     
     @IBAction func nearby(sender: AnyObject) {
@@ -281,6 +293,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         feedTable.hidden = false
         followedTable.hidden = true
         
+        if username.count == 0 {
+            
+            getNearby()
+        }
     }
     
     
@@ -478,11 +494,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print(username[cell.usernamePress.tag])
     }
     
-    func callLikedBySegueFromCell(data dataobject: AnyObject) {
-        //try not to send self, just to avoid retain cycles(depends on how you handle the code on the next controller)
-        self.performSegueWithIdentifier("feedToLikedBy", sender:dataobject )
-        
-    }
     
     func likeIt(likeTag: Int) {
         
@@ -495,6 +506,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let indexPath = NSIndexPath(forRow: likeTag, inSection: 0)
             let cell = self.followedTable.cellForRowAtIndexPath(indexPath) as! feed
+            view.showLoading()
             
             cell.likePress.viewWithTag(likeTag)?.hidden = true
             
@@ -519,6 +531,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         //self.followedTable.reloadData()
+                        self.view.hideLoading()
                     })
                     
                     
@@ -529,15 +542,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     let json = JSON(data: data!)
                     let bug = json["errors"].stringValue
                     // pop up showing already liked and set image to filled
+                    self.view.hideLoading()
+                    
                     if bug == "already liked"
                     {
                         // pop up showing already liked and set image to filled
                         print("already liked")
+                        //self.view.hideLoading()
                         
                         //self.likePress.viewWithTag(self.likePress.tag)?.hidden = true
                     }
                     else {
                         print("try again later")
+                        //self.view.hideLoading()
                     }
                 }
                 
@@ -552,6 +569,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let indexPath = NSIndexPath(forRow: likeTag, inSection: 0)
             let cell = self.feedTable.cellForRowAtIndexPath(indexPath) as! feed
+            
+            view.showLoading()
             
             cell.likePress.viewWithTag(likeTag)?.hidden = true
             
@@ -576,6 +595,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         //self.feedTable.reloadData()
+                        self.view.hideLoading()
                     })
                     
                     
@@ -586,15 +606,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     let json = JSON(data: data!)
                     let bug = json["errors"].stringValue
                     // pop up showing already liked and set image to filled
+                    
+                    self.view.hideLoading()
                     if bug == "already liked"
                     {
                         // pop up showing already liked and set image to filled
                         print("already liked")
+                        //self.view.hideLoading()
                         
                         //self.likePress.viewWithTag(self.likePress.tag)?.hidden = true
                     }
                     else {
                         print("try again later")
+                        //self.view.hideLoading()
                     }
                 }
                 
@@ -736,6 +760,41 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             { action -> Void in
                 print("Report")
                 
+                self.PostId = self.post_id1[cell_id]
+                
+                print(self.PostId)
+                
+                ///////////////////////////
+                
+                
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(self.PostId)/report")!)
+                request.HTTPMethod = "POST"
+                let postString = "report=1"
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                    guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                        print(error!)
+                        return
+                    }
+                    
+                    if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                        print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                        print(response!)
+                        
+                    }
+                    
+                    var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    print(responseString)
+                    
+                    
+                    
+                }
+                task.resume()
+
+                //////////////////////////////
+                
                 
             }
             actionSheetControllerIOS8.addAction(ReportActionButton)
@@ -754,6 +813,62 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let followActionButton: UIAlertAction = UIAlertAction(title: "Follow", style: .Default)
         { action -> Void in
             print("Follow")
+            
+            
+            var hisid = self.post_user_id[cell_id]
+            
+            var my_id = 1
+            
+            ////////////////////////////
+            
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/\(my_id)/follow")!)
+            request.HTTPMethod = "POST"
+            let postString = "hisid=\(hisid)"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                    print(error!)
+                    return
+                }
+                
+                if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+                {
+                    // pop up followed
+                }
+                
+                
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                    //print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                    //print(response!)
+                    
+                    let json = JSON(data: data!)
+                    let bug = json["errors"].stringValue
+                    
+                    if bug == "already following"
+                    {
+                        // pop up showing be the first to comment
+                        print("already following")
+                        
+                    }
+                    else {
+                        print("try again later")
+                    }
+
+                    
+                    
+                }
+                
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print(responseString!)
+                
+                
+            }
+            task.resume()
+            
+            
+            /////////////////////////////
+            
         }
         actionSheetControllerIOS8.addAction(followActionButton)
         
@@ -814,6 +929,39 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
         { action -> Void in
             print("Report")
+            
+            self.PostId = self.post_id[cell_id]
+            
+            /////////////////////////
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(self.PostId)/report")!)
+            request.HTTPMethod = "POST"
+            let postString = "report=1"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                    print(error!)
+                    return
+                }
+                
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print(response!)
+                    
+                }
+                
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(responseString)
+                
+            }
+            task.resume()
+            
+            ////////////////////////////////
+            
+            
+            
+            
         }
         actionSheetControllerIOS8.addAction(ReportActionButton)
         
@@ -980,6 +1128,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(query)/user/search")!)
             request.HTTPMethod = "GET"
+            view.showLoading()
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
                 guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -990,6 +1139,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 302 {           // check for http errors
                     print("statusCode should be 302, but is \(httpStatus.statusCode)")
                     print(response!)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.view.hideLoading()
+                    })
                 }
                 
                 var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -1009,7 +1162,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.searchTable.reloadData()
+                        self.view.hideLoading()
                     })
+                    
                 }
                 
                 //print(self.s_username)

@@ -10,8 +10,11 @@ import UIKit
 
 var his_id = String()
 var his_name = String()
+var index = Int()
+var didSelect = false
 
-class notificationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+class notificationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var tool: UIToolbar!
     @IBOutlet weak var toolBar: UIToolbar!
@@ -63,8 +66,9 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         //var swipeDown = UISwipeGestureRecognizer(target: self, action: "swiped:")
         //swipeDown.direction = UISwipeGestureRecognizerDirection.Down
         //self.view.addGestureRecognizer(swipeDown)
+        
         notifs()
-        conversations()
+        //conversations()
     }
     
     func notifs() {
@@ -74,6 +78,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(data)/notifications")!)
         request.HTTPMethod = "GET"
+        view.showLoading()
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -111,6 +116,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                 }
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.notifTable.reloadData()
+                    self.view.hideLoading()
                 })
 
             }
@@ -130,6 +136,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/conversations/\(data)/all")!)
         request.HTTPMethod = "GET"
+        view.showLoading()
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -153,6 +160,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.messageTable.reloadData()
+                    self.view.hideLoading()
                 })
 
             }
@@ -180,6 +188,10 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         //notifTable.reloadData()
         notifTable.hidden = true
         messageTable.hidden = false
+        
+        if username_m.count == 0 {
+            conversations()
+        }
         
     }
     
@@ -234,6 +246,10 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             
             self.performSegueWithIdentifier("message_show", sender: self)
             
+            index = indexPath.row
+            
+            didSelect = true
+            
             
         }
     }
@@ -245,14 +261,35 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         
         if (segue.identifier == "message_show") {
             
-            let navVC = segue.destinationViewController as! UINavigationController
+            //let navVC = segue.destinationViewController as! UINavigationController
             
-            var messageController = navVC.viewControllers.first as! messagesViewController;
+            //var messageController = navVC.viewControllers.first as! messagesViewController;
+            let messageController = segue.destinationViewController as! messagesViewController
+            
             messageController.hisId = his_id
             messageController.hisName = his_name
         }
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if didSelect == true {
+            
+            print(index)
+            
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            
+            let cell = self.messageTable.cellForRowAtIndexPath(indexPath) as! conversation_cell
+            
+            cell.last_message.hidden = false
+            
+            cell.last_message.text = NSUserDefaults.standardUserDefaults().stringForKey("last")!
+            
+        }
+        
+    }
+    
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
@@ -297,11 +334,13 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             else
             {
                 let cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath) as! conversation_cell
+                
                 //cell.textLabel?.text = "hola"
                 cell.profilePic.image = UIImage(named: "dawg.png")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
                 cell.username.text = username_m[indexPath.row]
+                
                 cell.last_message.hidden = true
                 
                 return cell

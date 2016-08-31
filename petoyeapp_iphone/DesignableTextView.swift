@@ -22,45 +22,7 @@
 
 import UIKit
 
-@IBDesignable public class DesignableTextField: SpringTextField {
-    
-    @IBInspectable public var placeholderColor: UIColor = UIColor.clearColor() {
-        didSet {
-            attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
-            layoutSubviews()
-            
-        }
-    }
-    
-    @IBInspectable public var sidePadding: CGFloat = 0 {
-        didSet {
-            let padding = UIView(frame: CGRectMake(0, 0, sidePadding, sidePadding))
-            
-            leftViewMode = UITextFieldViewMode.Always
-            leftView = padding
-            
-            rightViewMode = UITextFieldViewMode.Always
-            rightView = padding
-        }
-    }
-    
-    @IBInspectable public var leftPadding: CGFloat = 0 {
-        didSet {
-            let padding = UIView(frame: CGRectMake(0, 0, leftPadding, 0))
-            
-            leftViewMode = UITextFieldViewMode.Always
-            leftView = padding
-        }
-    }
-    
-    @IBInspectable public var rightPadding: CGFloat = 0 {
-        didSet {
-            let padding = UIView(frame: CGRectMake(0, 0, 0, rightPadding))
-            
-            rightViewMode = UITextFieldViewMode.Always
-            rightView = padding
-        }
-    }
+@IBDesignable public class DesignableTextView: SpringTextView {
     
     @IBInspectable public var borderColor: UIColor = UIColor.clearColor() {
         didSet {
@@ -79,7 +41,7 @@ import UIKit
             layer.cornerRadius = cornerRadius
         }
     }
-   
+
     @IBInspectable public var lineHeight: CGFloat = 1.5 {
         didSet {
             let font = UIFont(name: self.font!.fontName, size: self.font!.pointSize)
@@ -95,5 +57,5 @@ import UIKit
             self.attributedText = attributedString
         }
     }
-    
+
 }

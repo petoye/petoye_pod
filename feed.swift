@@ -9,7 +9,6 @@
 import UIKit
 
 protocol MyCustomCellDelegator {
-    func callLikedBySegueFromCell(data dataobject: AnyObject)
     func report(cell_id: Int)
     func likeIt(likeTag: Int)
     func commentIt(commentTag: Int)
@@ -69,11 +68,6 @@ class feed: UITableViewCell {
     }
 
     @IBAction func reportBut(sender: AnyObject) {
-        
-        
-        //var cell_no = reportPress.tag
-        //NSUserDefaults.standardUserDefaults().setValue("\(cell_no)", forKey: "cell_no")
-        
         
         let indexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
         //print(indexPath.row)

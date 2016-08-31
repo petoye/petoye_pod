@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 James Tang (j@jamztang.com)
+// Copyright (c) 2015 Meng To (meng@designcode.io)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,30 +22,24 @@
 
 import UIKit
 
-public class AsyncImageView: UIImageView {
-
-    public var placeholderImage : UIImage?
-
-    public var url : NSURL? {
+@IBDesignable public class DesignableImageView: SpringImageView {
+    
+    @IBInspectable public var borderColor: UIColor = UIColor.clearColor() {
         didSet {
-            self.image = placeholderImage
-            if let urlString = url?.absoluteString {
-                ImageLoader.sharedLoader.imageForUrl(urlString) { [weak self] image, url in
-                    if let strongSelf = self {
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            if strongSelf.url?.absoluteString == url {
-                                strongSelf.image = image
-                            }
-                        })
-                    }
-                }
-            }
+            layer.borderColor = borderColor.CGColor
         }
     }
-
-    public func setURL(url: NSURL?, placeholderImage: UIImage?) {
-        self.placeholderImage = placeholderImage
-        self.url = url
+    
+    @IBInspectable public var borderWidth: CGFloat = 0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+    
+    @IBInspectable public var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
     }
 
 }

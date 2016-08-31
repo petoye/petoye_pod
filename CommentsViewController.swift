@@ -89,6 +89,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(pid)/showcomment")!)
         request.HTTPMethod = "GET"
         
+        view.showLoading()
+        
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print(error!)
@@ -101,15 +103,20 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 let json = JSON(data: data!)
                 let bug = json["errors"].stringValue
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.view.hideLoading()
+                })
 
                 if bug == "No comments yet"
                 {
                     // pop up showing be the first to comment
                     print("No comments yet")
-                    
+                    //self.view.hideLoading()
                 }
                 else {
                     print("try again later")
+                    //self.view.hideLoading()
                 }
 
             }
@@ -125,6 +132,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.userName.append(item["user"]["username"].stringValue.capitalizedString)
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.commentTable.reloadData()
+                    self.view.hideLoading()
                 })
             }
 
@@ -198,6 +206,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
   
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(pid)/comment")!)
         request.HTTPMethod = "POST"
+        view.showLoading()
+        
         let postString = "uid=6&comment=\(commentmessage)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
@@ -211,6 +221,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                 //pop up comment added
                 
                 dispatch_async(dispatch_get_main_queue(), {
+                    self.view.hideLoading()
                     self.navigationController?.popViewControllerAnimated(true)
                 })
                 
@@ -221,6 +232,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
                 print("statusCode should be 201, but is \(httpStatus.statusCode)")
                 print(response!)
+                self.view.hideLoading()
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)

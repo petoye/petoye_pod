@@ -30,6 +30,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
         var u_id = 6
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(u_id)/discover")!)
         request.HTTPMethod = "GET"
+        view.showLoading()
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -59,6 +60,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     
                     self.discoverTable.reloadData()
+                    self.view.hideLoading()
                 })
                 
             }

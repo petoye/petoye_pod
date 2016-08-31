@@ -175,7 +175,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xms-mT-QxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="-367"/>
+            <point key="canvasLocation" x="961" y="-314"/>
         </scene>
         <!--Plus_menu-->
         <scene sceneID="SCV-6B-bIZ">
@@ -195,18 +195,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dmz-hh-Zr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1738" y="-367"/>
+            <point key="canvasLocation" x="1589" y="-314"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="3Tq-EI-QWS">
             <objects>
-                <viewController title="My Profile" id="piz-fy-Ml8" sceneMemberID="viewController">
+                <viewController title="My Profile" id="piz-fy-Ml8" customClass="profileViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OMu-1C-Ybc"/>
                         <viewControllerLayoutGuide type="bottom" id="SmK-AB-lWi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bJL-Lh-VTP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-f0-mIB">
@@ -221,79 +221,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8n-R7-13s">
-                                <rect key="frame" x="0.0" y="97" width="138" height="138"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDb-Um-B7d">
-                                <rect key="frame" x="156" y="191" width="149" height="26"/>
-                                <accessibility key="accessibilityConfiguration" identifier="0B108701-C0E3-4AD6-B9B0-412A8D3B0BDA"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet Owner - Pug" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VZ-FK-sAS">
-                                <rect key="frame" x="156" y="214" width="133" height="21"/>
-                                <accessibility key="accessibilityConfiguration" identifier="8FCF7990-2EB3-4768-9DD5-A383B9C1B54B"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="336" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uc9-1f-miR">
-                                <rect key="frame" x="19" y="243" width="17" height="12"/>
-                                <accessibility key="accessibilityConfiguration" identifier="E3BD340E-D2F6-4B2B-A4B5-73D462EF7524"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="FOLLOWING" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLX-Gm-Bsg">
-                                <rect key="frame" x="45" y="243" width="58" height="12"/>
-                                <accessibility key="accessibilityConfiguration" identifier="87AB4913-2367-40FD-8389-CFA245A97891"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
-                                <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="336" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-80-6zW">
-                                <rect key="frame" x="120" y="243" width="17" height="12"/>
-                                <accessibility key="accessibilityConfiguration" identifier="C9BDA38A-A8E7-487B-A8AF-C3A4AAC1990B"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="FOLLOWERS" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdy-nr-V6Z">
-                                <rect key="frame" x="145" y="243" width="61" height="12"/>
-                                <accessibility key="accessibilityConfiguration" identifier="30F69AD6-4B90-4AB9-B408-2B6D65AB42D9"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
-                                <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI1-B0-gmf">
-                                <rect key="frame" x="25" y="319" width="304" height="71"/>
-                                <accessibility key="accessibilityConfiguration" identifier="598E2E1F-791A-4ADD-8B36-88454A1F2E36"/>
-                                <string key="text">We believe everyone has a story with a pet, 
-be it as a pet owner or a pet lover. We want 
-everyone to hear this story and we’re giving 
-you the opportunity to share it here!</string>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                                <color key="textColor" red="0.039215686270000001" green="0.031372549020000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGx-pR-2aL">
                                 <rect key="frame" x="20" y="440" width="272" height="185"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AA073CD6-44B6-4FE4-B44F-C5E4A1B2259F"/>
@@ -306,8 +233,167 @@ you the opportunity to share it here!</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVb-y2-r8G">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="951"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e38-QJ-Y1O">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="901"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2623.png" translatesAutoresizingMaskIntoConstraints="NO" id="1d8-TP-b9h">
+                                                <rect key="frame" x="0.0" y="0.0" width="208" height="185"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="D65B6F96-BDF3-4A8B-A62A-6A4AEAC2460B"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dawg.png" translatesAutoresizingMaskIntoConstraints="NO" id="g1F-A1-HDT">
+                                                <rect key="frame" x="0.0" y="97" width="138" height="138"/>
+                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z51-pd-g6K">
+                                                <rect key="frame" x="156" y="191" width="149" height="26"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="0B108701-C0E3-4AD6-B9B0-412A8D3B0BDA"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
+                                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet Owner - Pug" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVE-0O-dRV">
+                                                <rect key="frame" x="156" y="214" width="133" height="21"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="8FCF7990-2EB3-4768-9DD5-A383B9C1B54B"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="336" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M53-9j-VIy">
+                                                <rect key="frame" x="19" y="243" width="17" height="12"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="E3BD340E-D2F6-4B2B-A4B5-73D462EF7524"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="FOLLOWERS" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GF7-Sl-GP5">
+                                                <rect key="frame" x="42" y="243" width="61" height="12"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="30F69AD6-4B90-4AB9-B408-2B6D65AB42D9"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
+                                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dawg.png" translatesAutoresizingMaskIntoConstraints="NO" id="HXA-ed-JzQ">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="185"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="D65B6F96-BDF3-4A8B-A62A-6A4AEAC2460B"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="Dw6-8m-04B">
+                                                <rect key="frame" x="120" y="240" width="11" height="15"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="C9BDA38A-A8E7-487B-A8AF-C3A4AAC1990B"/>
+                                            </imageView>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="MUMBAI" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzG-Io-Vxl">
+                                                <rect key="frame" x="142" y="243" width="61" height="12"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="30F69AD6-4B90-4AB9-B408-2B6D65AB42D9"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
+                                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfF-Vy-zF6">
+                                                <rect key="frame" x="0.0" y="263" width="414" height="44"/>
+                                                <items>
+                                                    <barButtonItem tag="1" title="Pet info" width="93" id="rXc-oq-8gD">
+                                                        <color key="tintColor" red="0.21960784310000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="info:" destination="piz-fy-Ml8" id="eLH-YT-Vln"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dB5-FQ-FfR"/>
+                                                    <barButtonItem title="Pictures" width="93" id="8G7-el-1Bs">
+                                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="pics:" destination="piz-fy-Ml8" id="fiC-pA-Dy9"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5nJ-yZ-L5C"/>
+                                                    <barButtonItem title="Posts" width="93" id="o2v-1d-pJG">
+                                                        <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="posts:" destination="piz-fy-Ml8" id="mRn-Fy-2yh"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                            </toolbar>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-Q7-bSp">
+                                                <rect key="frame" x="0.0" y="307" width="414" height="586"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-xa-NDy">
+                                                <rect key="frame" x="340" y="234" width="22" height="17"/>
+                                                <state key="normal" title="Button" image="messageIcon"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzd-1L-rRX">
+                                                <rect key="frame" x="377" y="232" width="22" height="22"/>
+                                                <state key="normal" title="Button" image="settings"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOG-Jf-G5q">
+                                                <rect key="frame" x="337" y="200" width="69" height="26"/>
+                                                <state key="normal" title="Button" image="followed"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6p-m4-5JG">
+                                                <rect key="frame" x="337" y="200" width="69" height="26"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="5ADC9F17-F5ED-4BB1-8C0D-722CDD4EE665"/>
+                                                <state key="normal" title="Button" image="follow"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.10196078431372549" green="0.58039215686274515" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="e38-QJ-Y1O" secondAttribute="bottom" constant="50" id="y9k-k6-StJ"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SmK-AB-lWi" firstAttribute="top" secondItem="RVb-y2-r8G" secondAttribute="bottom" id="0Wd-AE-jKT"/>
+                            <constraint firstItem="RVb-y2-r8G" firstAttribute="top" secondItem="bJL-Lh-VTP" secondAttribute="topMargin" id="3FC-my-fZo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RVb-y2-r8G" secondAttribute="trailing" constant="-20" id="QZm-8R-RPK"/>
+                            <constraint firstItem="RVb-y2-r8G" firstAttribute="leading" secondItem="bJL-Lh-VTP" secondAttribute="leadingMargin" constant="-20" id="akB-1O-ulp"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="5" title="My Profile" image="my_profile" id="tTv-AF-RgW">
                         <userDefinedRuntimeAttributes>
@@ -316,16 +402,26 @@ you the opportunity to share it here!</string>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="image1" destination="1d8-TP-b9h" id="Cul-B9-tho"/>
+                        <outlet property="image2" destination="HXA-ed-JzQ" id="6h7-Gz-hxO"/>
+                        <outlet property="p1" destination="rXc-oq-8gD" id="4E2-Ir-gEs"/>
+                        <outlet property="p2" destination="8G7-el-1Bs" id="miu-Nd-o7i"/>
+                        <outlet property="p3" destination="o2v-1d-pJG" id="0t7-gJ-0eI"/>
+                        <outlet property="profilePic" destination="g1F-A1-HDT" id="Ync-ix-2db"/>
+                        <outlet property="toolBar" destination="qfF-Vy-zF6" id="9Fv-0O-OFJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0k-UN-hMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="599"/>
+            <point key="canvasLocation" x="961" y="735"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="aHS-vE-Sd0">
             <objects>
-                <viewController id="nWJ-NL-ba1" customClass="notificationsViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="backToNotif" id="nWJ-NL-ba1" customClass="notificationsViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3VM-jd-irU"/>
                         <viewControllerLayoutGuide type="bottom" id="CMS-bk-iWc"/>
@@ -441,11 +537,11 @@ you the opportunity to share it here!</string>
                                     <outlet property="delegate" destination="nWJ-NL-ba1" id="ysf-Di-Gos"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kr2-pO-oVE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kr2-pO-oVE">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" rowHeight="70" id="HBs-Ey-NXT" customClass="conversation_cell" customModule="PetOye" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" rowHeight="70" id="HBs-Ey-NXT" customClass="conversation_cell" customModule="PetOye" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HBs-Ey-NXT" id="jT3-yo-9rP">
@@ -455,8 +551,8 @@ you the opportunity to share it here!</string>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Hey!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anr-uB-eAT">
                                                     <rect key="frame" x="92" y="42" width="211" height="21"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="5F572AE1-D1C0-46AF-BE21-2556A5503905"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                                                    <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
@@ -507,39 +603,12 @@ you the opportunity to share it here!</string>
                         <outlet property="notifications" destination="Ksr-FX-rJ5" id="D7h-xg-3y0"/>
                         <outlet property="tool" destination="0KS-0v-i6e" id="6ay-Tt-Re7"/>
                         <outlet property="toolBar" destination="0KS-0v-i6e" id="deq-da-7UH"/>
-                        <segue destination="5yA-UR-UUD" kind="custom" identifier="message_show" customClass="SWRevealViewControllerSeguePushController" id="cnl-CG-zar"/>
+                        <segue destination="GoT-vY-QkD" kind="show" identifier="message_show" id="3kH-Gh-f1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loG-53-w57" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589" y="500"/>
-        </scene>
-        <!--Image View Controller-->
-        <scene sceneID="jUZ-j9-EQo">
-            <objects>
-                <viewController id="TX2-Ad-dB6" customClass="imageViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ETJ-JN-jME"/>
-                        <viewControllerLayoutGuide type="bottom" id="55A-92-7Nh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fzW-uW-HgB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-iV-fZz">
-                                <rect key="frame" x="0.0" y="78" width="414" height="414"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="postedImage" destination="2Sl-iV-fZz" id="WwV-x0-vl8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KvQ-Ch-n1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1275" y="1614"/>
+            <point key="canvasLocation" x="1589" y="603"/>
         </scene>
         <!--Messages View Controller-->
         <scene sceneID="BPv-4q-Gg3">
@@ -558,11 +627,12 @@ you the opportunity to share it here!</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="navBar" destination="j19-hj-ZZt" id="uXo-mR-bIU"/>
+                        <segue destination="cgY-MP-jzm" kind="custom" identifier="back2" customClass="SWRevealViewControllerSeguePushController" id="ONz-So-d6F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSa-b3-aST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2682" y="1667"/>
+            <point key="canvasLocation" x="2230" y="603"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="NJd-Dy-RCO">
@@ -750,7 +820,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVO-Di-eXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="-1448"/>
+            <point key="canvasLocation" x="961" y="-1304"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="RpM-yy-vKt">
@@ -774,7 +844,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNY-Xf-s7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-139" y="-1878"/>
+            <point key="canvasLocation" x="-163" y="-1154"/>
         </scene>
         <!--Back TableVC-->
         <scene sceneID="xek-rJ-yBO">
@@ -819,7 +889,7 @@ you the opportunity to share it here!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wA4-Hs-EHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="554" y="-3816"/>
+            <point key="canvasLocation" x="366" y="-2123"/>
         </scene>
         <!--Likes View Controller-->
         <scene sceneID="uuk-Qo-gCA">
@@ -905,7 +975,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gS-3G-Awj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="-2287"/>
+            <point key="canvasLocation" x="1589" y="-2287"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="lV3-V4-h4e">
@@ -998,7 +1068,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hL-CV-qJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="-2261"/>
+            <point key="canvasLocation" x="2312" y="-2287"/>
         </scene>
         <!--Home-->
         <scene sceneID="czb-n4-82u">
@@ -1536,7 +1606,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMy-Da-9Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="-1391"/>
+            <point key="canvasLocation" x="1589" y="-1361"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Nxw-yT-PN3">
@@ -1660,7 +1730,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgl-nF-fr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2814" y="-1265"/>
+            <point key="canvasLocation" x="2312" y="-1304"/>
         </scene>
         <!--Login-->
         <scene sceneID="44h-Ah-ABl">
@@ -1860,7 +1930,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTD-zO-Sln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="1376"/>
+            <point key="canvasLocation" x="281" y="1444"/>
         </scene>
         <!--Basic info-->
         <scene sceneID="YcX-7H-EpZ">
@@ -2122,7 +2192,7 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsG-NO-JgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="2197"/>
+            <point key="canvasLocation" x="281" y="2293"/>
         </scene>
         <!--Create an account-->
         <scene sceneID="xeo-1B-iOj">
@@ -2320,32 +2390,14 @@ you the opportunity to share it here!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lH-v3-Iqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="546"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Anm-Cz-FoJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5yA-UR-UUD" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QLG-Ty-Hve">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="GoT-vY-QkD" kind="relationship" relationship="rootViewController" id="OHR-WY-axF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pTC-MN-nDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2374" y="643"/>
+            <point key="canvasLocation" x="281" y="603"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2gk-xI-IQk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CMU-rr-Eob" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="keB-fw-1PQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2357,10 +2409,11 @@ you the opportunity to share it here!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFw-1H-pQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-951" y="-1878"/>
+            <point key="canvasLocation" x="-799" y="-1154"/>
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_2623.png" width="414" height="414"/>
         <image name="add_comment" width="21" height="20"/>
         <image name="already_have_account" width="151" height="25"/>
         <image name="back" width="11" height="27"/>
@@ -2368,6 +2421,7 @@ you the opportunity to share it here!</string>
         <image name="cancel_po" width="21" height="21"/>
         <image name="comment_add" width="83" height="26"/>
         <image name="comment_big" width="103" height="25"/>
+        <image name="dawg.png" width="288" height="291"/>
         <image name="done_button" width="164" height="63"/>
         <image name="dont_have_account" width="151" height="24"/>
         <image name="follow" width="70" height="26"/>
@@ -2380,6 +2434,7 @@ you the opportunity to share it here!</string>
         <image name="location" width="12" height="16"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
+        <image name="messageIcon" width="23" height="18"/>
         <image name="my_profile" width="32" height="30"/>
         <image name="notif" width="32" height="31"/>
         <image name="petoye_logo" width="155" height="156"/>
@@ -2388,15 +2443,17 @@ you the opportunity to share it here!</string>
         <image name="post" width="26" height="26"/>
         <image name="report_dots" width="25" height="7"/>
         <image name="search" width="26" height="26"/>
+        <image name="settings" width="22" height="22"/>
         <image name="share_via" width="20" height="25"/>
         <image name="signup_email" width="316" height="64"/>
         <image name="signup_fb" width="316" height="64"/>
         <image name="users" width="35" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wCD-iV-Iag"/>
-        <segue reference="fbK-Hd-8MT"/>
+        <segue reference="Vdi-sv-r0e"/>
+        <segue reference="etG-Sr-xAM"/>
         <segue reference="sdT-Ly-hNR"/>
+        <segue reference="fbK-Hd-8MT"/>
         <segue reference="14w-5S-SdD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
