@@ -29,6 +29,8 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     var trendingView = UIView()
     var followedView = UIView()
     var nearbyView = UIView()
+    
+    var imageUrl = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +130,13 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         collectionView.hidden = false
         
+        if imageUrl.count == 0 {
+            
+            profile()
+        }
+        
+        
+        
         //feedTable.hidden = true
         //followedTable.hidden = false
         
@@ -157,6 +166,8 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         collectionView.hidden = true
         
+        //profile()
+        
         //feedTable.hidden = false
         //followedTable.hidden = true
         
@@ -175,6 +186,67 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
     }
     
+    func profile() {
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/6/posts")!)
+        request.HTTPMethod = "GET"
+        
+        //view.showLoading()
+        
+        
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            //print(responseString)
+            
+            let json = JSON(data: data!)
+            
+            for item in json["users"].arrayValue {
+                
+                //print(item["id"].stringValue)
+                //print(item["message"].stringValue)
+                //print(item["like_count"].stringValue)
+                //print(item["comment_count"].stringValue)
+                //print(item["created_at"].stringValue)
+                self.imageUrl.append(item["imageurl"].stringValue)
+                //print(item["user"]["username"].stringValue)
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    //self.followedTable.reloadData()
+                    //self.view.hideLoading()
+                    
+                    self.collectionView.reloadData()
+                    
+                })
+                
+            }
+
+        }
+        task.resume()
+
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // 1
         // Return the number of sections
@@ -184,15 +256,65 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 2
         // Return the number of items in the section
-        return 100
+        return imageUrl.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         // 3
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collect", forIndexPath: indexPath) as! pics_cell
         
+        
+        
+        if imageUrl[indexPath.row].isEmpty {
+            
+            cell.postedImage.image = UIImage(named: "no_image.jpg")
+            
+            
+        }
+        else
+        {
+            
+            let url = NSURL(string: imageUrl[indexPath.row])
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                
+                if error != nil
+                {
+                    //cell.postedImage.image = UIImage(named: "no_image.jpg")
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        if let image = UIImage(data: data!) {
+                            
+                            cell.postedImage.image = image
+                        }
+                        
+                    })
+                    
+                }
+                
+                
+            }
+            task.resume()
+            
+            
+            
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // Configure the cell
-        cell.postedImage.image = UIImage(named: "IMG_2623.png")
+        //cell.postedImage.image = UIImage(named: "IMG_2623.png")
         cell.postedImage.layer.borderWidth = 1.0
         cell.postedImage.layer.borderColor = UIColor.whiteColor().CGColor
         
