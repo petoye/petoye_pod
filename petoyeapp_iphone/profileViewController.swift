@@ -14,8 +14,6 @@ class profileViewController: UIViewController {
     
     @IBOutlet weak var image1: UIImageView!
     
-    @IBOutlet weak var image2: UIImageView!
-    
     @IBOutlet weak var p1: UIBarButtonItem!
     
     @IBOutlet weak var p2: UIBarButtonItem!
@@ -40,9 +38,6 @@ class profileViewController: UIViewController {
         
         self.image1.layer.borderWidth = 1.0
         self.image1.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        self.image2.layer.borderWidth = 1.0
-        self.image2.layer.borderColor = UIColor.whiteColor().CGColor
         
         
         trendingView = UIView(frame: CGRectMake(0,self.toolBar.frame.size.height - 3, self.view.bounds.size.width / 3, 3))
@@ -155,6 +150,15 @@ class profileViewController: UIViewController {
  
  */
     }
+    
+    @IBAction func settings(sender: AnyObject) {
+        
+        print("settings")
+        
+    }
+    
+    
+    
 
         
     }
