@@ -24,6 +24,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var adoptionsTable: UITableView!
     
+    @IBOutlet weak var giveForAdoptions: UITableView!
     
     var username = [String]()
     var pet_info = [String]()
@@ -43,6 +44,8 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         self.view.addSubview(selectedView)
         
         selectedView.hidden = true
+        
+        giveForAdoptions.hidden = true
 
         adoptions()
     }
