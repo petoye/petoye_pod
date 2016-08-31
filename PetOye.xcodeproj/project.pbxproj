@@ -41,6 +41,9 @@
 		E4938F201D5CD72C008ACE46 /* no_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4938F1F1D5CD72C008ACE46 /* no_image.jpg */; };
 		E4A542651D76B15100E9FCD2 /* adoptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A542641D76B15100E9FCD2 /* adoptionsViewController.swift */; };
 		E4A542671D76BB5D00E9FCD2 /* adopt_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A542661D76BB5D00E9FCD2 /* adopt_cell.swift */; };
+		E4A542691D76E30B00E9FCD2 /* collectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A542681D76E30B00E9FCD2 /* collectViewController.swift */; };
+		E4A5426B1D76E35600E9FCD2 /* collection_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5426A1D76E35600E9FCD2 /* collection_cell.swift */; };
+		E4A5426D1D76E8A800E9FCD2 /* pics_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5426C1D76E8A800E9FCD2 /* pics_cell.swift */; };
 		E4AFB6F21D53639C00FDD6B6 /* notificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */; };
 		E4CA78B31D54478600B41A87 /* notification_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B21D54478600B41A87 /* notification_cell.swift */; };
 		E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */; };
@@ -125,6 +128,9 @@
 		E4938F1F1D5CD72C008ACE46 /* no_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_image.jpg; sourceTree = "<group>"; };
 		E4A542641D76B15100E9FCD2 /* adoptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adoptionsViewController.swift; sourceTree = "<group>"; };
 		E4A542661D76BB5D00E9FCD2 /* adopt_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adopt_cell.swift; sourceTree = "<group>"; };
+		E4A542681D76E30B00E9FCD2 /* collectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectViewController.swift; sourceTree = "<group>"; };
+		E4A5426A1D76E35600E9FCD2 /* collection_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collection_cell.swift; sourceTree = "<group>"; };
+		E4A5426C1D76E8A800E9FCD2 /* pics_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pics_cell.swift; sourceTree = "<group>"; };
 		E4AFB6F11D53639C00FDD6B6 /* notificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsViewController.swift; sourceTree = "<group>"; };
 		E4CA78B21D54478600B41A87 /* notification_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification_cell.swift; path = ../notification_cell.swift; sourceTree = "<group>"; };
 		E4CA78B81D546AAE00B41A87 /* notification2_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notification2_cell.swift; path = ../notification2_cell.swift; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 		E45FE2281D54C5C000AFA106 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4A542681D76E30B00E9FCD2 /* collectViewController.swift */,
 				E4841D651D708ED60066BEC3 /* profileViewController.swift */,
 				E4EC92971D6C71D800FD5B3B /* tabBar.swift */,
 				E4DE19451D48BFFE00AA4836 /* CreateAnAccountViewController.swift */,
@@ -279,6 +286,8 @@
 		E45FE2291D54C62000AFA106 /* Custom cells */ = {
 			isa = PBXGroup;
 			children = (
+				E4A5426C1D76E8A800E9FCD2 /* pics_cell.swift */,
+				E4A5426A1D76E35600E9FCD2 /* collection_cell.swift */,
 				E4A542661D76BB5D00E9FCD2 /* adopt_cell.swift */,
 				E4FDD9B21D4CB43800E7610B /* feed.swift */,
 				E40E98641D509C1300112273 /* like_cell.swift */,
@@ -508,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EC930F1D6ED97800FD5B3B /* DesignableTabBarController.swift in Sources */,
+				E4A5426D1D76E8A800E9FCD2 /* pics_cell.swift in Sources */,
 				E40E986B1D51BFFC00112273 /* messagesViewController.swift in Sources */,
 				E484FB071D66E833007B8918 /* search_cell.swift in Sources */,
 				E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */,
@@ -522,6 +532,7 @@
 				E4EC93121D6ED97800FD5B3B /* DesignableView.swift in Sources */,
 				E4EC931F1D6ED97800FD5B3B /* SpringTextField.swift in Sources */,
 				E4EC930A1D6ED97800FD5B3B /* AutoTextView.swift in Sources */,
+				E4A5426B1D76E35600E9FCD2 /* collection_cell.swift in Sources */,
 				E484FB091D66F304007B8918 /* customSearchBar.swift in Sources */,
 				E4EC93151D6ED97800FD5B3B /* KeyboardLayoutConstraint.swift in Sources */,
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
@@ -561,6 +572,7 @@
 				E4EC93191D6ED97800FD5B3B /* SoundPlayer.swift in Sources */,
 				E4EC93201D6ED97800FD5B3B /* SpringTextView.swift in Sources */,
 				E40E98651D509C1300112273 /* like_cell.swift in Sources */,
+				E4A542691D76E30B00E9FCD2 /* collectViewController.swift in Sources */,
 				E4EC931C1D6ED97800FD5B3B /* SpringButton.swift in Sources */,
 				E4EC93111D6ED97800FD5B3B /* DesignableTextView.swift in Sources */,
 				E4EC930E1D6ED97800FD5B3B /* DesignableLabel.swift in Sources */,

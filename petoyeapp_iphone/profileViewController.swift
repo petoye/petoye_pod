@@ -8,7 +8,7 @@
 
 import UIKit
 
-class profileViewController: UIViewController {
+class profileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var profilePic: UIImageView!
     
@@ -21,6 +21,10 @@ class profileViewController: UIViewController {
     @IBOutlet weak var p3: UIBarButtonItem!
     
     @IBOutlet weak var toolBar: UIToolbar!
+    
+    @IBOutlet weak var petInfo: UITableView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var trendingView = UIView()
     var followedView = UIView()
@@ -54,6 +58,8 @@ class profileViewController: UIViewController {
         self.toolBar.addSubview(nearbyView)
         nearbyView.hidden = true
         
+        
+        collectionView.hidden = true
         
         
         
@@ -92,6 +98,10 @@ class profileViewController: UIViewController {
         p2.tag = 0
         p3.tag = 0
         
+        collectionView.hidden = true
+        
+        petInfo.hidden = false
+        
         //notifTable.reloadData()
         //notifTable.hidden = true
         //messageTable.hidden = false
@@ -113,6 +123,10 @@ class profileViewController: UIViewController {
         p1.tag = 0
         p2.tag = 1
         p3.tag = 0
+        
+        petInfo.hidden = true
+        
+        collectionView.hidden = false
         
         //feedTable.hidden = true
         //followedTable.hidden = false
@@ -139,6 +153,10 @@ class profileViewController: UIViewController {
         p2.tag = 0
         p3.tag = 1
         
+        petInfo.hidden = true
+        
+        collectionView.hidden = true
+        
         //feedTable.hidden = false
         //followedTable.hidden = true
         
@@ -157,7 +175,30 @@ class profileViewController: UIViewController {
         
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        // 1
+        // Return the number of sections
+        return 1
+    }
     
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // 2
+        // Return the number of items in the section
+        return 100
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        // 3
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collect", forIndexPath: indexPath) as! pics_cell
+        
+        // Configure the cell
+        cell.postedImage.image = UIImage(named: "IMG_2623.png")
+        cell.postedImage.layer.borderWidth = 1.0
+        cell.postedImage.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        return cell
+    }
+
     
 
         
