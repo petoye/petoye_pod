@@ -71,6 +71,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print("viewDidLoad")
         
         
+        
+        
         //followedTable.contentInset = UIEdgeInsetsMake(0, 0, self.bottomLayoutGuide.length, 0)
         //feedTable.contentInset = UIEdgeInsetsMake(0, 0, self.bottomLayoutGuide.length, 0)
         
@@ -111,6 +113,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //self.extendedLayoutIncludesOpaqueBars = false
         //self.automaticallyAdjustsScrollViewInsets = false
         
+    }
+    
+    
+    func followedTableScrollToBottom(animated: Bool) {
+        
+        let delay = 0.000005 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(time, dispatch_get_main_queue(), {
+            
+            let numberOfSections = self.followedTable.numberOfSections
+            let numberOfRows = self.followedTable.numberOfRowsInSection(numberOfSections-1)
+            
+            if numberOfRows > 0 {
+                let indexPath = NSIndexPath(forRow: numberOfRows-1, inSection: (numberOfSections-1))
+                self.followedTable.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: animated)
+            }
+            
+        })
     }
 
     
@@ -217,8 +238,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.followedTable.reloadData()
+                        self.followedTableScrollToBottom(false)
                         self.view.hideLoading()
-                    
                     })
                 
             }

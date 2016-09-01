@@ -11,6 +11,8 @@ import Social
 
 class adoptionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, adoptCellDelegator {
     
+    @IBOutlet weak var Open: UIBarButtonItem!
+    
     @IBOutlet weak var a1: UIBarButtonItem!
     
     @IBOutlet weak var a2: UIBarButtonItem!
@@ -48,6 +50,10 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         giveForAdoptions.hidden = true
 
         adoptions()
+        
+        Open.target = self.revealViewController()
+        Open.action = Selector("revealToggle:")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
 
     func adoptions() {

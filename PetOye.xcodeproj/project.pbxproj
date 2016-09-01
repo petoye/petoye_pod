@@ -31,6 +31,7 @@
 		E45FE2251D54C18D00AFA106 /* dawg1.png in Resources */ = {isa = PBXBuildFile; fileRef = E45FE2241D54C18D00AFA106 /* dawg1.png */; };
 		E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE2261D54C5B500AFA106 /* conversation_cell.swift */; };
 		E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE22C1D559F3C00AFA106 /* postViewController.swift */; };
+		E4644E391D7855E700CAED8C /* info_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E381D7855E700CAED8C /* info_cell.swift */; };
 		E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */ = {isa = PBXBuildFile; fileRef = E478A3081D4E39AA00865189 /* IMG_2623.png */; };
 		E4841D661D708ED60066BEC3 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4841D651D708ED60066BEC3 /* profileViewController.swift */; };
 		E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484FAD61D5E1989007B8918 /* SWRevealViewController.m */; };
@@ -118,6 +119,7 @@
 		E45FE2241D54C18D00AFA106 /* dawg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dawg1.png; sourceTree = "<group>"; };
 		E45FE2261D54C5B500AFA106 /* conversation_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversation_cell.swift; sourceTree = "<group>"; };
 		E45FE22C1D559F3C00AFA106 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = postViewController.swift; path = ../postViewController.swift; sourceTree = "<group>"; };
+		E4644E381D7855E700CAED8C /* info_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = info_cell.swift; sourceTree = "<group>"; };
 		E478A3081D4E39AA00865189 /* IMG_2623.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2623.png; sourceTree = "<group>"; };
 		E4841D651D708ED60066BEC3 /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		E484FAD51D5E1989007B8918 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		E45FE2291D54C62000AFA106 /* Custom cells */ = {
 			isa = PBXGroup;
 			children = (
+				E4644E381D7855E700CAED8C /* info_cell.swift */,
 				E4A5426C1D76E8A800E9FCD2 /* pics_cell.swift */,
 				E4A5426A1D76E35600E9FCD2 /* collection_cell.swift */,
 				E4A542661D76BB5D00E9FCD2 /* adopt_cell.swift */,
@@ -521,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EC930F1D6ED97800FD5B3B /* DesignableTabBarController.swift in Sources */,
+				E4644E391D7855E700CAED8C /* info_cell.swift in Sources */,
 				E4A5426D1D76E8A800E9FCD2 /* pics_cell.swift in Sources */,
 				E40E986B1D51BFFC00112273 /* messagesViewController.swift in Sources */,
 				E484FB071D66E833007B8918 /* search_cell.swift in Sources */,

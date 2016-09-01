@@ -42,6 +42,10 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var PostId = String()
     
+    var field = ["Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
+    var info = ["Fifa","4 years old","Dog","Labrador","Yes"]
+    
+    
     
     @IBOutlet weak var user_name: UILabel!
     
@@ -57,6 +61,8 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        petInfo.tableFooterView = UIView(frame: CGRectZero)
         
         self.profilePic.layer.borderWidth = 3.0
         self.profilePic.layer.borderColor = UIColor.whiteColor().CGColor
@@ -383,17 +389,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             
             
         }
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+   
         // Configure the cell
         //cell.postedImage.image = UIImage(named: "IMG_2623.png")
         cell.postedImage.layer.borderWidth = 1.0
@@ -401,6 +397,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         return cell
     }
+
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -411,7 +408,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             return username.count
         }
         else {
-            return 3
+            return field.count
         }
     }
     
@@ -488,8 +485,11 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         }
         else {
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("info", forIndexPath: indexPath)
-            cell.textLabel?.text = "TEST"
+            let cell = tableView.dequeueReusableCellWithIdentifier("info", forIndexPath: indexPath) as! info_cell
+            //cell.textLabel?.text = "TEST"
+            cell.field.text = field[indexPath.row]
+            cell.info.text = info[indexPath.row]
+            
             return cell
         }
 
