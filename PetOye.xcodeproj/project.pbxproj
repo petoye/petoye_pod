@@ -32,6 +32,10 @@
 		E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE2261D54C5B500AFA106 /* conversation_cell.swift */; };
 		E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FE22C1D559F3C00AFA106 /* postViewController.swift */; };
 		E4644E391D7855E700CAED8C /* info_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E381D7855E700CAED8C /* info_cell.swift */; };
+		E4644E3B1D786A7100CAED8C /* breedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E3A1D786A7100CAED8C /* breedsViewController.swift */; };
+		E4644E3D1D786AB100CAED8C /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E3C1D786AB100CAED8C /* settingsViewController.swift */; };
+		E4644E3F1D786AE000CAED8C /* aboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E3E1D786AE000CAED8C /* aboutViewController.swift */; };
+		E4644E411D786B3300CAED8C /* whyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E401D786B3300CAED8C /* whyViewController.swift */; };
 		E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */ = {isa = PBXBuildFile; fileRef = E478A3081D4E39AA00865189 /* IMG_2623.png */; };
 		E4841D661D708ED60066BEC3 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4841D651D708ED60066BEC3 /* profileViewController.swift */; };
 		E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484FAD61D5E1989007B8918 /* SWRevealViewController.m */; };
@@ -120,6 +124,10 @@
 		E45FE2261D54C5B500AFA106 /* conversation_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversation_cell.swift; sourceTree = "<group>"; };
 		E45FE22C1D559F3C00AFA106 /* postViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = postViewController.swift; path = ../postViewController.swift; sourceTree = "<group>"; };
 		E4644E381D7855E700CAED8C /* info_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = info_cell.swift; sourceTree = "<group>"; };
+		E4644E3A1D786A7100CAED8C /* breedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = breedsViewController.swift; sourceTree = "<group>"; };
+		E4644E3C1D786AB100CAED8C /* settingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		E4644E3E1D786AE000CAED8C /* aboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutViewController.swift; sourceTree = "<group>"; };
+		E4644E401D786B3300CAED8C /* whyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whyViewController.swift; sourceTree = "<group>"; };
 		E478A3081D4E39AA00865189 /* IMG_2623.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2623.png; sourceTree = "<group>"; };
 		E4841D651D708ED60066BEC3 /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		E484FAD51D5E1989007B8918 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -267,6 +275,10 @@
 		E45FE2281D54C5C000AFA106 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4644E3A1D786A7100CAED8C /* breedsViewController.swift */,
+				E4644E3C1D786AB100CAED8C /* settingsViewController.swift */,
+				E4644E3E1D786AE000CAED8C /* aboutViewController.swift */,
+				E4644E401D786B3300CAED8C /* whyViewController.swift */,
 				E4A542681D76E30B00E9FCD2 /* collectViewController.swift */,
 				E4841D651D708ED60066BEC3 /* profileViewController.swift */,
 				E4EC92971D6C71D800FD5B3B /* tabBar.swift */,
@@ -528,6 +540,7 @@
 				E4A5426D1D76E8A800E9FCD2 /* pics_cell.swift in Sources */,
 				E40E986B1D51BFFC00112273 /* messagesViewController.swift in Sources */,
 				E484FB071D66E833007B8918 /* search_cell.swift in Sources */,
+				E4644E411D786B3300CAED8C /* whyViewController.swift in Sources */,
 				E45FE2271D54C5B500AFA106 /* conversation_cell.swift in Sources */,
 				E42435B31D67602D000C1DD8 /* sent_cell.swift in Sources */,
 				E4EC931E1D6ED97800FD5B3B /* SpringLabel.swift in Sources */,
@@ -542,6 +555,7 @@
 				E4EC930A1D6ED97800FD5B3B /* AutoTextView.swift in Sources */,
 				E4A5426B1D76E35600E9FCD2 /* collection_cell.swift in Sources */,
 				E484FB091D66F304007B8918 /* customSearchBar.swift in Sources */,
+				E4644E3F1D786AE000CAED8C /* aboutViewController.swift in Sources */,
 				E4EC93151D6ED97800FD5B3B /* KeyboardLayoutConstraint.swift in Sources */,
 				E4DE19481D48C03800AA4836 /* LoginViewController.swift in Sources */,
 				E4EC931B1D6ED97800FD5B3B /* SpringAnimation.swift in Sources */,
@@ -562,11 +576,13 @@
 				E484FAFE1D5E2568007B8918 /* BackTableVC.swift in Sources */,
 				E4EC93211D6ED97800FD5B3B /* SpringView.swift in Sources */,
 				E45FE22D1D559F3C00AFA106 /* postViewController.swift in Sources */,
+				E4644E3D1D786AB100CAED8C /* settingsViewController.swift in Sources */,
 				E4D116FF1D4A8EE5008DA903 /* SwiftyJSON.swift in Sources */,
 				E42435B51D676045000C1DD8 /* recieved_cell.swift in Sources */,
 				E4EC93231D6ED97800FD5B3B /* TransitionZoom.swift in Sources */,
 				E40E98671D50DAA700112273 /* discoverViewController.swift in Sources */,
 				E4A542671D76BB5D00E9FCD2 /* adopt_cell.swift in Sources */,
+				E4644E3B1D786A7100CAED8C /* breedsViewController.swift in Sources */,
 				E4EC93101D6ED97800FD5B3B /* DesignableTextField.swift in Sources */,
 				E4EC92981D6C71D800FD5B3B /* tabBar.swift in Sources */,
 				E4CA78B91D546AAE00B41A87 /* notification2_cell.swift in Sources */,

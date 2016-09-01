@@ -133,6 +133,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         })
     }
+    
+    func feedTableScrollToBottom(animated: Bool) {
+        
+        let delay = 0.000005 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(time, dispatch_get_main_queue(), {
+            
+            let numberOfSections = self.feedTable.numberOfSections
+            let numberOfRows = self.feedTable.numberOfRowsInSection(numberOfSections-1)
+            
+            if numberOfRows > 0 {
+                let indexPath = NSIndexPath(forRow: numberOfRows-1, inSection: (numberOfSections-1))
+                self.feedTable.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: animated)
+            }
+            
+        })
+    }
+
 
     
     
@@ -172,6 +191,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.post_user_id.append(item["id"].stringValue)
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.feedTable.reloadData()
+                        self.feedTableScrollToBottom(false)
                         self.view.hideLoading()
                     })
                 }

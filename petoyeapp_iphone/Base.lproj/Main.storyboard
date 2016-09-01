@@ -986,6 +986,155 @@
             </objects>
             <point key="canvasLocation" x="961" y="-1304"/>
         </scene>
+        <!--Why View Controller-->
+        <scene sceneID="u0t-0E-QK3">
+            <objects>
+                <viewController id="Y9T-Go-iOk" customClass="whyViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t08-7A-gMo"/>
+                        <viewControllerLayoutGuide type="bottom" id="iM4-fB-YFN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NeZ-Td-ZmU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHc-aH-t1J">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.32156862749999998" green="0.80784313730000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Why PetOye?" prompt=" " id="0hQ-sG-Zfd">
+                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="DfL-ZC-9dq"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="Open" destination="DfL-ZC-9dq" id="CWO-vK-23v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dt3-yl-ifY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2697" y="-2123"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="6yN-eB-d2V">
+            <objects>
+                <viewController id="MAh-mM-ate" customClass="aboutViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v5c-zD-aGG"/>
+                        <viewControllerLayoutGuide type="bottom" id="dxy-4U-omh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2ur-CW-XiD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIR-wo-pvc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.32156862749999998" green="0.80784313730000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="About us" prompt=" " id="gdW-Vk-PG2">
+                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="GN9-LK-UFk"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="Open" destination="GN9-LK-UFk" id="hsL-Fy-pKx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIb-ig-BLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2048" y="-2123"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="yRb-Tv-OE8">
+            <objects>
+                <viewController id="LDO-sq-5T2" customClass="settingsViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="871-CW-86G"/>
+                        <viewControllerLayoutGuide type="bottom" id="bjy-f4-MPr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rf6-Nd-bzG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eS5-1j-efr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.32156862749999998" green="0.80784313730000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Settings" prompt=" " id="2NB-LQ-3vL">
+                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="BGm-fC-Qew"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="Open" destination="BGm-fC-Qew" id="Pmn-Zb-DHT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0P-ah-g1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1436" y="-2123"/>
+        </scene>
+        <!--Breeds View Controller-->
+        <scene sceneID="7dz-AJ-0Ht">
+            <objects>
+                <viewController id="WDd-jW-VS0" customClass="breedsViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YVs-c9-DHz"/>
+                        <viewControllerLayoutGuide type="bottom" id="RZT-Am-X9m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c3j-gT-Txe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-nc-K3X">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <color key="barTintColor" red="0.32156862749999998" green="0.80784313730000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Pet Breeds" prompt=" " id="S6s-OY-5zd">
+                                        <barButtonItem key="leftBarButtonItem" image="ham_button" id="c1f-EF-2wy"/>
+                                        <barButtonItem key="rightBarButtonItem" image="search" id="DIU-Vq-ijl"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="Open" destination="c1f-EF-2wy" id="z7J-FY-fZo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eW-hV-poj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-799" y="-2123"/>
+        </scene>
         <!--Adoptions View Controller-->
         <scene sceneID="GuO-5t-gkV">
             <objects>
@@ -1252,6 +1401,10 @@
                         <outlet property="hello" destination="mCe-QX-mi9" id="SMk-QZ-TFm"/>
                         <segue destination="cgY-MP-jzm" kind="custom" identifier="hamToHome" customClass="SWRevealViewControllerSeguePushController" id="ijZ-ua-LGz"/>
                         <segue destination="xiS-f3-99y" kind="custom" identifier="hamToAdopt" customClass="SWRevealViewControllerSeguePushController" id="EyP-B6-hOS"/>
+                        <segue destination="WDd-jW-VS0" kind="custom" identifier="hamToBreeds" customClass="SWRevealViewControllerSeguePushController" id="0R0-GW-K4p"/>
+                        <segue destination="LDO-sq-5T2" kind="custom" identifier="hamToSettings" customClass="SWRevealViewControllerSeguePushController" id="Am9-WF-hZi"/>
+                        <segue destination="MAh-mM-ate" kind="custom" identifier="hamToAbout" customClass="SWRevealViewControllerSeguePushController" id="HyE-kl-we6"/>
+                        <segue destination="Y9T-Go-iOk" kind="custom" identifier="hamToWhy" customClass="SWRevealViewControllerSeguePushController" id="rgf-WX-d4G"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wA4-Hs-EHj" userLabel="First Responder" sceneMemberID="firstResponder"/>

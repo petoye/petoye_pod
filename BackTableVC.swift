@@ -88,6 +88,18 @@ class BackTableVC: UITableViewController {
         else if indexPath.row == 1 {
             self.performSegueWithIdentifier("hamToAdopt", sender: self)
         }
+        else if indexPath.row == 2 {
+            self.performSegueWithIdentifier("hamToBreeds", sender: self)
+        }
+        else if indexPath.row == 3 {
+            self.performSegueWithIdentifier("hamToSettings", sender: self)
+        }
+        else if indexPath.row == 4 {
+            self.performSegueWithIdentifier("hamToAbout", sender: self)
+        }
+        else if indexPath.row == 5 {
+            self.performSegueWithIdentifier("hamToWhy", sender: self)
+        }
     }
     
 }
