@@ -322,7 +322,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="582" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cak-jn-s8D">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="582" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cak-jn-s8D">
                                                 <rect key="frame" x="0.0" y="307" width="414" height="605"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -486,16 +486,16 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Ameya Vichare" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z51-pd-g6K">
-                                                <rect key="frame" x="156" y="191" width="149" height="26"/>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z51-pd-g6K">
+                                                <rect key="frame" x="156" y="191" width="250" height="26"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="0B108701-C0E3-4AD6-B9B0-412A8D3B0BDA"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
                                                 <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
-                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet Owner - Pug" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVE-0O-dRV">
-                                                <rect key="frame" x="156" y="214" width="133" height="21"/>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVE-0O-dRV">
+                                                <rect key="frame" x="156" y="214" width="250" height="21"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="8FCF7990-2EB3-4768-9DD5-A383B9C1B54B"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                 <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -595,9 +595,13 @@
                         <outlet property="p2" destination="8G7-el-1Bs" id="miu-Nd-o7i"/>
                         <outlet property="p3" destination="o2v-1d-pJG" id="0t7-gJ-0eI"/>
                         <outlet property="petInfo" destination="L3r-Q7-bSp" id="dA9-Xa-Uoz"/>
+                        <outlet property="pet_info" destination="nVE-0O-dRV" id="JCj-Io-SOe"/>
                         <outlet property="postTable" destination="cak-jn-s8D" id="TNK-aZ-gQC"/>
                         <outlet property="profilePic" destination="g1F-A1-HDT" id="Ync-ix-2db"/>
                         <outlet property="toolBar" destination="qfF-Vy-zF6" id="9Fv-0O-OFJ"/>
+                        <outlet property="user_name" destination="z51-pd-g6K" id="1zd-bP-xEt"/>
+                        <segue destination="uTk-rr-tqL" kind="show" identifier="postToComment" id="SM0-ED-u1v"/>
+                        <segue destination="tjm-fV-O0b" kind="show" identifier="postToLikedBy" id="aw0-LF-gGz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0k-UN-hMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2866,6 +2870,8 @@
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="14w-5S-SdD"/>
+        <segue reference="SM0-ED-u1v"/>
+        <segue reference="aw0-LF-gGz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

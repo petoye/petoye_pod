@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Social
 
-class profileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class profileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, MyCustomCellDelegator {
     
     @IBOutlet weak var profilePic: UIImageView!
     
@@ -38,6 +39,19 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     var like_count = [String]()
     var comment_count = [String]()
     var username = [String]()
+    
+    var PostId = String()
+    
+    
+    @IBOutlet weak var user_name: UILabel!
+    
+    @IBOutlet weak var pet_info: UILabel!
+    
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +85,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         collectionView.hidden = true
         postTable.hidden = true
         
-        
+        upperprofile()
         
         
         
@@ -198,13 +212,14 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
     }
     
-    func profile() {
+    func upperprofile() {
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/6/posts")!)
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/6/showprofile")!)
         request.HTTPMethod = "GET"
         
-        //view.showLoading()
+        view.showLoading()
         
         
         
@@ -212,12 +227,60 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
                 print(error!)
+                self.view.hideLoading()
                 return
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print(response!)
+                self.view.hideLoading()
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            //print(responseString)
+            
+            let json = JSON(data: data!)
+            
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+
+                    self.view.hideLoading()
+                    
+                    self.user_name.text = json["username"].stringValue.capitalizedString
+                    
+                    self.pet_info.text = json["owner_type"].stringValue.capitalizedString + " - " + json["pet_breed"].stringValue.capitalizedString
+                    
+                })
+                
+            
+            
+        }
+        task.resume()
+
+    }
+    
+    func profile() {
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/6/posts")!)
+        request.HTTPMethod = "GET"
+        
+        view.showLoading()
+        
+        
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                self.view.hideLoading()
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+                self.view.hideLoading()
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -237,7 +300,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     //self.followedTable.reloadData()
-                    //self.view.hideLoading()
+                    self.view.hideLoading()
                     
                     self.collectionView.reloadData()
                     self.postTable.reloadData()
@@ -293,7 +356,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
                 
                 if error != nil
                 {
-                    //cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    cell.postedImage.image = UIImage(named: "no_image.jpg")
                 }
                 else
                 {
@@ -358,6 +421,54 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             
             let cell = tableView.dequeueReusableCellWithIdentifier("posts", forIndexPath: indexPath) as! feed
             //cell.textLabel?.text = "TEST"
+            
+            cell.delegate = self
+            
+            
+            if imageUrl[indexPath.row].isEmpty {
+                
+                cell.postedImage.image = UIImage(named: "no_image.jpg")
+                
+                
+            }
+            else
+            {
+                
+                let url = NSURL(string: imageUrl[indexPath.row])
+                
+                let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                    
+                    if error != nil
+                    {
+                        cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    }
+                    else
+                    {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            if let image = UIImage(data: data!) {
+                                
+                                cell.postedImage.image = image
+                                
+                                //let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                                
+                                //let cell2 = self.postTable.cellForRowAtIndexPath(indexPath) as! feed
+                                //cell2.postedImage.image = image
+                            }
+                            
+                        })
+                        
+                    }
+                    
+                    
+                }
+                task.resume()
+            }
+
+            
+            
+            
+            
             cell.username.text = username[indexPath.row]
             cell.message.text = message[indexPath.row]
             cell.likecount.text = like_count[indexPath.row]
@@ -365,6 +476,11 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             cell.profilePic.image = UIImage(named: "amey.jpg")
             cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
             cell.profilePic.clipsToBounds = true
+            
+            cell.likePress.tag = indexPath.row
+            cell.commentPress.tag = indexPath.row
+            cell.reportPress.tag = indexPath.row
+            cell.likedBy.tag = indexPath.row
             
             
             return cell
@@ -377,6 +493,196 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         }
 
     }
+    
+    func report(cell_id: Int) {
+        
+        //print(cell_id)
+        
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController()
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                print("Cancel")
+            }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+            
+        let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
+            { action -> Void in
+                print("FB shared")
+                
+                //////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                    var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    
+                    fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                    let cell = self.postTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    fbShare.addImage(cell.postedImage.image)
+                    self.presentViewController(fbShare, animated: true, completion: nil)
+                    
+                } else {
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                /////////////
+            }
+            actionSheetControllerIOS8.addAction(shareFBActionButton)
+            
+            let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
+            { action -> Void in
+                print("Tweet")
+                ////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                    
+                    var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                    let cell = self.postTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    tweetShare.addImage(cell.postedImage.image)
+                    
+                    self.presentViewController(tweetShare, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                ////////////
+            }
+            actionSheetControllerIOS8.addAction(TweetActionButton)
+            
+            self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+
+    }
+    
+    func likeIt(likeTag: Int) {
+        //print(likeTag)
+        
+        
+        var likedPostId = feed_id[likeTag]
+        
+        
+        let indexPath = NSIndexPath(forRow: likeTag, inSection: 0)
+        let cell = self.postTable.cellForRowAtIndexPath(indexPath) as! feed
+        //view.showLoading()
+        
+        cell.likePress.viewWithTag(likeTag)?.hidden = true
+        
+        
+        //liking a post API call
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
+        request.HTTPMethod = "POST"
+        let postString = "uid=47"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                //print(error!)
+                return
+            }
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+            {
+                //set like buttonimage to filled
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(responseString)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    //self.followedTable.reloadData()
+                    //self.view.hideLoading()
+                })
+                
+                
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                
+                let json = JSON(data: data!)
+                let bug = json["errors"].stringValue
+                // pop up showing already liked and set image to filled
+                //self.view.hideLoading()
+                
+                if bug == "already liked"
+                {
+                    // pop up showing already liked and set image to filled
+                    print("already liked")
+                    //self.view.hideLoading()
+                    
+                    //self.likePress.viewWithTag(self.likePress.tag)?.hidden = true
+                }
+                else {
+                    print("try again later")
+                    //self.view.hideLoading()
+                }
+            }
+            
+        }
+        task.resume()
+
+        
+    }
+    
+    func commentIt(commentTag: Int) {
+        //print(commentTag)
+        
+        PostId = feed_id[commentTag]
+        
+        self.performSegueWithIdentifier("postToComment", sender: self)
+    }
+    
+    func likedBy(byTag: Int) {
+        //print(byTag)
+        
+        PostId = feed_id[byTag]
+        
+        self.performSegueWithIdentifier("postToLikedBy", sender: self)
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if (segue.identifier == "postToComment") {
+            
+            let commentVC = segue.destinationViewController as! CommentsViewController
+            
+            commentVC.pid = PostId
+            
+        }
+            
+        else if (segue.identifier == "postToLikedBy") {
+            
+            let likeVC = segue.destinationViewController as! LikesViewController
+            
+            likeVC.pid = PostId
+            
+        }
+ 
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
    
     }
     
