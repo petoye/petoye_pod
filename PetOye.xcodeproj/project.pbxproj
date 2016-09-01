@@ -21,6 +21,7 @@
 		E44A71D21D4A002200FDA473 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CE1D4A002200FDA473 /* FBSDKCoreKit.framework */; };
 		E44A71D31D4A002200FDA473 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71CF1D4A002200FDA473 /* FBSDKLoginKit.framework */; };
 		E44A71D41D4A002200FDA473 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A71D01D4A002200FDA473 /* FBSDKShareKit.framework */; };
+		E45288011D77E31400F72075 /* amey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E45288001D77E31400F72075 /* amey.jpg */; };
 		E45592201D4F4EBC00D36B28 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455921F1D4F4EBC00D36B28 /* CommentsViewController.swift */; };
 		E45592241D4F685200D36B28 /* comment_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45592231D4F685200D36B28 /* comment_cell.swift */; };
 		E45592261D4F6EC000D36B28 /* dawg.png in Resources */ = {isa = PBXBuildFile; fileRef = E45592251D4F6EC000D36B28 /* dawg.png */; };
@@ -105,6 +106,7 @@
 		E44A71CE1D4A002200FDA473 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E44A71CF1D4A002200FDA473 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E44A71D01D4A002200FDA473 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		E45288001D77E31400F72075 /* amey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = amey.jpg; sourceTree = "<group>"; };
 		E455921F1D4F4EBC00D36B28 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsViewController.swift; path = ../CommentsViewController.swift; sourceTree = "<group>"; };
 		E45592231D4F685200D36B28 /* comment_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = comment_cell.swift; path = ../comment_cell.swift; sourceTree = "<group>"; };
 		E45592251D4F6EC000D36B28 /* dawg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dawg.png; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				E478A3081D4E39AA00865189 /* IMG_2623.png */,
 				E42049D71D4BAB34001A49F5 /* upvote.wav */,
 				E42049D91D4BAB52001A49F5 /* TiVo - Selection.mp3 */,
+				E45288001D77E31400F72075 /* amey.jpg */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */,
 				E45592261D4F6EC000D36B28 /* dawg.png in Resources */,
 				E45FE2251D54C18D00AFA106 /* dawg1.png in Resources */,
+				E45288011D77E31400F72075 /* amey.jpg in Resources */,
 				E4938F201D5CD72C008ACE46 /* no_image.jpg in Resources */,
 				E4EC93141D6ED97800FD5B3B /* Info.plist in Resources */,
 				E4EC93171D6ED97800FD5B3B /* LoadingView.xib in Resources */,

@@ -71,6 +71,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print("viewDidLoad")
         
         
+        //followedTable.contentInset = UIEdgeInsetsMake(0, 0, self.bottomLayoutGuide.length, 0)
+        //feedTable.contentInset = UIEdgeInsetsMake(0, 0, self.bottomLayoutGuide.length, 0)
+        
         
         navigationController?.navigationBar.hidden = true
 
@@ -103,6 +106,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchTable.hidden = true
         
         searchTable.tableFooterView = UIView(frame: CGRectZero)
+        
+        //self.edgesForExtendedLayout = .None
+        //self.extendedLayoutIncludesOpaqueBars = false
+        //self.automaticallyAdjustsScrollViewInsets = false
         
     }
 
@@ -380,7 +387,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.reportPress.tag = indexPath.row
                 cell.likedBy.tag = indexPath.row
                 
-                cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.image = UIImage(named: "amey.jpg")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
                 
@@ -433,7 +440,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
 
                 
-                cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.image = UIImage(named: "amey.jpg")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
                 

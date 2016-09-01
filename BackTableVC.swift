@@ -67,7 +67,7 @@ class BackTableVC: UITableViewController {
             cell.imageView?.image = UIImage(named: "petbreeds.png")
         }
         else if indexPath.row == 3 {
-            cell.imageView?.image = UIImage(named: "settings.png")
+            cell.imageView?.image = UIImage(named: "settings_ham.png")
         }
         else if indexPath.row == 4 {
             cell.imageView?.image = UIImage(named: "about.png")

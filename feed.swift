@@ -37,11 +37,11 @@ class feed: UITableViewCell {
 
     @IBOutlet weak var usernamePress: UIButton!
     @IBOutlet weak var commentPress: UIButton!
-    @IBOutlet weak var share1Press: UIButton!
-    @IBOutlet weak var share2Press: UIButton!
     @IBOutlet weak var imageTap: UIButton!
     @IBOutlet weak var like_selected: UIButton!
     @IBOutlet weak var likedBy: UIButton!
+    
+    @IBOutlet weak var share: UIButton!
     
     //var delegate: FeedCellDelegate?
     var delegate:MyCustomCellDelegator!
@@ -104,14 +104,10 @@ class feed: UITableViewCell {
 
     }
     
-
-    @IBAction func share1But(sender: AnyObject) {
+    
+    @IBAction func shareBut(sender: AnyObject) {
         
     }
-    
-    @IBAction func share2But(sender: AnyObject) {
-    }
-    
     
     
     

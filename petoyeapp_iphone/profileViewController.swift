@@ -8,7 +8,7 @@
 
 import UIKit
 
-class profileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class profileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var profilePic: UIImageView!
     
@@ -33,6 +33,11 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     var nearbyView = UIView()
     
     var imageUrl = [String]()
+    var message = [String]()
+    var feed_id = [String]()
+    var like_count = [String]()
+    var comment_count = [String]()
+    var username = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -222,19 +227,20 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             
             for item in json["users"].arrayValue {
                 
-                //print(item["id"].stringValue)
-                //print(item["message"].stringValue)
-                //print(item["like_count"].stringValue)
-                //print(item["comment_count"].stringValue)
+                self.feed_id.append(item["id"].stringValue)
+                self.message.append(item["message"].stringValue)
+                self.like_count.append(item["like_count"].stringValue)
+                self.comment_count.append(item["comment_count"].stringValue)
                 //print(item["created_at"].stringValue)
                 self.imageUrl.append(item["imageurl"].stringValue)
-                //print(item["user"]["username"].stringValue)
+                self.username.append(item["user"]["username"].stringValue.capitalizedString)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     //self.followedTable.reloadData()
                     //self.view.hideLoading()
                     
                     self.collectionView.reloadData()
+                    self.postTable.reloadData()
                     
                 })
                 
@@ -296,6 +302,11 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
                         if let image = UIImage(data: data!) {
                             
                             cell.postedImage.image = image
+                            
+                            //let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                            
+                            //let cell2 = self.postTable.cellForRowAtIndexPath(indexPath) as! feed
+                            //cell2.postedImage.image = image
                         }
                         
                     })
@@ -327,10 +338,46 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         return cell
     }
-
     
-
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == self.postTable {
+            return username.count
+        }
+        else {
+            return 3
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        if tableView == self.postTable {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("posts", forIndexPath: indexPath) as! feed
+            //cell.textLabel?.text = "TEST"
+            cell.username.text = username[indexPath.row]
+            cell.message.text = message[indexPath.row]
+            cell.likecount.text = like_count[indexPath.row]
+            cell.commentcount.text = comment_count[indexPath.row]
+            cell.profilePic.image = UIImage(named: "amey.jpg")
+            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+            cell.profilePic.clipsToBounds = true
+            
+            
+            return cell
+        }
+        else {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("info", forIndexPath: indexPath)
+            cell.textLabel?.text = "TEST"
+            return cell
+        }
+
+    }
+   
     }
     
     
