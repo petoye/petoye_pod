@@ -481,6 +481,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             cell.commentPress.tag = indexPath.row
             cell.reportPress.tag = indexPath.row
             cell.likedBy.tag = indexPath.row
+            cell.share.tag = indexPath.row
             
             
             return cell
@@ -666,7 +667,70 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
     }
 
-    
+    func shareIt(shareTag: Int) {
+        
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController()
+        
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            print("Cancel")
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+        let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
+        { action -> Void in
+            print("FB shared")
+            
+            //////////////
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                
+                fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                let indexPath = NSIndexPath(forRow: shareTag, inSection: 0)
+                let cell = self.postTable.cellForRowAtIndexPath(indexPath) as! feed
+                
+                fbShare.addImage(cell.postedImage.image)
+                self.presentViewController(fbShare, animated: true, completion: nil)
+                
+            } else {
+                var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            /////////////
+        }
+        actionSheetControllerIOS8.addAction(shareFBActionButton)
+        
+        let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
+        { action -> Void in
+            print("Tweet")
+            ////////////
+            if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                
+                var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                let indexPath = NSIndexPath(forRow: shareTag, inSection: 0)
+                let cell = self.postTable.cellForRowAtIndexPath(indexPath) as! feed
+                
+                tweetShare.addImage(cell.postedImage.image)
+                
+                self.presentViewController(tweetShare, animated: true, completion: nil)
+                
+            } else {
+                
+                var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            ////////////
+        }
+        actionSheetControllerIOS8.addAction(TweetActionButton)
+        
+        self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+
+    }
     
     
     

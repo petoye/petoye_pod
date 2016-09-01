@@ -13,6 +13,7 @@ protocol MyCustomCellDelegator {
     func likeIt(likeTag: Int)
     func commentIt(commentTag: Int)
     func likedBy(byTag: Int)
+    func shareIt(shareTag: Int)
 }
 
 
@@ -107,6 +108,7 @@ class feed: UITableViewCell {
     
     @IBAction func shareBut(sender: AnyObject) {
         
+        self.delegate.shareIt(share.tag)
     }
     
     
