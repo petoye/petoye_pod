@@ -23,7 +23,7 @@ class BackTableVC: UITableViewController {
         
         TableArray = ["Home","Adoption","Pet Breeds","Settings","About us","Why PetOye?","","","","","",""]
         
-        var first_name = "Vaibhav"//NSUserDefaults.standardUserDefaults().stringForKey("first_name")!
+        var first_name = "Ameya"//NSUserDefaults.standardUserDefaults().stringForKey("first_name")!
         hello.title = "Hello, \(first_name)"
         
         //self.prefersStatusBarHidden()
