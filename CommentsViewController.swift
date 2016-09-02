@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, commentCellDelegator{
     
     @IBOutlet weak var commentbox: UIView!
     
@@ -21,11 +21,14 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var button = UIButton(type: .Custom)
     
     var pid = String()
+    
+    var uid = String()
 
     
     
     var userName = [String]()
     var commentMessage = [String]()
+    var user_id = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,7 +125,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            //print(responseString)
+            print(responseString)
             
             let json = JSON(data: data!)
             
@@ -130,6 +133,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
 
                 self.commentMessage.append(item["comment_message"].stringValue)
                 self.userName.append(item["user"]["username"].stringValue.capitalizedString)
+                self.user_id.append(item["user"]["id"].stringValue)
+                
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.commentTable.reloadData()
                     self.view.hideLoading()
@@ -236,7 +241,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(responseString!)
+            //print(responseString!)
             
             
         }
@@ -255,29 +260,47 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         UITableViewCell{
             let cell = tableView.dequeueReusableCellWithIdentifier("comment", forIndexPath: indexPath) as! comment_cell
             //cell.textLabel?.text = "TEST"
+            
+            cell.delegate = self
             cell.comment_message.text = commentMessage[indexPath.row]
             cell.user_name.text = userName[indexPath.row]
             cell.profilePic.image = UIImage(named: "dawg.png")
             cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
             cell.profilePic.clipsToBounds = true
+            
+            //cell.usernamePress.tag = indexpath.row
+            
             //self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
             //self.profileImageView.clipsToBounds = YES;
             
-            
+            cell.usernamePress.tag = indexPath.row
             
             return cell
             
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+
+        if segue.identifier == "commentToShowProfile" {
+            
+            let profVC = segue.destinationViewController as! showProfileViewController
+            
+            profVC.uid = uid
+            
+        }
+        
      }
-     */
+    
+    func showProf(showTag: Int) {
+        
+            uid = user_id[showTag]
+        self.performSegueWithIdentifier("commentToShowProfile", sender: self)
+        
+        
+    }
+    
+    
+    
     
 }

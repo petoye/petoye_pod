@@ -965,6 +965,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             PostId = post_id1[commentTag]
             
+            UserId = post_user_id1[commentTag]
+            
             self.performSegueWithIdentifier("trendingCommentShower", sender: self)
             
         }
@@ -972,11 +974,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             PostId = post_id[commentTag]
             
+            UserId = post_user_id[commentTag]
+            
             self.performSegueWithIdentifier("trendingCommentShower", sender: self)
         }
         else if trending.tag == 1 {
             
             PostId = post_id2[commentTag]
+            
+            UserId = post_user_id2[commentTag]
             
             self.performSegueWithIdentifier("trendingCommentShower", sender: self)
             
@@ -1004,6 +1010,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let profVC = segue.destinationViewController as! showProfileViewController
             
             profVC.uid = UserId
+            
         }
         
     }

@@ -8,14 +8,24 @@
 
 import UIKit
 
+protocol commentCellDelegator {
+    func showProf(showTag: Int)
+}
+
 class comment_cell: UITableViewCell {
 
-
+    var delegate: commentCellDelegator!
 
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var comment_message: UILabel!
     @IBOutlet weak var user_name: UILabel!
+    @IBOutlet weak var usernamePress: UIButton!
     
     
+    @IBAction func usernameBut(sender: AnyObject) {
+        
+        //("yes")
+        self.delegate.showProf(usernamePress.tag)
+    }
 
 }
