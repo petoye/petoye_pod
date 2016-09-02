@@ -1184,71 +1184,6 @@
                                 <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="514" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2ns-Mg-X9M">
-                                <rect key="frame" x="0.0" y="118" width="414" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="adopt" rowHeight="514" id="qOl-7m-ahR" customClass="adopt_cell" customModule="PetOye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="514"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qOl-7m-ahR" id="fOI-G5-4NH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="513"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yt5-9r-H8M">
-                                                    <rect key="frame" x="31" y="8" width="55" height="55"/>
-                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="8DDF9689-6828-41CA-A90F-30CDB929A451"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <real key="value" value="27.519999999999982"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ameya Vichare" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt2-j6-nL3">
-                                                    <rect key="frame" x="104" y="10" width="149" height="26"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="60DB4F31-4B94-4EEE-8FAF-885BA2C0AE73"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
-                                                    <color key="textColor" red="0.28627450980392155" green="0.39215686274509803" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfw-Ao-RBs">
-                                                    <rect key="frame" x="104" y="39" width="271" height="21"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="0A16DFCB-2814-47E4-9056-3F50EE4CA791"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVg-5f-krL">
-                                                    <rect key="frame" x="359" y="18" width="25" height="22"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
-                                                    <state key="normal" image="report_dots"/>
-                                                    <connections>
-                                                        <action selector="share:" destination="qOl-7m-ahR" eventType="touchUpInside" id="vN1-5Y-DzL"/>
-                                                    </connections>
-                                                </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2D-bV-bqb">
-                                                    <rect key="frame" x="0.0" y="83" width="414" height="414"/>
-                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="1D877AFA-AF7D-448F-B249-6CA9DB0CFB1D"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="pet_info" destination="hfw-Ao-RBs" id="c9G-pr-0Ix"/>
-                                            <outlet property="postedImage" destination="S2D-bV-bqb" id="be3-hU-u0N"/>
-                                            <outlet property="profilePic" destination="Yt5-9r-H8M" id="xKO-e7-wDM"/>
-                                            <outlet property="shareBut" destination="WVg-5f-krL" id="8cS-nG-x2k"/>
-                                            <outlet property="username" destination="qt2-j6-nL3" id="qDC-F9-coy"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="xiS-f3-99y" id="jVp-en-l2C"/>
-                                    <outlet property="delegate" destination="xiS-f3-99y" id="yW9-Mt-hKf"/>
-                                </connections>
-                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="519" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7X4-KL-ohf">
                                 <rect key="frame" x="0.0" y="118" width="414" height="610"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1318,6 +1253,78 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="514" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2ns-Mg-X9M">
+                                <rect key="frame" x="0.0" y="118" width="414" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="adopt" rowHeight="514" id="qOl-7m-ahR" customClass="adopt_cell" customModule="PetOye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="514"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qOl-7m-ahR" id="fOI-G5-4NH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="513"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yt5-9r-H8M">
+                                                    <rect key="frame" x="31" y="8" width="55" height="55"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="8DDF9689-6828-41CA-A90F-30CDB929A451"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="27.519999999999982"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ameya Vichare" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt2-j6-nL3">
+                                                    <rect key="frame" x="104" y="10" width="239" height="26"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="60DB4F31-4B94-4EEE-8FAF-885BA2C0AE73"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
+                                                    <color key="textColor" red="0.28627450980392155" green="0.39215686274509803" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="2 Hours ago" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfw-Ao-RBs">
+                                                    <rect key="frame" x="104" y="39" width="271" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="0A16DFCB-2814-47E4-9056-3F50EE4CA791"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.71764705880000002" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVg-5f-krL">
+                                                    <rect key="frame" x="359" y="18" width="25" height="22"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
+                                                    <state key="normal" image="report_dots"/>
+                                                    <connections>
+                                                        <action selector="share:" destination="qOl-7m-ahR" eventType="touchUpInside" id="vN1-5Y-DzL"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2D-bV-bqb">
+                                                    <rect key="frame" x="0.0" y="83" width="414" height="414"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="1D877AFA-AF7D-448F-B249-6CA9DB0CFB1D"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfj-gd-TSo">
+                                                    <rect key="frame" x="104" y="8" width="239" height="28"/>
+                                                    <connections>
+                                                        <action selector="usernameBut:" destination="qOl-7m-ahR" eventType="touchUpInside" id="NJu-Lk-mvG"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pet_info" destination="hfw-Ao-RBs" id="c9G-pr-0Ix"/>
+                                            <outlet property="postedImage" destination="S2D-bV-bqb" id="be3-hU-u0N"/>
+                                            <outlet property="profilePic" destination="Yt5-9r-H8M" id="xKO-e7-wDM"/>
+                                            <outlet property="shareBut" destination="WVg-5f-krL" id="8cS-nG-x2k"/>
+                                            <outlet property="username" destination="qt2-j6-nL3" id="qDC-F9-coy"/>
+                                            <outlet property="usernamePress" destination="mfj-gd-TSo" id="Gix-hb-WrG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xiS-f3-99y" id="jVp-en-l2C"/>
+                                    <outlet property="delegate" destination="xiS-f3-99y" id="yW9-Mt-hKf"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1330,6 +1337,7 @@
                         <outlet property="giveForAdoptions" destination="7X4-KL-ohf" id="ylN-AF-UHw"/>
                         <outlet property="navigBar" destination="NeX-E6-ijq" id="nq2-P8-Kjn"/>
                         <outlet property="toolBar" destination="XJG-dg-5Wf" id="g78-Jq-Gs1"/>
+                        <segue destination="WyZ-jL-EcB" kind="show" identifier="adoptToShowProfile" id="2su-x4-5uP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiQ-RK-iGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3489,7 +3497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnJ-SA-4iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3061" y="695"/>
+            <point key="canvasLocation" x="2845" y="623"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="1PL-UU-z7P">
@@ -3688,8 +3696,9 @@
         <segue reference="etG-Sr-xAM"/>
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
-        <segue reference="14w-5S-SdD"/>
+        <segue reference="2su-x4-5uP"/>
         <segue reference="EzH-Fc-6xY"/>
+        <segue reference="14w-5S-SdD"/>
         <segue reference="aw0-LF-gGz"/>
         <segue reference="SM0-ED-u1v"/>
     </inferredMetricsTieBreakers>

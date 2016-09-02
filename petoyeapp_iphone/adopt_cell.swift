@@ -11,6 +11,7 @@ import UIKit
 protocol adoptCellDelegator {
     
     func share(cell_id: Int)
+    func showProf(showTag: Int)
 }
 
 class adopt_cell: UITableViewCell {
@@ -27,6 +28,7 @@ class adopt_cell: UITableViewCell {
     
     @IBOutlet weak var shareBut: UIButton!
     
+    @IBOutlet weak var usernamePress: UIButton!
     
     
     @IBAction func share(sender: AnyObject) {
@@ -36,6 +38,12 @@ class adopt_cell: UITableViewCell {
         let indexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
         //print(indexPath.row)
         self.delegate.share(indexPath.row)
+    }
+
+    @IBAction func usernameBut(sender: AnyObject) {
+        
+        self.delegate.showProf(usernamePress.tag)
+        
     }
 
 

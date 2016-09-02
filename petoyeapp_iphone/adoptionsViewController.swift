@@ -31,6 +31,9 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
     var username = [String]()
     var pet_info = [String]()
     var message = [String]()
+    var post_user_id = [String]()
+    
+    var UserId = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +90,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
             self.pet_info.append(str + "," + str1 + "- " + str2 + " years old")
             self.message.append(item["description"].stringValue)
             self.username.append(item["user"]["username"].stringValue.capitalizedString)
+            self.post_user_id.append(item["user"]["id"].stringValue)
                 
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
@@ -96,9 +100,9 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
                 
             }
             //print(self.username_m)
+            //print(self.post_user_id)
         }
         task.resume()
-
     }
     
     
@@ -177,6 +181,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         cell.postedImage.image = UIImage(named: "no_image.jpg")
         
         cell.shareBut.tag = indexPath.row
+        cell.usernamePress.tag = indexPath.row
         
         return cell
     }
@@ -248,6 +253,25 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
 
         
+        
+    }
+    
+    func showProf(showTag: Int) {
+        
+        UserId = post_user_id[showTag]
+        
+        self.performSegueWithIdentifier("adoptToShowProfile", sender: self)
+
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if (segue.identifier == "adoptToShowProfile") {
+            
+            let profVC = segue.destinationViewController as! showProfileViewController
+            
+            profVC.uid = UserId
+        }
         
     }
 

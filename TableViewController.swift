@@ -253,7 +253,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //print(self.post_id)
             //print(self.created_at)
             //print(self.imageurl)
-            print(self.timestamp)
+            //print(self.timestamp)
             
             
             //for now doing nearby feeds
@@ -317,7 +317,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             //print(self.username2)
-            print(self.timestamp2)
+            //print(self.timestamp2)
             
             //for now doing followed feeds
         }
@@ -383,7 +383,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //print(self.created_at1)
             //print(self.imageurl1)
 
-            print(self.timestamp1)
+            //print(self.timestamp1)
             
             
             //for now doing followed feeds
