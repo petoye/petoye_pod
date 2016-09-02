@@ -216,6 +216,8 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         print("settings")
         
+        self.performSegueWithIdentifier("profToSettings", sender: self)
+        
     }
     
     func showProfile(userTag: Int) {

@@ -38,6 +38,7 @@
 		E4644E411D786B3300CAED8C /* whyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E401D786B3300CAED8C /* whyViewController.swift */; };
 		E4644E431D79234700CAED8C /* showProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E421D79234700CAED8C /* showProfileViewController.swift */; };
 		E4644E451D794F1500CAED8C /* editProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E441D794F1500CAED8C /* editProfileViewController.swift */; };
+		E4644E471D795F4200CAED8C /* edit_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4644E461D795F4200CAED8C /* edit_cell.swift */; };
 		E478A3091D4E39AA00865189 /* IMG_2623.png in Resources */ = {isa = PBXBuildFile; fileRef = E478A3081D4E39AA00865189 /* IMG_2623.png */; };
 		E4841D661D708ED60066BEC3 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4841D651D708ED60066BEC3 /* profileViewController.swift */; };
 		E484FAD71D5E1989007B8918 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E484FAD61D5E1989007B8918 /* SWRevealViewController.m */; };
@@ -132,6 +133,7 @@
 		E4644E401D786B3300CAED8C /* whyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whyViewController.swift; sourceTree = "<group>"; };
 		E4644E421D79234700CAED8C /* showProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showProfileViewController.swift; sourceTree = "<group>"; };
 		E4644E441D794F1500CAED8C /* editProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editProfileViewController.swift; sourceTree = "<group>"; };
+		E4644E461D795F4200CAED8C /* edit_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = edit_cell.swift; sourceTree = "<group>"; };
 		E478A3081D4E39AA00865189 /* IMG_2623.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2623.png; sourceTree = "<group>"; };
 		E4841D651D708ED60066BEC3 /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		E484FAD51D5E1989007B8918 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 		E45FE2291D54C62000AFA106 /* Custom cells */ = {
 			isa = PBXGroup;
 			children = (
+				E4644E461D795F4200CAED8C /* edit_cell.swift */,
 				E4644E381D7855E700CAED8C /* info_cell.swift */,
 				E4A5426C1D76E8A800E9FCD2 /* pics_cell.swift */,
 				E4A5426A1D76E35600E9FCD2 /* collection_cell.swift */,
@@ -542,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4644E451D794F1500CAED8C /* editProfileViewController.swift in Sources */,
+				E4644E471D795F4200CAED8C /* edit_cell.swift in Sources */,
 				E4EC930F1D6ED97800FD5B3B /* DesignableTabBarController.swift in Sources */,
 				E4644E391D7855E700CAED8C /* info_cell.swift in Sources */,
 				E4A5426D1D76E8A800E9FCD2 /* pics_cell.swift in Sources */,

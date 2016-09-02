@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ej3-g5-0Pn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CMU-rr-Eob">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -576,6 +576,7 @@
                         <outlet property="user_name" destination="z51-pd-g6K" id="1zd-bP-xEt"/>
                         <segue destination="uTk-rr-tqL" kind="show" identifier="postToComment" id="SM0-ED-u1v"/>
                         <segue destination="tjm-fV-O0b" kind="show" identifier="postToLikedBy" id="aw0-LF-gGz"/>
+                        <segue destination="ej3-g5-0Pn" kind="show" identifier="profToSettings" id="AeI-m7-oqz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0k-UN-hMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3534,10 +3535,10 @@
                         <viewControllerLayoutGuide type="bottom" id="sNb-3L-yiP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rCa-wo-7jM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-Cd-YQ5">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-Cd-YQ5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                 <color key="barTintColor" red="0.32156862749999998" green="0.80784313730000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -3548,72 +3549,132 @@
                                     <navigationItem title="Edit profile" prompt=" " id="SbM-GG-G50">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="aXB-Hb-8xe">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="cancel:" destination="ej3-g5-0Pn" id="xkD-81-puf"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ZOG-oh-cyA">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="save:" destination="ej3-g5-0Pn" id="7NF-kD-fbK"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2623.png" translatesAutoresizingMaskIntoConstraints="NO" id="xCW-im-YDy">
-                                <rect key="frame" x="0.0" y="74" width="414" height="185"/>
-                                <color key="backgroundColor" white="0.8316307933" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="D65B6F96-BDF3-4A8B-A62A-6A4AEAC2460B"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jSY-jm-XbN">
-                                <rect key="frame" x="0.0" y="171" width="138" height="138"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cb1-tt-pKe">
-                                <rect key="frame" x="0.0" y="309" width="414" height="427"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqw-gb-8AD">
-                                <rect key="frame" x="0.0" y="74" width="414" height="185"/>
-                                <state key="normal" image="camera_white"/>
-                                <connections>
-                                    <action selector="headerSelect:" destination="ej3-g5-0Pn" eventType="touchUpInside" id="mBN-mL-WSx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoB-iS-G9k">
-                                <rect key="frame" x="0.0" y="171" width="138" height="138"/>
-                                <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="camera_white"/>
-                                <connections>
-                                    <action selector="profilePicSelect:" destination="ej3-g5-0Pn" eventType="touchUpInside" id="h7p-Xb-EpM"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6L2-pD-fHb">
+                                <rect key="frame" x="0.0" y="74" width="414" height="776"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bWJ-WR-C0N">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="593"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2623.png" translatesAutoresizingMaskIntoConstraints="NO" id="xCW-im-YDy">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
+                                                <color key="backgroundColor" white="0.8316307933" alpha="1" colorSpace="calibratedWhite"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="D65B6F96-BDF3-4A8B-A62A-6A4AEAC2460B"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqw-gb-8AD">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
+                                                <state key="normal" image="camera_white"/>
+                                                <connections>
+                                                    <action selector="headerSelect:" destination="ej3-g5-0Pn" eventType="touchUpInside" id="mBN-mL-WSx"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jSY-jm-XbN">
+                                                <rect key="frame" x="0.0" y="97" width="138" height="138"/>
+                                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoB-iS-G9k">
+                                                <rect key="frame" x="0.0" y="97" width="138" height="138"/>
+                                                <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="camera_white"/>
+                                                <connections>
+                                                    <action selector="profilePicSelect:" destination="ej3-g5-0Pn" eventType="touchUpInside" id="h7p-Xb-EpM"/>
+                                                </connections>
+                                            </button>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cb1-tt-pKe">
+                                                <rect key="frame" x="0.0" y="235" width="414" height="324"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="edit" rowHeight="47" id="iRy-ti-IDr" customClass="edit_cell" customModule="PetOye" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="414" height="47"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iRy-ti-IDr" id="yPW-bN-kKa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocp-e2-Ofl">
+                                                                    <rect key="frame" x="226" y="8" width="180" height="30"/>
+                                                                    <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsz-Vf-6y9">
+                                                                    <rect key="frame" x="8" y="12" width="210" height="21"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                    <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="field" destination="Jsz-Vf-6y9" id="NFi-2R-ijE"/>
+                                                            <outlet property="info" destination="ocp-e2-Ofl" id="tQr-Fl-7rv"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="ej3-g5-0Pn" id="DD4-3G-pSx"/>
+                                                    <outlet property="delegate" destination="ej3-g5-0Pn" id="SKe-ep-lQz"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bWJ-WR-C0N" secondAttribute="bottom" constant="183" id="EUt-FQ-qmT"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6L2-pD-fHb" firstAttribute="bottom" secondItem="rCa-wo-7jM" secondAttribute="bottomMargin" id="0NH-Fj-6Ja"/>
+                            <constraint firstItem="6L2-pD-fHb" firstAttribute="leading" secondItem="rCa-wo-7jM" secondAttribute="leadingMargin" constant="-20" id="SRL-1p-cWg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6L2-pD-fHb" secondAttribute="trailing" constant="-20" id="evA-9n-KFR"/>
+                            <constraint firstItem="6L2-pD-fHb" firstAttribute="top" secondItem="hYh-Cd-YQ5" secondAttribute="bottom" id="tMx-TA-XW1"/>
+                        </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="850"/>
                     <connections>
                         <outlet property="head" destination="Nqw-gb-8AD" id="f38-nR-Ugf"/>
                         <outlet property="header" destination="xCW-im-YDy" id="WCx-js-vZg"/>
                         <outlet property="prof" destination="EoB-iS-G9k" id="Ykg-Lc-VFk"/>
                         <outlet property="profilePic" destination="jSY-jm-XbN" id="yWh-u9-aJr"/>
+                        <outlet property="scrollView" destination="6L2-pD-fHb" id="EKJ-9L-wCR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJH-gd-4yx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3724" y="568"/>
+            <point key="canvasLocation" x="1964" y="1776"/>
         </scene>
     </scenes>
     <resources>
@@ -3663,9 +3724,9 @@
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="14w-5S-SdD"/>
-        <segue reference="hxz-kY-RAs"/>
         <segue reference="EzH-Fc-6xY"/>
         <segue reference="aw0-LF-gGz"/>
+        <segue reference="SM0-ED-u1v"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

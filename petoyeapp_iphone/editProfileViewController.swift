@@ -8,22 +8,30 @@
 
 import UIKit
 
-class editProfileViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class editProfileViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var header: UIImageView!
     
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var head: UIButton!
     
     
     @IBOutlet weak var prof: UIButton!
     
+    var field = ["Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
+    var info = ["Fifa","4 years old","Dog","Labrador","Yes"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
         
         
         self.profilePic.layer.borderWidth = 3.0
@@ -167,8 +175,39 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
     }
     
  
-
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return field.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("edit", forIndexPath: indexPath) as! edit_cell
+        //cell.textLabel?.text = "TEST"
+        
+        cell.field.text = field[indexPath.row]
+        cell.info.text = info[indexPath.row]
+        
+        return cell
+    }
+    
+    @IBAction func cancel(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        
+        
+    }
+    
+    func keyboardDidShow() {
+        
+        var bottomOffset: CGPoint = CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+        self.scrollView.setContentOffset(bottomOffset, animated: true)
+    }
     
 
     /*
