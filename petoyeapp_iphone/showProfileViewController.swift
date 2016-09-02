@@ -41,6 +41,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     var like_count = [String]()
     var comment_count = [String]()
     var username = [String]()
+    var timestamp = [String]()
     
     var PostId = String()
     
@@ -365,7 +366,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            //print(responseString)
+            print(responseString)
             
             let json = JSON(data: data!)
             
@@ -377,6 +378,8 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
                 self.comment_count.append(item["comment_count"].stringValue)
                 //print(item["created_at"].stringValue)
                 self.imageUrl.append(item["imageurl"].stringValue)
+            self.timestamp.append(self.convert(item["created_at"].stringValue))
+                
                 self.username.append(item["user"]["username"].stringValue.capitalizedString)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
@@ -545,6 +548,8 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             cell.message.text = message[indexPath.row]
             cell.likecount.text = like_count[indexPath.row]
             cell.commentcount.text = comment_count[indexPath.row]
+            cell.timestamp.text = timestamp[indexPath.row]
+            
             cell.profilePic.image = UIImage(named: "amey.jpg")
             cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
             cell.profilePic.clipsToBounds = true
