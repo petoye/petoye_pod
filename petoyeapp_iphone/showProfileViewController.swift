@@ -837,6 +837,68 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         
     }
     
+    
+    @IBAction func follow(sender: AnyObject) {
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/1/follow")!)
+        request.HTTPMethod = "POST"
+        let postString = "hisid=\(uid)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+            {
+                // show followed
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.following.hidden = false
+                    self.follow.hidden = true
+                })
+            }
+            
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+                
+                let json = JSON(data: data!)
+                let bug = json["errors"].stringValue
+                // pop up showing already liked and set image to filled
+                //self.view.hideLoading()
+                
+                if bug == "already following"
+                {
+                    // pop up showing already liked and set image to filled
+                    print("already following")
+                    
+                    //self.view.hideLoading()
+
+                }
+                else {
+                    print("try again later")
+                    //self.view.hideLoading()
+                }
+
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+            
+            
+            
+        }
+        task.resume()
+
+        
+        
+        
+        
+    }
+    
 
 
     

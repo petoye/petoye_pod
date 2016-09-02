@@ -690,6 +690,18 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if tableView == self.searchTable {
+            
+            //UserId = post_user_id1[userTag]
+            
+            UserId = s_userid[indexPath.row]
+            
+            self.performSegueWithIdentifier("homeToShowProfile", sender: self)
+        }
+    }
+    
     func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -1661,6 +1673,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if trending.tag == 1 {
             
             self.trendingView.hidden = true
+            self.trendingTable.hidden = true
         }
         else if followed.tag == 1 {
             
@@ -1743,6 +1756,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if trending.tag == 1 {
             
             self.trendingView.hidden = false
+            self.trendingTable.hidden = false
         }
         else if followed.tag == 1 {
             

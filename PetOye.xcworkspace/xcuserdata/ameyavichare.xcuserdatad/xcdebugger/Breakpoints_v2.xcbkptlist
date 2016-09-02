@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petoyeapp_iphone/notificationsViewController.swift"
-            timestampString = "493886544.718568"
+            timestampString = "494487404.786518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "5">
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "notificationsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

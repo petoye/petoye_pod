@@ -161,11 +161,11 @@ class messagesViewController: JSQMessagesViewController{
         
         navigationController?.popViewControllerAnimated(true)
         
-        print(messages.last!.text)
+        //print(messages.last!.text)
         
-        print(messages.last!.senderId)
+        //print(messages.last!.senderId)
         
-        NSUserDefaults.standardUserDefaults().setValue("\(messages.last!.text)", forKey: "last")
+        //NSUserDefaults.standardUserDefaults().setValue("\(messages.last!.text)", forKey: "last")
         
 
         

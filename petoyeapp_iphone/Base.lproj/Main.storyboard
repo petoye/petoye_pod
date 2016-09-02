@@ -3333,7 +3333,7 @@
                                                     <outlet property="delegate" destination="WyZ-jL-EcB" id="oOv-yJ-c3r"/>
                                                 </connections>
                                             </tableView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bA-ix-HRL">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bA-ix-HRL">
                                                 <rect key="frame" x="0.0" y="307" width="414" height="586"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -3479,6 +3479,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-sf-och">
                                                 <rect key="frame" x="334" y="225" width="72" height="26"/>
                                                 <state key="normal" title="Button" image="follow"/>
+                                                <connections>
+                                                    <action selector="follow:" destination="WyZ-jL-EcB" eventType="touchUpInside" id="dUc-6G-cWq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3569,9 +3572,9 @@
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="14w-5S-SdD"/>
-        <segue reference="LeH-1s-MEo"/>
         <segue reference="hxz-kY-RAs"/>
-        <segue reference="3kH-Gh-f1z"/>
+        <segue reference="EzH-Fc-6xY"/>
+        <segue reference="aw0-LF-gGz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

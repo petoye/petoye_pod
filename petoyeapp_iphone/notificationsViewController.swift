@@ -272,6 +272,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         
     }
     
+    /*
     override func viewDidAppear(animated: Bool) {
         
         if didSelect == true {
@@ -289,6 +290,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         }
         
     }
+ */
     
     
     
