@@ -1832,7 +1832,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 let json = JSON(data: data!)
                 
-                
+                //self.view.hideLoading()
                 
                 for item in json["users"].arrayValue {
                     

@@ -101,15 +101,71 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.profilePic.clipsToBounds = true
             cell.toFollowBut.tag = indexPath.row
             
-            userDefault.setObject(user_id, forKey: "storedUserIds")
+            //userDefault.setObject(user_id, forKey: "storedUserIds")
             
             
             return cell
     }
-    func reloadDiscover() {
+
+    func follow(discoverTag: Int) {
         
-        self.discoverTable.reloadData()
-        print("pressed")
+        print(discoverTag)
+        
+        let indexPath = NSIndexPath(forRow: discoverTag, inSection: 0)
+        let cell = self.discoverTable.cellForRowAtIndexPath(indexPath) as! discover_cell
+        
+        
+        
+        
+        // following a user api call
+        
+        
+        let my_id = 3//userDefault.objectForKey("id")
+        
+        let his_id = user_id[discoverTag]
+        
+        
+        // follow api call
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/\(my_id)/follow")!)
+        request.HTTPMethod = "POST"
+        let postString = "hisid=\(his_id)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+            {
+                // show followed
+                //self.toFollowBut.viewWithTag(self.toFollowBut.tag)?.hidden = true
+                // pop up followed
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    cell.toFollowBut.viewWithTag(discoverTag)?.hidden = true
+                })
+            }
+            
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+                
+                
+                
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+            
+        }
+        task.resume()
+
+    
     }
 
     
