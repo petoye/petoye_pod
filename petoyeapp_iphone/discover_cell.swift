@@ -9,6 +9,7 @@
 import UIKit
 protocol discoverDelegate {
     func follow(discoverTag: Int)
+    func showProf(showTag: Int)
 }
 
 
@@ -22,6 +23,9 @@ class discover_cell: UITableViewCell {
     @IBOutlet weak var toFollowBut: UIButton!
     var delegate: discoverDelegate?
     
+    @IBOutlet weak var usernamePress: UIButton!
+    
+    
     @IBAction func to_follow(sender: AnyObject) {
         
         self.delegate?.follow(toFollowBut.tag)
@@ -31,6 +35,12 @@ class discover_cell: UITableViewCell {
     
     @IBAction func followed(sender: AnyObject) {
         //toFollowBut.tag
+    }
+    
+    @IBAction func usernameBut(sender: AnyObject) {
+        
+        self.delegate?.showProf(usernamePress.tag)
+        
     }
     
     

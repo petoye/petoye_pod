@@ -2370,6 +2370,12 @@
                                                         <action selector="to_follow:" destination="Zvb-MA-ruM" eventType="touchUpInside" id="cxw-Vj-4dc"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxw-rY-ebF">
+                                                    <rect key="frame" x="96" y="6" width="217" height="30"/>
+                                                    <connections>
+                                                        <action selector="usernameBut:" destination="Zvb-MA-ruM" eventType="touchUpInside" id="og6-Os-WDD"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2379,6 +2385,7 @@
                                             <outlet property="profilePic" destination="55B-vS-df8" id="89p-Ff-75Y"/>
                                             <outlet property="toFollowBut" destination="FBC-V0-2Lu" id="QEJ-iP-Wuo"/>
                                             <outlet property="username" destination="ThM-7o-pkU" id="0Mg-zs-rxq"/>
+                                            <outlet property="usernamePress" destination="Jxw-rY-ebF" id="nCF-gk-BjF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2405,6 +2412,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="discoverTable" destination="Rga-rT-jeU" id="TJX-8w-Bqm"/>
+                        <segue destination="WyZ-jL-EcB" kind="show" identifier="discoverToShowProfile" id="CZ8-JC-rIZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgl-nF-fr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3712,11 +3720,11 @@
         <segue reference="etG-Sr-xAM"/>
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
+        <segue reference="CZ8-JC-rIZ"/>
+        <segue reference="EzH-Fc-6xY"/>
         <segue reference="14w-5S-SdD"/>
         <segue reference="aw0-LF-gGz"/>
         <segue reference="SM0-ED-u1v"/>
-        <segue reference="4OV-hc-5Wi"/>
-        <segue reference="EzH-Fc-6xY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -18,6 +18,8 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
     var breed = [String]()
     var pettype = [String]()
     var user_id = [String]()
+    
+    var uid = String()
 
     @IBOutlet weak var discoverTable: UITableView!
     
@@ -64,11 +66,11 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
                 })
                 
             }
-            print(self.user_id)
-            print(self.username)
-            print(self.ownertype)
-            print(self.pettype)
-            print(self.breed)
+            //print(self.user_id)
+            //print(self.username)
+            //print(self.ownertype)
+            //print(self.pettype)
+            //print(self.breed)
         }
         task.resume()
 
@@ -101,12 +103,32 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.profilePic.clipsToBounds = true
             cell.toFollowBut.tag = indexPath.row
             
+            cell.usernamePress.tag = indexPath.row
+            
             //userDefault.setObject(user_id, forKey: "storedUserIds")
             
             
             return cell
     }
 
+    func showProf(showTag: Int) {
+        
+            uid = user_id[showTag]
+        self.performSegueWithIdentifier("discoverToShowProfile", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "discoverToShowProfile" {
+            
+            let profVc = segue.destinationViewController as! showProfileViewController
+            
+            profVc.uid = uid
+        }
+    }
+    
+    
     func follow(discoverTag: Int) {
         
         print(discoverTag)
@@ -167,6 +189,8 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
 
     
     }
+    
+    
 
     
 }
