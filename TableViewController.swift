@@ -829,6 +829,71 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             task.resume()
             
         }
+        else if trending.tag == 1 {
+            
+            var likedPostId = post_id2[likeTag]
+            
+            
+            let indexPath = NSIndexPath(forRow: likeTag, inSection: 0)
+            let cell = self.trendingTable.cellForRowAtIndexPath(indexPath) as! feed
+            //view.showLoading()
+            
+            cell.likePress.viewWithTag(likeTag)?.hidden = true
+            
+            
+            //liking a post API call
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
+            request.HTTPMethod = "POST"
+            let postString = "uid=48"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                    //print(error!)
+                    return
+                }
+                
+                if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+                {
+                    //set like buttonimage to filled
+                    var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    print(responseString)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        //self.followedTable.reloadData()
+                        //self.view.hideLoading()
+                    })
+                    
+                    
+                }
+                
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                    
+                    let json = JSON(data: data!)
+                    let bug = json["errors"].stringValue
+                    // pop up showing already liked and set image to filled
+                    //self.view.hideLoading()
+                    
+                    if bug == "already liked"
+                    {
+                        // pop up showing already liked and set image to filled
+                        print("already liked")
+                        //self.view.hideLoading()
+                        
+                        //self.likePress.viewWithTag(self.likePress.tag)?.hidden = true
+                    }
+                    else {
+                        print("try again later")
+                        //self.view.hideLoading()
+                    }
+                }
+                
+            }
+            task.resume()
+            
+
+        }
+        
         
     }
 
@@ -849,7 +914,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             self.performSegueWithIdentifier("trendingCommentShower", sender: self)
         }
-        
+        else if trending.tag == 1 {
+            
+            PostId = post_id2[commentTag]
+            
+            self.performSegueWithIdentifier("trendingCommentShower", sender: self)
+            
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -887,6 +958,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             self.performSegueWithIdentifier("feedToLikedBy", sender: self)
             
+        }
+        else if trending.tag == 1 {
+            
+            PostId = post_id2[byTag]
+            
+            self.performSegueWithIdentifier("feedToLikedBy", sender: self)
         }
         
     }
@@ -1023,6 +1100,69 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
         
+        else if trending.tag == 1 {
+            
+            let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                print("Cancel")
+            }
+            actionSheetControllerIOS8.addAction(cancelActionButton)
+            
+            let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
+            { action -> Void in
+                print("FB shared")
+                
+                //////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                    var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    
+                    fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: shareTag, inSection: 0)
+                    let cell = self.trendingTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    fbShare.addImage(cell.postedImage.image)
+                    self.presentViewController(fbShare, animated: true, completion: nil)
+                    
+                } else {
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                /////////////
+            }
+            actionSheetControllerIOS8.addAction(shareFBActionButton)
+            
+            let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
+            { action -> Void in
+                print("Tweet")
+                ////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                    
+                    var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: shareTag, inSection: 0)
+                    let cell = self.trendingTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    tweetShare.addImage(cell.postedImage.image)
+                    
+                    self.presentViewController(tweetShare, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                ////////////
+            }
+            actionSheetControllerIOS8.addAction(TweetActionButton)
+            
+            self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+            
+        }
+        
         
     }
     
@@ -1141,7 +1281,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
         
-        else {
+        else if nearby.tag == 1 {
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
             print("Cancel")
@@ -1306,6 +1446,170 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
         }
 
+        else if trending.tag == 1 {
+            
+            let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                print("Cancel")
+            }
+            actionSheetControllerIOS8.addAction(cancelActionButton)
+            
+            let followActionButton: UIAlertAction = UIAlertAction(title: "Follow", style: .Default)
+            { action -> Void in
+                print("Follow")
+                
+                
+                var hisid = self.post_user_id2[cell_id]
+                
+                var my_id = 1
+                
+                ////////////////////////////
+                
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/\(my_id)/follow")!)
+                request.HTTPMethod = "POST"
+                let postString = "hisid=\(hisid)"
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                    guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                        print(error!)
+                        return
+                    }
+                    
+                    if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+                    {
+                        // pop up followed
+                    }
+                    
+                    
+                    if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                        //print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                        //print(response!)
+                        
+                        let json = JSON(data: data!)
+                        let bug = json["errors"].stringValue
+                        
+                        if bug == "already following"
+                        {
+                            // pop up showing be the first to comment
+                            print("already following")
+                            
+                        }
+                        else {
+                            print("try again later")
+                        }
+                        
+                        
+                        
+                    }
+                    
+                    var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print(responseString!)
+                    
+                    
+                }
+                task.resume()
+                
+                
+                /////////////////////////////
+                
+            }
+            actionSheetControllerIOS8.addAction(followActionButton)
+            
+            let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
+            { action -> Void in
+                print("FB shared")
+                /////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                    var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    
+                    fbShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                    let cell = self.trendingTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    fbShare.addImage(cell.postedImage.image)
+                    
+                    self.presentViewController(fbShare, animated: true, completion: nil)
+                    
+                } else {
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                ////////////
+            }
+            actionSheetControllerIOS8.addAction(shareFBActionButton)
+            
+            let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
+            { action -> Void in
+                print("Tweet")
+                
+                ////////////
+                if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                    
+                    var tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    
+                    tweetShare.setInitialText("Look at this super cute pet via PetOye!")
+                    let indexPath = NSIndexPath(forRow: cell_id, inSection: 0)
+                    let cell = self.trendingTable.cellForRowAtIndexPath(indexPath) as! feed
+                    
+                    tweetShare.addImage(cell.postedImage.image)
+                    
+                    self.presentViewController(tweetShare, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                ///////////
+            }
+            actionSheetControllerIOS8.addAction(TweetActionButton)
+            
+            let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
+            { action -> Void in
+                print("Report")
+                
+                self.PostId = self.post_id2[cell_id]
+                
+                /////////////////////////
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(self.PostId)/report")!)
+                request.HTTPMethod = "POST"
+                let postString = "report=1"
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                    guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                        print(error!)
+                        return
+                    }
+                    
+                    if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                        print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                        print(response!)
+                        
+                    }
+                    
+                    var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                    print(responseString)
+                    
+                }
+                task.resume()
+                
+                ////////////////////////////////
+                
+                
+                
+                
+            }
+            actionSheetControllerIOS8.addAction(ReportActionButton)
+            
+            self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+        }
         
     }
     
