@@ -2587,10 +2587,10 @@
             </objects>
             <point key="canvasLocation" x="281" y="1444"/>
         </scene>
-        <!--Collect View Controller-->
+        <!--Time View Controller-->
         <scene sceneID="bw8-Ch-gfY">
             <objects>
-                <viewController id="eLL-ED-Ssa" customClass="collectViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eLL-ED-Ssa" customClass="timeViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2L1-mB-HKn"/>
                         <viewControllerLayoutGuide type="bottom" id="RJ4-Uq-0oC"/>
@@ -2598,41 +2598,6 @@
                     <view key="view" contentMode="scaleToFill" id="TmK-77-dpm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BAO-PP-3qm">
-                                <rect key="frame" x="0.0" y="28" width="414" height="688"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="DGT-y0-pkE">
-                                    <size key="itemSize" width="138" height="138"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection" id="Kfi-Es-H3q" customClass="collection_cell" customModule="PetOye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwr-jG-SIg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <outlet property="postedImage" destination="nwr-jG-SIg" id="rMZ-5n-VFr"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="eLL-ED-Ssa" id="ppg-lt-lQO"/>
-                                    <outlet property="delegate" destination="eLL-ED-Ssa" id="3ma-hm-Ib9"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

@@ -24,7 +24,95 @@ extension UIViewController {
         
     }
     
+    func convert(value: String) -> String {
+        
+        var str = value
+        
+        var s = str.componentsSeparatedByString(".")
+        var converted = s[0]
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        var date = dateFormatter.dateFromString(converted)!
+        
+        var time = String()
+        
+        let currentDate = NSDate()
+        var t3 = Int(currentDate.timeIntervalSinceDate(date))
+        var t4 = Int()
+        
+        if t3 < 60 {
+            if t3 == 1{
+                time = "\(t3) second ago"
+            }
+            else {
+                time = "\(t3) seconds ago"
+            }
+            
+        }
+        else if t3 >= 60 && t3 < 3600 {
+            t4 = Int(t3/60)
+            if t4 == 1 {
+                time = "\(t4) minute ago"
+            }
+            else {
+                time = "\(t4) minutes ago"
+            }
+        }
+        else if t3 >= 3600 && t3 < 86400 {
+            t4 = Int(t3/3600)
+            if t4 == 1 {
+                time = "\(t4) hour ago"
+            }
+            else {
+                time = "\(t4) hours ago"
+            }
+        }
+        else if t3 >= 86400 && t3 < 604800 {
+            t4 = Int(t3/86400)
+            if t4 == 1 {
+                time = "\(t4) day ago"
+            }
+            else {
+                time = "\(t4) days ago"
+            }
+        }
+        else if t3 >= 604800 && t3 < 2592000 {
+            t4 = Int(t3/604800)
+            if t4 == 1 {
+                time = "\(t4) week ago"
+            }
+            else {
+                time = "\(t4) weeks ago"
+            }
+        }
+        else if t3 >= 2592000 && t3 < 31536000 {
+            t4 = Int(t3/2592000)
+            if t4 == 1 {
+                time = "\(t4) month ago"
+            }
+            else {
+                time = "\(t4) months ago"
+            }
+        }
+        else if t3 > 31536000 {
+            t4 = Int(t3/31536000)
+            if t4 == 1 {
+                time = "\(t4) year ago"
+            }
+            else {
+                time = "\(t4) years ago"
+            }
+        }
+
+        return time
+    }
+    
+    
+    
 }
+
 
 
 

@@ -30,6 +30,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var post_id = [String]()
     var created_at = [String]()
     var imageurl = [String]()
+    var timestamp = [String]()
     
     var post_user_id1 = [String]()
     var username1 = [String]()
@@ -39,6 +40,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var post_id1 = [String]()
     var created_at1 = [String]()
     var imageurl1 = [String]()
+    var timestamp1 = [String]()
     
     var post_user_id2 = [String]()
     var username2 = [String]()
@@ -48,6 +50,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var post_id2 = [String]()
     var created_at2 = [String]()
     var imageurl2 = [String]()
+    var timestamp2 = [String]()
     
     
     
@@ -222,6 +225,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.like_count.append(innerItem["like_count"].stringValue)
                     self.comment_count.append(innerItem["comment_count"].stringValue)
                     self.created_at.append(innerItem["created_at"].stringValue)
+                    
+                    var converted = self.convert(innerItem["created_at"].stringValue)
+                    
+                    self.timestamp.append(converted)
+                    
+                    
+                    //print(date)
+                    
+                    
                     self.imageurl.append(innerItem["imageurl"].stringValue)
                     ///////
                     
@@ -241,6 +253,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //print(self.post_id)
             //print(self.created_at)
             //print(self.imageurl)
+            print(self.timestamp)
             
             
             //for now doing nearby feeds
@@ -287,6 +300,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.like_count2.append(item["like_count"].stringValue)
                 self.comment_count2.append(item["comment_count"].stringValue)
                 self.created_at2.append(item["created_at"].stringValue)
+                var converted = self.convert(item["created_at"].stringValue)
+                //print(converted)
+                
+                self.timestamp2.append(converted)
+                
                 self.imageurl2.append(item["imageurl"].stringValue)
                 /////////
                 
@@ -299,6 +317,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             //print(self.username2)
+            print(self.timestamp2)
             
             //for now doing followed feeds
         }
@@ -339,6 +358,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.like_count1.append(item["like_count"].stringValue)
                 self.comment_count1.append(item["comment_count"].stringValue)
                 self.created_at1.append(item["created_at"].stringValue)
+                var converted = self.convert(item["created_at"].stringValue)
+                //print(converted)
+                
+                self.timestamp1.append(converted)
+
+                
                 self.imageurl1.append(item["imageurl"].stringValue)
                 /////////
                 
@@ -358,6 +383,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             //print(self.created_at1)
             //print(self.imageurl1)
 
+            print(self.timestamp1)
             
             
             //for now doing followed feeds
@@ -515,6 +541,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.message.text = message1[indexPath.row]
                 cell.likecount.text = like_count1[indexPath.row]
                 cell.commentcount.text = comment_count1[indexPath.row]
+                cell.timestamp.text = timestamp1[indexPath.row]
+               
                 
                 
                 cell.usernamePress.tag = indexPath.row
@@ -588,7 +616,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.message.text = message[indexPath.row]
                 cell.likecount.text = like_count[indexPath.row]
                 cell.commentcount.text = comment_count[indexPath.row]
-                
+                cell.timestamp.text = timestamp[indexPath.row]
                 
                 cell.usernamePress.tag = indexPath.row
                 cell.likePress.tag = indexPath.row
@@ -670,7 +698,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.message.text = message2[indexPath.row]
                 cell.likecount.text = like_count2[indexPath.row]
                 cell.commentcount.text = comment_count2[indexPath.row]
-                
+                cell.timestamp.text = timestamp2[indexPath.row]
                 
                 cell.usernamePress.tag = indexPath.row
                 cell.likePress.tag = indexPath.row
@@ -1819,8 +1847,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
                 
                 if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 302 {           // check for http errors
-                    print("statusCode should be 302, but is \(httpStatus.statusCode)")
-                    print(response!)
+                    //print("statusCode should be 302, but is \(httpStatus.statusCode)")
+                    //print(response!)
+                    
+                    let json = JSON(data: data!)
+                    let bug = json["errors"].stringValue
+                    
+                    if bug.containsString("No users") {
+                        
+                        // pop up no users by that name
+                    }
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         self.view.hideLoading()
