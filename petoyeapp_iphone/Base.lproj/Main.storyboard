@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CMU-rr-Eob">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WyZ-jL-EcB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -3115,7 +3115,7 @@
         <!--Show Profile-->
         <scene sceneID="dNl-LV-bKm">
             <objects>
-                <viewController title="Show Profile" id="WyZ-jL-EcB" sceneMemberID="viewController">
+                <viewController title="Show Profile" id="WyZ-jL-EcB" customClass="showProfileViewController" customModule="PetOye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zjw-uI-ZAq"/>
                         <viewControllerLayoutGuide type="bottom" id="I4N-zH-Zuz"/>
@@ -3153,8 +3153,15 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
+                                                        <connections>
+                                                            <outlet property="postedImage" destination="Jlg-sw-X7P" id="M9i-NJ-dTh"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="WyZ-jL-EcB" id="9jj-5Z-IEI"/>
+                                                    <outlet property="delegate" destination="WyZ-jL-EcB" id="B9P-s9-xnO"/>
+                                                </connections>
                                             </collectionView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2623.png" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-Q2-ggY">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
@@ -3209,6 +3216,9 @@
                                                                     <rect key="frame" x="359" y="18" width="25" height="22"/>
                                                                     <accessibility key="accessibilityConfiguration" identifier="5C7EC877-DCF9-4A47-855C-FF2AD31B8315-asset"/>
                                                                     <state key="normal" image="report_dots"/>
+                                                                    <connections>
+                                                                        <action selector="reportBut:" destination="0JD-ZF-pCO" eventType="touchUpInside" id="czW-fD-naB"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTo-fG-TBn">
                                                                     <rect key="frame" x="0.0" y="92" width="414" height="414"/>
@@ -3256,6 +3266,9 @@
                                                                     <rect key="frame" x="155" y="549" width="103" height="25"/>
                                                                     <accessibility key="accessibilityConfiguration" identifier="6D599FA2-7727-4EB0-96CD-DDD0932AFCE5-asset"/>
                                                                     <state key="normal" image="comment_big"/>
+                                                                    <connections>
+                                                                        <action selector="commentBut:" destination="0JD-ZF-pCO" eventType="touchUpInside" id="IPt-O2-ezZ"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCI-vW-QIl">
                                                                     <rect key="frame" x="51" y="548" width="69" height="28"/>
@@ -3265,6 +3278,9 @@
                                                                     <rect key="frame" x="51" y="548" width="69" height="28"/>
                                                                     <accessibility key="accessibilityConfiguration" identifier="6273D60E-9884-4126-8CA9-C6F289C9F872-asset"/>
                                                                     <state key="normal" image="like_unselected12"/>
+                                                                    <connections>
+                                                                        <action selector="likeBut:" destination="0JD-ZF-pCO" eventType="touchUpInside" id="NsX-Qq-WTD"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpL-d1-cNq">
                                                                     <rect key="frame" x="42" y="67" width="364" height="19"/>
@@ -3274,15 +3290,41 @@
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBp-85-JeN">
                                                                     <rect key="frame" x="45" y="514" width="47" height="14"/>
+                                                                    <connections>
+                                                                        <action selector="likedByBut:" destination="0JD-ZF-pCO" eventType="touchUpInside" id="WJz-Qm-anv"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3X-Sn-8aS">
                                                                     <rect key="frame" x="285" y="549" width="81" height="25"/>
                                                                     <state key="normal" title="Button" image="share"/>
+                                                                    <connections>
+                                                                        <action selector="shareBut:" destination="0JD-ZF-pCO" eventType="touchUpInside" id="Bb4-xq-e34"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="commentPress" destination="HwC-MG-AVo" id="Teh-JK-Twt"/>
+                                                            <outlet property="commentcount" destination="jgi-HW-0Uo" id="4Tw-er-ZwS"/>
+                                                            <outlet property="comments" destination="lzY-ze-auX" id="TKT-lg-bN9"/>
+                                                            <outlet property="likePress" destination="Gz4-Pc-eJi" id="MEJ-Le-bqB"/>
+                                                            <outlet property="like_selected" destination="fCI-vW-QIl" id="nM2-3A-ljz"/>
+                                                            <outlet property="likecount" destination="qfo-3T-31u" id="AaV-2F-ffz"/>
+                                                            <outlet property="likedBy" destination="tBp-85-JeN" id="7uD-kD-ybR"/>
+                                                            <outlet property="message" destination="vpL-d1-cNq" id="gKE-7T-2UG"/>
+                                                            <outlet property="postedImage" destination="yTo-fG-TBn" id="94i-ij-R08"/>
+                                                            <outlet property="profilePic" destination="8bS-J0-ilP" id="czH-xe-cuo"/>
+                                                            <outlet property="reportPress" destination="VZU-mh-mch" id="t5d-xy-YDp"/>
+                                                            <outlet property="share" destination="a3X-Sn-8aS" id="iTw-Qb-8cE"/>
+                                                            <outlet property="timestamp" destination="wOe-Rp-57M" id="vE8-I3-W3V"/>
+                                                            <outlet property="username" destination="99O-Jk-Fal" id="IHN-vk-efv"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="WyZ-jL-EcB" id="doK-Y1-CYG"/>
+                                                    <outlet property="delegate" destination="WyZ-jL-EcB" id="oOv-yJ-c3r"/>
+                                                </connections>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bA-ix-HRL">
                                                 <rect key="frame" x="0.0" y="307" width="414" height="586"/>
@@ -3309,8 +3351,16 @@
                                                                 </label>
                                                             </subviews>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="field" destination="Fyd-5Q-dU7" id="9ju-da-N06"/>
+                                                            <outlet property="info" destination="Cie-gI-IgB" id="7gi-cL-ZzP"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="WyZ-jL-EcB" id="l5O-cM-N2B"/>
+                                                    <outlet property="delegate" destination="WyZ-jL-EcB" id="b2x-hy-rzv"/>
+                                                </connections>
                                             </tableView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VAX-9G-oVr">
                                                 <rect key="frame" x="0.0" y="97" width="138" height="138"/>
@@ -3374,26 +3424,31 @@
                                                 <items>
                                                     <barButtonItem tag="1" title="Pet info" width="93" id="PqO-EY-cKc">
                                                         <color key="tintColor" red="0.21960784310000001" green="0.61176470589999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="info:" destination="WyZ-jL-EcB" id="Jf9-ys-lny"/>
+                                                        </connections>
                                                     </barButtonItem>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RHg-cX-Wvw"/>
                                                     <barButtonItem title="Pictures" width="93" id="VOn-Bm-H0O">
                                                         <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="pics:" destination="WyZ-jL-EcB" id="BEz-8P-scN"/>
+                                                        </connections>
                                                     </barButtonItem>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uaW-vf-hPU"/>
                                                     <barButtonItem title="Posts" width="93" id="haw-ix-MwV">
                                                         <color key="tintColor" red="0.32549019610000002" green="0.82745098039999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="posts:" destination="WyZ-jL-EcB" id="389-eK-aPj"/>
+                                                        </connections>
                                                     </barButtonItem>
                                                 </items>
                                             </toolbar>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEI-fd-1gk">
-                                                <rect key="frame" x="377" y="232" width="22" height="22"/>
-                                                <state key="normal" title="Button" image="settings"/>
-                                            </button>
                                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-4R-Oft">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                                 <items>
-                                                    <navigationItem id="IF7-q3-zXF">
-                                                        <barButtonItem key="leftBarButtonItem" image="back" id="bGR-C7-8uR"/>
+                                                    <navigationItem prompt=" " id="IF7-q3-zXF">
+                                                        <barButtonItem key="leftBarButtonItem" image="back_prof" id="bGR-C7-8uR"/>
                                                     </navigationItem>
                                                 </items>
                                             </navigationBar>
@@ -3416,6 +3471,20 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="collectionView" destination="wBS-aC-UDt" id="6qr-LE-Q7A"/>
+                        <outlet property="image1" destination="Afb-Q2-ggY" id="zoX-XZ-48q"/>
+                        <outlet property="navigBar" destination="eSo-4R-Oft" id="iIi-T3-pBz"/>
+                        <outlet property="p1" destination="PqO-EY-cKc" id="2iG-KX-NRD"/>
+                        <outlet property="p2" destination="VOn-Bm-H0O" id="vO3-OB-Sb5"/>
+                        <outlet property="p3" destination="haw-ix-MwV" id="w9W-ab-xGA"/>
+                        <outlet property="petInfo" destination="5bA-ix-HRL" id="hyq-8k-Kp9"/>
+                        <outlet property="pet_info" destination="Ghy-ys-zAn" id="k1J-YC-D2o"/>
+                        <outlet property="postTable" destination="J8H-kS-bAC" id="1DS-IQ-NSO"/>
+                        <outlet property="profilePic" destination="VAX-9G-oVr" id="0L9-yL-KoI"/>
+                        <outlet property="toolBar" destination="o3T-PC-SgX" id="gNU-p7-MHG"/>
+                        <outlet property="user_name" destination="iZc-hq-TH2" id="g2b-Gh-q6i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnJ-SA-4iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3428,6 +3497,7 @@
         <image name="already_have_account" width="151" height="25"/>
         <image name="amey.jpg" width="631" height="630"/>
         <image name="back" width="11" height="27"/>
+        <image name="back_prof" width="11" height="27"/>
         <image name="cancel" width="20" height="20"/>
         <image name="cancel_po" width="21" height="21"/>
         <image name="comment_add" width="83" height="26"/>
@@ -3465,8 +3535,8 @@
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="14w-5S-SdD"/>
-        <segue reference="aw0-LF-gGz"/>
-        <segue reference="SM0-ED-u1v"/>
+        <segue reference="LeH-1s-MEo"/>
+        <segue reference="hxz-kY-RAs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
