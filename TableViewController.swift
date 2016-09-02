@@ -17,6 +17,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var feedTable: UITableView!
     @IBOutlet weak var followedTable: UITableView!
     @IBOutlet weak var searchTable: UITableView!
+    @IBOutlet weak var trendingTable: UITableView!
     
     @IBOutlet weak var Open: UIBarButtonItem!
     @IBOutlet weak var post: UIBarButtonItem!
@@ -38,6 +39,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var post_id1 = [String]()
     var created_at1 = [String]()
     var imageurl1 = [String]()
+    
+    var post_user_id2 = [String]()
+    var username2 = [String]()
+    var message2 = [String]()
+    var like_count2 = [String]()
+    var comment_count2 = [String]()
+    var post_id2 = [String]()
+    var created_at2 = [String]()
+    var imageurl2 = [String]()
+    
+    
     
     var s_username = [String]()
     var s_userid = [String]()
@@ -113,6 +125,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //self.extendedLayoutIncludesOpaqueBars = false
         //self.automaticallyAdjustsScrollViewInsets = false
         
+        if username2.count == 0 {
+            
+            getTrending()
+        }
+        
     }
     
     
@@ -151,6 +168,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         })
     }
+    
+    func trendingTableScrollToBottom(animated: Bool) {
+        
+        let delay = 0.000005 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(time, dispatch_get_main_queue(), {
+            
+            let numberOfSections = self.trendingTable.numberOfSections
+            let numberOfRows = self.trendingTable.numberOfRowsInSection(numberOfSections-1)
+            
+            if numberOfRows > 0 {
+                let indexPath = NSIndexPath(forRow: numberOfRows-1, inSection: (numberOfSections-1))
+                self.trendingTable.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: animated)
+            }
+            
+        })
+    }
+
 
 
     
@@ -218,6 +254,55 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func getTrending()
     {
         
+        //change url to trending
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/1/followedfeeds")!)
+        request.HTTPMethod = "GET"
+        
+        view.showLoading()
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            //print(responseString)
+            
+            let json = JSON(data: data!)
+            
+            for item in json["feeds"].arrayValue {
+                self.username2.append(item["user"]["username"].stringValue.capitalizedString)
+                self.post_user_id2.append(item["user"]["id"].stringValue)
+                self.post_id2.append(item["id"].stringValue)
+                self.message2.append(item["message"].stringValue)
+                self.like_count2.append(item["like_count"].stringValue)
+                self.comment_count2.append(item["comment_count"].stringValue)
+                self.created_at2.append(item["created_at"].stringValue)
+                self.imageurl2.append(item["imageurl"].stringValue)
+                /////////
+                
+                dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                    self.trendingTable.reloadData()
+                    self.trendingTableScrollToBottom(false)
+                    self.view.hideLoading()
+                })
+                
+            }
+            
+            //print(self.username2)
+            
+            //for now doing followed feeds
+        }
+        task.resume()
+
     }
     
     func getFollowed()
@@ -301,6 +386,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         feedTable.hidden = true
         followedTable.hidden = true
+        trendingTable.hidden = false
+        
+        
     }
     
     @IBAction func followed(sender: AnyObject) {
@@ -317,6 +405,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         feedTable.hidden = true
         followedTable.hidden = false
+        trendingTable.hidden = true
         
         
         if username1.count == 0 {
@@ -340,6 +429,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         feedTable.hidden = false
         followedTable.hidden = true
+        trendingTable.hidden = true
         
         if username.count == 0 {
             
@@ -361,8 +451,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         else if (tableView == self.feedTable) {
             items = username.count
         }
-        else {
+        else if (tableView == self.searchTable) {
             items = s_username.count
+        }
+        else if (tableView == self.trendingTable) {
+            items = username2.count
+            // trending is followed for now
         }
         return items
     }
@@ -509,7 +603,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
             }
             
-            else {
+            else if (tableView == self.searchTable){
                 let cell = tableView.dequeueReusableCellWithIdentifier("search", forIndexPath: indexPath) as! search_cell
                 //cell.textLabel?.text = "TEST"
                 
@@ -518,6 +612,73 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.breed.text = s_breed[indexPath.row]
                 cell.location.text = "Dadar, Mumbai"
                 cell.profilePic.image = UIImage(named: "dawg.png")
+                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                cell.profilePic.clipsToBounds = true
+                
+                
+                return cell
+            }
+            
+            else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("trending", forIndexPath: indexPath) as! feed
+                //cell.textLabel?.text = "test"
+                
+                cell.delegate = self
+                
+                if imageurl2[indexPath.row].isEmpty {
+                    
+                    cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    
+                    
+                }
+                else
+                {
+                    
+                    let url = NSURL(string: imageurl2[indexPath.row])
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                        
+                        if error != nil
+                        {
+                            cell.postedImage.image = UIImage(named: "no_image.jpg")
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                if let image = UIImage(data: data!) {
+                                    
+                                    cell.postedImage.image = image
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    task.resume()
+                    
+                    
+                    
+                }
+                
+                cell.username.text = username2[indexPath.row]
+                
+                cell.message.text = message2[indexPath.row]
+                cell.likecount.text = like_count2[indexPath.row]
+                cell.commentcount.text = comment_count2[indexPath.row]
+                
+                
+                //cell.usernamePress.tag = indexPath.row
+                cell.likePress.tag = indexPath.row
+                cell.commentPress.tag = indexPath.row
+                cell.reportPress.tag = indexPath.row
+                cell.likedBy.tag = indexPath.row
+                cell.share.tag = indexPath.row
+                
+                cell.profilePic.image = UIImage(named: "amey.jpg")
                 cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                 cell.profilePic.clipsToBounds = true
                 
@@ -534,14 +695,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
-    }
-
-    
-    func feedCell(didPressUsernameButtonInCell cell: feed) {
-        //guard let indexPath = feedTable.indexPathForCell(cell) else { return }
-        // Do your event-handling
-        print(cell.usernamePress.tag)
-        print(username[cell.usernamePress.tag])
     }
     
     

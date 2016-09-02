@@ -31,14 +31,14 @@ class feed: UITableViewCell {
     @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var postedImage: UIImageView!
 
-    @IBOutlet weak var profilePicPress: UIButton!
+    @IBOutlet weak var profilePicPress: UIButton! //remains
     
     @IBOutlet weak var reportPress: UIButton!
     @IBOutlet weak var likePress: UIButton!
 
     @IBOutlet weak var usernamePress: UIButton!
     @IBOutlet weak var commentPress: UIButton!
-    @IBOutlet weak var imageTap: UIButton!
+    @IBOutlet weak var imageTap: UIButton! //remains
     @IBOutlet weak var like_selected: UIButton!
     @IBOutlet weak var likedBy: UIButton!
     
