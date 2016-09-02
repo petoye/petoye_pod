@@ -1466,7 +1466,7 @@
                                 <rect key="frame" x="0.0" y="74" width="414" height="662"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="likes" rowHeight="58" id="eZ7-sN-UQN" customClass="like_cell" customModule="PetOye" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="likes" rowHeight="58" id="eZ7-sN-UQN" customClass="like_cell" customModule="PetOye" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZ7-sN-UQN" id="oFB-fh-WuY">
@@ -1484,11 +1484,18 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdB-w6-4C6">
                                                     <rect key="frame" x="10" y="3" width="50" height="51"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fud-kS-d6A">
+                                                    <rect key="frame" x="75" y="14" width="331" height="30"/>
+                                                    <connections>
+                                                        <action selector="usernameBut:" destination="eZ7-sN-UQN" eventType="touchUpInside" id="VW3-qs-gnV"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="profilePic" destination="rdB-w6-4C6" id="G2b-9l-4PJ"/>
                                             <outlet property="username" destination="iXc-nj-8Xo" id="WUA-wM-Mb1"/>
+                                            <outlet property="usernamePress" destination="fud-kS-d6A" id="tV6-YE-WoX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3708,7 +3715,7 @@
         <segue reference="14w-5S-SdD"/>
         <segue reference="aw0-LF-gGz"/>
         <segue reference="SM0-ED-u1v"/>
-        <segue reference="idh-Cq-w9J"/>
+        <segue reference="4OV-hc-5Wi"/>
         <segue reference="EzH-Fc-6xY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>

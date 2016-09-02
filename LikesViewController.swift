@@ -2,11 +2,19 @@
 
 import UIKit
 
-class LikesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+
+
+class LikesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, likeCellDelegator{
     
     var username = [String]()
+    var user_id = [String]()
     
     var pid = String()
+    
+    var uid = String()
+    
+    
+    
     
     @IBOutlet weak var likeTable: UITableView!
     override func viewDidLoad() {
@@ -59,6 +67,7 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     //print(item["username"].stringValue)
                     self.username.append(item["username"].stringValue.capitalizedString)
+                    self.user_id.append(item["id"].stringValue)
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.likeTable.reloadData()
                         self.view.hideLoading()
@@ -95,23 +104,36 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
         UITableViewCell{
             let cell = tableView.dequeueReusableCellWithIdentifier("likes", forIndexPath: indexPath) as! like_cell
             //cell.textLabel?.text = "TEST"
+            
+            cell.delegate = self
             cell.username.text = username[indexPath.row]
             cell.profilePic.image = UIImage(named: "dawg.png")
             cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
             cell.profilePic.clipsToBounds = true
+            
+            cell.usernamePress.tag = indexPath.row
 
             return cell
     }
     
+    func showProf(showTag: Int) {
+        
+        uid = user_id[showTag]
+
+        self.performSegueWithIdentifier("likeToShowProfile", sender: self)
+        
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "likeToShowProfile" {
+            
+            let showProf = segue.destinationViewController as! showProfileViewController
+            
+            showProf.uid = uid
+        }
+    }
+
+
     
 }
