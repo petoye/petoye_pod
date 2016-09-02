@@ -412,7 +412,7 @@
                                                 </connections>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-Q7-bSp">
-                                                <rect key="frame" x="0.0" y="307" width="414" height="586"/>
+                                                <rect key="frame" x="0.0" y="307" width="414" height="527"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="info" rowHeight="41" id="gKa-1K-eoS" customClass="info_cell" customModule="PetOye" customModuleProvider="target">
@@ -3347,7 +3347,7 @@
                                                 </connections>
                                             </tableView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bA-ix-HRL">
-                                                <rect key="frame" x="0.0" y="307" width="414" height="586"/>
+                                                <rect key="frame" x="0.0" y="307" width="414" height="529"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="info2" rowHeight="41" id="AVG-ie-bLw" customClass="info_cell" customModule="PetOye" customModuleProvider="target">
@@ -3532,6 +3532,8 @@
                         <outlet property="toolBar" destination="o3T-PC-SgX" id="gNU-p7-MHG"/>
                         <outlet property="user_name" destination="iZc-hq-TH2" id="g2b-Gh-q6i"/>
                         <segue destination="GoT-vY-QkD" kind="show" identifier="profileToMessage" id="EzH-Fc-6xY"/>
+                        <segue destination="uTk-rr-tqL" kind="show" identifier="showToComment" id="SC7-Cw-xUd"/>
+                        <segue destination="tjm-fV-O0b" kind="show" identifier="showToLikedBy" id="jsl-Aj-aVL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnJ-SA-4iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3731,15 +3733,15 @@
         <image name="users" width="35" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ijZ-ua-LGz"/>
         <segue reference="etG-Sr-xAM"/>
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
+        <segue reference="ijZ-ua-LGz"/>
         <segue reference="14w-5S-SdD"/>
-        <segue reference="aw0-LF-gGz"/>
-        <segue reference="SM0-ED-u1v"/>
-        <segue reference="3kH-Gh-f1z"/>
         <segue reference="8gf-ap-C2v"/>
+        <segue reference="SC7-Cw-xUd"/>
+        <segue reference="jsl-Aj-aVL"/>
+        <segue reference="EzH-Fc-6xY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

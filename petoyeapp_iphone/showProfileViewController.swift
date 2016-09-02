@@ -718,7 +718,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         
         PostId = feed_id[commentTag]
         
-        //self.performSegueWithIdentifier("postToComment", sender: self)
+        self.performSegueWithIdentifier("showToComment", sender: self)
     }
     
     func likedBy(byTag: Int) {
@@ -726,14 +726,14 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         
         PostId = feed_id[byTag]
         
-        //self.performSegueWithIdentifier("postToLikedBy", sender: self)
+        self.performSegueWithIdentifier("showToLikedBy", sender: self)
         
         
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        if (segue.identifier == "postToComment") {
+        if (segue.identifier == "showToComment") {
             
             let commentVC = segue.destinationViewController as! CommentsViewController
             
@@ -741,7 +741,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             
         }
             
-        else if (segue.identifier == "postToLikedBy") {
+        else if (segue.identifier == "showToLikedBy") {
             
             let likeVC = segue.destinationViewController as! LikesViewController
             
