@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol notif2Delegate {
+    func show(showTag: Int)
+}
+
+
 class notification2_cell: UITableViewCell {
 
+    var delegate: notif2Delegate!
     
     @IBOutlet weak var profilePic: UIImageView!
  
@@ -18,4 +24,12 @@ class notification2_cell: UITableViewCell {
     @IBOutlet weak var c_l_notif: UILabel!
     
     @IBOutlet weak var postImage: UIImageView!
+    
+    @IBOutlet weak var usernamePress: UIButton!
+    
+    @IBAction func usernameBut(sender: AnyObject) {
+        
+        self.delegate.show(usernamePress.tag)
+        
+    }
 }

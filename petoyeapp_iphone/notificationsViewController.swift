@@ -14,7 +14,8 @@ var index = Int()
 var didSelect = false
 
 
-class notificationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class notificationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, notifDelegate, notif2Delegate
+{
 
     @IBOutlet weak var tool: UIToolbar!
     @IBOutlet weak var toolBar: UIToolbar!
@@ -28,6 +29,8 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     var notif = [String]()
     var u_id = [String]()
     var p_id = [String]()
+    
+    var uid = String()
     
     var username_m = [String]()
     var hisId = [String]()
@@ -269,6 +272,12 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             messageController.hisId = his_id
             messageController.hisName = his_name
         }
+        else if (segue.identifier == "notifToShowProfile") {
+            
+            let profVC = segue.destinationViewController as! showProfileViewController
+            
+            profVC.uid = uid
+        }
         
     }
     
@@ -305,12 +314,16 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                         
                     //cell for followed you
                     let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! notification_cell
+                        
+                        cell.delegate = self
                         cell.username.text = username[indexPath.row]
                         cell.followNotif.text =
                         notif[indexPath.row]
                         cell.profilePic.image = UIImage(named: "dawg.png")
                         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                         cell.profilePic.clipsToBounds = true
+                        
+                        cell.usernamePress.tag = indexPath.row
                         return cell
  
                     }
@@ -318,6 +331,8 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                         
                         //cell for commented/liked
                         let cell = tableView.dequeueReusableCellWithIdentifier("cell3", forIndexPath: indexPath) as! notification2_cell
+                        
+                        cell.delegate = self
                         cell.username.text = username[indexPath.row]
                         cell.c_l_notif.text = notif[indexPath.row]
                         cell.profilePic.image = UIImage(named: "dawg.png")
@@ -326,6 +341,9 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                         cell.postImage.image = UIImage(named: "dawg1.png")
                         //cell.postImage.layer.cornerRadius = cell.postImage.frame.size.width/2
                         //cell.postImage.clipsToBounds = true
+                        
+                        
+                        cell.usernamePress.tag = indexPath.row
                         return cell
  
                     }
@@ -350,6 +368,23 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             }
 
             
+    }
+    
+    func showProf(showTag: Int) {
+        
+        
+    uid = u_id[showTag]
+
+    self.performSegueWithIdentifier("notifToShowProfile", sender: self)
+        
+    }
+    
+    func show(showTag: Int) {
+        
+    uid = u_id[showTag]
+        
+    self.performSegueWithIdentifier("notifToShowProfile", sender: self)
+        
     }
     
 
