@@ -14,6 +14,7 @@ protocol MyCustomCellDelegator {
     func commentIt(commentTag: Int)
     func likedBy(byTag: Int)
     func shareIt(shareTag: Int)
+    func showProfile(userTag: Int)
 }
 
 
@@ -58,6 +59,9 @@ class feed: UITableViewCell {
         //print(data[usernamePress.tag])
         //var showProfileId = data[usernamePress.tag]
         
+        //print(usernamePress.tag)
+        
+        self.delegate.showProfile(usernamePress.tag)
         
         
     }

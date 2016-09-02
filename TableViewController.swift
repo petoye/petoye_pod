@@ -60,6 +60,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
 
     var PostId = String()
+    var UserId = String()
 
 
     
@@ -671,7 +672,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.commentcount.text = comment_count2[indexPath.row]
                 
                 
-                //cell.usernamePress.tag = indexPath.row
+                cell.usernamePress.tag = indexPath.row
                 cell.likePress.tag = indexPath.row
                 cell.commentPress.tag = indexPath.row
                 cell.reportPress.tag = indexPath.row
@@ -896,6 +897,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         
     }
+    
+    func showProfile(userTag: Int) {
+
+        if followed.tag == 1 {
+            UserId = post_user_id1[userTag]
+            
+            self.performSegueWithIdentifier("homeToShowProfile", sender: self)
+        }
+        else if nearby.tag == 1 {
+            UserId = post_user_id[userTag]
+            
+            self.performSegueWithIdentifier("homeToShowProfile", sender: self)
+        }
+        else if trending.tag == 1 {
+            UserId = post_user_id2[userTag]
+            
+            self.performSegueWithIdentifier("homeToShowProfile", sender: self)
+        }
+    }
 
     func commentIt(commentTag: Int) {
         
@@ -938,6 +958,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             likeVC.pid = PostId
             
+        }
+        else if (segue.identifier == "homeToShowProfile") {
+            
+            let profVC = segue.destinationViewController as! showProfileViewController
+            
+            profVC.uid = UserId
         }
         
     }

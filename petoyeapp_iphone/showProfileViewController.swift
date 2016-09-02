@@ -47,6 +47,8 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     var field = ["Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
     var info = ["Fifa","4 years old","Dog","Labrador","Yes"]
     
+    var uid = String()
+    
     
     
     @IBOutlet weak var user_name: UILabel!
@@ -54,8 +56,15 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var pet_info: UILabel!
     
     
+    @IBOutlet weak var loading: UIButton!
+    
+    @IBOutlet weak var following: UIButton!
+    
+    @IBOutlet weak var follow: UIButton!
     
     
+    var profId = String()
+    var profName = String()
     
     
     
@@ -68,7 +77,11 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         navigBar.shadowImage = UIImage()
         navigBar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.01)
         
+        following.hidden = true
         
+        follow.hidden = true
+        
+        loading.hidden = true
         
         
         
@@ -222,12 +235,64 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
          */
     }
     
+    func checkFollowing() {
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/1/\(uid)/checkfollowing")!)
+        request.HTTPMethod = "GET"
+        
+        //view.showLoading()
+        
+        loading.hidden = false
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                //self.view.hideLoading()
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+                //self.view.hideLoading()
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            //print(responseString)
+            
+            
+            //let json = JSON(data: data!)
+            
+            dispatch_async(dispatch_get_main_queue(), {() -> Void in
+                
+                //self.view.hideLoading()
+                if responseString.containsString("true") {
+                    print("yes")
+                    self.following.hidden = false
+                    self.loading.hidden = true
+                }
+                else if responseString.containsString("false") {
+                    print("no")
+                    self.follow.hidden = false
+                    self.loading.hidden = true
+                }
+
+                
+            })
+ 
+        }
+        task.resume()
+
+    }
+    
     
     func upperprofile() {
         
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/6/showprofile")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(uid)/showprofile")!)
         request.HTTPMethod = "GET"
         
         view.showLoading()
@@ -249,18 +314,23 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            //print(responseString)
+            print(responseString)
             
             let json = JSON(data: data!)
+            
+            self.profName = json["username"].stringValue.capitalizedString
+            self.profId = json["id"].stringValue
             
             dispatch_async(dispatch_get_main_queue(), {() -> Void in
                 
                 self.view.hideLoading()
                 
+                self.checkFollowing()
+                
                 self.user_name.text = json["username"].stringValue.capitalizedString
                 
                 self.pet_info.text = json["owner_type"].stringValue.capitalizedString + " - " + json["pet_breed"].stringValue.capitalizedString
-                
+
             })
             
             
@@ -273,7 +343,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     func profile() {
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/6/posts")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(uid)/posts")!)
         request.HTTPMethod = "GET"
         
         view.showLoading()
@@ -633,6 +703,11 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         
     }
     
+    func showProfile(userTag: Int) {
+        
+    
+    }
+    
     func commentIt(commentTag: Int) {
         //print(commentTag)
         
@@ -668,6 +743,14 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             likeVC.pid = PostId
             
         }
+        else if (segue.identifier == "profileToMessage") {
+            
+            let messageController = segue.destinationViewController as! messagesViewController
+            
+            messageController.hisId = profId
+            messageController.hisName = profName
+        }
+
         
         
     }
@@ -738,8 +821,24 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
+    @IBAction func back(sender: AnyObject) {
+        
+        
+        navigationController?.popViewControllerAnimated(true)
+        
+        
+        
+    }
     
     
+    @IBAction func message(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("profileToMessage", sender: self)
+        
+    }
+    
+
+
     
     
     

@@ -95,8 +95,27 @@ class messagesViewController: JSQMessagesViewController{
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-                print("statusCode should be 201, but is \(httpStatus.statusCode)")
-                print(response!)
+                //print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                //print(response!)
+                
+                let json = JSON(data: data!)
+                let bug = json["errors"].stringValue
+                
+                self.view.hideLoading()
+                
+                if bug == "No messages"
+                {
+
+                    print("No messages")
+                    //self.view.hideLoading()
+                    
+                }
+                else {
+                    print("try again later")
+                    //self.view.hideLoading()
+                }
+
+                
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!

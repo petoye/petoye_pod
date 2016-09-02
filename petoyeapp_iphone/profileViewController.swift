@@ -218,6 +218,10 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
     }
     
+    func showProfile(userTag: Int) {
+
+    }
+    
     func upperprofile() {
         
         

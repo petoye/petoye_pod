@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WyZ-jL-EcB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CMU-rr-Eob">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -791,7 +791,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="navBar" destination="j19-hj-ZZt" id="uXo-mR-bIU"/>
-                        <segue destination="cgY-MP-jzm" kind="custom" identifier="back2" customClass="SWRevealViewControllerSeguePushController" id="ONz-So-d6F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSa-b3-aST" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2188,6 +2187,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYt-kl-J9W">
+                                                    <rect key="frame" x="104" y="8" width="247" height="28"/>
+                                                    <connections>
+                                                        <action selector="usernameBut:" destination="Jb4-WY-FU5" eventType="touchUpInside" id="ml1-9s-E52"/>
+                                                    </connections>
+                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucG-c6-97C">
                                                     <rect key="frame" x="0.0" y="91" width="414" height="414"/>
                                                     <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
@@ -2210,6 +2215,7 @@
                                             <outlet property="share" destination="HYI-Tp-Kt4" id="NQr-v1-2WG"/>
                                             <outlet property="timestamp" destination="FRg-eH-NRA" id="wAu-7h-Yy1"/>
                                             <outlet property="username" destination="Cy2-mR-blJ" id="0AO-Dl-nl4"/>
+                                            <outlet property="usernamePress" destination="fYt-kl-J9W" id="gPf-Ut-ZhS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2249,6 +2255,7 @@
                         <outlet property="toolBar" destination="Q74-9k-rx0" id="F6x-nx-VjD"/>
                         <outlet property="trending" destination="Hmy-QK-pGT" id="Lhe-ga-z2l"/>
                         <outlet property="trendingTable" destination="gxe-Rs-Vve" id="TdF-iQ-66a"/>
+                        <segue destination="WyZ-jL-EcB" kind="show" identifier="homeToShowProfile" id="2aw-dl-TH4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMy-Da-9Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3448,10 +3455,31 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                                 <items>
                                                     <navigationItem prompt=" " id="IF7-q3-zXF">
-                                                        <barButtonItem key="leftBarButtonItem" image="back_prof" id="bGR-C7-8uR"/>
+                                                        <barButtonItem key="leftBarButtonItem" image="back_prof" id="bGR-C7-8uR">
+                                                            <connections>
+                                                                <action selector="back:" destination="WyZ-jL-EcB" id="LTE-8o-fYZ"/>
+                                                            </connections>
+                                                        </barButtonItem>
+                                                        <barButtonItem key="rightBarButtonItem" image="message_big" id="B3V-TB-RpP">
+                                                            <connections>
+                                                                <action selector="message:" destination="WyZ-jL-EcB" id="aRP-yD-QCz"/>
+                                                            </connections>
+                                                        </barButtonItem>
                                                     </navigationItem>
                                                 </items>
                                             </navigationBar>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qki-PW-3m0">
+                                                <rect key="frame" x="334" y="225" width="72" height="26"/>
+                                                <state key="normal" title="Button" image="followed"/>
+                                            </button>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7c-Fx-URx">
+                                                <rect key="frame" x="334" y="225" width="72" height="26"/>
+                                                <state key="normal" title="Button" image="loading_p"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-sf-och">
+                                                <rect key="frame" x="334" y="225" width="72" height="26"/>
+                                                <state key="normal" title="Button" image="follow"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -3473,7 +3501,10 @@
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="collectionView" destination="wBS-aC-UDt" id="6qr-LE-Q7A"/>
+                        <outlet property="follow" destination="2Xi-sf-och" id="m5s-Oz-QWZ"/>
+                        <outlet property="following" destination="qki-PW-3m0" id="OcI-Hh-bpX"/>
                         <outlet property="image1" destination="Afb-Q2-ggY" id="zoX-XZ-48q"/>
+                        <outlet property="loading" destination="X7c-Fx-URx" id="2I5-CF-yEe"/>
                         <outlet property="navigBar" destination="eSo-4R-Oft" id="iIi-T3-pBz"/>
                         <outlet property="p1" destination="PqO-EY-cKc" id="2iG-KX-NRD"/>
                         <outlet property="p2" destination="VOn-Bm-H0O" id="vO3-OB-Sb5"/>
@@ -3484,6 +3515,7 @@
                         <outlet property="profilePic" destination="VAX-9G-oVr" id="0L9-yL-KoI"/>
                         <outlet property="toolBar" destination="o3T-PC-SgX" id="gNU-p7-MHG"/>
                         <outlet property="user_name" destination="iZc-hq-TH2" id="g2b-Gh-q6i"/>
+                        <segue destination="GoT-vY-QkD" kind="show" identifier="profileToMessage" id="EzH-Fc-6xY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnJ-SA-4iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3512,9 +3544,11 @@
         <image name="like_unselected" width="69" height="28"/>
         <image name="like_unselected1" width="69" height="28"/>
         <image name="like_unselected12" width="69" height="28"/>
+        <image name="loading_p" width="70" height="26"/>
         <image name="location" width="12" height="16"/>
         <image name="login_fb" width="316" height="64"/>
         <image name="login_with_email" width="316" height="64"/>
+        <image name="message_big" width="27" height="20"/>
         <image name="my_profile" width="32" height="30"/>
         <image name="notif" width="32" height="31"/>
         <image name="petoye_logo" width="155" height="156"/>
@@ -3537,6 +3571,7 @@
         <segue reference="14w-5S-SdD"/>
         <segue reference="LeH-1s-MEo"/>
         <segue reference="hxz-kY-RAs"/>
+        <segue reference="3kH-Gh-f1z"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
