@@ -1359,7 +1359,7 @@
                                                     <action selector="click:" destination="xiS-f3-99y" eventType="touchUpInside" id="6iN-aO-fRa"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-cL-M6v">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-cL-M6v">
                                                 <rect key="frame" x="227" y="276" width="157" height="157"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="42E72C4C-BCE7-4CCB-BBEB-325C735C9BCA"/>
                                             </imageView>

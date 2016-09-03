@@ -57,12 +57,14 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var picker: UIPickerView!
     
+    var popUp: UIImageView = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.scroll.hidden = true
         
-        post.hidden = true
+        //post.hidden = true
         
         picker.hidden = true
         
@@ -303,6 +305,47 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
         cell.delegate = self
         
+/*
+        
+        if imageurl2[indexPath.row].isEmpty {
+            
+            cell.postedImage.image = UIImage(named: "no_image.jpg")
+            
+            
+        }
+        else
+        {
+            
+            let url = NSURL(string: imageurl2[indexPath.row])
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                
+                if error != nil
+                {
+                    cell.postedImage.image = UIImage(named: "no_image.jpg")
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        if let image = UIImage(data: data!) {
+                            
+                            cell.postedImage.image = image
+                        }
+                        
+                    })
+                    
+                }
+                
+                
+            }
+            task.resume()
+            
+            
+            
+        }
+*/
+        
         
         cell.username.text = username[indexPath.row]
         cell.pet_info.text = pet_info[indexPath.row]
@@ -310,7 +353,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
         cell.profilePic.clipsToBounds = true
         
-        cell.postedImage.image = UIImage(named: "no_image.jpg")
+        //cell.postedImage.image = UIImage(named: "no_image.jpg")
         
         cell.shareBut.tag = indexPath.row
         cell.usernamePress.tag = indexPath.row
@@ -484,10 +527,159 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
         
         
+        let pet_type = type.text!
+        let pet_breed = breed.text!
+        let pet_age = age.text!
+        let description = des.text!
         
+        let param = ["type" : pet_type, "breed" : pet_breed, "age" : pet_age, "description": description]
+        
+        self.view.showLoading()
+        
+        let url = NSURL(string: "http://api.petoye.com/adopt/6/createadoption")
+        
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        let boundary = generateBoundaryString()
+        
+        //define the multipart request type
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        if (adopt.image == nil)
+        {
+            return
+        }
+        
+        let image_data = UIImagePNGRepresentation(adopt.image!)
+        
+        
+        if(image_data == nil)
+        {
+            return
+        }
+        
+        
+        let body = NSMutableData()
+        
+        let fname = "test.png"
+        let mimetype = "image/png"
+        
+        //define the data post parameter
+        
+        
+        for (key, value) in param {
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            body.appendString("\(value)\r\n")
+        }
+        
+        
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"image\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(image_data!)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        body.appendData("--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        request.HTTPBody = body
+        
+        
+        
+        let session = NSURLSession.sharedSession()
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
+            {
+                //pop up comment added
+                
+                
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.showAnimate("popup_adopt")
+                    
+                    self.view.hideLoading()
+                    
+                })
+                
+                
+                
+            }
+            
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
+                print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                print(response!)
+                
+                self.view.hideLoading()
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+            
+            
+            
+        }
+        task.resume()
+        
+        
+        
+    }
+    
+    
+    func generateBoundaryString() -> String
+    {
+        return "Boundary-\(NSUUID().UUIDString)"
     }
 
 
-    
+    func showAnimate(image_name: String) {
+        
+        popUp = UIImageView(frame: CGRectMake(0, self.navigBar.frame.size.height, self.view.bounds.size.width, 53))
+        
+        popUp.image = UIImage(named: image_name)
+        
+        self.view.addSubview(popUp)
+        
+        
+        var timer = NSTimer()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(TableViewController.removeAnimate), userInfo: nil, repeats: false)
+        
+        self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        self.popUp.alpha = 0.0;
+        
+        UIImageView.animateWithDuration(0.25) {
+            self.popUp.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.popUp.alpha = 1.0
+        }
+        
+    }
+    func removeAnimate() {
+        
+        UIImageView.animateWithDuration(0.25, animations: {
+            self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+            self.popUp.alpha = 0.0;
+            
+        }) { (true) in
+            self.popUp.removeFromSuperview()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+    }
+
 
 }
