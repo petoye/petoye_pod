@@ -179,8 +179,6 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         
         let url = NSURL(string: "http://api.petoye.com/feeds/6/create")
         
-        print(url)
-        
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         

@@ -32,6 +32,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
     var pet_info = [String]()
     var message = [String]()
     var post_user_id = [String]()
+    var imageUrl = [String]()
     
     var pickerData: [String] = [String]()
     
@@ -121,6 +122,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
             
             self.pet_info.append(str + "," + str1 + "- " + str2 + " years old")
             self.message.append(item["description"].stringValue)
+            self.imageUrl.append(item["imageurl"].stringValue)
             self.username.append(item["user"]["username"].stringValue.capitalizedString)
             self.post_user_id.append(item["user"]["id"].stringValue)
                 
@@ -128,11 +130,13 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.adoptionsTable.reloadData()
                     self.view.hideLoading()
+                    
                 })
                 
             }
             //print(self.username_m)
             //print(self.post_user_id)
+            print(self.imageUrl)
         }
         task.resume()
     }
@@ -305,9 +309,9 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
         cell.delegate = self
         
-/*
+
         
-        if imageurl2[indexPath.row].isEmpty {
+        if imageUrl[indexPath.row].isEmpty {
             
             cell.postedImage.image = UIImage(named: "no_image.jpg")
             
@@ -316,7 +320,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         else
         {
             
-            let url = NSURL(string: imageurl2[indexPath.row])
+            let url = NSURL(string: imageUrl[indexPath.row])
             
             let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
                 
@@ -344,7 +348,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
             
             
         }
-*/
+
         
         
         cell.username.text = username[indexPath.row]
@@ -612,6 +616,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
                     
                     self.view.hideLoading()
                     
+                    self.post.hidden = true
                 })
                 
                 
