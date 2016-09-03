@@ -9,7 +9,7 @@
 import UIKit
 import Social
 
-class adoptionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, adoptCellDelegator {
+class adoptionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, adoptCellDelegator {
     
     @IBOutlet weak var Open: UIBarButtonItem!
     
@@ -26,17 +26,49 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var adoptionsTable: UITableView!
     
-    @IBOutlet weak var giveForAdoptions: UITableView!
+    @IBOutlet weak var post: UIButton!
     
     var username = [String]()
     var pet_info = [String]()
     var message = [String]()
     var post_user_id = [String]()
     
+    var pickerData: [String] = [String]()
+    
+    @IBOutlet weak var scroll: UIScrollView!
+    
+    @IBOutlet weak var adopt: UIImageView!
+    
+    @IBOutlet weak var clickbut: UIButton!
+    
     var UserId = String()
 
+    @IBOutlet weak var type: UITextField!
+    
+    @IBOutlet weak var breed: UITextField!
+    
+    @IBOutlet weak var age: UITextField!
+    
+    @IBOutlet weak var des: UITextView!
+    
+    @IBOutlet weak var t1: UIButton!
+    
+    @IBOutlet weak var t2: UIButton!
+    
+    @IBOutlet weak var picker: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.scroll.hidden = true
+        
+        post.hidden = true
+        
+        picker.hidden = true
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
 
         // Do any additional setup after loading the view.
         
@@ -49,8 +81,6 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         self.view.addSubview(selectedView)
         
         selectedView.hidden = true
-        
-        giveForAdoptions.hidden = true
 
         adoptions()
         
@@ -125,6 +155,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         customView.hidden = false
         a1.tintColor = UIColorFromHex(0x43ACB9, alpha: 1)
         a2.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        self.scroll.hidden = true
         a2.tag = 0
         a1.tag = 1
         //notifTable.reloadData()
@@ -142,6 +173,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         selectedView.hidden = false
         a2.tintColor = UIColorFromHex(0x43ACB9, alpha: 1)
         a1.tintColor = UIColorFromHex(0x53D3E3, alpha: 1)
+        self.scroll.hidden = false
         a1.tag = 0
         a2.tag = 1
         //notifTable.reloadData()
@@ -153,6 +185,106 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
         
     }
+    
+    
+    
+    @IBAction func t1(sender: AnyObject) {
+        
+        picker.hidden = false
+        
+        self.type.text = ""
+        
+        self.type.tag = 1
+        self.breed.tag = 0
+        
+        pickerData = ["Dog", "Cat","Hamster","Other"]
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        
+        var bottomOffset: CGPoint = CGPointMake(0, self.scroll.contentSize.height - self.scroll.bounds.size.height)
+        self.scroll.setContentOffset(bottomOffset, animated: true)
+        
+    }
+    
+    
+    
+    @IBAction func t2(sender: AnyObject) {
+        
+        picker.hidden = false
+        
+        self.breed.text = ""
+        
+        self.type.tag = 0
+        self.breed.tag = 1
+        
+        pickerData = ["Labrador", "Beagle", "Pug"]
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        
+        var bottomOffset: CGPoint = CGPointMake(0, self.scroll.contentSize.height - self.scroll.bounds.size.height)
+        self.scroll.setContentOffset(bottomOffset, animated: true)
+
+    }
+    
+    
+    // The number of columns of data
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    // Catpure the picker view selection
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        
+        if (self.type.tag == 1) {
+            
+            if(row == 0)
+            {
+                type.text = "Dog"
+            }
+            else if(row == 1)
+            {
+                type.text = "Cat"
+            }
+            else if (row == 2)
+            {
+                type.text = "Hamster"
+            }
+            else if (row == 3)
+            {
+                type.text = "Other"
+            }
+            
+        }
+        else if (self.breed.tag == 1) {
+            
+            if(row == 0)
+            {
+                breed.text = "Labrador"
+            }
+            else if(row == 1)
+            {
+                breed.text = "Beagle"
+            }
+            else if (row == 2)
+            {
+                breed.text = "Pug"
+            }
+            
+        }
+        
+    }
+
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -275,7 +407,87 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
     }
 
+    func keyboardDidShow() {
+        
+        var bottomOffset: CGPoint = CGPointMake(0, self.scroll.contentSize.height - self.scroll.bounds.size.height)
+        self.scroll.setContentOffset(bottomOffset, animated: true)
+        
+        //self.des.text = ""
+        
+        self.picker.hidden = true
+        
+    }
     
+    @IBAction func click(sender: AnyObject) {
+        
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController()
+        
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            print("Cancel")
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+        let chooseLibActionButton: UIAlertAction = UIAlertAction(title: "Choose from camera", style: .Default)
+        { action -> Void in
+            print("Choose from camera")
+            
+            var image = UIImagePickerController()
+            image.delegate = self
+            //image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            image.sourceType = UIImagePickerControllerSourceType.Camera
+            image.allowsEditing = true
+            
+            self.presentViewController(image, animated: true, completion: nil)
+            
+        }
+        actionSheetControllerIOS8.addAction(chooseLibActionButton)
+        
+        let chooseGalleryActionButton: UIAlertAction = UIAlertAction(title: "Choose from gallery", style: .Default)
+        { action -> Void in
+            print("Choose from gallery")
+            
+            var image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            image.allowsEditing = true
+            
+            self.presentViewController(image, animated: true, completion: nil)
+            
+        }
+        actionSheetControllerIOS8.addAction(chooseGalleryActionButton)
+        
+        self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+        
+        
+        
+        
+        
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+
+            self.adopt.image = image
+        
+            self.clickbut.hidden = true
+        
+            if ((type.text != nil && breed.text != nil) && (age.text != nil && des.text != nil)) && adopt.image != nil {
+            
+                self.post.hidden = false
+            }
+        
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func postBut(sender: AnyObject) {
+        
+        
+        
+        
+    }
+
+
     
 
 }

@@ -1167,7 +1167,7 @@
                         <viewControllerLayoutGuide type="bottom" id="OiJ-mq-hFW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XUz-dk-nKH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NeX-E6-ijq">
@@ -1184,7 +1184,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJG-dg-5Wf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJG-dg-5Wf">
                                 <rect key="frame" x="0.0" y="74" width="414" height="44"/>
                                 <items>
                                     <barButtonItem width="55" style="plain" systemItem="flexibleSpace" id="ha3-He-uG3"/>
@@ -1207,75 +1207,6 @@
                                 <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="519" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7X4-KL-ohf">
-                                <rect key="frame" x="0.0" y="118" width="414" height="610"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="519" id="Qbu-Uk-aGM">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="519"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qbu-Uk-aGM" id="tkG-57-vbL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="518"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet breed " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eda-6F-YpS">
-                                                    <rect key="frame" x="26" y="32" width="96" height="24"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="5D3DA8A3-5144-4529-AC22-7AF9E4FE0E39"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                    <color key="textColor" red="0.0078431372550000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text=" Pet age" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNF-aA-Kzg">
-                                                    <rect key="frame" x="23" y="78" width="77" height="24"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="038BA941-93BD-433D-8F38-6276769E3A5A"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                    <color key="textColor" red="0.0078431372550000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet description " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUF-qJ-VOR">
-                                                    <rect key="frame" x="26" y="123" width="143" height="24"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="854DF232-BE02-455F-8281-F0A596553617"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                    <color key="textColor" red="0.0078431372550000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet picture " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GS-Ci-bhE">
-                                                    <rect key="frame" x="26" y="223" width="105" height="24"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="23927A87-8174-4A9B-9A23-8AFE425FE86E"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                    <color key="textColor" red="0.0078431372550000003" green="0.0039215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wgo-Eo-zap">
-                                                    <rect key="frame" x="200" y="29" width="206" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5SH-4w-1Rt">
-                                                    <rect key="frame" x="200" y="123" width="206" height="85"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6t5-kV-CWV">
-                                                    <rect key="frame" x="225" y="221" width="157" height="157"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="42E72C4C-BCE7-4CCB-BBEB-325C735C9BCA"/>
-                                                </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pik-sB-Fwq">
-                                                    <rect key="frame" x="200" y="78" width="206" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="514" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2ns-Mg-X9M">
                                 <rect key="frame" x="0.0" y="118" width="414" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1348,18 +1279,190 @@
                                     <outlet property="delegate" destination="xiS-f3-99y" id="yW9-Mt-hKf"/>
                                 </connections>
                             </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Om-Lq-GL3">
+                                <rect key="frame" x="0.0" y="118" width="414" height="732"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lFP-tD-87J">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="565"/>
+                                        <subviews>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet type " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asm-ho-asx">
+                                                <rect key="frame" x="27" y="49" width="82" height="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="42BB3503-C62C-46B7-BE2D-27CFF32D824D"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet breed " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-FE-ZNW">
+                                                <rect key="frame" x="27" y="94" width="96" height="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="6D34FDF8-D032-41A2-BD46-A2496159535E"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text=" Pet age" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gl-6s-aL2">
+                                                <rect key="frame" x="25" y="140" width="77" height="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="71D0B379-7779-4A09-989A-8D63EE2F1682"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet picture " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMA-Oj-OY9">
+                                                <rect key="frame" x="27" y="285" width="105" height="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="49DB237E-35CF-4B71-8752-B21D6AE469B2"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dog, Cat" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZv-1o-KQB">
+                                                <rect key="frame" x="227" y="47" width="155" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="E4E38826-0F81-44DB-A69C-CF48644F05B6"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lab, pug" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X8X-R4-H2f">
+                                                <rect key="frame" x="227" y="93" width="155" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="20DC3E60-4034-4134-A46F-CFA75472F792"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMF-5u-kpg">
+                                                <rect key="frame" x="224" y="285" width="169" height="25"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="0707C455-F148-4485-B3DF-480240B7F551-asset"/>
+                                                <state key="normal" title="Button" image="clicktoadd"/>
+                                                <connections>
+                                                    <action selector="click:" destination="xiS-f3-99y" eventType="touchUpInside" id="6iN-aO-fRa"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-cL-M6v">
+                                                <rect key="frame" x="227" y="276" width="157" height="157"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="42E72C4C-BCE7-4CCB-BBEB-325C735C9BCA"/>
+                                            </imageView>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="Pet description " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jh-4a-80J">
+                                                <rect key="frame" x="27" y="186" width="143" height="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="A15AE4B4-584A-4125-9E15-861732788478"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                <color key="textColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXy-RM-VS6">
+                                                <rect key="frame" x="107" y="432" width="91" height="26"/>
+                                                <state key="normal" title="Button" image="post"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cit-Pv-Zh1">
+                                                <rect key="frame" x="164" y="456" width="86" height="26"/>
+                                                <state key="normal" title="Button" image="post_button"/>
+                                                <connections>
+                                                    <action selector="postBut:" destination="xiS-f3-99y" eventType="touchUpInside" id="1KG-H3-yST"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Describe your pet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Eb7-Og-hC5">
+                                                <rect key="frame" x="224" y="186" width="158" height="62"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJa-TZ-4XO">
+                                                <rect key="frame" x="227" y="47" width="155" height="30"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="t1:" destination="xiS-f3-99y" eventType="touchUpInside" id="nYF-16-X92"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLL-GM-S2d">
+                                                <rect key="frame" x="227" y="94" width="155" height="30"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="0.28627450980000002" green="0.3921568627" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="t2:" destination="xiS-f3-99y" eventType="touchUpInside" id="ZpP-By-Yyf"/>
+                                                </connections>
+                                            </button>
+                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uF2-mk-IDk">
+                                                <rect key="frame" x="0.0" y="401" width="414" height="164"/>
+                                            </pickerView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HeJ-D1-EcO">
+                                                <rect key="frame" x="227" y="140" width="155" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="AE444600-CB02-4F3A-95DC-20CC033C83A0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lFP-tD-87J" secondAttribute="bottom" constant="94" id="PZL-cI-sXn"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Om-Lq-GL3" firstAttribute="leading" secondItem="XUz-dk-nKH" secondAttribute="leadingMargin" constant="-20" id="1ZA-de-ob3"/>
+                            <constraint firstItem="OiJ-mq-hFW" firstAttribute="top" secondItem="8Om-Lq-GL3" secondAttribute="bottom" id="1mw-xt-6UV"/>
+                            <constraint firstItem="8Om-Lq-GL3" firstAttribute="top" secondItem="XJG-dg-5Wf" secondAttribute="bottom" id="2LY-UY-wYq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Om-Lq-GL3" secondAttribute="trailing" constant="-20" id="rWI-Dp-Hvm"/>
+                        </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="850"/>
                     <connections>
                         <outlet property="Open" destination="3lA-8X-ogg" id="SxG-me-iib"/>
                         <outlet property="a1" destination="hSi-tP-Ef5" id="MlQ-O8-wnV"/>
                         <outlet property="a2" destination="fcn-bG-Hss" id="II2-7x-oVD"/>
+                        <outlet property="adopt" destination="KUF-cL-M6v" id="WIi-Qa-BsI"/>
                         <outlet property="adoptionsTable" destination="2ns-Mg-X9M" id="1jI-6d-8fZ"/>
-                        <outlet property="giveForAdoptions" destination="7X4-KL-ohf" id="ylN-AF-UHw"/>
+                        <outlet property="age" destination="HeJ-D1-EcO" id="2s6-PN-dwW"/>
+                        <outlet property="breed" destination="X8X-R4-H2f" id="J8U-Kb-CZH"/>
+                        <outlet property="clickbut" destination="ZMF-5u-kpg" id="h3p-p0-Igt"/>
+                        <outlet property="des" destination="Eb7-Og-hC5" id="Ud2-zs-K3r"/>
                         <outlet property="navigBar" destination="NeX-E6-ijq" id="nq2-P8-Kjn"/>
+                        <outlet property="picker" destination="uF2-mk-IDk" id="23h-4b-RMX"/>
+                        <outlet property="post" destination="cit-Pv-Zh1" id="9XP-10-1Bm"/>
+                        <outlet property="scroll" destination="8Om-Lq-GL3" id="HHX-SI-Pk2"/>
+                        <outlet property="t1" destination="QJa-TZ-4XO" id="ipd-Gf-iXN"/>
+                        <outlet property="t2" destination="JLL-GM-S2d" id="Fqi-MN-8uz"/>
                         <outlet property="toolBar" destination="XJG-dg-5Wf" id="g78-Jq-Gs1"/>
+                        <outlet property="type" destination="yZv-1o-KQB" id="905-Hx-l87"/>
                         <segue destination="WyZ-jL-EcB" kind="show" identifier="adoptToShowProfile" id="2su-x4-5uP"/>
                     </connections>
                 </viewController>
@@ -3195,7 +3298,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qka-1A-Cro">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qka-1A-Cro">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UU9-JP-fta">
@@ -3753,6 +3856,7 @@
         <image name="camera_white" width="28" height="25"/>
         <image name="cancel" width="20" height="20"/>
         <image name="cancel_po" width="21" height="21"/>
+        <image name="clicktoadd" width="166" height="25"/>
         <image name="comment_add" width="83" height="26"/>
         <image name="comment_big" width="103" height="25"/>
         <image name="done_button" width="164" height="63"/>
@@ -3776,6 +3880,7 @@
         <image name="petoye_logo2" width="155" height="156"/>
         <image name="plus_button" width="43" height="42"/>
         <image name="post" width="26" height="26"/>
+        <image name="post_button" width="83" height="26"/>
         <image name="report_dots" width="25" height="7"/>
         <image name="search" width="26" height="26"/>
         <image name="settings" width="22" height="22"/>
@@ -3789,11 +3894,11 @@
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
         <segue reference="ijZ-ua-LGz"/>
-        <segue reference="14w-5S-SdD"/>
-        <segue reference="8gf-ap-C2v"/>
+        <segue reference="2su-x4-5uP"/>
         <segue reference="SC7-Cw-xUd"/>
         <segue reference="jsl-Aj-aVL"/>
         <segue reference="EzH-Fc-6xY"/>
+        <segue reference="14w-5S-SdD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>
