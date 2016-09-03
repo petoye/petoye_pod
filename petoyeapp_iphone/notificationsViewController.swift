@@ -120,6 +120,9 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.notifTable.reloadData()
                     self.view.hideLoading()
+                    //self.navigationController!.tabBarItem.badgeValue = String(self.notif.count)
+                    //self.tabBarController?.tabBarItem.badgeValue = String(self.notif.count)
+                    self.tabBarController?.selectedViewController?.tabBarItem.badgeValue = String(self.notif.count);
                 })
 
             }
