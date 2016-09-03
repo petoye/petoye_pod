@@ -18,8 +18,11 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
     
     @IBOutlet weak var head: UIButton!
     
+    @IBOutlet weak var navigBar: UINavigationBar!
     
     @IBOutlet weak var prof: UIButton!
+    
+    var popUp: UIImageView = UIImageView()
     
     var field = ["Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
     var info = ["Fifa","4 years old","Dog","Labrador","Yes"]
@@ -200,7 +203,10 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
     
     @IBAction func save(sender: AnyObject) {
         
-        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.showAnimate("popup_prof")
+            
+        }
     }
     
     func keyboardDidShow() {
@@ -210,14 +216,40 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showAnimate(image_name: String) {
+        
+        popUp = UIImageView(frame: CGRectMake(0, self.navigBar.frame.size.height, self.view.bounds.size.width, 53))
+        
+        popUp.image = UIImage(named: image_name)
+        
+        self.view.addSubview(popUp)
+        
+        
+        var timer = NSTimer()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(TableViewController.removeAnimate), userInfo: nil, repeats: false)
+        
+        self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        self.popUp.alpha = 0.0;
+        
+        UIImageView.animateWithDuration(0.25) {
+            self.popUp.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.popUp.alpha = 1.0
+        }
+        
     }
-    */
+    func removeAnimate() {
+        
+        UIImageView.animateWithDuration(0.25, animations: {
+            self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+            self.popUp.alpha = 0.0;
+            
+        }) { (true) in
+            self.popUp.removeFromSuperview()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+    }
+
 
 }

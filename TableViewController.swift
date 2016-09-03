@@ -22,6 +22,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var Open: UIBarButtonItem!
     @IBOutlet weak var post: UIBarButtonItem!
     
+    
     var post_user_id = [String]()
     var username = [String]()
     var message = [String]()
@@ -65,6 +66,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var PostId = String()
     var UserId = String()
 
+    var popUp: UIImageView = UIImageView()
 
     
     var trendingView = UIView()
@@ -210,6 +212,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
                 print("statusCode should be 201, but is \(httpStatus.statusCode)")
                 print(response!)
+                self.view.hideLoading()
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -285,6 +288,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print(response!)
+                self.view.hideLoading()
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -343,6 +347,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print(response!)
+                self.view.hideLoading()
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -1331,13 +1336,18 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                     
                     if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-                        print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                        print("statusCode should be 201, but is \(httpStatus.statusCode)")
                         print(response!)
                         
                     }
                     
                     var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                     print(responseString)
+                    
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.showAnimate("popup_report")
+                    })
                     
                     
                     
@@ -1386,6 +1396,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
                 {
                     // pop up followed
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.showAnimate("popup_followed")
+                    })
                 }
                 
                 
@@ -1505,6 +1519,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                 print(responseString)
                 
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.showAnimate("popup_report")
+                })
+                
             }
             task.resume()
             
@@ -1551,6 +1569,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 201
                     {
                         // pop up followed
+                        
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.showAnimate("popup_followed")
+                        })
                     }
                     
                     
@@ -1669,6 +1691,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
                     print(responseString)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.showAnimate("popup_report")
+                    })
                     
                 }
                 task.resume()
@@ -1904,6 +1930,40 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
         
+        
+    }
+    
+    func showAnimate(image_name: String) {
+        
+        popUp = UIImageView(frame: CGRectMake(0, self.navBar.frame.size.height, self.view.bounds.size.width, 53))
+        
+        popUp.image = UIImage(named: image_name)
+        
+        self.view.addSubview(popUp)
+        
+        
+        var timer = NSTimer()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(TableViewController.removeAnimate), userInfo: nil, repeats: false)
+        
+        self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        self.popUp.alpha = 0.0;
+        
+        UIImageView.animateWithDuration(0.25) {
+            self.popUp.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.popUp.alpha = 1.0
+        }
+        
+    }
+    func removeAnimate() {
+        
+        UIImageView.animateWithDuration(0.25, animations: {
+            self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+            self.popUp.alpha = 0.0;
+            
+        }) { (true) in
+            self.popUp.removeFromSuperview()
+        }
         
     }
     

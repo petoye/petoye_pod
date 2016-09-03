@@ -5,7 +5,9 @@ import AVFoundation
 var id = String()
 var fbid = String()
 
+
 extension UIViewController {
+    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
@@ -110,6 +112,8 @@ extension UIViewController {
     }
     
     
+
+    
     
 }
 
@@ -126,7 +130,6 @@ class CreateAnAccountViewController: UIViewController, UIGestureRecognizerDelega
     @IBOutlet weak var scrollView: UIScrollView!
     var player:AVAudioPlayer = AVAudioPlayer()
     var fbLoginSuccess = false
-    
     
     override func viewDidAppear(animated: Bool) {
         if (FBSDKAccessToken.currentAccessToken() != nil || fbLoginSuccess == true)

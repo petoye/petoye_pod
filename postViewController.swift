@@ -31,6 +31,8 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var hack: UITextView!
     @IBOutlet weak var cancel: UIButton!
+    
+    var popUp: UIImageView = UIImageView()
 
     
     override func viewDidLoad() {
@@ -173,7 +175,7 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         
         let param = ["message" : msg]
         
-        
+        self.view.showLoading()
         
         let url = NSURL(string: "http://api.petoye.com/feeds/6/create")
         
@@ -246,6 +248,14 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
             {
                 //pop up comment added
                 
+                self.view.hideLoading()
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.showAnimate("upload_popup")
+                    
+                })
+                
+                
                 
             }
             
@@ -253,10 +263,14 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
                 print("statusCode should be 201, but is \(httpStatus.statusCode)")
                 print(response!)
+                
+                self.view.hideLoading()
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print(responseString!)
+            
+            
             
             
         }
@@ -302,5 +316,40 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     
     func textViewDidChange(textView: UITextView) {
        
+    }
+    
+    func showAnimate(image_name: String) {
+        
+        popUp = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.size.width, 53))
+        
+        popUp.image = UIImage(named: image_name)
+        
+        self.view.addSubview(popUp)
+        
+        
+        var timer = NSTimer()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(TableViewController.removeAnimate), userInfo: nil, repeats: false)
+        
+        self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        self.popUp.alpha = 0.0;
+        
+        UIImageView.animateWithDuration(0.25) {
+            self.popUp.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.popUp.alpha = 1.0
+        }
+        
+    }
+    func removeAnimate() {
+        
+        UIImageView.animateWithDuration(0.25, animations: {
+            self.popUp.transform = CGAffineTransformMakeScale(1.3, 1.3)
+            self.popUp.alpha = 0.0;
+            
+        }) { (true) in
+            self.popUp.removeFromSuperview()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
     }
 }
