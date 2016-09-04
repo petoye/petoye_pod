@@ -33,6 +33,9 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet weak var follower_count: UILabel!
     
+    var profileUrl:String = String()
+    var headerUrl:String = String()
+    
     var trendingView = UIView()
     var followedView = UIView()
     var nearbyView = UIView()
@@ -335,6 +338,9 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             self.profName = json["username"].stringValue.capitalizedString
             self.profId = json["id"].stringValue
             
+            self.profileUrl = json["imageurl"].stringValue
+            self.headerUrl = json["headerurl"].stringValue
+            
             print(json["city"].stringValue.uppercaseString)
             
             dispatch_async(dispatch_get_main_queue(), {() -> Void in
@@ -342,6 +348,10 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
                 self.view.hideLoading()
                 
                 self.checkFollowing()
+                
+                self.download()
+                
+                self.download2()
                 
                 self.petInfo.reloadData()
                 
@@ -925,7 +935,91 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     
 
 
+    func download() {
+        
+        if profileUrl.isEmpty {
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.profilePic.image = UIImage(named: "no_image.jpg")
+            })
+        }
+        else
+        {
+            
+            let url = NSURL(string: profileUrl)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                
+                if error != nil
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.profilePic.image = UIImage(named: "no_image.jpg")
+                    })
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        if let image = UIImage(data: data!) {
+                            
+                            self.profilePic.image = image
+                        }
+                        
+                    })
+                    
+                }
+                
+            }
+            task.resume()
+            
+        }
+        
+        
+    }
     
+    
+    func download2() {
+        
+        if headerUrl.isEmpty {
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.image1.image = UIImage(named: "no_image.jpg")
+            })
+        }
+        else
+        {
+            
+            let url = NSURL(string: headerUrl)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                
+                if error != nil
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.image1.image = UIImage(named: "no_image.jpg")
+                    })
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        if let image = UIImage(data: data!) {
+                            
+                            self.image1.image = image
+                        }
+                        
+                    })
+                    
+                }
+                
+            }
+            task.resume()
+            
+        }
+        
+        
+    }
+
     
     
     

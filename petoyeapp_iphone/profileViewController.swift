@@ -41,6 +41,10 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     var username = [String]()
     var timestamp = [String]()
     
+    var profileUrl : String = String()
+    var headerUrl : String = String()
+    
+    
     var f1 = String()
     var f2 = String()
     var f3 = String()
@@ -238,7 +242,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/6/showprofile")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/17/showprofile")!)
         request.HTTPMethod = "GET"
         
         view.showLoading()
@@ -279,6 +283,11 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             self.f5 = json["pet_breed"].stringValue.capitalizedString
             self.f6 = json["pet_breeding"].stringValue.capitalizedString
             
+            self.profileUrl = json["imageurl"].stringValue
+            self.headerUrl = json["headerurl"].stringValue
+            
+            
+            
             
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
 
@@ -292,6 +301,10 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
                     self.city.text = json["city"].stringValue.uppercaseString
                     self.follower_count.text = json["followers"].stringValue
                     
+                    self.download()
+                    self.download2()
+                    
+                    
                 })
                 
             print(self.lower_info)
@@ -300,6 +313,111 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
         task.resume()
 
     }
+    
+    
+    func download() {
+        
+        if profileUrl.isEmpty {
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.profilePic.image = UIImage(named: "no_image.jpg")
+            })
+        }
+        else
+        {
+            
+            let url = NSURL(string: profileUrl)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                
+                if error != nil
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.profilePic.image = UIImage(named: "no_image.jpg")
+                    })
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        if let image = UIImage(data: data!) {
+                            
+                            self.profilePic.image = image
+                        }
+                        
+                    })
+                    
+                }
+
+            }
+            task.resume()
+
+        }
+   
+        
+    }
+    
+    
+    func download2() {
+        
+        if headerUrl.isEmpty {
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.image1.image = UIImage(named: "no_image.jpg")
+            })
+        }
+        else
+        {
+            
+            let url = NSURL(string: headerUrl)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                
+                if error != nil
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.image1.image = UIImage(named: "no_image.jpg")
+                    })
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        if let image = UIImage(data: data!) {
+                            
+                            self.image1.image = image
+                        }
+                        
+                    })
+                    
+                }
+                
+            }
+            task.resume()
+            
+        }
+        
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func profile() {
         

@@ -248,7 +248,7 @@
                                                     <outlet property="delegate" destination="piz-fy-Ml8" id="bNy-2C-CHC"/>
                                                 </connections>
                                             </collectionView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2623.png" translatesAutoresizingMaskIntoConstraints="NO" id="1d8-TP-b9h">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1d8-TP-b9h">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="D65B6F96-BDF3-4A8B-A62A-6A4AEAC2460B"/>
                                                 <userDefinedRuntimeAttributes>
@@ -523,7 +523,7 @@
                                                     <action selector="settings:" destination="piz-fy-Ml8" eventType="touchUpInside" id="UhX-Sa-NHV"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="g1F-A1-HDT">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1F-A1-HDT">
                                                 <rect key="frame" x="0.0" y="97" width="138" height="138"/>
                                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
@@ -3339,7 +3339,7 @@
                                                     <outlet property="delegate" destination="WyZ-jL-EcB" id="B9P-s9-xnO"/>
                                                 </connections>
                                             </collectionView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2623.png" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-Q2-ggY">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-Q2-ggY">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="D65B6F96-BDF3-4A8B-A62A-6A4AEAC2460B"/>
                                                 <userDefinedRuntimeAttributes>
@@ -3538,7 +3538,7 @@
                                                     <outlet property="delegate" destination="WyZ-jL-EcB" id="oOv-yJ-c3r"/>
                                                 </connections>
                                             </tableView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VAX-9G-oVr">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAX-9G-oVr">
                                                 <rect key="frame" x="0.0" y="97" width="138" height="138"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
@@ -3852,7 +3852,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_2623.png" width="414" height="414"/>
         <image name="add_comment" width="21" height="20"/>
         <image name="already_have_account" width="151" height="25"/>
         <image name="amey.jpg" width="631" height="630"/>
@@ -3899,10 +3898,10 @@
         <segue reference="etG-Sr-xAM"/>
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
-        <segue reference="SM0-ED-u1v"/>
-        <segue reference="aw0-LF-gGz"/>
         <segue reference="2aw-dl-TH4"/>
         <segue reference="14w-5S-SdD"/>
+        <segue reference="SC7-Cw-xUd"/>
+        <segue reference="jsl-Aj-aVL"/>
         <segue reference="EzH-Fc-6xY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
