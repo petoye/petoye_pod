@@ -411,7 +411,7 @@
                                                     <outlet property="delegate" destination="piz-fy-Ml8" id="UM4-EQ-qyn"/>
                                                 </connections>
                                             </tableView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-Q7-bSp">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-Q7-bSp">
                                                 <rect key="frame" x="0.0" y="307" width="414" height="527"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -447,19 +447,6 @@
                                                     <outlet property="delegate" destination="piz-fy-Ml8" id="Mwm-VV-l1H"/>
                                                 </connections>
                                             </tableView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="g1F-A1-HDT">
-                                                <rect key="frame" x="0.0" y="97" width="138" height="138"/>
-                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </imageView>
                                             <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z51-pd-g6K">
                                                 <rect key="frame" x="156" y="191" width="250" height="26"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="0B108701-C0E3-4AD6-B9B0-412A8D3B0BDA"/>
@@ -496,8 +483,8 @@
                                                 <rect key="frame" x="140" y="240" width="11" height="15"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="C9BDA38A-A8E7-487B-A8AF-C3A4AAC1990B"/>
                                             </imageView>
-                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="MUMBAI" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzG-Io-Vxl">
-                                                <rect key="frame" x="162" y="243" width="71" height="12"/>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzG-Io-Vxl">
+                                                <rect key="frame" x="162" y="243" width="172" height="12"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="30F69AD6-4B90-4AB9-B408-2B6D65AB42D9"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -536,6 +523,19 @@
                                                     <action selector="settings:" destination="piz-fy-Ml8" eventType="touchUpInside" id="UhX-Sa-NHV"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="g1F-A1-HDT">
+                                                <rect key="frame" x="0.0" y="97" width="138" height="138"/>
+                                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                        <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -563,7 +563,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="city" destination="QzG-Io-Vxl" id="xqU-nh-Qqo"/>
                         <outlet property="collectionView" destination="sko-1s-H7f" id="LcS-09-nzY"/>
+                        <outlet property="follower_count" destination="M53-9j-VIy" id="DKu-Y5-TAJ"/>
                         <outlet property="image1" destination="1d8-TP-b9h" id="Cul-B9-tho"/>
                         <outlet property="p1" destination="rXc-oq-8gD" id="4E2-Ir-gEs"/>
                         <outlet property="p2" destination="8G7-el-1Bs" id="miu-Nd-o7i"/>
@@ -848,7 +850,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-pe-Rof">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="add_comment" translatesAutoresizingMaskIntoConstraints="NO" id="7dx-8y-oGf">
@@ -2327,7 +2329,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kje-J8-duz">
                                                     <rect key="frame" x="42" y="67" width="364" height="19"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYt-kl-J9W">
@@ -3585,8 +3587,8 @@
                                                 <rect key="frame" x="140" y="240" width="11" height="15"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="C9BDA38A-A8E7-487B-A8AF-C3A4AAC1990B"/>
                                             </imageView>
-                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="MUMBAI" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nc-mO-5RG">
-                                                <rect key="frame" x="162" y="243" width="71" height="12"/>
+                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nc-mO-5RG">
+                                                <rect key="frame" x="162" y="243" width="138" height="12"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="30F69AD6-4B90-4AB9-B408-2B6D65AB42D9"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -3670,8 +3672,10 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="city" destination="4Nc-mO-5RG" id="MhU-G7-mRa"/>
                         <outlet property="collectionView" destination="wBS-aC-UDt" id="6qr-LE-Q7A"/>
                         <outlet property="follow" destination="2Xi-sf-och" id="m5s-Oz-QWZ"/>
+                        <outlet property="follower_count" destination="wPd-qp-zel" id="QtR-LV-2Cd"/>
                         <outlet property="following" destination="qki-PW-3m0" id="OcI-Hh-bpX"/>
                         <outlet property="image1" destination="Afb-Q2-ggY" id="zoX-XZ-48q"/>
                         <outlet property="loading" destination="X7c-Fx-URx" id="2I5-CF-yEe"/>
@@ -3736,7 +3740,7 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bWJ-WR-C0N">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="593"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_2623.png" translatesAutoresizingMaskIntoConstraints="NO" id="xCW-im-YDy">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCW-im-YDy">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
                                                 <color key="backgroundColor" white="0.8316307933" alpha="1" colorSpace="calibratedWhite"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="D65B6F96-BDF3-4A8B-A62A-6A4AEAC2460B"/>
@@ -3756,7 +3760,7 @@
                                                     <action selector="headerSelect:" destination="ej3-g5-0Pn" eventType="touchUpInside" id="mBN-mL-WSx"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="amey.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jSY-jm-XbN">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jSY-jm-XbN">
                                                 <rect key="frame" x="0.0" y="97" width="138" height="138"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="4AFB94AF-7BD6-4BC4-9D95-291BF31EB964"/>
@@ -3833,6 +3837,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="850"/>
                     <connections>
+                        <outlet property="editTable" destination="Cb1-tt-pKe" id="nC8-7s-gRT"/>
                         <outlet property="head" destination="Nqw-gb-8AD" id="f38-nR-Ugf"/>
                         <outlet property="header" destination="xCW-im-YDy" id="WCx-js-vZg"/>
                         <outlet property="navigBar" destination="hYh-Cd-YQ5" id="JZa-4b-Ha0"/>
@@ -3890,15 +3895,15 @@
         <image name="users" width="35" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ijZ-ua-LGz"/>
         <segue reference="etG-Sr-xAM"/>
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
-        <segue reference="ijZ-ua-LGz"/>
-        <segue reference="2su-x4-5uP"/>
-        <segue reference="SC7-Cw-xUd"/>
-        <segue reference="jsl-Aj-aVL"/>
-        <segue reference="EzH-Fc-6xY"/>
+        <segue reference="SM0-ED-u1v"/>
+        <segue reference="aw0-LF-gGz"/>
+        <segue reference="2aw-dl-TH4"/>
         <segue reference="14w-5S-SdD"/>
+        <segue reference="EzH-Fc-6xY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

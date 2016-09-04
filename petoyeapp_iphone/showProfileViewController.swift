@@ -31,6 +31,8 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet weak var navigBar: UINavigationBar!
     
+    @IBOutlet weak var follower_count: UILabel!
+    
     var trendingView = UIView()
     var followedView = UIView()
     var nearbyView = UIView()
@@ -48,6 +50,8 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     var field = ["Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
     var info = ["Fifa","4 years old","Dog","Labrador","Yes"]
     
+    var lower_info = [String]()
+    
     var uid = String()
     
     
@@ -63,6 +67,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet weak var follow: UIButton!
     
+    @IBOutlet weak var city: UILabel!
     
     var profId = String()
     var profName = String()
@@ -319,8 +324,18 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             
             let json = JSON(data: data!)
             
+            var age = json["pet_age"].stringValue + " years old"
+            
+            self.lower_info.append(json["pet_name"].stringValue.capitalizedString)
+            self.lower_info.append(age)
+            self.lower_info.append(json["pet_type"].stringValue.capitalizedString)
+            self.lower_info.append(json["pet_breed"].stringValue.capitalizedString)
+            self.lower_info.append(json["pet_breeding"].stringValue.capitalizedString)
+            
             self.profName = json["username"].stringValue.capitalizedString
             self.profId = json["id"].stringValue
+            
+            print(json["city"].stringValue.uppercaseString)
             
             dispatch_async(dispatch_get_main_queue(), {() -> Void in
                 
@@ -328,9 +343,13 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
                 
                 self.checkFollowing()
                 
+                self.petInfo.reloadData()
+                
                 self.user_name.text = json["username"].stringValue.capitalizedString
                 
                 self.pet_info.text = json["owner_type"].stringValue.capitalizedString + " - " + json["pet_breed"].stringValue.capitalizedString
+                self.city.text = json["city"].stringValue.uppercaseString
+                self.follower_count.text = json["followers"].stringValue
 
             })
             
@@ -486,7 +505,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             return username.count
         }
         else {
-            return field.count
+            return lower_info.count
         }
     }
     
@@ -568,7 +587,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             let cell = tableView.dequeueReusableCellWithIdentifier("info2", forIndexPath: indexPath) as! info_cell
             //cell.textLabel?.text = "TEST"
             cell.field.text = field[indexPath.row]
-            cell.info.text = info[indexPath.row]
+            cell.info.text = lower_info[indexPath.row]
             
             return cell
         }

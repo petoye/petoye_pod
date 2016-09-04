@@ -41,6 +41,13 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     var username = [String]()
     var timestamp = [String]()
     
+    var f1 = String()
+    var f2 = String()
+    var f3 = String()
+    var f4 = String()
+    var f5 = String()
+    var f6 = String()
+    
     var PostId = String()
     
     var field = ["Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
@@ -53,10 +60,12 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var pet_info: UILabel!
     
     
+    @IBOutlet weak var city: UILabel!
     
     
+    @IBOutlet weak var follower_count: UILabel!
     
-    
+    var lower_info = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -251,21 +260,41 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            //print(responseString)
+            print(responseString)
             
             let json = JSON(data: data!)
+            
+            var age = json["pet_age"].stringValue + " years old"
+            
+            self.lower_info.append(json["pet_name"].stringValue.capitalizedString)
+            self.lower_info.append(age)
+            self.lower_info.append(json["pet_type"].stringValue.capitalizedString)
+            self.lower_info.append(json["pet_breed"].stringValue.capitalizedString)
+            self.lower_info.append(json["pet_breeding"].stringValue.capitalizedString)
+            
+            self.f1 = json["username"].stringValue.capitalizedString
+            self.f2 = json["pet_name"].stringValue.capitalizedString
+            self.f3 = json["pet_age"].stringValue
+            self.f4 = json["pet_type"].stringValue.capitalizedString
+            self.f5 = json["pet_breed"].stringValue.capitalizedString
+            self.f6 = json["pet_breeding"].stringValue.capitalizedString
+            
             
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
 
                     self.view.hideLoading()
                     
+                    self.petInfo.reloadData()
+                    
                     self.user_name.text = json["username"].stringValue.capitalizedString
                     
                     self.pet_info.text = json["owner_type"].stringValue.capitalizedString + " - " + json["pet_breed"].stringValue.capitalizedString
+                    self.city.text = json["city"].stringValue.uppercaseString
+                    self.follower_count.text = json["followers"].stringValue
                     
                 })
                 
-            
+            print(self.lower_info)
             
         }
         task.resume()
@@ -418,7 +447,7 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             return username.count
         }
         else {
-            return field.count
+            return lower_info.count
         }
     }
     
@@ -500,7 +529,12 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             let cell = tableView.dequeueReusableCellWithIdentifier("info", forIndexPath: indexPath) as! info_cell
             //cell.textLabel?.text = "TEST"
             cell.field.text = field[indexPath.row]
-            cell.info.text = info[indexPath.row]
+            cell.info.text = lower_info[indexPath.row]
+            
+            //print(field.count)
+            //print(lower_info.count)
+            //print(info.count)
+            //print(self.lower_info)
             
             return cell
         }
@@ -676,6 +710,22 @@ class profileViewController: UIViewController, UICollectionViewDataSource, UICol
             
         }
  
+        else if (segue.identifier == "profToSettings") {
+            
+            let editVC = segue.destinationViewController as! editProfileViewController
+            
+            editVC.info.append(f1)
+            editVC.info.append(f2)
+            editVC.info.append(f3)
+            editVC.info.append(f4)
+            editVC.info.append(f5)
+            editVC.info.append(f6)
+            
+            editVC.prof_pic.image = self.profilePic.image
+            editVC.head_pic.image = self.image1.image
+            //editVC.header.image = self.image1.image
+            
+        }
         
     }
 

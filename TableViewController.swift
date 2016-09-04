@@ -199,9 +199,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func getNearby() {
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/2/nearbyfeeds")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/5/nearbyfeeds")!)
         request.HTTPMethod = "GET"
-        view.showLoading()
+        self.view.showLoading()
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -210,9 +210,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 201 {           // check for http errors
-                print("statusCode should be 201, but is \(httpStatus.statusCode)")
-                print(response!)
-                self.view.hideLoading()
+                //print("statusCode should be 201, but is \(httpStatus.statusCode)")
+                //print(response!)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.view.hideLoading()
+                })
+                
+                
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -288,7 +294,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print(response!)
-                self.view.hideLoading()
+                //self.view.hideLoading()
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.view.hideLoading()
+                })
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -347,7 +358,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print(response!)
-                self.view.hideLoading()
+                //self.view.hideLoading()
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.view.hideLoading()
+                })
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!

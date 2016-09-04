@@ -24,13 +24,28 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
     
     var popUp: UIImageView = UIImageView()
     
-    var field = ["Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
-    var info = ["Fifa","4 years old","Dog","Labrador","Yes"]
+    @IBOutlet weak var editTable: UITableView!
+    
+    var prof_pic : UIImageView = UIImageView()
+    var head_pic : UIImageView = UIImageView()
+    
+    var username = String()
+    var pet_name = String()
+    var pet_age = String()
+    var pet_type = String()
+    var pet_breed = String()
+    var pet_breeding = String()
+    
+    var field = ["Username","Pet's name","Pet's age","Pet's type","Pet's breed","Available for breeding"]
+    var info = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.profilePic.image = prof_pic.image
+        self.header.image = head_pic.image
         
         self.hideKeyboardWhenTappedAround()
         
@@ -203,10 +218,43 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
     
     @IBAction func save(sender: AnyObject) {
         
-        dispatch_async(dispatch_get_main_queue()) {
-            self.showAnimate("popup_prof")
-            
-        }
+        
+        let index0 = NSIndexPath(forRow: 0, inSection: 0)
+        let cell0 = self.editTable.cellForRowAtIndexPath(index0) as! edit_cell
+        username = cell0.info.text!
+        
+        let index1 = NSIndexPath(forRow: 1, inSection: 0)
+        let cell1 = self.editTable.cellForRowAtIndexPath(index1) as! edit_cell
+        pet_name = cell1.info.text!
+        
+        let index2 = NSIndexPath(forRow: 2, inSection: 0)
+        let cell2 = self.editTable.cellForRowAtIndexPath(index2) as! edit_cell
+        pet_age = cell2.info.text!
+        
+        let index3 = NSIndexPath(forRow: 3, inSection: 0)
+        let cell3 = self.editTable.cellForRowAtIndexPath(index3) as! edit_cell
+        pet_type = cell3.info.text!
+        
+        let index4 = NSIndexPath(forRow: 4, inSection: 0)
+        let cell4 = self.editTable.cellForRowAtIndexPath(index4) as! edit_cell
+        pet_breed = cell4.info.text!
+        
+        let index5 = NSIndexPath(forRow: 5, inSection: 0)
+        let cell5 = self.editTable.cellForRowAtIndexPath(index5) as! edit_cell
+        pet_breeding = cell5.info.text!
+        
+        print(username)
+        print(pet_name)
+        print(pet_age)
+        print(pet_type)
+        print(pet_breed)
+        print(pet_breeding)
+        
+        
+        
+        
+        UploadRequest()
+
     }
     
     func keyboardDidShow() {
@@ -250,6 +298,162 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         }
         
     }
+    
+    func UploadRequest()
+    {
+        
+        
+        let param = ["username": username, "pname": pet_name, "page": pet_age, "type": pet_type, "breed": pet_breed, "breeding": pet_breeding]
+        
+        self.view.showLoading()
+        
+        let url = NSURL(string: "http://api.petoye.com/users/17/editprofile")
+        
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        let boundary = generateBoundaryString()
+        
+        //define the multipart request type
+        
+        
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        if (profilePic.image == nil)
+        {
+            return
+        }
+        
+        let image_data = UIImagePNGRepresentation(profilePic.image!)
+        
+        
+        if(image_data == nil)
+        {
+            return
+        }
+        
+        if (header.image == nil)
+        {
+            return
+        }
+        
+        let image_data2 = UIImagePNGRepresentation(header.image!)
+        
+        
+        if(image_data2 == nil)
+        {
+            return
+        }
+
+        
+        
+        let body = NSMutableData()
+        
+        let fname = "test.png"
+        let fname2 = "test2.png"
+        let mimetype = "image/png"
+        
+        //define the data post parameter
+ 
+        
+        for (key, value) in param {
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            body.appendString("\(value)\r\n")
+        }
+        
+        
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        body.appendData("Content-Disposition:form-data; name=\"profilepic\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(image_data!)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+ 
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        body.appendData("Content-Disposition:form-data; name=\"header\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(image_data2!)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        
+        
+        body.appendData("--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        
+        
+        
+        request.HTTPBody = body
+        
+        
+        
+        let session = NSURLSession.sharedSession()
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print(error!)
+                return
+            }
+            
+            if let httpStat = response as? NSHTTPURLResponse where httpStat.statusCode == 200
+            {
+                //pop up comment added
+                
+                //self.view.hideLoading()
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.showAnimate("popup_prof")
+                    self.view.hideLoading()
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
+                
+                
+                
+            }
+            
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print(response!)
+                
+                //self.view.hideLoading()
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.view.hideLoading()
+                })
+            }
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseString!)
+            
+            
+            
+            
+        }
+        task.resume()
+        
+        
+        
+    }
+    
+    
+    
+    func generateBoundaryString() -> String
+    {
+        return "Boundary-\(NSUUID().UUIDString)"
+    }
+
 
 
 }
+
+
