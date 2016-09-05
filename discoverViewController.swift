@@ -18,6 +18,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
     var breed = [String]()
     var pettype = [String]()
     var user_id = [String]()
+    var profileUrl = [String]()
     
     var uid = String()
 
@@ -29,7 +30,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
         discoverTable.tableFooterView = UIView(frame: CGRectZero)
 
         // Do any additional setup after loading the view.
-        var u_id = 6
+        var u_id = 1
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(u_id)/discover")!)
         request.HTTPMethod = "GET"
         view.showLoading()
@@ -46,7 +47,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             
@@ -58,6 +59,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.pettype.append(item["pet_type"].stringValue)
                 self.breed.append(item["pet_breed"].stringValue)
                 self.user_id.append(item["id"].stringValue)
+                self.profileUrl.append(item["imageurl"].stringValue)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     
@@ -93,16 +95,58 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCellWithIdentifier("discover", forIndexPath: indexPath) as! discover_cell
             //cell.textLabel?.text = "TEST"
             cell.delegate = self
+            
+            
+            if profileUrl[indexPath.row].isEmpty {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    cell.profilePic.image = UIImage(named: "no_image.jpg")
+                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                    cell.profilePic.clipsToBounds = true
+                })
+                
+                
+                
+            }
+            else
+            {
+                
+                let url = NSURL(string: profileUrl[indexPath.row])
+                
+                let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                    
+                    if error != nil
+                    {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            cell.profilePic.image = UIImage(named: "no_image.jpg")
+                            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                            cell.profilePic.clipsToBounds = true
+                        })
+                    }
+                    else
+                    {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            if let image = UIImage(data: data!) {
+                                
+                                cell.profilePic.image = image
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            }
+                            
+                        })
+                        
+                    }
+                    
+                    
+                }
+                task.resume()
+            
+            }
             cell.username.text = username[indexPath.row]
             cell.owner_type.text = ownertype[indexPath.row]
             cell.breed.text = breed[indexPath.row]
-            //cell.followedBut.hidden = true
-            
-            cell.profilePic.image = UIImage(named: "dawg.png")
-            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-            cell.profilePic.clipsToBounds = true
             cell.toFollowBut.tag = indexPath.row
-            
             cell.usernamePress.tag = indexPath.row
             
             //userDefault.setObject(user_id, forKey: "storedUserIds")
@@ -131,7 +175,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func follow(discoverTag: Int) {
         
-        print(discoverTag)
+        //print(discoverTag)
         
         let indexPath = NSIndexPath(forRow: discoverTag, inSection: 0)
         let cell = self.discoverTable.cellForRowAtIndexPath(indexPath) as! discover_cell
@@ -181,7 +225,7 @@ class discoverViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(responseString!)
+            //print(responseString!)
             
             
         }

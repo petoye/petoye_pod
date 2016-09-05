@@ -323,7 +323,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             
@@ -395,7 +395,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             
@@ -610,13 +610,13 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            print("Cancel")
+            //print("Cancel")
         }
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
         { action -> Void in
-            print("FB shared")
+            //print("FB shared")
             
             //////////////
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -641,7 +641,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         
         let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
         { action -> Void in
-            print("Tweet")
+            //print("Tweet")
             ////////////
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
                 
@@ -794,13 +794,13 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            print("Cancel")
+            //print("Cancel")
         }
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
         { action -> Void in
-            print("FB shared")
+            //print("FB shared")
             
             //////////////
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -825,7 +825,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
         
         let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
         { action -> Void in
-            print("Tweet")
+            //print("Tweet")
             ////////////
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
                 
@@ -919,7 +919,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(responseString!)
+            //print(responseString!)
             
             
             

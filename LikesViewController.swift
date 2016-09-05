@@ -13,6 +13,8 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var uid = String()
     
+    var profileUrl = [String]()
+    
     
     
     
@@ -59,7 +61,7 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode == 200 {
                 
                 var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                print(responseString)
+                //print(responseString)
                 
                 let json = JSON(data: data!)
                 
@@ -68,6 +70,7 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
                     //print(item["username"].stringValue)
                     self.username.append(item["username"].stringValue.capitalizedString)
                     self.user_id.append(item["id"].stringValue)
+                    self.profileUrl.append(item["imageurl"].stringValue)
                     dispatch_async(dispatch_get_main_queue(), {() -> Void in
                         self.likeTable.reloadData()
                         self.view.hideLoading()
@@ -77,7 +80,7 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
             }
             
-            print(self.username)
+            //print(self.username)
         }
         task.resume()
 
@@ -104,13 +107,61 @@ class LikesViewController: UIViewController, UITableViewDataSource, UITableViewD
         UITableViewCell{
             let cell = tableView.dequeueReusableCellWithIdentifier("likes", forIndexPath: indexPath) as! like_cell
             //cell.textLabel?.text = "TEST"
-            
+
             cell.delegate = self
-            cell.username.text = username[indexPath.row]
-            cell.profilePic.image = UIImage(named: "dawg.png")
-            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-            cell.profilePic.clipsToBounds = true
             
+            if profileUrl[indexPath.row].isEmpty {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    cell.profilePic.image = UIImage(named: "no_image.jpg")
+                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                    cell.profilePic.clipsToBounds = true
+                })
+                
+                
+                
+            }
+            else
+            {
+                
+                let url = NSURL(string: profileUrl[indexPath.row])
+                
+                let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                    
+                    if error != nil
+                    {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            cell.profilePic.image = UIImage(named: "no_image.jpg")
+                            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                            cell.profilePic.clipsToBounds = true
+                        })
+                    }
+                    else
+                    {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            if let image = UIImage(data: data!) {
+                                
+                                cell.profilePic.image = image
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            }
+                            
+                        })
+                        
+                    }
+                    
+                    
+                }
+                task.resume()
+                
+                
+                
+            }
+
+            
+            
+            cell.username.text = username[indexPath.row]
             cell.usernamePress.tag = indexPath.row
 
             return cell

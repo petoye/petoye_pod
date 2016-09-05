@@ -138,7 +138,7 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     
     @IBAction func importImage(sender: AnyObject) {
         
-        print("okay")
+        //print("okay")
         
         var image = UIImagePickerController()
         image.delegate = self
@@ -153,7 +153,7 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
     
     @IBAction func importGallery(sender: AnyObject) {
         
-        print("gallery")
+        //print("gallery")
         var image = UIImagePickerController()
         image.delegate = self
         image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -171,7 +171,7 @@ class postViewController: UIViewController,UINavigationControllerDelegate, UIIma
         
         
         let msg = message.text!
-        print(msg)
+        //print(msg)
         
         let param = ["message" : msg]
         

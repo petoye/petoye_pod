@@ -3300,7 +3300,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qka-1A-Cro">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qka-1A-Cro">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="951"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UU9-JP-fta">
@@ -3898,11 +3898,11 @@
         <segue reference="etG-Sr-xAM"/>
         <segue reference="sdT-Ly-hNR"/>
         <segue reference="fbK-Hd-8MT"/>
-        <segue reference="2aw-dl-TH4"/>
-        <segue reference="14w-5S-SdD"/>
+        <segue reference="CZ8-JC-rIZ"/>
         <segue reference="SC7-Cw-xUd"/>
         <segue reference="jsl-Aj-aVL"/>
         <segue reference="EzH-Fc-6xY"/>
+        <segue reference="14w-5S-SdD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.73999999999999999" alpha="1" colorSpace="calibratedWhite"/>
 </document>

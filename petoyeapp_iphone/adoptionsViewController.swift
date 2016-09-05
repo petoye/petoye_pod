@@ -136,7 +136,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
             }
             //print(self.username_m)
             //print(self.post_user_id)
-            print(self.imageUrl)
+            //print(self.imageUrl)
         }
         task.resume()
     }
@@ -370,14 +370,14 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
             
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-                print("Cancel")
+                //print("Cancel")
         }
         
         actionSheetControllerIOS8.addAction(cancelActionButton)
             
         let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
             { action -> Void in
-                print("FB shared")
+                //print("FB shared")
                 
                 //////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -402,7 +402,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
             
             let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
             { action -> Void in
-                print("Tweet")
+                //print("Tweet")
                 ////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
                     
@@ -470,7 +470,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            print("Cancel")
+            //print("Cancel")
         }
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
@@ -491,7 +491,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
         let chooseGalleryActionButton: UIAlertAction = UIAlertAction(title: "Choose from gallery", style: .Default)
         { action -> Void in
-            print("Choose from gallery")
+            //print("Choose from gallery")
             
             var image = UIImagePickerController()
             image.delegate = self

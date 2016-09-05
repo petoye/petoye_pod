@@ -32,6 +32,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var created_at = [String]()
     var imageurl = [String]()
     var timestamp = [String]()
+    var profileUrl = [String]()
     
     var post_user_id1 = [String]()
     var username1 = [String]()
@@ -42,6 +43,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var created_at1 = [String]()
     var imageurl1 = [String]()
     var timestamp1 = [String]()
+    var profileUrl1 = [String]()
     
     var post_user_id2 = [String]()
     var username2 = [String]()
@@ -52,6 +54,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var created_at2 = [String]()
     var imageurl2 = [String]()
     var timestamp2 = [String]()
+    var profileUrl2 = [String]()
     
     
     
@@ -86,7 +89,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        //print("viewDidLoad")
         
         
         
@@ -229,11 +232,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             for item in json["feeds"].arrayValue {
                 for innerItem in item["feeds"].arrayValue {
                     self.username.append(item["username"].stringValue.capitalizedString)
+                    self.profileUrl.append(item["imageurl"].stringValue)
                     self.post_id.append(innerItem["id"].stringValue)
                     self.message.append(innerItem["message"].stringValue)
                     self.like_count.append(innerItem["like_count"].stringValue)
                     self.comment_count.append(innerItem["comment_count"].stringValue)
                     self.created_at.append(innerItem["created_at"].stringValue)
+                    
                     
                     var converted = self.convert(innerItem["created_at"].stringValue)
                     
@@ -309,6 +314,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             for item in json["feeds"].arrayValue {
                 self.username2.append(item["user"]["username"].stringValue.capitalizedString)
+                self.profileUrl2.append(item["user"]["imageurl"].stringValue)
                 self.post_user_id2.append(item["user"]["id"].stringValue)
                 self.post_id2.append(item["id"].stringValue)
                 self.message2.append(item["message"].stringValue)
@@ -373,6 +379,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             for item in json["feeds"].arrayValue {
                 self.username1.append(item["user"]["username"].stringValue.capitalizedString)
+                self.profileUrl1.append(item["user"]["imageurl"].stringValue)
                 self.post_user_id1.append(item["user"]["id"].stringValue)
                 self.post_id1.append(item["id"].stringValue)
                 self.message1.append(item["message"].stringValue)
@@ -521,7 +528,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 if imageurl1[indexPath.row].isEmpty {
                  
-                    cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    })
                     
 
                 }
@@ -534,7 +543,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         
                         if error != nil
                         {
-                            cell.postedImage.image = UIImage(named: "no_image.jpg")
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.postedImage.image = UIImage(named: "no_image.jpg")
+                            })
                         }
                         else
                         {
@@ -556,6 +567,57 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     
                 }
+                
+                if profileUrl1[indexPath.row].isEmpty {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.profilePic.image = UIImage(named: "no_image.jpg")
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                        cell.profilePic.clipsToBounds = true
+                    })
+                    
+                    
+                    
+                    
+                }
+                else
+                {
+                    
+                    let url = NSURL(string: profileUrl1[indexPath.row])
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                        
+                        if error != nil
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            })
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                if let image = UIImage(data: data!) {
+                                    
+                                    cell.profilePic.image = image
+                                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                    cell.profilePic.clipsToBounds = true
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    task.resume()
+                    
+                    
+                    
+                }
+
                 
                 cell.username.text = username1[indexPath.row]
                 
@@ -573,9 +635,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.likedBy.tag = indexPath.row
                 cell.share.tag = indexPath.row
                 
-                cell.profilePic.image = UIImage(named: "amey.jpg")
-                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-                cell.profilePic.clipsToBounds = true
+                
                 
 
                 return cell
@@ -588,7 +648,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 if imageurl[indexPath.row].isEmpty {
                     
-                    cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    })
                     
                     
                     
@@ -602,7 +664,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         
                         if error != nil
                         {
-                            cell.postedImage.image = UIImage(named: "no_image.jpg")
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.postedImage.image = UIImage(named: "no_image.jpg")
+                            })
                         }
                         else
                         {
@@ -624,11 +688,56 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     
                 }
-
                 
-                cell.profilePic.image = UIImage(named: "amey.jpg")
-                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-                cell.profilePic.clipsToBounds = true
+                if profileUrl[indexPath.row].isEmpty {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.profilePic.image = UIImage(named: "no_image.jpg")
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                        cell.profilePic.clipsToBounds = true
+                    })
+                    
+                    
+                    
+                }
+                else
+                {
+                    
+                    let url = NSURL(string: profileUrl[indexPath.row])
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                        
+                        if error != nil
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            })
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                if let image = UIImage(data: data!) {
+                                    
+                                    cell.profilePic.image = image
+                                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                    cell.profilePic.clipsToBounds = true
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    task.resume()
+                    
+                    
+                    
+                }
+
                 
                 cell.username.text = username[indexPath.row]
                 
@@ -678,7 +787,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 if imageurl2[indexPath.row].isEmpty {
                     
-                    cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.postedImage.image = UIImage(named: "no_image.jpg")
+                    })
                     
                     
                 }
@@ -691,7 +802,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         
                         if error != nil
                         {
-                            cell.postedImage.image = UIImage(named: "no_image.jpg")
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.postedImage.image = UIImage(named: "no_image.jpg")
+                            })
                         }
                         else
                         {
@@ -714,6 +827,57 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                 }
                 
+                
+                
+                if profileUrl2[indexPath.row].isEmpty {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.profilePic.image = UIImage(named: "no_image.jpg")
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                        cell.profilePic.clipsToBounds = true
+                    })
+                    
+                    
+                }
+                else
+                {
+                    
+                    let url = NSURL(string: profileUrl2[indexPath.row])
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                        
+                        if error != nil
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            })
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                if let image = UIImage(data: data!) {
+                                    
+                                    cell.profilePic.image = image
+                                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                    cell.profilePic.clipsToBounds = true
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    task.resume()
+                    
+                    
+                    
+                }
+
+                
                 cell.username.text = username2[indexPath.row]
                 
                 cell.message.text = message2[indexPath.row]
@@ -727,10 +891,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.reportPress.tag = indexPath.row
                 cell.likedBy.tag = indexPath.row
                 cell.share.tag = indexPath.row
-                
-                cell.profilePic.image = UIImage(named: "amey.jpg")
-                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-                cell.profilePic.clipsToBounds = true
                 
                 
                 return cell
@@ -856,7 +1016,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 {
                     //set like buttonimage to filled
                     var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    print(responseString)
+                    //print(responseString)
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         //self.feedTable.reloadData()
@@ -919,7 +1079,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 {
                     //set like buttonimage to filled
                     var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    print(responseString)
+                    //print(responseString)
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         //self.followedTable.reloadData()
@@ -1069,13 +1229,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if followed.tag == 1 {
             
             let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-                print("Cancel")
+                //print("Cancel")
             }
             actionSheetControllerIOS8.addAction(cancelActionButton)
             
             let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
             { action -> Void in
-                print("FB shared")
+                //print("FB shared")
                 
                 //////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -1100,7 +1260,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
             { action -> Void in
-                print("Tweet")
+                //print("Tweet")
                 ////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
                     
@@ -1133,13 +1293,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         else if nearby.tag == 1 {
             
             let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-                print("Cancel")
+                //print("Cancel")
             }
             actionSheetControllerIOS8.addAction(cancelActionButton)
             
             let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
             { action -> Void in
-                print("FB shared")
+                //print("FB shared")
                 
                 //////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -1164,7 +1324,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
             { action -> Void in
-                print("Tweet")
+                //print("Tweet")
                 ////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
                     
@@ -1197,13 +1357,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         else if trending.tag == 1 {
             
             let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-                print("Cancel")
+                //print("Cancel")
             }
             actionSheetControllerIOS8.addAction(cancelActionButton)
             
             let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
             { action -> Void in
-                print("FB shared")
+                //print("FB shared")
                 
                 //////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -1228,7 +1388,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
             { action -> Void in
-                print("Tweet")
+                //print("Tweet")
                 ////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
                     
@@ -1272,13 +1432,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             
             let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-                print("Cancel")
+                //print("Cancel")
             }
             actionSheetControllerIOS8.addAction(cancelActionButton)
             
             let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
             { action -> Void in
-                print("FB shared")
+                //print("FB shared")
                 
                 //////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -1303,7 +1463,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
             { action -> Void in
-                print("Tweet")
+                //print("Tweet")
                 ////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
                     
@@ -1330,7 +1490,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
             { action -> Void in
-                print("Report")
+                //print("Report")
                 
                 self.PostId = self.post_id1[cell_id]
                 
@@ -1358,7 +1518,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                     
                     var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    print(responseString)
+                    //print(responseString)
                     
                     
                     dispatch_async(dispatch_get_main_queue(), {
@@ -1383,13 +1543,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         else if nearby.tag == 1 {
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            print("Cancel")
+            //print("Cancel")
         }
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         let followActionButton: UIAlertAction = UIAlertAction(title: "Follow", style: .Default)
         { action -> Void in
-            print("Follow")
+            //print("Follow")
             
             
             var hisid = self.post_user_id[cell_id]
@@ -1441,7 +1601,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
                 
                 var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print(responseString!)
+                //print(responseString!)
                 
                 
             }
@@ -1455,7 +1615,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
         { action -> Void in
-            print("FB shared")
+            //print("FB shared")
             /////////////
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
                 var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
@@ -1480,7 +1640,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
         { action -> Void in
-            print("Tweet")
+            //print("Tweet")
             
             ////////////
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
@@ -1509,7 +1669,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
         { action -> Void in
-            print("Report")
+            //print("Report")
             
             self.PostId = self.post_id[cell_id]
             
@@ -1556,13 +1716,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         else if trending.tag == 1 {
             
             let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-                print("Cancel")
+                //print("Cancel")
             }
             actionSheetControllerIOS8.addAction(cancelActionButton)
             
             let followActionButton: UIAlertAction = UIAlertAction(title: "Follow", style: .Default)
             { action -> Void in
-                print("Follow")
+                //print("Follow")
                 
                 
                 var hisid = self.post_user_id2[cell_id]
@@ -1628,7 +1788,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let shareFBActionButton: UIAlertAction = UIAlertAction(title: "Share to Facebook", style: .Default)
             { action -> Void in
-                print("FB shared")
+                //print("FB shared")
                 /////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
                     var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
@@ -1653,7 +1813,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let TweetActionButton: UIAlertAction = UIAlertAction(title: "Share to Twitter", style: .Default)
             { action -> Void in
-                print("Tweet")
+                //print("Tweet")
                 
                 ////////////
                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
@@ -1682,7 +1842,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let ReportActionButton: UIAlertAction = UIAlertAction(title: "Report", style: .Destructive)
             { action -> Void in
-                print("Report")
+                //print("Report")
                 
                 self.PostId = self.post_id2[cell_id]
                 
@@ -1706,7 +1866,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                     
                     var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                    print(responseString)
+                    //print(responseString)
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         self.showAnimate("popup_report")

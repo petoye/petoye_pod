@@ -29,6 +29,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     var notif = [String]()
     var u_id = [String]()
     var p_id = [String]()
+    var profileUrl = [String]()
     
     var uid = String()
     
@@ -75,7 +76,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func notifs() {
-        print("called")
+        //print("called")
         
         var data = 4
         
@@ -95,7 +96,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             //print(json["notifications"].arrayValue)
@@ -110,7 +111,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                 str2[1].removeAtIndex(str2[1].startIndex)
                 self.notif.append(str2[1])
                 if str1.count == 2{
-                    print("nothing")
+                    //print("nothing")
                     self.p_id.append("")
                 }
                 else if str1.count == 3{
@@ -126,10 +127,10 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                 })
 
             }
-            print(self.username)
-            print(self.u_id)
-            print(self.notif)
-            print(self.p_id)
+            //print(self.username)
+            //print(self.u_id)
+            //print(self.notif)
+            //print(self.p_id)
             
         }
         task.resume()
@@ -163,6 +164,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             for item in json["conversations"].arrayValue {
                 self.username_m.append(item["username"].stringValue.capitalizedString)
                 self.hisId.append(item["id"].stringValue)
+                self.profileUrl.append(item["imageurl"].stringValue)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.messageTable.reloadData()
@@ -359,9 +361,56 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                 let cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath) as! conversation_cell
                 
                 //cell.textLabel?.text = "hola"
-                cell.profilePic.image = UIImage(named: "dawg.png")
-                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-                cell.profilePic.clipsToBounds = true
+                
+                if profileUrl[indexPath.row].isEmpty {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.profilePic.image = UIImage(named: "no_image.jpg")
+                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                        cell.profilePic.clipsToBounds = true
+                    })
+                    
+                    
+                    
+                }
+                else
+                {
+                    
+                    let url = NSURL(string: profileUrl[indexPath.row])
+                    
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                        
+                        if error != nil
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            })
+                        }
+                        else
+                        {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                
+                                if let image = UIImage(data: data!) {
+                                    
+                                    cell.profilePic.image = image
+                                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                    cell.profilePic.clipsToBounds = true
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        
+                    }
+                    task.resume()
+                    
+                    
+                    
+                }
+
                 cell.username.text = username_m[indexPath.row]
                 
                 cell.last_message.hidden = true

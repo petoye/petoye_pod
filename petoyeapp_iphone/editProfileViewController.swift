@@ -74,13 +74,13 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            print("Cancel")
+            //print("Cancel")
         }
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         let RemoveActionButton: UIAlertAction = UIAlertAction(title: "Remove header", style: .Destructive)
         { action -> Void in
-            print("Remove header")
+            //print("Remove header")
             
             self.header.image = nil
         }
@@ -88,7 +88,7 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         
         let chooseLibActionButton: UIAlertAction = UIAlertAction(title: "Choose from camera", style: .Default)
         { action -> Void in
-            print("Choose from camera")
+            //print("Choose from camera")
             
             var image2 = UIImagePickerController()
             image2.delegate = self
@@ -102,7 +102,7 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         
         let chooseGalleryActionButton: UIAlertAction = UIAlertAction(title: "Choose from gallery", style: .Default)
         { action -> Void in
-            print("Choose from gallery")
+            //print("Choose from gallery")
             
             var image2 = UIImagePickerController()
             image2.delegate = self
@@ -125,13 +125,13 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         let actionSheetControllerIOS8: UIAlertController = UIAlertController()
         
         let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            print("Cancel")
+            //print("Cancel")
         }
         actionSheetControllerIOS8.addAction(cancelActionButton)
         
         let RemoveActionButton: UIAlertAction = UIAlertAction(title: "Remove profile picture", style: .Destructive)
         { action -> Void in
-            print("Remove profile pic")
+            //print("Remove profile pic")
             
             self.profilePic.image = nil
         }
@@ -139,7 +139,7 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         
         let chooseLibActionButton: UIAlertAction = UIAlertAction(title: "Choose from camera", style: .Default)
         { action -> Void in
-            print("Choose from camera")
+            //print("Choose from camera")
             
             var image = UIImagePickerController()
             image.delegate = self
@@ -154,7 +154,7 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         
         let chooseGalleryActionButton: UIAlertAction = UIAlertAction(title: "Choose from gallery", style: .Default)
         { action -> Void in
-            print("Choose from gallery")
+            //print("Choose from gallery")
             
             var image = UIImagePickerController()
             image.delegate = self
@@ -172,7 +172,7 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
-        print("image selected")
+        //print("image selected")
         
         
         if head.tag == 1{
@@ -243,12 +243,12 @@ class editProfileViewController: UIViewController,UINavigationControllerDelegate
         let cell5 = self.editTable.cellForRowAtIndexPath(index5) as! edit_cell
         pet_breeding = cell5.info.text!
         
-        print(username)
-        print(pet_name)
-        print(pet_age)
-        print(pet_type)
-        print(pet_breed)
-        print(pet_breeding)
+        //print(username)
+        //print(pet_name)
+        //print(pet_age)
+        //print(pet_type)
+        //print(pet_breed)
+        //print(pet_breeding)
         
         
         

@@ -101,13 +101,19 @@ class messagesViewController: JSQMessagesViewController{
                 let json = JSON(data: data!)
                 let bug = json["errors"].stringValue
                 
-                self.view.hideLoading()
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.view.hideLoading()
+                })
+                
+                
                 
                 if bug == "No messages"
                 {
 
                     print("No messages")
                     //self.view.hideLoading()
+                    
+                    self.collectionView.contentInset = UIEdgeInsetsMake(38, 0, 0, 0)
                     
                 }
                 else {
@@ -316,7 +322,7 @@ class messagesViewController: JSQMessagesViewController{
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
-        print("okay")
+        //print("okay")
     }
     
     

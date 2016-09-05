@@ -23,12 +23,16 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var pid = String()
     
     var uid = String()
+    
+    
 
     
     
     var userName = [String]()
     var commentMessage = [String]()
     var user_id = [String]()
+    var profileUrl = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +90,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //downloading comments for a post
         
-        print(pid)
+        //print(pid)
         
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(pid)/showcomment")!)
@@ -125,7 +129,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            print(responseString)
+            //print(responseString)
             
             let json = JSON(data: data!)
             
@@ -134,6 +138,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.commentMessage.append(item["comment_message"].stringValue)
                 self.userName.append(item["user"]["username"].stringValue.capitalizedString)
                 self.user_id.append(item["user"]["id"].stringValue)
+                
+                self.profileUrl.append(item["user"]["imageurl"].stringValue)
                 
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.commentTable.reloadData()
@@ -194,7 +200,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func commentBut(sender: AnyObject) {
-        print(pid)
+        //print(pid)
         
         
         //commentField.text = ""
@@ -202,7 +208,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         //print(id)
         
         var commentmessage = commentField.text!
-        print(commentmessage)
+        //print(commentmessage)
         
         
         comment.endEditing(true)
@@ -261,12 +267,62 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCellWithIdentifier("comment", forIndexPath: indexPath) as! comment_cell
             //cell.textLabel?.text = "TEST"
             
+            
+            if profileUrl[indexPath.row].isEmpty {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    cell.profilePic.image = UIImage(named: "no_image.jpg")
+                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                    cell.profilePic.clipsToBounds = true
+                })
+                
+                
+                
+            }
+            else
+            {
+                
+                let url = NSURL(string: profileUrl[indexPath.row])
+                
+                let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                    
+                    if error != nil
+                    {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            cell.profilePic.image = UIImage(named: "no_image.jpg")
+                            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                            cell.profilePic.clipsToBounds = true
+                        })
+                    }
+                    else
+                    {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            if let image = UIImage(data: data!) {
+                                
+                                cell.profilePic.image = image
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            }
+                            
+                        })
+                        
+                    }
+                    
+                    
+                }
+                task.resume()
+                
+                
+                
+            }
+
+            
+            
+            
             cell.delegate = self
             cell.comment_message.text = commentMessage[indexPath.row]
             cell.user_name.text = userName[indexPath.row]
-            cell.profilePic.image = UIImage(named: "dawg.png")
-            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-            cell.profilePic.clipsToBounds = true
             
             //cell.usernamePress.tag = indexpath.row
             
