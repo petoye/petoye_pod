@@ -33,6 +33,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
     var message = [String]()
     var post_user_id = [String]()
     var imageUrl = [String]()
+    var profUrl = [String]()
     
     var pickerData: [String] = [String]()
     
@@ -124,6 +125,7 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
             self.message.append(item["description"].stringValue)
             self.imageUrl.append(item["imageurl"].stringValue)
             self.username.append(item["user"]["username"].stringValue.capitalizedString)
+            self.profUrl.append(item["user"]["imageurl"].stringValue)
             self.post_user_id.append(item["user"]["id"].stringValue)
                 
                 
@@ -335,6 +337,52 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
                         if let image = UIImage(data: data!) {
                             
                             cell.postedImage.image = image
+                            
+                        }
+                        
+                    })
+                    
+                }
+                
+                
+            }
+            task.resume()
+            
+            
+            
+        }
+
+        if profUrl[indexPath.row].isEmpty {
+            
+            cell.profilePic.image = UIImage(named: "no_image.jpg")
+            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+            cell.profilePic.clipsToBounds = true
+            
+            
+        }
+        else
+        {
+            
+            let url = NSURL(string: profUrl[indexPath.row])
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                
+                if error != nil
+                {
+                    cell.profilePic.image = UIImage(named: "no_image.jpg")
+                    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                    cell.profilePic.clipsToBounds = true
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        if let image = UIImage(data: data!) {
+                            
+                            cell.profilePic.image = image
+                            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                            cell.profilePic.clipsToBounds = true
+                            
                         }
                         
                     })
@@ -353,9 +401,9 @@ class adoptionsViewController: UIViewController, UITableViewDataSource, UITableV
         
         cell.username.text = username[indexPath.row]
         cell.pet_info.text = pet_info[indexPath.row]
-        cell.profilePic.image = UIImage(named: "dawg.png")
-        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-        cell.profilePic.clipsToBounds = true
+        
+        
+        
         
         //cell.postedImage.image = UIImage(named: "no_image.jpg")
         

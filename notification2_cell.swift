@@ -10,6 +10,7 @@ import UIKit
 
 protocol notif2Delegate {
     func show(showTag: Int)
+    func postShow(showTag: Int)
 }
 
 
@@ -25,11 +26,19 @@ class notification2_cell: UITableViewCell {
     
     @IBOutlet weak var postImage: UIImageView!
     
+    @IBOutlet weak var postImagePress: UIButton!
+    
     @IBOutlet weak var usernamePress: UIButton!
     
     @IBAction func usernameBut(sender: AnyObject) {
         
         self.delegate.show(usernamePress.tag)
+        
+    }
+    
+    @IBAction func postPress(sender: AnyObject) {
+        
+        self.delegate.postShow(postImagePress.tag)
         
     }
 }

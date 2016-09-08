@@ -219,7 +219,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         request.HTTPMethod = "POST"
         view.showLoading()
         
-        let postString = "uid=6&comment=\(commentmessage)"
+        let postString = "uid=2&comment=\(commentmessage)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             guard error == nil && data != nil else {                                                          // check for fundamental networking error

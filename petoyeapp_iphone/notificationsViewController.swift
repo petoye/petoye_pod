@@ -30,8 +30,10 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     var u_id = [String]()
     var p_id = [String]()
     var profileUrl = [String]()
+    var postpic = [String]()
     
     var uid = String()
+    var pid = String()
     
     var username_m = [String]()
     var hisId = [String]()
@@ -78,7 +80,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     func notifs() {
         //print("called")
         
-        var data = 4
+        var data = 6
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/users/\(data)/notifications")!)
         request.HTTPMethod = "GET"
@@ -100,24 +102,55 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             
             let json = JSON(data: data!)
             //print(json["notifications"].arrayValue)
-            for item in (json["notifications"].arrayValue) {
+            for item in (json["notify"].arrayValue) {
                 //print("new")
                 //print(item.stringValue)
                 var str = item.stringValue
-                var str1 = str.componentsSeparatedByString("[")
-                self.username.append(str1[0].capitalizedString)
-                var str2 = str1[1].componentsSeparatedByString("]")
-                self.u_id.append(str2[0])
-                str2[1].removeAtIndex(str2[1].startIndex)
-                self.notif.append(str2[1])
-                if str1.count == 2{
-                    //print("nothing")
-                    self.p_id.append("")
+                
+                var initial = str.componentsSeparatedByString("[")
+                var uname = initial[0].capitalizedString
+                self.username.append(uname)
+                
+                var next = initial[1].componentsSeparatedByString("]")
+                var uid = next[0]
+                self.u_id.append(uid)
+                
+                
+                if initial.count == 3{
+                    
+                    var third = initial[2].componentsSeparatedByString("]")
+                    var profurl = third[0]
+                    self.profileUrl.append(profurl)
+                    
+                    var clear = third[1].removeAtIndex(third[1].startIndex)
+                    var not = third[1]
+                    self.notif.append(not)
+                    
                 }
-                else if str1.count == 3{
-                    var str3 = str1[2].componentsSeparatedByString("]")
-                    self.p_id.append(str3[0])
+                else if initial.count == 5{
+                    
+                    
+                    
+                    var third = initial[2].componentsSeparatedByString("]")
+                    var profurl = third[0]
+                    self.profileUrl.append(profurl)
+                    
+                    var clear = third[1].removeAtIndex(third[1].startIndex)
+                    var not = third[1]
+                    self.notif.append(not)
+                    
+                    var fourth = initial[3].componentsSeparatedByString("]")
+                    var postid = fourth[0]
+                    self.p_id.append(postid)
+                    
+                    var fifth = initial[4].componentsSeparatedByString("]")
+                    var postpic = fifth[0]
+                    self.postpic.append(postpic)
+                    
                 }
+
+                
+                
                 dispatch_async(dispatch_get_main_queue(), {() -> Void in
                     self.notifTable.reloadData()
                     self.view.hideLoading()
@@ -127,10 +160,12 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                 })
 
             }
-            //print(self.username)
-            //print(self.u_id)
-            //print(self.notif)
-            //print(self.p_id)
+            print(self.username)
+            print(self.u_id)
+            print(self.profileUrl)
+            print(self.notif)
+            print(self.p_id)
+            print(self.postpic)
             
         }
         task.resume()
@@ -283,6 +318,13 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
             
             profVC.uid = uid
         }
+        else if (segue.identifier == "notifToPost") {
+            
+            let postVC = segue.destinationViewController as! showPostViewController
+            
+            postVC.pid = pid
+
+        }
         
     }
     
@@ -321,12 +363,61 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                     let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! notification_cell
                         
                         cell.delegate = self
+                        
+                        if profileUrl[indexPath.row].isEmpty {
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            })
+                            
+                            
+                            
+                        }
+                        else
+                        {
+                            
+                            let url = NSURL(string: profileUrl[indexPath.row])
+                            
+                            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                                
+                                if error != nil
+                                {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                        cell.profilePic.clipsToBounds = true
+                                    })
+                                }
+                                else
+                                {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        
+                                        if let image = UIImage(data: data!) {
+                                            
+                                            cell.profilePic.image = image
+                                            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                            cell.profilePic.clipsToBounds = true
+                                        }
+                                        
+                                    })
+                                    
+                                }
+                                
+                                
+                            }
+                            task.resume()
+                            
+                            
+                            
+                        }
+
+                        
                         cell.username.text = username[indexPath.row]
                         cell.followNotif.text =
                         notif[indexPath.row]
-                        cell.profilePic.image = UIImage(named: "dawg.png")
-                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
-                        cell.profilePic.clipsToBounds = true
+                        
                         
                         cell.usernamePress.tag = indexPath.row
                         return cell
@@ -338,17 +429,129 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                         let cell = tableView.dequeueReusableCellWithIdentifier("cell3", forIndexPath: indexPath) as! notification2_cell
                         
                         cell.delegate = self
+                        
+                        
+                        if profileUrl[indexPath.row].isEmpty {
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                cell.profilePic.clipsToBounds = true
+                            })
+                            
+                            
+                            
+                        }
+                        else
+                        {
+                            
+                            let url = NSURL(string: profileUrl[indexPath.row])
+                            
+                            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                                
+                                if error != nil
+                                {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        cell.profilePic.image = UIImage(named: "no_image.jpg")
+                                        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                        cell.profilePic.clipsToBounds = true
+                                    })
+                                }
+                                else
+                                {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        
+                                        if let image = UIImage(data: data!) {
+                                            
+                                            cell.profilePic.image = image
+                                            cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
+                                            cell.profilePic.clipsToBounds = true
+                                        }
+                                        
+                                    })
+                                    
+                                }
+                                
+                                
+                            }
+                            task.resume()
+                            
+                            
+                            
+                        }
+
+                        
+                        
+                        if postpic[indexPath.row].isEmpty {
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                cell.postImage.image = UIImage(named: "no_image.jpg")
+                            })
+                            
+                            
+                            
+                        }
+                        else
+                        {
+                            
+                            let url = NSURL(string: postpic[indexPath.row])
+                            
+                            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+                                
+                                if error != nil
+                                {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        cell.postImage.image = UIImage(named: "no_image.jpg")
+                                    })
+                                }
+                                else
+                                {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        
+                                        if let image = UIImage(data: data!) {
+                                            
+                                            cell.postImage.image = image
+                                        }
+                                        
+                                    })
+                                    
+                                }
+                                
+                                
+                            }
+                            task.resume()
+                            
+                            
+                            
+                        }
+
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         cell.username.text = username[indexPath.row]
                         cell.c_l_notif.text = notif[indexPath.row]
                         cell.profilePic.image = UIImage(named: "dawg.png")
                         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2
                         cell.profilePic.clipsToBounds = true
                         cell.postImage.image = UIImage(named: "dawg1.png")
+                        
+                        
                         //cell.postImage.layer.cornerRadius = cell.postImage.frame.size.width/2
                         //cell.postImage.clipsToBounds = true
                         
                         
                         cell.usernamePress.tag = indexPath.row
+                        cell.postImagePress.tag = indexPath.row
                         return cell
  
                     }
@@ -410,7 +613,7 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                     
                     
                 }
-
+ 
                 cell.username.text = username_m[indexPath.row]
                 
                 cell.last_message.hidden = true
@@ -436,6 +639,14 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     uid = u_id[showTag]
         
     self.performSegueWithIdentifier("notifToShowProfile", sender: self)
+        
+    }
+    
+    func postShow(showTag: Int) {
+        
+        pid = p_id[showTag]
+        
+        self.performSegueWithIdentifier("notifToPost", sender: self)
         
     }
     

@@ -940,7 +940,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
             request.HTTPMethod = "POST"
-            let postString = "uid=47"
+            let postString = "uid=2"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
                 guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -1004,7 +1004,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
             request.HTTPMethod = "POST"
-            let postString = "uid=47"
+            let postString = "uid=2"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
                 guard error == nil && data != nil else {                                                          // check for fundamental networking error
@@ -1067,7 +1067,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/feeds/\(likedPostId)/like")!)
             request.HTTPMethod = "POST"
-            let postString = "uid=48"
+            let postString = "uid=2"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
                 guard error == nil && data != nil else {                                                          // check for fundamental networking error

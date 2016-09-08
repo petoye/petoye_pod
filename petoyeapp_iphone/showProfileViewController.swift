@@ -874,7 +874,7 @@ class showProfileViewController: UIViewController, UICollectionViewDataSource, U
     
     @IBAction func follow(sender: AnyObject) {
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/1/follow")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://api.petoye.com/2/follow")!)
         request.HTTPMethod = "POST"
         let postString = "hisid=\(uid)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
