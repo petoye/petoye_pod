@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "petoyeapp_iphone/notificationsViewController.swift"
-            timestampString = "495016887.364021"
+            timestampString = "495019111.995188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "365"
+            endingLineNumber = "365"
             landmarkName = "notificationsViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -32,6 +32,22 @@
             startingLineNumber = "1529"
             endingLineNumber = "1529"
             landmarkName = "report(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "petoyeapp_iphone/notificationsViewController.swift"
+            timestampString = "495019111.995188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -38,8 +38,8 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
     var username_m = [String]()
     var hisId = [String]()
     
+    var refreshControl: UIRefreshControl!
 
-    
     @IBOutlet weak var notifTable: UITableView!
     @IBOutlet weak var messageTable: UITableView!
     
@@ -47,6 +47,12 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         
         //toolBar.frame.size.height = 64
+        
+        refreshControl = UIRefreshControl()
+
+        notifTable.addSubview(refreshControl)
+        
+        //messageTable.addSubview(refreshControl)
         
         notifTable.tableFooterView = UIView(frame: CGRectZero)
         messageTable.tableFooterView = UIView(frame: CGRectZero)
@@ -76,6 +82,17 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
         notifs()
         //conversations()
     }
+    
+    func refresh()
+    {
+        // Updating your data here...
+        
+        //self.tableView.reloadData()
+        
+        
+        self.refreshControl?.endRefreshing()
+    }
+    
     
     func notifs() {
         //print("called")
@@ -520,24 +537,9 @@ class notificationsViewController: UIViewController, UITableViewDataSource, UITa
                                 
                             }
                             task.resume()
-                            
-                            
-                            
+                           
                         }
-
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                      
                         cell.username.text = username[indexPath.row]
                         cell.c_l_notif.text = notif[indexPath.row]
                         cell.profilePic.image = UIImage(named: "dawg.png")
